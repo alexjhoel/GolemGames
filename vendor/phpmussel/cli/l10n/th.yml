@@ -1,0 +1,75 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Thai language data (last modified: 2022.08.21).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "ฉันไม่เข้าใจคำสั่งนั้นขอโทษ."
+cli_algo_not_supported: "ไม่รองรับอัลกอริทึมที่ระบุ."
+cli_failed_to_complete: "ไม่สามารถเสร็จสิ้นขั้นตอนการสแกน."
+cli_is_not_a: "%s ไม่ใช่ไฟล์หรือไดเรกทอรี."
+cli_ln2: |
+ ขอบคุณที่ใช้ phpMussel สคริปต์ PHP ออกแบบมาเพื่อตรวจจับโทรจัน ไวรัส,
+ มัลแวร์ และภัยคุกคามอื่นภายในไฟล์ที่อัปโหลดไปยังระบบของคุณ,
+ ที่ใดก็ตามที่สคริปต์ถูกตะขอ ขึ้นอยู่กับลายเซ็นของ ClamAV และคนอื่น ๆ.
+                                     ~ ~ ~
+ PHPMUSSEL ลิขสิทธิ์ 2013 และอื่น GNU/GPLv2 โดย Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ กำลังรัน phpMussel ในโหมด CLI (ส่วนติดต่อบรรทัดคำสั่ง).
+ เพื่อสแกนไฟล์หรือไดเรกทอรี ป้อน scan ตามด้วยชื่อของไฟล์หรือไดเรกทอรีที่
+ คุณต้องการให้ phpMussel สแกนและกด Enter; ป้อน c และกด Enter
+ สำหรับรายการคำสั่ง ในโหมด CLI; ป้อน q และกด Enter ที่จะเลิก.
+cli_pe1: "ไม่ใช่ไฟล์ PE ที่ถูกต้อง!"
+cli_pe2: "ส่วน PE:"
+cli_signature_placeholder: "ชื่อลายเซ็น"
+cli_working: "กำลังดำเนินการ"
+cli_commands: |
+ q | quit | exit -- ออกจาก CLI.
+
+ hash_file:[ขั้นตอนวิธี] [ชื่อไฟล์] -- สร้างลายเซ็นแฮจากไฟล์.
+
+ hash:[ขั้นตอนวิธี] [สตริง] -- สร้างลายเซ็นแฮจากสตริง.
+ ตัวอย่าง: >> hash:crc32b Hello World
+         4a17b156:11:ชื่อลายเซ็น
+
+ algo -- แสดงรายการอัลกอริทึมที่รองรับทั้งหมด.
+
+ hex_encode [สตริง] -- แปลงสตริงไบนารีเป็นเลขฐานสิบหก.
+ ตัวอย่าง: >> hex_encode Hello World
+         48656c6c6f20576f726c64
+
+ hex_decode [สตริง] -- แปลงเลขฐานสิบหกเป็นสตริงไบนารี.
+
+ (base64_encode | b) [สตริง] -- แปลงสตริงไบนารีเป็นสตริง base64.
+
+ base64_decode [สตริง] -- แปลงสตริง base64 เป็นสตริงไบนารี.
+
+ pe_meta [ชื่อไฟล์] -- ดึงข้อมูลเมตาดาต้าจากไฟล์ PE.
+
+ url_sig [สตริง] -- สร้างลายเซ็น URL สแกนเนอร์.
+
+ (scan | s) [ชื่อไฟล์] -- สแกนไฟล์หรือไดเรกทอรี.
+
+ c -- พิมพ์รายการคำสั่งนี้.
+invalid_url: "URL ไม่ถูกต้อง!"

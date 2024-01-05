@@ -1,0 +1,83 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: German language data (last modified: 2022.09.22).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "Entschuldigung, ich verstehe diesen Befehl nicht."
+cli_algo_not_supported: "Der angegebene Algorithmus wird nicht unterstützt."
+cli_failed_to_complete: "Ein vollständiger Scan konnte nicht durchgeführt werden"
+cli_is_not_a: "%s ist keine Datei oder ein Verzeichnis."
+cli_ln2: |
+ Vielen Dank für die Benutzung von phpMussel, einem auf PHP basiertem
+ Script, um Trojaner, Viren, Malware und andere Bedrohungen in Dateien zu
+ entdecken, die auf Ihr System hochgeladen werden könnten, welches die
+ Signaturen von ClamAV und andere nutzt.
+                                     ~ ~ ~
+ PHPMUSSEL COPYRIGHT 2013 and beyond GNU/GPLv2 by Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ phpMussel befindet sich im CLI-Modus (Command Line Interface). Um eine
+ Datei oder ein Verzeichnis mit phpMussel zu überprüfen, geben Sie „scan“,
+ gefolgt vom Namen der Datei oder des Verzeichnisses ein und bestätigen mit
+ Enter; Geben Sie „c“ und Enter für eine Liste der verfügbaren Befehle im
+ CLI-Modus ein; Geben Sie „q“ und Enter zum Beenden ein.
+cli_pe1: "Keine gültige PE-Datei!"
+cli_pe2: "PE-Sektionen:"
+cli_signature_placeholder: "IHR-SIGNATURNAME"
+cli_working: "Im Gange"
+cli_commands: |
+ q | quit | exit -- Beendet den CLI-Modus.
+
+ hash_file:[Algo] [Dateiname] -- Generiert Hash-Signaturen einer Datei.
+
+ hash:[Algo] [String] -- Generiert Hash-Signaturen eines String-Wertes.
+ Beispiel: >> hash:crc32b Hello World
+           4a17b156:11:IHR-SIGNATURNAME
+
+ algo -- Listet alle unterstützten Algorithmen auf.
+
+ (hex_encode | x) [string]
+ -- Konvertiert einen Binär-Wert in einen Hexidezimal-Wert.
+ Beispiel: >> hex_encode Hello World
+           48656c6c6f20576f726c64
+
+ hex_decode [String]
+ -- Konvertiert einen Hexidezimal-Wert in einen Binär-Wert.
+
+ (base64_encode | b) [String]
+ -- Konvertiert einen Binär-Wert in einen Base64-Wert.
+
+ base64_decode [String]
+ -- Konvertiert einen Base64-Wert in einen Binär-Wert.
+
+ pe_meta [Dateiname]
+ -- Extrahieren Sie Metadaten aus einer PE-Datei.
+
+ url_sig [String] -- Generiere URL-Scanner-Signaturen.
+
+ (scan | s) [Dateiname oder Verzeichnisname]
+ -- Überprüft eine Datei oder ein Verzeichnis.
+
+ c -- Gibt diese Befehlsliste aus.
+invalid_url: "Ungültige URL!"

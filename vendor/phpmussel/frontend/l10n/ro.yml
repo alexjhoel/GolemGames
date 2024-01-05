@@ -1,0 +1,377 @@
+##\
+# This file is a part of the phpMussel\FrontEnd package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Romanian language data (last modified: 2023.10.07).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+checkbox:
+ Delete orphaned values: "Ștergeți valorile orfane."
+config:
+ core: "Configurație generală (orice configurație de bază care nu aparține altor categorii)."
+ core_default_timeout: "Timeout implicit de utilizat pentru solicitările externe? Implicit = 12 secunde."
+ core_delete_on_sight: "Activarea acestei directive va instrui scriptul să încerce să ștergă imediat orice încercare de încărcare a fișierelor scanate care corespunde oricărui criteriu de detectare, fie prin semnături sau altfel. Fișierele considerate a fi „curate” nu vor fi atinse. În cazul arhivelor, întreaga arhivă va fi ștearsă, indiferent dacă dosarul contravenient este sau nu doar unul dintre mai multe fișiere conținute în arhivă. În cazul scanării încărcării fișierelor, de obicei, nu este necesar să activați această directivă, deoarece de obicei, PHP va șterge automat conținutul cache-ului său când execuția sa terminat, ceea ce înseamnă că va șterge de obicei toate fișierele încărcate prin intermediul acestuia pe server, dacă nu au fost deja mutate, copiate sau șterse. Această directivă este adăugată aici ca o măsură suplimentară de securitate pentru cei ale căror copii de PHP ar putea să nu se comporte întotdeauna în modul așteptat. False = După scanare, lăsați fișierul în pace [Implicit]; True = După scanare, dacă nu curățați, ștergeți imediat."
+ core_disabled_channels: "Acest lucru poate fi folosit pentru a împiedica phpMussel să folosească anumite canale atunci când trimite solicitări."
+ core_error_log: "Un fișier pentru înregistrarea oricăror erori non-fatale detectate. Specificați un nume de fișier, sau lăsați necompletat pentru a dezactiva."
+ core_hide_version: "Ascundeți informațiile despre versiune din jurnalele și rezultatele paginii? True = Da; False = Nu [Implicit]."
+ core_ipaddr: "Unde găsiți adresa IP a solicitărilor de conectare? (Util pentru servicii precum Cloudflare et al). Implicit = REMOTE_ADDR. AVERTIZARE: Nu schimba asta dacă nu înțelegi ce faci!"
+ core_lang: "Specificați limba implicită pentru phpMussel."
+ core_lang_override: "Localizați conform HTTP_ACCEPT_LANGUAGE ori de câte ori este posibil? True = Da [Implicit]; False = Nu."
+ core_log_rotation_action: "Rotația jurnalului limitează numărul de fișiere jurnal care ar trebui să existe la un moment dat. Când sunt create fișiere jurnal noi, dacă numărul total de fișiere jurnal depășește limita specificată, acțiunea specificată va fi efectuată. Aici puteți specifica acțiunea dorită."
+ core_log_rotation_limit: "Rotația jurnalului limitează numărul de fișiere jurnal care ar trebui să existe la un moment dat. Când sunt create fișiere jurnal noi, dacă numărul total de fișiere jurnal depășește limita specificată, acțiunea specificată va fi efectuată. Aici puteți specifica limita dorită. O valoare de 0 va dezactiva rotirea jurnalului."
+ core_maintenance_mode: "Activați modul de întreținere? True = Da; False = Nu [Implicit]. Dezactivează totul, în afară de front-end. Uneori util pentru actualizarea CMS-ului, cadrelor, etc."
+ core_outbound_request_log: "Un fișier pentru înregistrarea rezultatelor oricăror solicitări de ieșire. Specificați un nume de fișier, sau lăsați necompletat pentru a dezactiva."
+ core_scan_cache_expiry: "Pentru cât timp ar trebui phpMussel să păstreze în cache rezultatele scanării? Valoarea este numărul de secunde pentru care se memorează în cache rezultatele scanării. Implicit este 21600 secunde (6 ore); O valoare de 0 va dezactiva stocarea în cache a rezultatelor scanării."
+ core_scan_log: "Numele fișierului în care se înregistrează toate rezultatele scanării. Specificați un nume de fișier, sau lăsați necompletat pentru a dezactiva."
+ core_scan_log_serialized: "Numele fișierului în care se înregistrează toate rezultatele scanării (folosind un format serializat). Specificați un nume de fișier, sau lăsați necompletat pentru a dezactiva."
+ core_statistics: "Urmăriți statisticile de utilizare a phpMussel? True = Da; False = Nu [Implicit]."
+ core_time_format: "Formatul de notație dată/ora utilizat de phpMussel. Opțiuni suplimentare pot fi adăugate la cerere."
+ core_time_offset: "Compensarea fusului orar în minute."
+ core_timezone: "Acesta este folosit pentru a specifica fusul orar de utilizat (de exemplu, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, etc). Specificați „SISTEM” pentru a lăsa PHP să se ocupe de asta în mod automat."
+ core_truncate: "Trunchiați fișierele jurnal când ating o anumită dimensiune? Valoarea este dimensiunea maximă în B/KB/MB/GB/TB la care poate crește un fișier jurnal înainte de a fi trunchiat. Valoarea implicită de 0KB dezactivează trunchierea (fișierele jurnal pot crește la infinit). Notă: Se aplică fișierelor jurnal individuale! Dimensiunea fișierelor jurnal nu este luată în considerare în mod colectiv."
+ experimental: "Instabil/Experimental!"
+ files: "Specificul modului de manipulare a fișierelor la scanare."
+ files_allow_leading_trailing_dots: "Permiteți punctele de început și de final în numele fișierelor? Aceasta poate fi uneori folosită pentru a ascunde fișiere sau pentru a păcăli unele sisteme să permită traversarea directoarelor. False = Nu permite [Implicit]. True = Permite."
+ files_archive_file_extensions: "Extensii de fișiere de arhivă recunoscute (formatul este CSV; ar trebui să adăugați sau să eliminați numai atunci când apar probleme; eliminarea inutilă poate duce la apariția unor rezultate false pozitive pentru fișierele de arhivă, în timp ce adăugarea inutilă va include în esență pe lista albă ceea ce adăugați din detectarea specifică atacului; modificați cu precauție; de asemenea, rețineți că acest lucru nu are niciun efect asupra arhivelor care pot și nu pot fi analizate la nivel de conținut). Lista, așa cum este implicit, listează acele formate utilizate cel mai frecvent în majoritatea sistemelor și CMS, dar în mod intenționat nu este neapărat cuprinzătoare."
+ files_block_control_characters: "Blocați orice fișiere care conțin caractere de control (altele decât liniile noi)? Dacă încărcați <em><strong>DOAR</strong></em> text simplu, atunci puteți activa această opțiune pentru a oferi o protecție suplimentară sistemului dumneavoastră. Cu toate acestea, dacă încărcați altceva decât text simplu, activarea acestei opțiuni poate duce la rezultate false pozitive. False = Nu blocați [Implicit]; True = Blocați."
+ files_block_encrypted_archives: "Detectați și blocați arhivele criptate? Deoarece phpMussel nu poate scana conținutul arhivelor criptate, este posibil ca criptarea arhivei să fie folosită de un atacator ca mijloc de a încerca să ocolească phpMussel, scanerele antivirus și alte astfel de protecții. Instruirea phpMussel să blocheze orice arhive despre care descoperă că sunt criptate ar putea ajuta la reducerea oricărui risc asociat cu aceste posibilități. False = Nu; True = Da [Implicit]."
+ files_block_macros: "Încercați să blocați orice fișiere care conțin macrocomenzi? Unele tipuri de documente și foi de calcul pot conține macrocomenzi executabile, oferind astfel un vector potențial de malware periculos. False = Nu blocați [Implicit]; True = Blocați."
+ files_can_contain_php_file_extensions: "O listă de extensii de fișiere autorizate să conțină cod PHP, separate prin virgule. Dacă detectarea atacurilor PHP cameleon este activată, fișierele care conțin cod PHP, care au extensii care nu sunt în această listă, vor fi detectate ca atacuri PHP cameleon."
+ files_chameleon_from_exe: "Căutați antete executabile în fișiere care nu sunt nici executabile, nici arhive recunoscute și executabile ale căror anteturi sunt incorecte. False = Dezactivat; True = Activat."
+ files_chameleon_from_php: "Căutați antete PHP în fișiere care nu sunt nici fișiere PHP, nici arhive recunoscute. False = Dezactivat; True = Activat."
+ files_chameleon_to_archive: "Detectați antete incorecte în arhive și fișiere comprimate. Recunoscut: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Dezactivat; True = Activat."
+ files_chameleon_to_doc: "Căutați documente de office ale căror anteturi sunt incorecte (Recunoscut: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Dezactivat; True = Activat."
+ files_chameleon_to_img: "Căutați imagini ale căror anteturi sunt incorecte (Recunoscut: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Dezactivat; True = Activat."
+ files_chameleon_to_pdf: "Căutați fișiere PDF ale căror anteturi sunt incorecte. False = Dezactivat; True = Activat."
+ files_check_archives: "Încercați să verificați conținutul arhivelor? False = Nu verifica; True = Verifica [Implicit]. Recunoscut: Zip (necesită libzip), Tar, Rar (necesită extensia rar)."
+ files_corrupted_exe: "Fișiere corupte și erori de analiză. False = Ignora; True = Blocați [Implicit]. Detectați și blocați fișierele PE (Portable Executable) potențial corupte? Adesea (dar nu întotdeauna), atunci când anumite aspecte ale unui fișier PE sunt corupte sau nu pot fi analizate corect, poate indica o infecție virală. Procesele utilizate de majoritatea programelor antivirus pentru a detecta viruși în fișierele PE necesită analizarea acelor fișiere în anumite moduri, pe care, dacă programatorul unui virus este conștient, va încerca în mod special să le prevină, pentru a permite virusului lor să rămână nedetectat."
+ files_decode_threshold: "Pragul pentru lungimea datelor brute în care ar trebui detectate comenzile de decodare (în cazul în care există probleme de performanță vizibile în timpul scanării). Implicit = 512KB. Zero sau null dezactivează pragul (eliminând orice astfel de limitare bazată pe dimensiunea fișierului)."
+ files_filesize_archives: "Transferați lista neagră/albă cu dimensiunea fișierelor în conținutul arhivelor? False = Nu (doar pe listă gri totul); True = Da [Implicit]."
+ files_filesize_limit: "Limită de dimensiune a fișierului în KB. 65536 = 64MB [Implicit]; 0 = Fără limită (intotdeauna pe lista gri). Se acceptă orice valoare numerică (pozitivă). Acest lucru poate fi util atunci când configurația dvs. PHP limitează cantitatea de memorie pe care o poate deține un proces sau dacă configurația dvs. PHP limitează dimensiunea fișierelor încărcate."
+ files_filesize_response: "Ce să faci cu fișierele care depășesc limita de dimensiune a fișierelor (dacă există). False = Pe lista albă; True = Pe lista neagră [Implicit]."
+ files_filetype_archives: "Transferați lista neagră/albă tip fișier la conținutul arhivelor? False = Nu (doar pe listă gri totul) [Implicit]; True = Da."
+ files_filetype_blacklist: "Lista neagră:"
+ files_filetype_greylist: "Lista gri:"
+ files_filetype_whitelist: "Lista albă:"
+ files_max_files_in_archives: "Numărul maxim de fișiere de scanat din arhive înainte de a anula scanarea. Implicit = 0 (fara maxim)."
+ files_max_recursion: "Limita maximă de adâncime a recursiunii pentru arhive. Implicit = 3."
+ files_only_allow_images: "Când este setat la true, orice fișiere întâlnite de scaner care nu sunt imagini vor fi semnalate imediat, fără a fi scanate. Acest lucru poate ajuta la reducerea timpului necesar pentru a finaliza o scanare în unele cazuri. Setați implicit la false."
+ files_scannable_threshold: "Pragul până la lungimea datelor brute pe care phpMussel este permis să le citească și să le scaneze (în cazul în care există probleme de performanță vizibile în timpul scanării). Implicit = 32MB. Valoarea zero sau nulă dezactivează pragul. În general, această valoare nu trebuie să fie mai mică decât dimensiunea medie a fișierelor încărcate pe care doriți și așteptați să le primiți pe serverul sau site-ul dvs., nu trebuie să fie mai mare decât directiva filesize_limit, și nu trebuie să depășească aproximativ o cincime din alocarea totală de memorie permisă acordată PHP prin fișierul de configurare „php.ini”. Această directivă există pentru a încerca să împiedice phpMussel să utilizeze prea multă memorie (aceasta l-ar împiedica să scaneze cu succes fișiere peste o anumită dimensiune)."
+ frontend: "Configurație pentru front-end."
+ frontend_custom_footer: "Inserat ca HTML chiar la sfârşitul tuturor paginilor front-end. Acest lucru ar putea fi util în cazul în care doriți să includeți o notificare legală, un link de contact, informații despre companie, sau similare în toate aceste pagini."
+ frontend_custom_header: "Inserat ca HTML chiar la începutul tuturor paginilor front-end. Acest lucru ar putea fi util în cazul în care doriți să includeți un logo al site-ului web, un antet personalizat, scripturi, sau similare în toate aceste pagini."
+ frontend_default_algo: "Definește algoritmul de utilizat pentru toate parolele și sesiunile viitoare."
+ frontend_frontend_log: "Fișier pentru înregistrarea încercărilor de conectare front-end. Specificați un nume de fișier, sau lăsați necompletat pentru a dezactiva."
+ frontend_magnification: "Mărirea fontului. Implicit = 1."
+ frontend_max_login_attempts: "Numărul maxim de încercări de conectare front-end. Implicit = 5."
+ frontend_numbers: "Cum preferați să fie afișate numerele? Selectați exemplul care vi se pare cel mai corect."
+ frontend_theme: "Estetica de utilizat pentru front-end-ul phpMussel."
+ legal: "Configurare pentru cerințele legale."
+ legal_privacy_policy: "Adresa unei politici de confidențialitate relevante care va fi afișată în subsolul oricăror pagini generate. Specificați o adresă URL, sau lăsați necompletat pentru a dezactiva."
+ legal_pseudonymise_ip_addresses: "Pseudonimizați adresele IP în jurnale? True = Da [Implicit]; False = Nu."
+ quarantine: "Configurare pentru carantină."
+ quarantine_quarantine_key: "phpMussel este capabil să pună în carantină încărcările de fișiere blocate, dacă doriți să facă acest lucru. Utilizatorii ocazionali ai phpMussel care doresc pur și simplu să-și protejeze site-urile web sau mediul de găzduire fără a avea vreun interes să analizeze în profunzime orice încercare de încărcare a fișierelor semnalate ar trebui să lase această funcționalitate dezactivată, dar utilizatorii interesați de o analiză ulterioară a încercărilor de încărcare de fișiere semnalate pentru cercetarea malware sau pentru astfel de lucruri ar trebui să activeze această funcționalitate. Carantina de încărcare a fișierelor poate ajuta uneori și la remedierea erorilor pozitive, dacă acest lucru se întâmplă frecvent pentru dvs. Pentru a dezactiva funcționalitatea de carantină, pur și simplu lăsați directiva <code>quarantine_key</code> goală, sau ștergeți conținutul acelei directive dacă nu este deja goală. Pentru a activa funcționalitatea de carantină, introduceți o valoare în directivă. <code>quarantine_key</code> este o caracteristică de securitate importantă a funcționalității de carantină necesară ca mijloc de a preveni exploatarea funcționalității de carantină de către potențiali atacatori și ca mijloc de a preveni orice potențială execuție a datelor stocate în carantină. <code>quarantine_key</code> ar trebui tratat în același mod ca și parolele dvs: Cu cât este mai lung, cu atât mai bine, și păstrați-l bine. Pentru cel mai bun efect, utilizați împreună cu <code>delete_on_sight</code>."
+ quarantine_quarantine_max_files: "Numărul maxim de fișiere care pot exista în carantină. Când fișierele noi sunt adăugate în carantină, dacă acest număr este depășit, fișierele vechi vor fi șterse până când restul nu va mai depăși acest număr. Implicit = 100."
+ quarantine_quarantine_max_filesize: "Dimensiunea maximă permisă pentru fișierele care urmează să fie puse în carantină. Fișierele mai mari decât valoarea specificată NU vor fi puse în carantină. Această directivă este importantă ca un mijloc de a îngreuna oricăror potențiali atacatori să vă inunde carantina cu date nedorite, care ar putea cauza utilizarea de date în fugă pe serviciul dvs. de găzduire. Implicit = 2MB."
+ quarantine_quarantine_max_usage: "Utilizarea maximă a memoriei permisă pentru carantină. Dacă memoria totală utilizată de carantină atinge această valoare, cele mai vechi fișiere aflate în carantină vor fi șterse până când memoria totală utilizată nu mai atinge această valoare. Această directivă este importantă ca un mijloc de a îngreuna oricăror potențiali atacatori să vă inunde carantina cu date nedorite, care ar putea cauza utilizarea de date în fugă pe serviciul dvs. de găzduire. Implicit = 64MB."
+ signatures: "Configurare pentru semnături, fișiere de semnătură, etc."
+ signatures_active: "O listă a fișierelor de semnătură active, delimitate prin virgule. Notă: Fișierele de semnătură trebuie mai întâi instalate, înainte de a le putea activa. Pentru ca fișierele de testare să funcționeze corect, fișierele de semnătură trebuie să fie instalate și activate."
+ signatures_detect_adware: "Ar trebui phpMussel să utilizeze semnături pentru detectarea adware-ului? False = Nu; True = Da [Implicit]."
+ signatures_detect_deface: "Ar trebui phpMussel să utilizeze semnături pentru detectarea deformanțelor și defacerilor? False = Nu; True = Da [Implicit]."
+ signatures_detect_encryption: "Ar trebui phpMussel să detecteze și să blocheze fișierele criptate? False = Nu; True = Da [Implicit]."
+ signatures_detect_joke_hoax: "Ar trebui phpMussel să utilizeze semnături pentru detectarea malware-ului/virușilor de glumă/farsă? False = Nu; True = Da [Implicit]."
+ signatures_detect_packer_packed: "Ar trebui phpMussel să utilizeze semnături pentru detectarea pachetelor și a datelor împachetate? False = Nu; True = Da [Implicit]."
+ signatures_detect_pua_pup: "Ar trebui phpMussel să utilizeze semnături pentru detectarea PUA/PUP-urilor? False = Nu; True = Da [Implicit]."
+ signatures_detect_shell: "Ar trebui phpMussel să utilizeze semnături pentru detectarea scripturilor shell? False = Nu; True = Da [Implicit]."
+ signatures_fail_extensions_silently: "Ar trebui phpMussel să raporteze când lipsesc extensiile? Dacă <code>fail_extensions_silently</code> este dezactivat, extensiile lipsă vor fi raportate la scanare, iar dacă <code>fail_extensions_silently</code> este activat, extensiile lipsă vor fi ignorate, cu raportarea scanării pentru acele fișiere pentru care nu există probleme. Dezactivarea acestei directive vă poate crește securitatea, dar poate duce și la o creștere a numărului de fals pozitive. False = Dezactivat; True = Activat [Implicit]."
+ signatures_fail_silently: "Ar trebui phpMussel să raporteze când fișierele cu semnături lipsesc sau sunt corupte? Dacă <code>fail_silently</code> este dezactivat, fișierele lipsă și corupte vor fi raportate la scanare, iar dacă <code>fail_silently</code> este activat, fișierele lipsă și corupte vor fi ignorate, cu raportarea scanării pentru acele fișiere pentru care nu există probleme. În general, acest lucru ar trebui lăsat în pace, cu excepția cazului în care întâmpinați blocări sau probleme similare. False = Dezactivat; True = Activat [Implicit]."
+ signatures_heuristic_threshold: "Unele semnături phpMussel sunt menite să identifice indicatori că fișierele sunt suspecte sau rău intenționate, fără a identifica direct acele fișiere ca fiind rău intenționate. Această directivă îi spune phpMussel greutatea maximă permisă înainte de a marca acele fișiere ca fiind rău intenționate. Definiția greutatea în acest context este numărul total de astfel de indicatori identificați. În mod implicit, această valoare va fi setată la 3. O valoare mai mică va duce, în general, la o apariție mai mare de fals pozitive, dar un număr mai mare de fișiere rău intenționate sunt semnalate, în timp ce o valoare mai mare va avea ca rezultat, în general, la o apariție mai mică de fals pozitive, dar un număr mai mic de fișiere rău intenționate sunt semnalate. În general, cel mai bine este să lăsați această valoare la valoarea implicită, cu excepția cazului în care întâmpinați probleme legate de aceasta."
+ supplementary_cache_options: "Opțiuni suplimentare de cache. Notă: Modificarea acestor valori vă poate deconecta."
+ supplementary_cache_options_enable_apcu: "Specifică dacă să încercați să utilizați APCu pentru stocarea în cache. Implicit = True."
+ supplementary_cache_options_enable_memcached: "Specifică dacă să încercați să utilizați Memcached pentru stocarea în cache. Implicit = False."
+ supplementary_cache_options_enable_pdo: "Specifică dacă să încercați să utilizați PDO pentru stocarea în cache. Implicit = False."
+ supplementary_cache_options_enable_redis: "Specifică dacă să încercați să utilizați Redis pentru stocarea în cache. Implicit = False."
+ supplementary_cache_options_memcached_host: "Valoarea gazdei Memcached. Implicit = „localhost”."
+ supplementary_cache_options_memcached_port: "Valoarea portului Memcached. Implicit = „11211”."
+ supplementary_cache_options_pdo_dsn: "Valoarea DSN PDO. Implicit = „mysql:dbname=phpmussel;host=localhost;port=3306”."
+ supplementary_cache_options_pdo_password: "Parola pentru PDO."
+ supplementary_cache_options_pdo_username: "Numele de utilizator pentru PDO."
+ supplementary_cache_options_prefix: "Valoarea specificată aici va fi adăugată înaintea tuturor cheilor de intrare în cache. Implicit = „phpMussel_”. Când există mai multe instalări pe același server, acest lucru poate fi util pentru a-și păstra cache-urile separate unele de altele."
+ supplementary_cache_options_redis_host: "Valoarea gazdei Redis. Implicit = „localhost”."
+ supplementary_cache_options_redis_port: "Valoarea portului Redis. Implicit = „6379”."
+ supplementary_cache_options_redis_timeout: "Valoarea timeout Redis. Implicit = „2.5”."
+ urlscanner: "Configurare pentru scanerul URL."
+ urlscanner_cache_time: "Cât timp (în secunde) ar trebui să fie stocate în cache rezultatele căutărilor API? Implicit este 3600 de secunde (1 oră)."
+ urlscanner_google_api_key: "Activează căutările API în API-ul Google Safe Browsing atunci când este definită cheia API necesară."
+ urlscanner_maximum_api_lookups: "Numărul maxim permis de căutări API de efectuat pentru fiecare iterație de scanare individuală. Deoarece fiecare căutare suplimentară API se va adăuga la timpul total necesar pentru a finaliza fiecare iterație de scanare, vă recomandăm să specificați o limitare pentru a accelera procesul general de scanare. Când este setat la 0, nu se va aplica un astfel de număr maxim permis. Setați implicit la 10."
+ urlscanner_maximum_api_lookups_response: "Ce trebuie să faceți dacă este depășit numărul maxim permis de căutări API? False = Nu faceți nimic (continuați procesarea) [Implicit]; True = Semnalează/blochează fișierul."
+ virustotal: "Configurare pentru integrarea Virus Total."
+ virustotal_vt_public_api_key: "Opțional, phpMussel poate scana fișiere folosind API-ul Virus Total ca o modalitate de a oferi un nivel mult îmbunătățit de protecție împotriva virușilor, troienilor, programelor malware și a altor amenințări. În mod implicit, scanarea fișierelor folosind API-ul Virus Total este dezactivată. Pentru a-l activa, este necesară o cheie API de la Virus Total. Datorită beneficiului semnificativ pe care vi l-ar putea oferi, este ceva pe care vă recomand cu căldură să îl activați. Vă rugăm să rețineți, totuși, că pentru a utiliza API-ul Virus Total, <em><strong>TREBUIE</strong></em> să fiți de acord cu Termenii și Condițiile acestora și <em><strong>TREBUIE</strong></em> să respectați toate instrucțiunile descrise în documentația Virus Total! Puteți utiliza acest lucru numai DACĂ: Ați citit și sunteți de acord cu Termenii și Condițiile Virus Total și API-ul acestuia. Ați citit și înțelegeți, cel puțin, preambulul documentației Virus Total Public API (totul după „VirusTotal Public API v2.0”, dar înainte de „Contents”)."
+ virustotal_vt_quota_rate: "Conform documentației Virus Total API, „acesta este limitat la cel mult 4 solicitări de orice natură într-un interval de timp dat de 1 minut. Dacă executați un honeyclient, honeypot sau orice altă automatizare care va furniza resurse VirusTotal și nu numai să preluați rapoarte, aveți dreptul la o cotă de solicitare mai mare”. În mod implicit, phpMussel va respecta cu strictețe aceste limitări, dar datorită posibilității ca aceste cote de tarif să fie crescute, aceste două directive sunt furnizate ca mijloc pentru a vă instrui phpMussel asupra limitei pe care trebuie să o respecte. Dacă nu ați fost instruit să faceți acest lucru, nu este recomandat să creșteți aceste valori, dar, dacă ați întâmpinat probleme legate de atingerea cotei dvs. de tarif, scăderea acestor valori vă <em><strong>POATE</strong></em> ajuta uneori să rezolvați aceste probleme. Limita dvs. de tarif este determinată ca <code>vt_quota_rate</code> solicitări de orice natură într-un interval de timp dat de <code>vt_quota_time</code> minute."
+ virustotal_vt_quota_time: "(Vezi descrierea de mai sus)."
+ virustotal_vt_suspicion_level: "În mod implicit, phpMussel va restricționa fișierele pe care le scanează folosind API-ul Virus Total la acele fișiere pe care le consideră „suspecte”. Puteți ajusta opțional această restricție prin modificarea valorii directivei <code>vt_suspicion_level</code>."
+ virustotal_vt_weighting: "Ar trebui phpMussel să aplice rezultatele scanării utilizând API-ul Virus Total ca detecții sau ca ponderare a detecției? Această directivă există, deoarece, deși scanarea unui fișier utilizând mai multe motoare (cum face Virus Total) ar trebui să aibă ca rezultat o rată de detectare crescută (și, prin urmare, un număr mai mare de fișiere rău intenționate care sunt capturate), poate duce și la un număr mai mare de fals pozitive și, prin urmare, în unele circumstanțe, poate fi mai bine să folosiți rezultatele scanării ca scor de încredere, mai degrabă decât ca o concluzie definitivă. Dacă se utilizează o valoare de 0, rezultatele scanării utilizând API-ul Virus Total vor fi aplicate ca detectări și, prin urmare, dacă vreun motor folosit de Virus Total semnalează fișierul scanat ca fiind rău intenționat, phpMussel va considera fișierul ca fiind rău intenționat. Dacă se utilizează orice altă valoare, rezultatele scanării utilizând API-ul Virus Total vor fi aplicate ca ponderare de detecție și, prin urmare, numărul de motoare utilizate de Virus Total care semnalează fișierul scanat ca fiind rău intenționat va servi drept scor de încredere (sau pondere de detecție) pentru a stabili dacă fișierul scanat trebuie sau nu considerat rău de phpMussel (valoarea utilizată va reprezenta scorul minim de încredere sau ponderea necesară pentru a fi considerat rău intenționat). O valoare de 0 este utilizată în mod implicit."
+confirm:
+ Action: "Sigur doriți să „%s”?"
+field:
+ 2FA code: "Cod 2FA"
+ Clear all: "Ștergeți totul"
+ Confirm: "Confirmați"
+ Create new account: "Creează un cont nou"
+ Delete account: "Șterge cont"
+ Delete all: "Ștergeți totul"
+ Delete: "Șterge"
+ Download: "Descarca"
+ False (False): "False (Fals)"
+ File: "Fişier"
+ Latest version: "Ultima versiune"
+ Log In: "Conectați"
+ More fields: "Mai multe câmpuri"
+ OK: "OK"
+ Options: "Opțiuni"
+ Password: "Parola"
+ Permissions: "Permisiuni"
+ Quarantine key: "Cheia de carantină"
+ Reset: "Resetați"
+ Restore: "Restaurați"
+ Set new password: "Setați o nouă parolă"
+ True (True): "True (Adevarat)"
+ Update signature files: "Actualizați fișierele de semnătură"
+ Update: "Actualizați"
+ Use system default timezone: "Utilizați fusul orar prestabilit al sistemului."
+ Username: "Nume de utilizator"
+ Your version: "Versiunea ta:"
+ log_rotation_archive: "Mai întâi arhivați, apoi ștergeți cele mai vechi fișiere jurnal, până când limita nu mai este depășită."
+ log_rotation_delete: "Ștergeți cele mai vechi fișiere jurnal, până când limita nu mai este depășită."
+ size:
+  Total size: "Dimensiunea totala:"
+  GB: "Go"
+  KB: "Ko"
+  MB: "Mo"
+  PB: "Po"
+  TB: "To"
+  bytes:
+   - "octet"
+   - "octeți"
+   - "de octeți"
+ vt_suspicion_level_all: "Scanați toate fișierele."
+ vt_suspicion_level_executable: "Scanați fișiere cu greutate euristică, fișiere executabile, și fișiere care pot conține date executabile.\nExemple de fișiere executabile și fișiere care pot conține date executabile includ fișiere Windows PE, fișiere Linux ELF, fișiere Mach-O, fișiere DOCX, fișiere ZIP, etc."
+ vt_suspicion_level_heuristic_only: "Scanați numai fișiere cu greutate euristică.\nFișierele vor fi scanate numai dacă au o anumită greutate euristică. Greutatea euristică poate fi obținută din semnăturile destinate să prindă amprentele digitale comune asociate cu o potențială infecție care nu garantează neapărat infecția. Căutarea, în astfel de cazuri, poate servi pentru a oferi o a doua opinie pentru rezultate care justifică suspiciuni, dar care nu oferă altfel nicio certitudine."
+hints_pdo_dsn:
+ FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">Ce este un „DSN PDO”? Cum pot folosi PDO cu phpMussel?</a></em>"
+hints_xlists:
+ Cum funcționează asta.: "Dacă sistemul dvs. permite încărcarea numai a anumitor tipuri de fișiere sau dacă sistemul dvs. respinge în mod explicit anumite tipuri de fișiere, specificarea acestor tipuri de fișiere în liste albe, liste negre, și liste gri poate crește viteza la care se efectuează scanarea, permițând scriptului să sară peste anumite tipuri de fișiere. Formatul este CSV (valori separate prin virgulă)."
+ Ordinea logică a procesării.: "Dacă tipul de fișier este inclus pe lista albă, nu scanați și nu blocați fișierul, și nu verificați fișierul cu lista neagră sau cu lista gri. Dacă tipul de fișier este pe lista neagră, nu scanați fișierul, ci blocați-l oricum, și nu verificați fișierul cu lista gri. Dacă lista gri este goală sau dacă lista gri nu este goală și tipul fișierului este în listă gri, scanați fișierul în mod normal și determinați dacă îl blocați pe baza rezultatelor scanării, dar dacă lista gri nu este goală și tipul fișierului nu este inclus în lista gri, tratați fișierul ca pe lista neagră, prin urmare nu îl scanați, ci blocați-l oricum."
+Some useful links: |
+ Link-uri utile:<br />
+     <ul class="pieul">
+       <li><span class="comCat">Instrumente, resurse, etc pentru phpMussel.</span>
+         <ul class="comSub">
+           <li>{{Links.phpMussel.Issues}} – Pagina cu issues pentru phpMussel (suport, asistență, etc).</li>
+           <li>{{Links.phpMussel.SigTool}} – Creează fișiere de semnătură phpMussel folosind baza de date de semnături ClamAV.</li>
+           <li>{{Links.phpMussel.Extras}} – Diverse extra.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Instrumente, resurse, etc pentru ClamAV.</span>
+         <ul class="comSub">
+           <li>{{Links.ClamavNet}} – Pagina principala ClamAV (ClamAV® este un motor antivirus open source pentru detectarea troienilor, virușilor, programelor malware și a altor amenințări rău intenționate).</li>
+           <li>{{Links.SecuriteInfo}} – Companie de securitate informatică care oferă semnături suplimentare pentru ClamAV.</li>
+           <li>{{Links.Sanesecurity}} – Companie de securitate informatică care oferă semnături suplimentare pentru ClamAV.</li>
+           <li>{{Links.Malware Expert}} – Oferă semnături suplimentare pentru ClamAV și reguli suplimentare pentru ModSecurity.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Grupuri, forumuri, comunități, etc.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Facebook}} – Resurse de învățare și discuții PHP.</li>
+           <li>{{Links.MalwareTips}} – Forumuri de discuții utile axate pe malware.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Alte instrumente utile, resurse, servicii, etc.</span>
+         <ul class="comSub">
+           <li>{{Links.PhishTank}} – Baza de date de phishing utilizată de scanerul URL phpMussel.</li>
+           <li>{{Links.VirusTotal}} – VirusTotal este un serviciu gratuit pentru analiza fișierelor și adreselor URL suspecte.</li>
+           <li>{{Links.Hybrid Analysis}} – Hybrid Analysis este un serviciu gratuit de analiză a malware oferit de {{Links.Payload Security}}.</li>
+           <li>{{Links.Malwarebytes}} – Specialiști în anti-malware computerizat.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Resurse informaționale și de învățare.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Website}} – Resurse de învățare și discuții PHP.</li>
+           <li><a href="https://maikuolan.github.io/Vulnerability-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Diagrame de vulnerabilitate</a> – Listează versiunile sigure/nesigure ale diferitelor pachete (HHVM, PHP, phpMyAdmin, Python, etc).</li>
+           <li><a href="https://maikuolan.github.io/Compatibility-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Diagrame de compatibilitate</a> – Listează informații de compatibilitate pentru diverse pachete (CIDRAM, phpMussel, etc).</li>
+         </ul>
+       </li>
+     </ul>
+
+label:
+ %s is available (%s): "%s este disponibil (%s)."
+ %s is available: "%s este disponibil."
+ %s is not available: "%s nu este disponibil."
+ Active configuration file: "Fișier de configurare activ:"
+ Active signature files: "Fișiere de semnătură active"
+ Branch latest stable: "Cel mai recent ramura stabilă:"
+ Client information: "Informații despre client:"
+ Complete access: "Acces complet"
+ Copy to clipboard: "Copiați în clipboard"
+ Default: "Implicit"
+ Expires: "Expiră:"
+ Extension: "Extensie"
+ External: "Extern"
+ Installed Available: "Instalat/Disponibil"
+ Latest stable: "Ultima stabilă:"
+ Latest unstable: "Ultima instabilă:"
+ Loading_: "Se încarcă..."
+ Logged in, 2FA pending: "Conectat, 2FA în așteptare."
+ Logged in: "Conectat."
+ Logged out: "Deconectat."
+ Login: "Conectare"
+ Logs access only: "Acces doar la jurnalele"
+ Never: "Niciodată"
+ No log file selected: "Niciun fișier jurnal selectat."
+ No log files available: "Niciun fișier jurnal disponibile."
+ Objects flagged: "Obiecte marcate"
+ Objects scanned: "Obiecte scanate"
+ Operating system used: "Sistem de operare folosit:"
+ Other: "Alte"
+ PHP version used: "Versiunea PHP folosită:"
+ Page request completed in %s seconds: "Solicitarea paginii a fost finalizată în %s secunde."
+ Please log in to continue: "Vă rugăm să vă conectați pentru a continua."
+ SAPI used: "SAPI folosit:"
+ Scan events: "Evenimentele de scanare"
+ See also: "Vezi si:"
+ Selected log file doesn_t exist: "Fișierul jurnal selectat nu există!"
+ Size in quarantine: "Dimensiunea în carantină:"
+ Start date: "Data de început"
+ System information: "Informatii despre sistem:"
+ The cache is empty: "Cache-ul este gol."
+ Upload date: "Data de încărcare:"
+ Upload hash: "Hash-ul de încărcare:"
+ Upload origin: "Originea încărcării:"
+ Upload size: "Dimensiune de încărcare:"
+ Uploads blocked: "Încărcări blocate"
+ Uploads quarantined: "Încărcări puse în carantină"
+ Uploads scanned: "Încărcări scanate"
+ Your IP: "IP-ul dvs.:"
+ Your UA: "Agentul dvs. de utilizator:"
+ phpMussel version used: "Versiunea phpMussel folosită:"
+link:
+ Accounts: "Conturi"
+ Cache Data: "Datele din cache"
+ Configuration: "Configurare"
+ Discussions: "Discuții"
+ Documentation: "Documentație"
+ Home: "Pagina principala"
+ Log Out: "Deconectați"
+ Logs: "Jurnalele"
+ Quarantine: "Carantină"
+ Signature Information: "Informații despre semnătură"
+ Statistics: "Statistici"
+ Text formatting: "Formatarea textului: <a href="%1$sfalse">Simplu</a> – <a href="%1$strue">Extravagant</a>"
+ Upload Testing: "Testarea încărcării"
+max_login_attempts_exceeded: "Numărul maxim de încercări de conectare a fost depășit; Acces refuzat."
+msg_subject_2fa: "Autentificare cu doi factori"
+msg_template_2fa: |
+ <center><p>Buna ziua, %s.<br /><br />
+ Codul dvs. de autentificare cu doi factori pentru conectarea la front-end phpMussel:</p>
+ <h1>%s</h1>
+ <p>Acest cod expiră în 10 minute.</p></center>
+previewer:
+ Days: "Zile"
+ Hours: "Ore"
+ Minutes: "Minute"
+ Months: "Luni"
+ Seconds: "Secunde"
+ Weeks: "Săptămâni"
+ Years: "Ani"
+response:
+ Account successfully created: "Contul a fost creat cu succes!"
+ Account successfully deleted: "Contul a fost șters cu succes!"
+ An account with that username already exists: "Un cont cu acel nume de utilizator există deja!"
+ Configuration successfully updated: "Configurația a fost actualizată cu succes."
+ Corrupted file: "Restaurare a eșuat! Fișier corupt!"
+ Failed to create: "Crearea a eșuat!"
+ Failed to delete: "Ștergerea a eșuat!"
+ Failed to update configuration: "Actualizarea configurației a eșuat!"
+ Failed to update: "Actualizare a eșuat!"
+ Failed: "A eșuat"
+ File successfully deleted: "Fișierul a fost șters cu succes!"
+ File successfully restored: "Fișierul a fost restaurat cu succes!"
+ Incorrect 2FA code entered: "A fost introdus un cod 2FA incorect. Autentificare a eșuat."
+ Incorrect quarantine key: "Restaurare a eșuat! Cheie de carantină incorectă!"
+ Invalid password: "Conectare a eșuat! Parolă invalidă!"
+ Password field empty: "Câmpul parolei este gol!"
+ Password successfully updated: "Parola a fost actualizată cu succes!"
+ Permissions not adequate to perform asynchronous requests:: "Permisiunile nu sunt adecvate pentru a efectua solicitări asincrone. Încercați să vă conectați din nou."
+ Statistics cleared: "Statisticile au fost șterse."
+ Successfully authenticated: "Autentificat cu succes."
+ That account doesn_t exist: "Acest cont nu există."
+ Username doesn_t exist: "Conectare a eșuat! Numele de utilizator nu există!"
+ Username field empty: "Câmpul nume de utilizator este gol!"
+ Wrong endpoint: "Punct final greșit!"
+ _No: "Nu"
+ _Yes: "Da"
+siginfo_key_CVE: "Semnături care se ocupă de CVE (Common Vulnerabilities and Exposures)."
+siginfo_key_Chameleon: "Semnături care tratează „atacuri cameleonice”."
+siginfo_key_FN: "Semnături care lucrează cu nume de fișiere (spre deosebire de conținutul fișierului)."
+siginfo_key_Fake: "Detectările sunt variante false, rău intenționate ale unor entități altfel benigne (software, scripturi, etc)."
+siginfo_key_HEUR: "Semnături derivate din date euristice."
+siginfo_key_META: "Semnături care lucrează cu metadatele fișierelor (spre deosebire de datele fișierului)."
+siginfo_key_Other: "Neidentificat sau altul."
+siginfo_key_Other_Metadata: "Metadatele indisponibile."
+siginfo_key_Suspect: "Detectările sunt suspectate, dar nu sunt confirmate (pot implica combinații de diferiți identificatori)."
+siginfo_key_Testfile: "Semnături pentru fișierele de testare (adică, detectările nu sunt rău intenționate)."
+siginfo_key_Total: "Total semnături active."
+siginfo_key_VT: "Semnături care includ sau se bazează pe date de la Virus Total."
+siginfo_key_Werewolf: "Semnături care tratează „atacuri de vârcolaci”."
+siginfo_sub_Classes: "Numărați după clasa de fișiere de semnătură"
+siginfo_sub_Files: "Numărați după fișier de semnătură"
+siginfo_sub_MalwareTypes: "Numărați după tipul de infecție sau malware"
+siginfo_sub_SigTypes: "Numărați după metadatele semnăturii"
+siginfo_sub_Targets: "Numărați după vectorul vizat"
+siginfo_sub_Vendors: "Numărați după semnătură furnizor sau sursă"
+siginfo_xkey: "Identificat ca „%s”."
+state_quarantine:
+ - "Există %s fișier în prezent în carantină."
+ - "Există %s fișiere în prezent în carantină."
+ - "Există %s de fișiere în prezent în carantină."
+tip:
+ 2FA Sent: "Un e-mail care conține un cod de autentificare cu doi factori a fost trimis la adresa dvs. de e-mail. Vă rugăm să confirmați acest cod mai jos pentru a obține acces la front-end. Dacă nu ați primit acest e-mail, încercați să vă deconectați, așteptați 10 minute, și să vă conectați din nou pentru a primi un nou e-mail care conține un nou cod."
+ Accounts: "Buna ziua, {username}.<br />Pagina de conturi vă permite să controlați cine poate accesa front-end-ul phpMussel."
+ Cache Data: "Buna ziua, {username}.<br />Aici puteți revizui conținutul cache-ului."
+ Configuration: "Buna ziua, {username}.<br />Pagina de configurare vă permite să modificați configurația pentru phpMussel din front-end."
+ Home: "Buna ziua, {username}.<br />Aceasta este pagina principala pentru front-end-ul phpMussel. Selectați un link din meniul de navigare din stânga pentru a continua."
+ Logs: "Buna ziua, {username}.<br />Selectați un fișier jurnal din lista de mai jos pentru a vedea conținutul acelui fișier jurnal."
+ Quarantine is currently disabled: "Notă: Carantina este în prezent dezactivată, dar poate fi activată prin pagina de configurare."
+ Quarantine: "Buna ziua, {username}.<br />Această pagină listează toate fișierele aflate în carantină și facilitează gestionarea acelor fișiere."
+ See the documentation: "Consultați <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">documentația</a> pentru informații despre diferitele directive de configurare și scopurile acestora."
+ Signature Information: "Buna ziua, {username}.<br />Această pagină oferă câteva informații de bază despre sursele și tipurile de semnături active în prezent."
+ Statistics tracking is currently disabled: "Notă: Urmărirea statisticilor este în prezent dezactivată, dar poate fi activată prin pagina de configurare."
+ Statistics: "Buna ziua, {username}.<br />Această pagină prezintă câteva statistici de utilizare de bază referitoare la instalarea dvs. phpMussel."
+ Upload Testing: "Buna ziua, {username}.<br />Pagina de testare a încărcării conține un formular standard de încărcare a fișierelor, permițându-vă să testați dacă un fișier ar fi în mod normal blocat de phpMussel atunci când încercați să îl încărcați."
+warning:
+ Cookies: "Notă: phpMussel folosește un cookie pentru a autentifica conectarea. Conectându-vă, vă dați acordul ca un cookie să fie creat și stocat de browserul dvs."
+ JavaScript required: "Avertizare: Unele funcționalități front-end necesită JavaScript. Pentru a vă asigura că întregul front-end se comportă conform așteptărilor, se recomandă activarea JavaScript."
+ Maintenance mode is enabled: "Avertizare: Modul de întreținere este activat!"
+ No signature files are active: "Avertizare: Nu există fișiere de semnătură active!"
+ Proceeding will log out all users: "Avertizare: În continuare, toți utilizatorii vor fi deconectați."
+ This account is not using a valid password: "Avertizare: Acest cont nu folosește o parolă validă!"
+ Using the default password: "Avertizare: Folosind parola implicită!"

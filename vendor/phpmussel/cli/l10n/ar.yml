@@ -1,0 +1,77 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Arabic language data (last modified: 2022.08.18).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "أنا لا أفهم هذا الأمر، آسف."
+cli_algo_not_supported: "الخوارزمية المحددة غير مدعومة."
+cli_failed_to_complete: "فشل في إكمال عملية المسح."
+cli_is_not_a: "%s ليس ملف أو مجلد."
+cli_ln2: |
+ شكراً لك على إستخدام phpMussel، المبرمج بلغة PHP للكشف عن ملفات الإختراق
+ والفيروسات والبرمجيات الخبيثة الموجودة حيث يعتمد السكربت على توقيعات
+ ClamAV وغيرها.
+                                     ~ ~ ~
+ حقوق النشر محفوظة ل PHPMUSSEL لعام 2013 وما بعده تحت رخصة GNU/GPLv2
+ للمبرمج (Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ حاليا على تنفيذ phpMussel في وضع CLI (واجهة سطر الأوامر). لمسح ملف أو
+ دليل، اكتب "scan"، ثم اسم ملف أو دليل الذي تريد phpMussel إلى لمسح واضغط
+ Enter؛ اكتب "c" واضغط Enter للحصول على قائمة أوامر وضع CLI؛ اكتب "q" واضغط
+ Enter للخروج.
+cli_pe1: "ليس ملف PE صالح!"
+cli_pe2: "أقسام PE:"
+cli_signature_placeholder: "اسم"
+cli_working: "في تَقَدم"
+cli_commands: |
+ q
+ - CLI للخروج.
+ - البديل: quit, exit.
+ hash_file:[algo] [filename]
+ - خلق التوقيعات التجزئة من ملفات.
+ hash:[algo] [string]
+ - خلق التوقيعات التجزئة من النص.
+ algo
+ - قائمة جميع الخوارزميات المدعومة.
+ hex_encode [string]
+ - تحول النص ثنائي إلى سداسي عشري.
+ - البديل: x.
+ hex_decode [string]
+ - تحول سداسي عشري إلى النص ثنائي.
+ base64_encode [string]
+ - تحول النص ثنائي إلى نص base64.
+ - البديل: b.
+ base64_decode [string]
+ - تحول نص base64 إلى النص ثنائي.
+ pe_meta [filename]
+ - استخراج البيانات الوصفية من ملف PE.
+ url_sig [string]
+ - توليد URL التوقيعات الماسح الضوئي.
+ scan [filename]
+ - تفحص ملف أو دليل.
+ - البديل: s.
+ c
+ - طباعة هذه القائمة الأوامر.
+invalid_url: "URL غير صالح!"

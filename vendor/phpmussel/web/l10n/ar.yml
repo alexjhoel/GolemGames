@@ -1,0 +1,60 @@
+##\
+# This file is a part of the phpMussel\Web package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Arabic language data (last modified: 2023.09.16).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+PrivacyPolicy: "سياسة الخصوصية"
+config:
+ web: "التكوين لمعالج التحميل."
+ web_custom_footer: "تم إدراجها بتنسيق HTML في الجزء السفلي من جميع صفحات "رفض تحميل". قد يكون هذا مفيدًا في حالة رغبتك في تضمين إشعار قانوني أو رابط اتصال أو معلومات تجارية أو ما شابه ذلك في كل هذه الصفحات."
+ web_custom_header: "تم إدراجها بتنسيق HTML في بداية كل صفحات "رفض تحميل". قد يكون هذا مفيدًا في حالة رغبتك في تضمين شعار موقع ويب أو رأس مخصص أو نصوص أو ما شابه ذلك في جميع هذه الصفحات."
+ web_forbid_on_block: "هل phpMussel يرسل 403 من العناوين مع الرسالة منعت إيداع الملف، أو يبقى مع المعتادة 200 موافق؟ خطأ = رقم (200). صحيح/True = نعم (403) [الافتراضي]."
+ web_ignore_upload_errors: "يجب أن يكون هذا التوجيه عموما هو تعطيل ما لم تصبح مطلوبة حصول على الوظائف الصحيحة لـ phpMussel على النظام الخاص بك محددة. عادة، عندما يكون في وضع تعطيل، عندما يكتشف phpMussel وجود عناصر في مجموعة <code dir="ltr">$_FILES</code>، وأنها سوف محاولة لبدء فحص الملفات التي تمثل تلك العناصر، وإذا كانت تلك العناصر هي فارغة أو فارغة، سوف phpMussel العودة رسالة خطأ. هذا هو السلوك الصحيح للـ phpMussel. ومع ذلك، بالنسبة لبعض CMS، العناصر الفارغة في <code dir="ltr">$_FILES</code> يمكن أن تحدث نتيجة لسلوك طبيعي لتلك CMS، أو أخطاء قد يتم الإعلام عندما لم تكن هناك أي، في هذه الحالة، السلوك العادي للphpMussel سوف تتدخل مع السلوك العادي من تلك CMS. في حال حدوث مثل هذه الحالة بالنسبة لك، تمكين هذا الخيار سوف يكلف phpMussel ليست محاولة لبدء المسح الضوئي لمثل هذه العناصر الفارغة، تجاهلها عندما وجدت وعدم إعادة أي رسائل خطأ ذات الصلة، مما يتيح استمرار طلب الصفحة. زائفة/False = أطفئ؛ صحيح/True = تشغيل."
+ web_magnification: "تكبير الخط. افتراضي = 1."
+ web_max_uploads: "العدد الأقصى المسموح به من ملفات لمسح أثناء تحميل الملفات مسح قبل إحباط عملية الفحص وإعلام المستخدم أنهم تحميل أكثر من اللازم في وقت واحد! يوفر الحماية ضد هجوم النظري حيث يحاول أحد المهاجمين دوس النظام الخاص بك أو CMS من الحمولة الزائدة phpMussel إلى إبطاء عملية PHP لوقف طحن. الموصى بها: 10. أنت قد ترغب في رفع أو خفض هذا الرقم اعتمادا على سرعة الجهاز. لاحظ أن هذا الرقم لا يأخذ في الحسبان أو تتضمن محتويات المحفوظات."
+ web_theme: "الجمالية المراد استخدامها لصفحة "رفض تحميل"."
+ web_unsupported_media_type_header: "هل يجب على phpMussel إرسال 415 رأسًا عندما يتم حظر التحميلات بسبب أنواع الملفات المدرجة في القائمة السوداء؟ عندما يكون هذا الإعداد صحيحًا، يحل هذا الإعداد محل <code dir="ltr">forbid_on_block</code>. زائفة/False = لا [الافتراضي]؛ صحيح/True = نعم."
+ web_uploads_log: "مكان تسجيل جميع التحميلات المحظورة. تحديد اسم الملف، أو اتركه فارغا لتعطيل."
+denied: "رفض تحميل!"
+denied_reason: "تم حجب التحميل للأسباب الواردة أدناه:"
+notifications_message: |
+ <center>
+ <p><strong>مرحبا.</strong></p>
+ <p><strong>هذا البريد الإلكتروني لإعلامك بأنه تم حظر تحميلات الملفات التالية:</strong></p>
+ <p>%s</p>
+ <p><strong>لماذا حدث هذا:</strong></p>
+ <p>%s</p>
+ <p><strong>عندما حدث هذا:</strong></p>
+ <p>%s</p>
+ </center>
+notifications_subject: "إشعار تحميل محظور"
+scan_unauthorised_upload: "الكشف تلاعب تحميل الملف غير مصرح!"
+scan_unauthorised_upload_or_misconfig: "تلاعب تحميل الملف غير مصرح أو تكوين الخطأ الكشف!"
+upload_error_1: "حجم الملف تجاوز توجيهات upload_max_filesize."
+upload_error_2: "حجم الملف تجاوز الحد حجم الملف التي يحددها شكل."
+upload_error_34: "إخفاق تحميل! يرجى الاتصال على المشرف الخادم للحصول على المساعدة!"
+upload_error_6: "مفقود مجلد تحميل! يرجى الاتصال على المشرف الخادم للحصول على المساعدة!"
+upload_error_7: "خطأ القرص الكتابة! يرجى الاتصال على المشرف الخادم للحصول على المساعدة!"
+upload_error_8: "الكشف تكوين الخطأ PHP! يرجى الاتصال على المشرف الخادم للحصول على المساعدة!"
+upload_limit_exceeded: "تجاوزت الحد تحميل"

@@ -1,0 +1,76 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Russian language data (last modified: 2022.08.21).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "Извините, команда непонятна."
+cli_algo_not_supported: "Указанный алгоритм не поддерживается."
+cli_failed_to_complete: "Не удалось завершить процесс сканирования"
+cli_is_not_a: "%s не файл или каталог."
+cli_ln2: |
+ Спасибо за использование phpMussel, PHP сценария предназначенного для
+ обнаружения троянов, вирусов, вредоносных программ и других угроз для
+ файлов загруженных в вашу систему, на основе сигнатурей ClamAV и других.
+                                     ~ ~ ~
+ PHPMUSSEL АВТОРСКИЕ ПРАВА 2013 и позже GNU/GPLv2 от Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ В настоящее время phpMussel работает в CLI режиме (командной строки
+ интерфейс). Для сканирования файла или каталога, введите «scan», а затем
+ имя файла или каталога который вы хотите просканировать, и нажмите Enter;
+ Введите «c» и нажмите Enter для списка CLI режима команды; Введите «q» и
+ нажмите Enter для окончания.
+cli_pe1: "Не ПЭ Файл!"
+cli_pe2: "ПЭ Разделы:"
+cli_signature_placeholder: "ВАШЕ-ИМЯ-СИГНАТУР"
+cli_working: "В действии"
+cli_commands: |
+ q | quit | exit -- Прекратить CLI.
+
+ hash_file:[алго] [имя файла] -- Создание хеш сигнатуры от файлы.
+
+ hash:[алго] [данные] -- Создание хеш сигнатур от данные.
+ Пример: >> hash:crc32b Hello World
+         4a17b156:11:ВАШЕ-ИМЯ-СИГНАТУР
+
+ algo -- Список всех поддерживаемых алгоритмов.
+
+ hex_encode [данные] -- Преобразует двоичные данные из шестнадцатеричной.
+ Пример: >> hex_encode Hello World
+         48656c6c6f20576f726c64
+
+ hex_decode [данные] -- Преобразует шестнадцатеричные из двоичных данных.
+
+ (base64_encode | b) [данные] -- Преобразует двоичные данные из base64 данных.
+
+ base64_decode [данные] -- Преобразует base64 данные из двоичных данных.
+
+ pe_meta [имя файла] -- Извлечение метаданных из PE-файла.
+
+ url_sig [данные] -- Создание сигнатуры сканера URL.
+
+ (scan | s) [имя файла] -- Сканирует файл или каталог.
+
+ c -- Распечатать этот командный список.
+invalid_url: "Неверный URL!"

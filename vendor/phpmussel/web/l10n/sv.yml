@@ -1,0 +1,60 @@
+##\
+# This file is a part of the phpMussel\Web package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Swedish language data (last modified: 2023.09.16).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+PrivacyPolicy: "Integritetspolicy"
+config:
+ web: "Konfiguration för uppladdningshanteraren."
+ web_custom_footer: "Infogas som HTML i slutet av alla "uppladdning nekad"-sidor. Detta kan vara användbart om du vill inkludera ett juridiskt meddelande, kontaktlänk, företagsinformation, eller liknande på alla sådana sidor."
+ web_custom_header: "Infogas som HTML i början av alla "uppladdning nekad"-sidor. Detta kan vara användbart om du vill inkludera en webbplatslogotyp, personlig rubrik, skript, eller liknande på alla sådana sidor."
+ web_forbid_on_block: "Ska phpMussel skicka 403 rubriker med uppladdning blockerat meddelande, eller hålla fast vid de vanliga 200 OK? False = Nej (200); True = Ja (403) [Standard]."
+ web_ignore_upload_errors: "Detta direktiv bör i allmänhet inaktiveras såvida det krävs för korrekt funktion av phpMussel på ditt specifika system. Normalt, när avaktiverat, när phpMussel upptäcker närvaron av element i <code>$_FILES</code> array(), det kommer att försöka initiera en skanning av filerna som dessa element representerar, och om dessa element är tomma, phpMussel returnerar ett felmeddelande. Detta är korrekt beteende för phpMussel. Men för vissa CMS kan emellertid tomma element i <code>$_FILES</code> uppstå som ett resultat av det naturliga beteendet hos dessa CMS, eller fel kan rapporteras när det inte finns några, i vilket fall kommer det normala beteendet för phpMussel att störa det normala beteendet hos dessa CMS. Om en sådan situation uppstår för dig, att aktivera detta alternativ kommer att instruera phpMussel att inte försöka initiera skanningar för sådana tomma element, ignorera dem när de hittas och att inte returnera relaterade felmeddelanden, vilket möjliggör fortsättning av sidbegäran. False = Av; True = På."
+ web_magnification: "Font förstoring. Standard = 1."
+ web_max_uploads: "Maximalt antal filer som phpMussel tillåter att skanna när skannar uppladdningar innan avbryter skanningen och informerar användaren om att de laddar upp för mycket på en gång! Ger skydd mot en teoretisk attack där en angripare försöker DDoS ditt system eller CMS genom att överbelasta phpMussel för att bromsa PHP-processen till ett slipande stopp. Rekommenderad: 10. Du kanske vill höja eller sänka detta antal beroende på hårdvarans hastighet. Observera att detta nummer inte tar hänsyn till innehållet i arkiven."
+ web_theme: "Det estetiska att använda för sidan "uppladdning nekad"."
+ web_unsupported_media_type_header: "Ska phpMussel skicka 415 rubriker när uppladdningar blockeras på grund av svartlistade filtyper? När det är true, den ersätter inställningen <code>forbid_on_block</code>. False = Nej [Standard]; True = Ja."
+ web_uploads_log: "Där alla blockerade uppladdningar ska loggas. Ange ett filnamn eller lämna tomt för att inaktivera."
+denied: "Uppladdning nekad!"
+denied_reason: "Din uppladdning var blockerad av anledningarna nedan:"
+notifications_message: |
+ <center>
+ <p><strong>Hallå.</strong></p>
+ <p><strong>Det här e-postmeddelandet ska meddela dig att följande filuppladdningar har blockerats:</strong></p>
+ <p>%s</p>
+ <p><strong>Varför detta hände:</strong></p>
+ <p>%s</p>
+ <p><strong>När detta hände:</strong></p>
+ <p>%s</p>
+ </center>
+notifications_subject: "Meddelande om blockerade uppladdningar"
+scan_unauthorised_upload: "Obehörig manipulering av filuppladdning upptäckt!"
+scan_unauthorised_upload_or_misconfig: "Obehörig manipulering av filuppladdning eller felkonfiguration upptäckt!"
+upload_error_1: "Filstorleken överskrider direktivet upload_max_filesize."
+upload_error_2: "Filstorleken överskrider formspecificerad filstorleksgräns."
+upload_error_34: "Uppladdningsfel! Vänligen kontakta värdmästaren för hjälp!"
+upload_error_6: "Uppladdningen katalog saknas! Vänligen kontakta värdmästaren för hjälp!"
+upload_error_7: "Skivskrivningsfel! Vänligen kontakta värdmästaren för hjälp!"
+upload_error_8: "PHP-felkonfiguration upptäckt! Vänligen kontakta värdmästaren för hjälp!"
+upload_limit_exceeded: "Överföringsgränsen överskred"

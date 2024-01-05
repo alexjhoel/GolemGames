@@ -1,0 +1,366 @@
+##\
+# This file is a part of the phpMussel\FrontEnd package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Vietnamese language data (last modified: 2023.09.23).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+checkbox:
+ Delete orphaned values: "Xóa các giá trị mồ côi."
+config:
+ core: "Cấu hình chung (bất kỳ cấu hình cốt lõi nào không thuộc về các loại khác)."
+ core_default_timeout: "Thời gian chờ mặc định để sử dụng cho các yêu cầu bên ngoài? Mặc định = 12 giây."
+ core_delete_on_sight: "Bật tùy chọn này sẽ hướng dẫn các kịch bản để cố gắng xóa ngay lập tức bất kỳ đã quét tải lên tập tin mà phù hợp bất kỳ tiêu chí phát hiện, dù qua chữ ký hay thứ khác. Tập tin xác định là "sạch" sẽ không được bị chạm vào. Trong trường hợp kho lưu trữ, các toàn bộ kho lưu trữ sẽ bị xóa, bất kể nếu các tập tin vi phạm chỉ là một trong nhiều tập tin chứa trong các kho lưu trữ. Trong trường hợp quét tập tin tải lên, thông thường, nó không phải là cần thiết để kích hoạt tùy chọn này, bởi vì thông thường, PHP sẽ tự động tẩy các nội dung của bộ nhớ cache của nó khi thực hiện xong, điều đó có nghĩa là nó thường sẽ xóa bất kỳ tập tin tải lên thông qua nó đến máy chủ trừ khi họ đã được chuyển, sao chép hay xóa rồi. Tùy chọn này được thêm vào ở đây như một biện pháp bảo mật thêm cho những người có bản sao của PHP mà có thể không luôn luôn cư xử theo cách mong đợi. False = Sau khi quét, làm không có gì để các tập tin [Mặc định]; True = Sau khi quét, nếu không sạch, xóa ngay lập tức."
+ core_disabled_channels: "Điều này có thể được sử dụng để ngăn phpMussel sử dụng các kênh cụ thể khi gửi yêu cầu."
+ core_error_log: "Một tập tin để ghi lại bất kỳ lỗi không nghiêm trọng được phát hiện. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa."
+ core_hide_version: "Ẩn thông tin phiên bản từ nhật ký và đầu ra của trang? True = Vâng; False = Không [Mặc định]."
+ core_ipaddr: "Nơi để tìm thấy các địa chỉ IP của các yêu cầu kết nối? (Hữu ích cho các dịch vụ như thế Cloudflare và vv). Mặc định = REMOTE_ADDR. CẢNH BÁO: Không thay đổi này trừ khi bạn biết những gì bạn đang làm!"
+ core_lang: "Xác định tiếng mặc định cho phpMussel."
+ core_lang_override: "Bản địa hóa theo HTTP_ACCEPT_LANGUAGE bất cứ khi nào có thể? True = Vâng [Mặc định]; False = Không."
+ core_log_rotation_action: "Xoay vòng nhật ký giới hạn số lượng của tập tin nhật ký có cần tồn tại cùng một lúc. Khi các tập tin nhật ký mới được tạo, nếu tổng số lượng tập tin nhật ký vượt quá giới hạn được chỉ định, hành động được chỉ định sẽ được thực hiện. Bạn có thể chỉ định hành động mong muốn tại đây."
+ core_log_rotation_limit: "Xoay vòng nhật ký giới hạn số lượng của tập tin nhật ký có cần tồn tại cùng một lúc. Khi các tập tin nhật ký mới được tạo, nếu tổng số lượng tập tin nhật ký vượt quá giới hạn được chỉ định, hành động được chỉ định sẽ được thực hiện. Bạn có thể chỉ định giới hạn mong muốn tại đây. Giá trị 0 sẽ vô hiệu hóa xoay vòng nhật ký."
+ core_maintenance_mode: "Bật chế độ bảo trì? True = Vâng; False = Không [Mặc định]. Vô hiệu hoá mọi thứ khác ngoài các front-end. Đôi khi hữu ích khi cập nhật CMS, framework của bạn, vv."
+ core_outbound_request_log: "Một tập tin để ghi nhật ký kết quả của bất kỳ yêu cầu gửi đi nào. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa."
+ core_scan_cache_expiry: "Trong bao lâu phpMussel nên nhớ đệm kết quả quét? Giá trị là số giây để nhớ đệm các kết quả quét cho. Mặc định là 21600 giây (6 giờ); Giá trị 0 sẽ vô hiệu hóa bộ nhớ đệm kết quả quét."
+ core_scan_log: "Tên của tập tin để ghi lại tất cả các kết quả quét. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa."
+ core_scan_log_serialized: "Tên của tập tin để ghi lại tất cả các kết quả quét (sử dụng một định dạng tuần tự). Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa."
+ core_statistics: "Giám sát thống kê sử dụng phpMussel? True = Vâng; False = Không [Mặc định]."
+ core_time_format: "Định dạng ngày tháng sử dụng bởi phpMussel. Các tùy chọn bổ sung có thể được bổ sung theo yêu cầu."
+ core_time_offset: "Múi giờ bù đắp trong phút."
+ core_timezone: "Điều này được sử dụng để chỉ định múi giờ sử dụng (ví dụ, Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, vv). Chỉ định "SYSTEM" để cho phép PHP tự động xử lý việc này cho bạn."
+ core_truncate: "Dọn dẹp các bản ghi khi họ được một kích thước nhất định? Giá trị là kích thước tối đa bằng B/KB/MB/GB/TB mà một tập tin bản ghi có thể tăng lên trước khi bị dọn dẹp. Giá trị mặc định 0KB sẽ vô hiệu hoá dọn dẹp (các bản ghi có thể tăng lên vô hạn). Lưu ý: Áp dụng cho tập tin riêng biệt! Kích thước tập tin bản ghi không được coi là tập thể."
+ experimental: "Không ổn định / Thử nghiệm!"
+ files: "Các chi tiết cụ thể về cách xử lý tập tin khi quét."
+ files_allow_leading_trailing_dots: "Cho phép các dấu chấm đầu và cuối trong tên tập tin? Điều này đôi khi có thể được sử dụng để ẩn các tập tin hoặc để lừa một số hệ thống cho phép truyền traversal thư mục. False = Không cho phép [Mặc định]. True = Cho phép."
+ files_archive_file_extensions: "Được công nhận mở rộng cho tập tin kho lưu trữ (định dạng là CSV; chỉ nên thêm hay loại bỏ khi có vấn đề xảy ra; loại bỏ không cần thiết có thể gây ra sai tích cực để xuất hiện cho tập tin kho lưu trữ, trong khi thêm không cần thiết sẽ trong bản chất danh sách trắng những gì bạn đang thêm từ phát hiện cụ tấn công; sửa đổi với cách thận trọng; cũng lưu ý rằng điều này không có tác dụng liên quan đến những gì kho lưu trữ có thể và không thể được phân tích ở nội dung cấp). Danh sách này, như là mặc định, liệt kê các định dạng sử dụng phổ biến nhất trên phần lớn các hệ thống và CMS, nhưng là cố tình không nhất thiết phải toàn diện."
+ files_block_control_characters: "Chặn bất kỳ tập tin có chứa bất kỳ ký tự điều khiển (khác hơn so với dòng mới)? Nếu bạn <em><strong>CHỈ</strong></em> tải lên văn bản thô, thế thì bạn có thể kích hoạt tùy chọn này để cung cấp một số bảo vệ bổ sung để hệ thống của bạn. Tuy nhiên, nếu bạn tải lên bất cứ điều gì khác hơn văn bản thô, cho phép điều này có thể dẫn đến sai tích cực. False = Không chặn [Mặc định]; True = Chặn."
+ files_block_encrypted_archives: "Phát hiện và chặn kho lưu trữ được mã hóa? Bởi vì phpMussel không thể quét các nội dung của kho lưu trữ được mã hóa, nó có thể mã hóa kho lưu trữ có thể được sử dụng bởi một kẻ tấn công như một phương tiện cố gắng để vượt qua phpMussel, máy quét chống vi rút và bảo vệ khác như. Hướng dẫn phpMussel để ngăn chặn bất kỳ kho lưu trữ mà nó phát hiện được mã hóa có thể giúp giảm nguy cơ nào liên kết với những khả năng này. False = Không; True = Vâng [Mặc định]."
+ files_block_macros: "Thử chặn bất kỳ tập tin nào chứa macro? Một số loại tài liệu và bảng tính có thể chứa macro thực thi, do đó cung cấp một vectơ phần mềm độc hại tiềm ẩn nguy hiểm. False = Không chặn [Mặc định]; True = Chặn."
+ files_can_contain_php_file_extensions: "Danh sách các phần mở rộng tập tin được phép chứa mã PHP, được phân tách bằng dấu phẩy. Nếu phát hiện tấn công tắc kè hoa PHP được kích hoạt, các tập tin có chứa mã PHP, mà có các phần mở rộng không có trong danh sách này, sẽ được phát hiện là các tấn công tắc kè hoa PHP."
+ files_chameleon_from_exe: "Tìm kiếm cho định danh tập tin thực thi trong các tập tin mà không phải là tập tin thực thi cũng không phải là kho lưu trữ được công nhận, và cho tập tin thực thi tập tin mà có định danh sai. False = Tắt; True = Trên."
+ files_chameleon_from_php: "Tìm kiếm cho định danh PHP trong các tập tin mà không phải là PHP cũng không phải là kho lưu trữ được công nhận. False = Tắt; True = Trên."
+ files_chameleon_to_archive: "Phát hiện tiêu đề không chính xác trong lưu trữ và tập tin nén. Được hỗ trợ: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Tắt; True = Trên."
+ files_chameleon_to_doc: "Tìm kiếm cho tài liệu văn phòng mà có định danh sai (Được hỗ trợ: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Tắt; True = Trên."
+ files_chameleon_to_img: "Tìm kiếm cho hình ảnh mà có định danh sai (Được hỗ trợ: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Tắt; True = Trên."
+ files_chameleon_to_pdf: "Tìm kiếm cho tập tin PDF mà có định danh sai. False = Tắt; True = Trên."
+ files_check_archives: "Cố gắng để kiểm tra nội dung của kho lưu trữ? False = Không kiểm tra; True = Kiểm tra [Mặc định]. Được hỗ trợ: Zip (yêu cầu libzip), Tar, Rar (yêu cầu mở rộng rar)."
+ files_corrupted_exe: "Tập tin bị hỏng và phân tích lỗi. False = Bỏ qua; True = Chặn [Mặc định]. Phát hiện và chặn khả thi tập tin PE (portable executable / thực thi di động) bị hỏng? Thường (nhưng không phải lúc nào), khi khía cạnh cụ thể của một tập tin PE đang bị hỏng hay không thể được phân tích chính xác, nó có thể chỉ ra một nhiễm vi rút. Các quy trình được sử dụng bởi hầu hết các chương trình chống vi rút để phát hiện vi rút trong các tập tin PE đòi hỏi phải phân tích những tập tin theo một cách mà, nếu các lập trình viên của một vi rút là nhận thức của, cụ thể sẽ cố gắng để ngăn chặn, để cho phép vi rút của mình để không bị phát hiện."
+ files_decode_threshold: "Ngưỡng cho chiều dài của dữ liệu thô trong đó các lệnh giải mã nên được phát hiện (trong trường hợp có bất kỳ vấn đề hiệu suất đáng chú ý trong khi quét). Mặc định = 512KB. Số không hay số null vô hiệu hóa các ngưỡng (loại bỏ bất kỳ giới hạn dựa trên kích cỡ tập tin)."
+ files_filesize_archives: "Thừa kế danh sách đen/trắng cho kích thước của tập tin trong kho lưu trữ? False = Không (chỉ danh sách xám mọi điều); True = Vâng [Mặc định]."
+ files_filesize_limit: "Giới hạn của kích thước tập tin trong KB. 65536 = 64MB [Mặc định]; 0 = Không giới hạn (luôn có trên danh sách xám), bất kỳ giá trị số dương chấp nhận. Điều này có thể hữu ích khi cấu hình PHP của bạn hạn chế số lượng bộ nhớ một quá trình có thể giữ hay nếu hình PHP của bạn giới hạn kích thước của tải lên tập tin."
+ files_filesize_response: "Làm gì với tập tin mà vượt quá các giới hạn kích thước của tải lên (nếu tồn tại). False = Danh sách trắng; True = Danh sách đen [Mặc định]."
+ files_filetype_archives: "Thừa kế danh sách đen/trắng cho loại tập tin trong kho lưu trữ? False = Không (chỉ danh sách xám mọi điều) [Mặc định]; True = Vâng."
+ files_filetype_blacklist: "Danh sách đen:"
+ files_filetype_greylist: "Danh sách xám:"
+ files_filetype_whitelist: "Danh sách trắng:"
+ files_max_files_in_archives: "Số lượng tập tin tối đa để quét từ trong kho lưu trữ trước khi hủy quét. Mặc định = 0 (không tối đa)."
+ files_max_recursion: "Tối đa đệ quy chiều sâu giới hạn cho kho lưu trữ. Mặc định = 3."
+ files_only_allow_images: "Khi được đặt thành true, bất kỳ tập tin không phải là hình ảnh nào mà máy quét gặp phải sẽ được gắn cờ ngay lập tức mà không được quét. Điều này có thể giúp giảm thời gian cần thiết để hoàn thành quét trong một số trường hợp. Đặt thành false theo mặc định."
+ files_scannable_threshold: "Ngưỡng cho chiều dài của dữ liệu mà phpMussel được phép đọc và quét (trong trường hợp có bất kỳ vấn đề hiệu suất đáng chú ý trong khi quét). Mặc định = 32MB. Số không hay số null vô hiệu hóa các ngưỡng. Nói chung, giá trị này không nên được ít hơn kích thước trung bình của tải lên tập tin bạn muốn và mong đợi để nhận được đến máy chủ hay trang mạng của bạn, không nên được ít hơn tùy chọn filesize_limit, và không nên được ít hơn khoảng một phần năm tổng số cấp phát bộ nhớ cấp cho PHP thông qua tập tin cấu hình "php.ini". Tùy chọn này tồn tại để cố gắng ngăn chặn phpMussel từ việc sử dụng quá nhiều bộ nhớ (mà sẽ ngăn chặn nó từ việc có thể quét các tập tin thành công trên một kích thước tập tin nhất định)."
+ frontend: "Cấu hình cho các front-end."
+ frontend_custom_footer: "Được chèn dưới dạng HTML ở cuối tất cả các trang front-end. Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm thông báo pháp lý, liên kết liên hệ, thông tin doanh nghiệp, hoặc tương tự ở tất cả các trang như vậy."
+ frontend_custom_header: "Được chèn dưới dạng HTML ở đầu tất cả các trang front-end. Điều này có thể hữu ích trong trường hợp bạn muốn bao gồm biểu trưng trang web, tiêu đề được cá nhân hóa, tập lệnh, hoặc tương tự ở tất cả các trang như vậy."
+ frontend_default_algo: "Xác định thuật toán nào sẽ sử dụng cho tất cả các mật khẩu và phiên trong tương lai."
+ frontend_frontend_log: "Tập tin cho ghi cố gắng đăng nhập front-end. Chỉ định một tên tập tin, hoặc để trống để vô hiệu hóa."
+ frontend_magnification: "Phóng to chữ. Mặc định = 1."
+ frontend_max_login_attempts: "Số lượng tối đa cố gắng đăng nhập front-end. Mặc định = 5."
+ frontend_numbers: "Làm thế nào để bạn thích số được hiển thị? Chọn ví dụ có vẻ chính xác nhất cho bạn."
+ frontend_theme: "Tính thẩm mỹ để sử dụng cho giao diện người dùng phpMussel."
+ legal: "Cấu hình cho các yêu cầu pháp lý."
+ legal_privacy_policy: "Địa chỉ của chính sách bảo mật liên quan được hiển thị ở chân trang của bất kỳ trang nào được tạo. Chỉ định URL, hoặc để trống để vô hiệu hóa."
+ legal_pseudonymise_ip_addresses: "Pseudonymise địa chỉ IP khi viết các tập tin nhật ký? True = Vâng [Mặc định]; False = Không."
+ quarantine: "Cấu hình cho các kiểm dịch."
+ quarantine_quarantine_key: "phpMussel có thể kiểm dịch tập tin tải lên mà bị chặn, nếu đây là cái gì bạn muốn nó làm. Các người dùng bình thường của phpMussel mà chỉ đơn giản là muốn bảo vệ các môi trường kho lưu trữ hay trang mạng của họ, mà không có bất cứ quan tâm trong việc phân tích sâu sắc của bất kỳ tải lên tập tin mà đã được đánh dấu, nên để chức năng này bị vô hiệu hóa còn lại, nhưng bất kỳ người dùng quan tâm trong phân tích sâu hơn của tải lên tập tin mà đã được đánh dấu cho nghiên cứu phần mềm độc hại hay cho những thứ tương tự như vậy nên kích hoạt chức năng này. Các kiểm dịch của tải lên tập tin mà đã được đánh dấu đôi khi cũng có thể hỗ trợ trong việc gỡ lỗi sai tích cực, nếu đây là cái gì đó thường xuyên xảy ra đối với bạn. Để vô hiệu hóa chức năng kiểm dịch, chỉ đơn giản để lại tùy chọn <code>quarantine_key</code> trống rỗng, hay xóa nội dung của nó nếu nó không phải là đã trống rỗng. Để kích hoạt chức năng kiểm dịch, nhập một số giá trị vào các tùy chọn. <code>quarantine_key</code> là một tính năng bảo mật quan trọng của chức năng kiểm dịch yêu cầu như là một phương tiện cho ngăn chặn chức năng kiểm dịch được khai thác bởi kẻ tấn công tiềm năng và như một phương tiện ngăn chặn bất kỳ thực hiện tiềm năng của kho lưu trữ trong kiểm dịch. <code>quarantine_key</code> nên được đối xử theo cách tương tự như mật khẩu của bạn: Càng dài thì càng tốt, và cất giữ nó thật chặt. Đối với hiệu quả tốt nhất, sử dụng kết hợp với <code>delete_on_sight</code>."
+ quarantine_quarantine_max_files: "Số lượng tập tin tối đa có thể tồn tại trong kiểm dịch. Khi tập tin mới được thêm vào trong kiểm dịch, nếu số này vượt quá, các tập tin cũ sẽ bị xóa cho đến khi phần còn lại không còn vượt quá con số này. Mặc định = 100."
+ quarantine_quarantine_max_filesize: "Cho phép tối đa kích thước của tập tin để được kiểm dịch. Tập tin mà lớn hơn giá trị quy định sẽ KHÔNG được kiểm dịch. Tùy chọn này là rất quan trọng như là một phương tiện làm cho nó khó khăn hơn cho bất kỳ kẻ tấn công tiềm năng lũ kiểm dịch của bạn với các dữ liệu không mong muốn, có khả năng gây ra việc sử dụng quá mức dữ liệu trên dịch vụ kho lưu trữ của bạn. Mặc định = 2MB."
+ quarantine_quarantine_max_usage: "Cho phép tối đa sử dụng bộ nhớ cho kiểm dịch. Nếu tổng số sử dụng bộ nhớ bởi các kiểm dịch đạt giá trị này, các tập tin trong kiểm dịch cho dài nhất sẽ bị xóa cho đến khi các tổng bộ nhớ sử dụng không còn đạt giá trị này. Tùy chọn này là rất quan trọng như là một phương tiện làm cho nó khó khăn hơn cho bất kỳ kẻ tấn công tiềm năng lũ kiểm dịch của bạn với các dữ liệu không mong muốn, có khả năng gây ra việc sử dụng quá mức dữ liệu trên dịch vụ kho lưu trữ của bạn. Mặc định = 64MB."
+ signatures: "Cấu hình cho chữ ký, tập tin chữ ký, vv."
+ signatures_active: "Một danh sách các kích hoạt tập tin chữ ký, giới hạn bởi dấu phẩy. Chú thích: Tập tin chữ ký trước tiên phải được cài đặt, trước khi bạn có thể kích hoạt chúng. Để các tập tin thử nghiệm có thể làm việc đúng, các tập tin chữ ký phải được cài đặt và kích hoạt."
+ signatures_detect_adware: "phpMussel nên sử dụng chữ ký cho phát hiện adware? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_deface: "phpMussel nên sử dụng chữ ký cho phát hiện deface và công cụ làm xấu? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_encryption: "phpMussel nên phát hiện và chặn các tập tin mật mã? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_joke_hoax: "phpMussel nên sử dụng chữ ký cho phát hiện câu nói đùa và chơi khăm phần mềm độc hại và vi rút? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_packer_packed: "phpMussel nên sử dụng chữ ký cho phát hiện đóng gói tập tin và dữ liệu đã đóng gói? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_pua_pup: "phpMussel nên sử dụng chữ ký cho phát hiện các PUA/PUP? False = Không; True = Vâng [Mặc định]."
+ signatures_detect_shell: "phpMussel nên sử dụng chữ ký cho phát hiện shell script? False = Không; True = Vâng [Mặc định]."
+ signatures_fail_extensions_silently: "phpMussel nên báo cáo khi mở rộng bị mất? Nếu <code>fail_extensions_silently</code> được vô hiệu hóa, mở rộng bị mất sẽ được báo cáo khi quét, và nếu <code>fail_extensions_silently</code> được kích hoạt, mở rộng bị mất hay bị hỏng sẽ bị bỏ qua, với báo cáo quét cho những tập tin mà không có bất kỳ vấn đề. Vô hiệu hóa tùy chọn này có khả năng có thể làm tăng bảo mật của bạn, nhưng cũng có thể dẫn đến sự gia tăng giả tích cực. False = Không cho phép; True = Cho phép [Mặc định]."
+ signatures_fail_silently: "phpMussel nên báo cáo khi tập tin chữ ký bị mất hay bị hỏng? Nếu <code>fail_silently</code> được vô hiệu hóa, tập tin bị mất hay bị hỏng sẽ được báo cáo khi quét, và nếu <code>fail_silently</code> được kích hoạt, tập tin bị mất hay bị hỏng sẽ bị bỏ qua, với báo cáo quét cho những tập tin mà không có bất kỳ vấn đề. Điều này thường cần được ở một mình trừ khi bạn gặp sự cố hay vấn đề tương tự. False = Không cho phép; True = Cho phép [Mặc định]."
+ signatures_heuristic_threshold: "Có một số chữ ký của phpMussel mà được dự định để xác định đáng ngờ và phẩm chất của các tập tin khả năng độc hại từ đang được tải lên mà không có trong tự xác định các tập tin đang được tải lên cụ thể như là độc hại. Giá trị "threshold" này nói với phpMussel tổng trọng lượng tối đa của đáng ngờ và phẩm chất của các tập tin khả năng độc hại đang được tải lên đó là phép trước những tập tin đang được gắn cờ là độc hại. Định nghĩa về trọng lượng trong bối cảnh này là tổng số đáng ngờ và phẩm chất tiềm ẩn độc hại được xác định. Theo mặc định, giá trị này sẽ được thiết lập để 3. Một giá trị thấp hơn nói chung sẽ cho kết quả trong một sự xuất hiện cao hơn của sai tích cực nhưng một số cao hơn các tập tin độc hại được gắn cờ, trong khi một giá trị cao hơn nói chung sẽ cho kết quả trong một sự xuất hiện thấp hơn của sai tích cực nhưng một số thấp hơn các tập tin độc hại được gắn cờ. Nói chung, nó là tốt nhất để có giá trị này tại mặc định của nó trừ khi bạn đang gặp phải các vấn đề liên quan đến nó."
+ supplementary_cache_options: "Tùy chọn bộ nhớ cache bổ sung. Lưu ý: Việc thay đổi các giá trị này có thể khiến bạn bị đăng xuất."
+ supplementary_cache_options_enable_apcu: "Điều này xác định có nên thử sử dụng APCu để lưu trữ không. Mặc định = True."
+ supplementary_cache_options_enable_memcached: "Điều này xác định có nên thử sử dụng Memcached để lưu trữ không. Mặc định = False."
+ supplementary_cache_options_enable_pdo: "Điều này xác định có nên thử sử dụng PDO để lưu trữ không. Mặc định = False."
+ supplementary_cache_options_enable_redis: "Điều này xác định có nên thử sử dụng Redis để lưu trữ không. Mặc định = False."
+ supplementary_cache_options_memcached_host: "Giá trị máy chủ Memcached. Mặc định = "localhost"."
+ supplementary_cache_options_memcached_port: "Giá trị cổng Memcached. Mặc định = "11211"."
+ supplementary_cache_options_pdo_dsn: "Giá trị DSN PDO. Mặc định = "mysql:dbname=phpmussel;host=localhost;port=3306"."
+ supplementary_cache_options_pdo_password: "Mật khẩu PDO."
+ supplementary_cache_options_pdo_username: "Tên người dùng PDO."
+ supplementary_cache_options_prefix: "Giá trị được chỉ định ở đây sẽ được thêm vào trước tất cả các khóa mục nhập bộ nhớ cache. Mặc định = "phpMussel_". Khi nhiều bản cài đặt tồn tại trên cùng một máy chủ, điều này có thể hữu ích để giữ các bộ nhớ cache của chúng tách biệt với nhau."
+ supplementary_cache_options_redis_host: "Giá trị máy chủ Redis. Mặc định = "localhost"."
+ supplementary_cache_options_redis_port: "Giá trị cổng Redis. Mặc định = "6379"."
+ supplementary_cache_options_redis_timeout: "Giá trị thời gian chờ Redis. Mặc định = "2.5"."
+ urlscanner: "Cấu hình cho trình quét URL."
+ urlscanner_cache_time: "Kết quả tra cứu API nên được lưu trữ trong (trong giây) bao lâu? Mặc định là 3600 giây (1 giờ)."
+ urlscanner_google_api_key: "Cho phép tra cứu API đến API của Google Safe Browsing khi khóa API cần thiết được xác định."
+ urlscanner_maximum_api_lookups: "Số lượng tối đa cho phép của tra cứu API để thực hiện mỗi quét lặp cá nhân. Bởi vì mỗi tra cứu API thêm sẽ thêm vào tổng thời gian cần thiết để hoàn thành mỗi quét lặp, bạn có thể muốn để quy định một giới hạn để đẩy nhanh các quá trình quét tổng thể. Khi thiết lập để 0, không số lượng tối đa cho phép sẽ được áp dụng. Đặt 10 theo mặc định."
+ urlscanner_maximum_api_lookups_response: "Phải làm gì nếu số lượng tối đa cho phép của tra cứu API được vượt quá? False = Không làm gì cả (tiếp tục chế biến) [Mặc định]; True = Dấu/Chặn các tập tin."
+ virustotal: "Cấu hình cho hội nhập Virus Total."
+ virustotal_vt_public_api_key: "Nếu bạn muốn, phpMussel có thể quét tập tin sử dụng các Virus Total API như một cách để cung cấp bảo vệ tăng cường rất nhiều chống lại vi rút, trojan, phần mềm độc hại và các mối đe dọa khác. Theo mặc định, quét của tập tin sử dụng các Virus Total API bị vô hiệu hóa. Để kích hoạt nó, một khóa API từ Virus Total là cần thiết. Do những lợi ích đáng kể rằng điều này có thể cung cấp cho bạn, nó là một cái gì đó mà tôi rất khuyên bạn nên cho phép. Xin hãy lưu ý, tuy nhiên, rằng để sử dụng các Virus Total API, bạn <em><strong>PHẢI</strong></em> đồng ý với điều khoản dịch vụ của họ và bạn <em><strong>PHẢI</strong></em> tuân theo tất cả các hướng dẫn như mô tả của các tài liệu của Virus Total! Bạn KHÔNG được phép để sử dụng tính năng hội nhập này TRỪ KHI: Bạn đã đọc và đồng ý với các Điều khoản và Điều kiện của Virus Total và API của nó. Bạn đã đọc và bạn hiểu, ở mức nhỏ nhất, lời mở đầu của các tài liệu API công cộng của Virus Total (mọi điều sau "VirusTotal Public API v2.0" nhưng trước "Contents")."
+ virustotal_vt_quota_rate: "Theo tài liệu VirusTotal API, nó được giới hạn tối đa là 4 yêu cầu của bất kỳ chất trong bất kỳ khung thời gian 1 phút nào. Nếu bạn chạy một honeyclient, honeypot hay bất kỳ tự động hóa khác sẽ là cung cấp các nguồn lực để VirusTotal và không chỉ sẽ là lấy báo cáo bạn có quyền được một hạn ngạch có yêu cầu cao hơn. Theo mặc định, phpMussel nghiêm sẽ tuân thủ những hạn chế, nhưng do khả năng của các hạn ngạch yêu cầu đang được tăng lên, hai tùy chọn này được cung cấp như một phương tiện để bạn có thể hướng dẫn phpMussel như những gì giới hạn nó phải tuân thủ. Trừ khi bạn đã được hướng dẫn làm như vậy, nó không được khuyến khích cho bạn để tăng các giá trị, nhưng, nếu bạn đã gặp phải vấn đề liên quan đến hạn ngạch của bạn, giảm các giá trị <em><strong>CÓ THỂ</strong></em> đôi khi giúp bạn trong việc đối phó với những vấn đề này. Hạn ngạch yêu cầu của bạn được xác định như <code>vt_quota_rate</code> yêu cầu của bất kỳ chất trong bất kỳ khung thời gian <code>vt_quota_time</code> phút nào."
+ virustotal_vt_quota_time: "(Xem mô tả ở trên)."
+ virustotal_vt_suspicion_level: "Theo mặc định, phpMussel sẽ hạn chế các tập tin nó quét bằng cách sử dụng Virus Total API đến các tập tin mà nó coi như là "đáng ngờ". Bạn có thể tùy chọn điều chỉnh hạn chế này bằng cách thay đổi các giá trị của tùy chọn <code>vt_suspicion_level</code>."
+ virustotal_vt_weighting: "phpMussel nên áp dụng các kết quả quét từ sử dụng Virus Total API như các phát hiện hoặc như các cân nặng phát hiện? Tùy chọn này tồn tại, bởi vì, mặc dù quét một tập tin sử dụng nhiều công cụ (như Virus Total làm) nên dẫn đến một tỷ lệ phát hiện tăng (và do đó ở một số cao hơn các tập tin độc hại bị bắt), nó cũng có thể dẫn đến một số cao hơn của sai tích cực, và vì thế, trong một số trường hợp, các kết quả quét có thể là tốt hơn sử dụng như một điểm tự tin chứ không phải là một kết luận dứt khoát. Nếu giá trị 0 được sử dụng, các kết quả quét từ sử dụng Virus Total API sẽ được áp dụng như phát hiện, và vì thế, nếu bất kỳ công cụ được sử dụng bởi Virus Total đánh dấu các tập tin được quét như độc hại, phpMussel sẽ cân nhắc các tập tin đến được độc hại. Nếu bất kỳ giá trị nào khác được sử dụng, các kết quả quét từ sử dụng Virus Total API sẽ được áp dụng như cân nặng phát hiện, và vì thế, các số lượng động cơ được sử dụng bởi Virus Total mà đánh dấu các tập tin được quét như được độc hại sẽ phục vụ như là một điểm tin (hay cân nặng phát hiện) cho nếu các tập tin được quét nên được xem như độc hại bởi phpMussel (giá trị sử dụng sẽ đại diện cho số điểm tin cậy hay cân nặng tối thiểu mà là cần thiết để có thể được coi độc hại). Giá trị 0 được sử dụng bởi mặc định."
+confirm:
+ Action: "Bạn có chắc chắn muốn "%s" không?"
+field:
+ 2FA code: "Mã 2FA"
+ Clear all: "Hủy bỏ tất cả"
+ Confirm: "Xác nhận"
+ Create new account: "Tạo ra tài khoản mới"
+ Delete account: "Xóa tài khoản"
+ Delete all: "Xóa bỏ tất cả"
+ Delete: "Xóa bỏ"
+ Download: "Tải về"
+ False (False): "False (Sai)"
+ File: "Tập Tin"
+ Latest version: "Phiên bản mới nhất"
+ Log In: "Đăng nhập"
+ More fields: "Thêm lĩnh vực"
+ OK: "OK"
+ Options: "Tùy Chọn"
+ Password: "Mật Khẩu"
+ Permissions: "Quyền"
+ Quarantine key: "Khóa kiểm dịch"
+ Reset: "Thiết Lập Lại"
+ Restore: "Khôi phục"
+ Set new password: "Đặt mật khẩu mới"
+ True (True): "True (Đúng)"
+ Update signature files: "Cập nhật tập tin chữ ký"
+ Update: "Cập nhật"
+ Use system default timezone: "Sử dụng múi giờ mặc định của hệ thống."
+ Username: "Tên Người Dùng"
+ Your version: "Phiên bản của bạn"
+ log_rotation_archive: "Trước tiên lưu trữ, và sau đó xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá."
+ log_rotation_delete: "Xóa các tập tin nhật ký cũ nhất, cho đến khi giới hạn không còn vượt quá."
+ size:
+  Total size: "Kích thước tổng:"
+  bytes: "byte"
+ vt_suspicion_level_all: "Quét tất cả các tập tin."
+ vt_suspicion_level_executable: "Quét các tập tin có trọng số heuristic, tập tin thực thi, và tập tin có khả năng chứa dữ liệu thực thi.\nVí dụ về tập tin thực thi, và tập tin có khả năng chứa dữ liệu thực thi, bao gồm tập tin Windows PE, tập tin Linux ELF, tập tin Mach-O, tập tin DOCX, tập tin ZIP, vv."
+ vt_suspicion_level_heuristic_only: "Chỉ quét các tập tin có trọng số heuristic.\nCác tập tin sẽ chỉ được quét nếu chúng chịu một số trọng số heuristic. Trọng số heuristic có thể phát sinh từ các chữ ký nhằm bắt dấu vân tay phổ biến gợi ý lây nhiễm nhưng không đảm bảo lây nhiễm. Đối với các kết quả chứng minh sự nghi ngờ nhưng không cung cấp bất kỳ sự chắc chắn nào, việc tra cứu có thể phục vụ để đưa ra ý kiến thứ hai."
+hints_pdo_dsn:
+ Câu hỏi thường gặp.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.vi.md\#user-content-HOW_TO_USE_PDO" hreflang="vi-VN">"PDO DSN" là gì? Làm cách nào tôi có thể sử dụng PDO với phpMussel?</a></em>"
+hints_xlists:
+ Làm thế nào điều này hoạt động.: "Nếu hệ thống của bạn chỉ cho phép các loại tập tin cụ thể được tải lên, hay nếu hệ thống của bạn từ chối một cách rõ ràng các loại tập tin cụ thể, xác định các loại tập tin trong danh sách trắng, danh sách đen và danh sách xám có thể tăng tốc độ quét được tiến hành bằng cách cho phép các kịch bản bỏ qua các loại tập tin nhất định. Định dạng là CSV (dấu phẩy ngăn cách giá trị)."
+ Thứ tự hợp lý của chế biến.: "Nếu loại tập tin là trên danh sách trắng, không quét và không chặn các tập tin, và không kiểm tra các tập tin chống lại danh sách đen hay danh sách xám. Nếu loại tập tin là trên danh sách đen, không quét các tập tin nhưng chặn nó dù sao, và không kiểm tra các tập tin chống lại danh sách xám. Nếu danh sách xám là trống hay nếu danh sách xám không phải là trống và các loại tập tin là danh sách xám, quét các tập tin như bình thường và xác định xem có chặn nó dựa trên kết quả của quá trình quét, nhưng nếu danh sách xám không phải là trống và các loại tập tin không phải trên danh sách xám, điều trị các tập tin như thể nó là trên danh sách đen, vì thế không quét nó nhưng chặn nó dù sao."
+Some useful links: |
+ Một số liên kết hữu ích:<br />
+     <ul class="pieul">
+       <li><span class="comCat">Công cụ, tài nguyên, vv cho phpMussel.</span>
+         <ul class="comSub">
+           <li>{{Links.phpMussel.Issues}} – Trang các vấn đề cho phpMussel (hỗ trợ, vv).</li>
+           <li>{{Links.phpMussel.SigTool}} – Tạo tập tin chữ ký phpMussel bằng cơ sở dữ liệu chữ ký ClamAV.</li>
+           <li>{{Links.phpMussel.Extras}} – Bổ sung khác nhau.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Công cụ, tài nguyên, vv cho ClamAV.</span>
+         <ul class="comSub">
+           <li>{{Links.ClamavNet}} – Trang chủ cho ClamAV (ClamAV® là một công cụ chống vi rút mã nguồn mở để phát hiện trojan, vi rút, phần mềm độc hại và các mối đe dọa nguy hiểm khác).</li>
+           <li>{{Links.SecuriteInfo}} – Công ty bảo mật máy tính mã cung cấp chữ ký bổ sung cho ClamAV.</li>
+           <li>{{Links.Sanesecurity}} – Công ty bảo mật máy tính mã cung cấp chữ ký bổ sung cho ClamAV.</li>
+           <li>{{Links.Malware Expert}} – Cung cấp chữ ký bổ sung cho ClamAV và quy tắc bổ sung cho ModSecurity.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Nhóm, diễn đàn, cộng đồng, vv.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Facebook}} – PHP tài nguyên học tập và thảo luận.</li>
+           <li>{{Links.MalwareTips}} – Diễn đàn thảo luận hữu ích tập trung vào phần mềm độc hại.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Công cụ, tài nguyên, dịch vụ, vv hữu ích khác.</span>
+         <ul class="comSub">
+           <li>{{Links.PhishTank}} – Cơ sở dữ liệu lừa đảo sử dụng bởi các máy quét URL phpMussel.</li>
+           <li>{{Links.VirusTotal}} – VirusTotal là một dịch vụ miễn phí để phân tích các tập tin và URL đó là đáng ngờ.</li>
+           <li>{{Links.Hybrid Analysis}} – Hybrid Analysis là một dịch vụ miễn phí để phân tích phần mềm độc hại được cung cấp bởi {{Links.Payload Security}}.</li>
+           <li>{{Links.Malwarebytes}} – Máy tính chống phần mềm độc hại chuyên gia.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Tài nguyên thông tin và học tập.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Website}} – PHP tài nguyên học tập và thảo luận.</li>
+           <li><a href="https://maikuolan.github.io/Vulnerability-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Danh sách dễ bị tổn thương</a> – Liệt kê các phiên bản an toàn và không an toàn của các gói khác nhau (HHVM, PHP, phpMyAdmin, Python, vv).</li>
+           <li><a href="https://maikuolan.github.io/Compatibility-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Danh sách tương thích</a> – Liệt kê thông tin tương thích cho các gói khác nhau (CIDRAM, phpMussel, vv).</li>
+         </ul>
+       </li>
+     </ul>
+
+label:
+ %s is available (%s): "%s có sẵn (%s)."
+ %s is available: "%s có sẵn."
+ %s is not available: "%s không có sẵn."
+ Active configuration file: "Tập tin cấu hình kích hoạt:"
+ Active signature files: "Tập tin chữ ký kích hoạt"
+ Branch latest stable: "Chi nhánh ổn định mới nhất:"
+ Client information: "Thông tin người dùng:"
+ Complete access: "Truy cập đầy đủ"
+ Copy to clipboard: "Sao chép vào clipboard"
+ Default: "Mặc định"
+ Expires: "Hết hạn:"
+ Extension: "Phần mở rộng"
+ External: "Bên ngoài"
+ Installed Available: "Được cài đặt / Có sẵn"
+ Latest stable: "Ổn định mới nhất:"
+ Latest unstable: "Không ổn định mới nhất:"
+ Loading_: "Trong tiến trình..."
+ Logged in, 2FA pending: "Đã đăng nhập, đang chờ xử lý 2FA."
+ Logged in: "Đã đăng nhập."
+ Logged out: "Đã đăng xuất."
+ Login: "Đăng nhập"
+ Logs access only: "Bản ghi truy cập chỉ"
+ Never: "Không bao giờ"
+ No log file selected: "Không có bản ghi được chọn."
+ No log files available: "Không có bản ghi có sẵn."
+ Objects flagged: "Đối tượng bị gắn cờ"
+ Objects scanned: "Đối tượng được quét"
+ Operating system used: "Hệ điều hành đang được dùng:"
+ Other: "Khác"
+ PHP version used: "Phiên bản PHP đang được dùng:"
+ Page request completed in %s seconds: "Yêu cầu trang hoàn thành trong %s giây."
+ Please log in to continue: "Vui lòng đăng nhập để tiếp tục."
+ SAPI used: "SAPI đang được dùng:"
+ Scan events: "Sự kiện quét"
+ See also: "Xem thêm:"
+ Selected log file doesn_t exist: "Bản ghi đã chọn không tồn tại!"
+ Size in quarantine: "Kích thước trong kiểm dịch:"
+ Start date: "Ngày bắt đầu"
+ System information: "Thông tin hệ thống:"
+ The cache is empty: "Bộ nhớ cache là trống."
+ Upload date: "Ngày tải lên:"
+ Upload hash: "Băm tải lên:"
+ Upload origin: "Nguồn gốc tải lên:"
+ Upload size: "Kích thước tải lên:"
+ Uploads blocked: "Tải lên bị chặn"
+ Uploads quarantined: "Tải lên trong kiểm dịch"
+ Uploads scanned: "Tải lên được quét"
+ Your IP: "IP của bạn:"
+ Your UA: "UA của bạn:"
+ phpMussel version used: "Phiên bản phpMussel đang được dùng:"
+link:
+ Accounts: "Tài khoản"
+ Cache Data: "Dữ liệu cache"
+ Configuration: "Cấu hình"
+ Discussions: "Thảo luận"
+ Documentation: "Tài liệu"
+ Home: "Trang chủ"
+ Log Out: "Đăng xuất"
+ Logs: "Bản ghi"
+ Quarantine: "Kiểm dịch"
+ Signature Information: "Thông tin chữ ký"
+ Statistics: "Số liệu thống kê"
+ Text formatting: "Định dạng văn bản: <a href="%1$sfalse">Đơn giản</a> – <a href="%1$strue">Đẹp</a>"
+ Upload Testing: "Kiểm tra tải lên"
+max_login_attempts_exceeded: "Số lượng tối đa cố gắng đăng nhập đã bị vượt quá; Truy cập đã bị từ chối."
+msg_subject_2fa: "2FA (Xác thực hai yếu tố)"
+msg_template_2fa: |
+ <center><p>Xin chào, %s.<br /><br />
+ Mã 2FA của bạn để đăng nhập vào front-end của phpMussel:</p>
+ <h1>%s</h1>
+ <p>Mã này hết hạn sau 10 phút.</p></center>
+previewer:
+ Days: "Ngày"
+ Hours: "Giờ"
+ Minutes: "Phút"
+ Months: "Tháng"
+ Seconds: "Giây"
+ Weeks: "Tuần"
+ Years: "Năm"
+response:
+ Account successfully created: "Tài khoản tạo ra thành công!"
+ Account successfully deleted: "Tài khoản xóa thành công!"
+ An account with that username already exists: "Một tài khoản với tên người dùng này đã tồn tại!"
+ Configuration successfully updated: "Cấu hình cập nhật thành công."
+ Corrupted file: "Không thể khôi phục! Tập tin bị hỏng!"
+ Failed to create: "Tạo ra không thành công!"
+ Failed to delete: "Xóa không thành công!"
+ Failed to update configuration: "Không thể cập nhật cấu hình!"
+ Failed to update: "Cập nhật không thành công!"
+ Failed: "Thất bại"
+ File successfully deleted: "Tập tin xóa thành công!"
+ File successfully restored: "Tập tin khôi phục thành công!"
+ Incorrect 2FA code entered: "Đã nhập mã 2FA không chính xác. Quá trình xác thực đã thất bại."
+ Incorrect quarantine key: "Không thể khôi phục! Khóa kiểm dịch sai rồi!"
+ Invalid password: "Thất bại đăng nhập! Mật khẩu không hợp lệ!"
+ Password field empty: "Mật khẩu là trống!"
+ Password successfully updated: "Mật khẩu cập nhật thành công!"
+ Permissions not adequate to perform asynchronous requests:: "Quyền không đủ để thực hiện các yêu cầu không đồng bộ. Hãy thử đăng nhập lại."
+ Statistics cleared: "Thống kê đã được xóa."
+ Successfully authenticated: "Đã xác thực thành công."
+ That account doesn_t exist: "Tài khoản này không tồn tại."
+ Username doesn_t exist: "Thất bại đăng nhập! Tên người dùng không tồn tại!"
+ Username field empty: "Tên người dùng là trống!"
+ Wrong endpoint: "Điểm truy cập không đúng!"
+ _No: "Không"
+ _Yes: "Vâng"
+siginfo_key_CVE: "Chữ ký để xử lý CVE (lỗ hổng và tiếp xúc thường gặp)."
+siginfo_key_Chameleon: "Chữ ký để xử lý "cuộc tấn công tắc kè hoa"."
+siginfo_key_FN: "Chữ ký để làm việc với tên tập tin (trái ngược với nội dung tập tin)."
+siginfo_key_Fake: "Phát hiện là các biến thể giả mạo, độc hại của các thực thể lành tính khác (phần mềm, tập lệnh, vv)."
+siginfo_key_HEUR: "Chữ ký bắt nguồn từ dữ liệu heuristic."
+siginfo_key_META: "Chữ ký để làm việc với siêu dữ liệu tập tin (trái ngược với dữ liệu tập tin)."
+siginfo_key_Other: "Không xác định hoặc khác."
+siginfo_key_Other_Metadata: "Không có siêu dữ liệu."
+siginfo_key_Suspect: "Phát hiện bị nghi ngờ, nhưng không được xác nhận (có thể liên quan đến việc kết hợp các số nhận dạng khác nhau)."
+siginfo_key_Testfile: "Chữ ký cho các tập tin thử nghiệm (những phát hiện này không độc hại)."
+siginfo_key_Total: "Tổng số chữ ký kích hoạt."
+siginfo_key_VT: "Chữ ký bao gồm hoặc dựa trên dữ liệu từ Virus Total."
+siginfo_key_Werewolf: "Chữ ký để xử lý "cuộc tấn công người sói"."
+siginfo_sub_Classes: "Đếm theo phân loại tập tin chữ ký"
+siginfo_sub_Files: "Đếm theo tập tin chữ ký"
+siginfo_sub_MalwareTypes: "Đếm theo nhiễm trùng hay loại phần mềm độc hại"
+siginfo_sub_SigTypes: "Đếm theo siêu dữ liệu chữ ký"
+siginfo_sub_Targets: "Đếm theo vec-tơ mục tiêu"
+siginfo_sub_Vendors: "Đếm theo nhà cung cấp hay nguồn chữ ký"
+siginfo_xkey: "Được xác định là "%s"."
+state_quarantine: "Kiểm dịch hiện có %s tập tin."
+tip:
+ 2FA Sent: "Một email chứa mã 2FA đã được gửi đến địa chỉ email của bạn. Vui lòng xác nhận mã này bên dưới để có quyền truy cập vào front-end. Nếu bạn không nhận được email này, thử đăng xuất, đợi 10 phút, và đăng nhập lại để nhận email mới chứa mã mới."
+ Accounts: "Xin chào, {username}.<br />Trang tài khoản cho phép bạn kiểm soát những người có thể truy cập các front-end phpMussel."
+ Cache Data: "Xin chào, {username}.<br />Ở đây bạn có thể xem lại nội dung của bộ nhớ cache."
+ Configuration: "Xin chào, {username}.<br />Trang cấu hình cho phép bạn chỉnh sửa các cấu hình phpMussel từ các front-end."
+ Home: "Xin chào, {username}.<br />Đây là trang chủ cho các front-end phpMussel. Chọn một liên kết từ thực đơn bên trái để tiếp tục."
+ Logs: "Xin chào, {username}.<br />Chọn một bản ghi từ danh sách dưới đây để xem nội dung của bản ghi này."
+ Quarantine is currently disabled: "Lưu ý: Kiểm dịch hiện đang bị tắt, nhưng có thể được kích hoạt thông qua trang cấu hình."
+ Quarantine: "Xin chào, {username}.<br />Trang này liệt kê tất cả các tập tin hiện đang được trong kiểm dịch và tạo thuận lợi cho việc quản lý các tập tin đó."
+ See the documentation: "Xem <a href="https://github.com/phpMussel/Docs/blob/master/readme.vi.md\#user-content-SECTION5" hreflang="vi-VN" rel="noopener external">tài liệu</a> để biết thông tin về các chỉ thị cấu hình khác nhau và mục đích của họ."
+ Signature Information: "Xin chào, {username}.<br />Trang thông tin chữ ký cung cấp một số thông tin cơ bản về các nguồn và loại chữ ký hiện đang kích hoạt."
+ Statistics tracking is currently disabled: "Lưu ý: Giám sát thống kê hiện bị vô hiệu hóa, nhưng có thể được kích hoạt thông qua trang cấu hình."
+ Statistics: "Xin chào, {username}.<br />Trang này cho thấy một số thống kê của sử dụng cơ bản liên quan đến cài đặt phpMussel của bạn."
+ Upload Testing: "Xin chào, {username}.<br />Trang kiểm tra tải lên chứa một hình thức tải lên tập tin chuẩn, mà cho phép bạn để kiểm tra liệu một tập tin sẽ thường bị chặn bởi phpMussel khi cố gắng để tải nó lên."
+warning:
+ Cookies: "Lưu ý: phpMussel sử dụng một cookie để xác thực đăng nhập. Bằng cách đăng nhập, bạn đồng ý cho cookie được tạo và lưu trữ bởi trình duyệt của bạn."
+ JavaScript required: "Cảnh báo: Một số chức năng yêu cầu JavaScript. Để đảm bảo rằng toàn bộ giao diện hoạt động như mong đợi, bạn nên bật JavaScript."
+ Maintenance mode is enabled: "Cảnh báo: Đã bật chế độ bảo trì!"
+ No signature files are active: "Cảnh báo: Không có tập tin chữ ký nào đang hoạt động!"
+ Proceeding will log out all users: "Cảnh báo: Tiếp tục sẽ đăng xuất tất cả người dùng."
+ This account is not using a valid password: "Cảnh báo: Tài khoản này không được sử dụng một mật khẩu hợp lệ!"
+ Using the default password: "Cảnh báo: Nó là sử dụng mật khẩu mặc định!"

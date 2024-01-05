@@ -1,0 +1,560 @@
+{
+    "packages": [
+        {
+            "name": "maikuolan/common",
+            "version": "v2.12.0",
+            "version_normalized": "2.12.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Maikuolan/Common.git",
+                "reference": "f93a58e686862b5513f3fd9b10b5dd95fc5fa0ad"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Maikuolan/Common/zipball/f93a58e686862b5513f3fd9b10b5dd95fc5fa0ad",
+                "reference": "f93a58e686862b5513f3fd9b10b5dd95fc5fa0ad",
+                "shasum": ""
+            },
+            "require": {
+                "ext-iconv": "*",
+                "ext-pcre": "*",
+                "php": ">=7.2.0"
+            },
+            "time": "2023-12-29T10:48:54+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Maikuolan\\Common\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Common classes package. Contains some common classes written for CIDRAM, phpMussel, etc, available for additional use elsewhere via this package.",
+            "keywords": [
+                "classes",
+                "common",
+                "l10n",
+                "php",
+                "yaml"
+            ],
+            "support": {
+                "docs": "https://github.com/Maikuolan/Common/tree/v2/_docs",
+                "issues": "https://github.com/Maikuolan/Common/issues",
+                "rss": "https://github.com/Maikuolan/Common/releases.atom",
+                "source": "https://github.com/Maikuolan/Common"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../maikuolan/common"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v6.9.1",
+            "version_normalized": "6.9.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "039de174cd9c17a8389754d3b877a2ed22743e18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/039de174cd9c17a8389754d3b877a2ed22743e18",
+                "reference": "039de174cd9c17a8389754d3b877a2ed22743e18",
+                "shasum": ""
+            },
+            "require": {
+                "ext-ctype": "*",
+                "ext-filter": "*",
+                "ext-hash": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
+                "doctrine/annotations": "^1.2.6 || ^1.13.3",
+                "php-parallel-lint/php-console-highlighter": "^1.0.0",
+                "php-parallel-lint/php-parallel-lint": "^1.3.2",
+                "phpcompatibility/php-compatibility": "^9.3.5",
+                "roave/security-advisories": "dev-latest",
+                "squizlabs/php_codesniffer": "^3.7.2",
+                "yoast/phpunit-polyfills": "^1.0.4"
+            },
+            "suggest": {
+                "decomplexity/SendOauth2": "Adapter for using XOAUTH2 authentication",
+                "ext-mbstring": "Needed to send email in multibyte encoding charset or decode encoded addresses",
+                "ext-openssl": "Needed for secure SMTP sending and DKIM signing",
+                "greew/oauth2-azure-provider": "Needed for Microsoft Azure XOAUTH2 authentication",
+                "hayageek/oauth2-yahoo": "Needed for Yahoo XOAUTH2 authentication",
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication",
+                "psr/log": "For optional PSR-3 debug logging",
+                "symfony/polyfill-mbstring": "To support UTF-8 if the Mbstring PHP extension is not enabled (^1.2)",
+                "thenetworg/oauth2-azure": "Needed for Microsoft XOAUTH2 authentication"
+            },
+            "time": "2023-11-25T22:23:28+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "PHPMailer\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1-only"
+            ],
+            "authors": [
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "support": {
+                "issues": "https://github.com/PHPMailer/PHPMailer/issues",
+                "source": "https://github.com/PHPMailer/PHPMailer/tree/v6.9.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/Synchro",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../phpmailer/phpmailer"
+        },
+        {
+            "name": "phpmussel/cli",
+            "version": "v3.2.1",
+            "version_normalized": "3.2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/CLI.git",
+                "reference": "cdfb4ac885891f819ea11ceddea461217b95ab54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/CLI/zipball/cdfb4ac885891f819ea11ceddea461217b95ab54",
+                "reference": "cdfb4ac885891f819ea11ceddea461217b95ab54",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=7.2.0 !=7.4.0",
+                "phpmussel/core": "^3.4.2"
+            },
+            "time": "2023-11-22T04:26:46+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\CLI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "phpMussel CLI-mode",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/CLI/issues",
+                "rss": "https://github.com/phpMussel/CLI/releases.atom",
+                "source": "https://github.com/phpMussel/CLI"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/cli"
+        },
+        {
+            "name": "phpmussel/core",
+            "version": "v3.4.2",
+            "version_normalized": "3.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/Core.git",
+                "reference": "780f16bf8eb96fb4e22f3d581f7c79b314d9258b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/Core/zipball/780f16bf8eb96fb4e22f3d581f7c79b314d9258b",
+                "reference": "780f16bf8eb96fb4e22f3d581f7c79b314d9258b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "maikuolan/common": "^2.11",
+                "php": ">=7.2.0"
+            },
+            "suggest": {
+                "ext-apcu": ">=4",
+                "ext-bz2": "*",
+                "ext-curl": "*",
+                "ext-lzf": "*",
+                "ext-rar": "*",
+                "ext-zip": "*"
+            },
+            "time": "2023-11-22T04:25:42+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\Core\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "phpMussel core",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/Core/issues",
+                "rss": "https://github.com/phpMussel/Core/releases.atom",
+                "source": "https://github.com/phpMussel/Core"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/core"
+        },
+        {
+            "name": "phpmussel/frontend",
+            "version": "v3.4.2",
+            "version_normalized": "3.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/FrontEnd.git",
+                "reference": "debd889c3723bf2fd05d00b5b04bbe9eb1c14c7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/FrontEnd/zipball/debd889c3723bf2fd05d00b5b04bbe9eb1c14c7e",
+                "reference": "debd889c3723bf2fd05d00b5b04bbe9eb1c14c7e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=7.2.0",
+                "phpmussel/core": "^3.4.2"
+            },
+            "time": "2023-11-21T06:50:02+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\FrontEnd\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "phpMussel front-end",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/FrontEnd/issues",
+                "rss": "https://github.com/phpMussel/FrontEnd/releases.atom",
+                "source": "https://github.com/phpMussel/FrontEnd"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/frontend"
+        },
+        {
+            "name": "phpmussel/phpmailer",
+            "version": "v3.1.10",
+            "version_normalized": "3.1.10.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/Plugin-PHPMailer.git",
+                "reference": "36841b897d893fa108b4f2f29be7950f8a49b5aa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/Plugin-PHPMailer/zipball/36841b897d893fa108b4f2f29be7950f8a49b5aa",
+                "reference": "36841b897d893fa108b4f2f29be7950f8a49b5aa",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0",
+                "phpmailer/phpmailer": "^6.5",
+                "phpmussel/core": "^3.4.2"
+            },
+            "replace": {
+                "maikuolan/phpmussel-plugin-notifications": "*"
+            },
+            "suggest": {
+                "phpmussel/frontend": "^3.3",
+                "phpmussel/web": "^3.3"
+            },
+            "time": "2023-11-22T04:28:56+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\PHPMailer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Uses PHPMailer to provide 2FA and email notifications support for phpMussel v3+",
+            "homepage": "https://phpmussel.github.io/",
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/Plugin-PHPMailer/issues",
+                "rss": "https://github.com/phpMussel/Plugin-PHPMailer/releases.atom",
+                "source": "https://github.com/phpMussel/Plugin-PHPMailer"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/phpmailer"
+        },
+        {
+            "name": "phpmussel/phpmussel",
+            "version": "v3.4.2",
+            "version_normalized": "3.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/phpMussel.git",
+                "reference": "a2f6564e11922a5e32197185200f1b5f1e8928e5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/phpMussel/zipball/a2f6564e11922a5e32197185200f1b5f1e8928e5",
+                "reference": "a2f6564e11922a5e32197185200f1b5f1e8928e5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "maikuolan/common": "^2.11",
+                "php": ">=7.2.0",
+                "phpmussel/cli": "^3.2.1",
+                "phpmussel/core": "^3.4.2",
+                "phpmussel/frontend": "^3.4.2",
+                "phpmussel/phpmailer": "^3.1.10",
+                "phpmussel/web": "^3.4.2"
+            },
+            "replace": {
+                "maikuolan/phpmussel": "self.version"
+            },
+            "time": "2023-11-22T04:30:32+00:00",
+            "type": "metapackage",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "PHP-based anti-virus anti-trojan anti-malware solution.",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/phpMussel/issues",
+                "rss": "https://github.com/phpMussel/phpMussel/releases.atom",
+                "source": "https://github.com/phpMussel/phpMussel"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": null
+        },
+        {
+            "name": "phpmussel/web",
+            "version": "v3.4.2",
+            "version_normalized": "3.4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpMussel/Web.git",
+                "reference": "c3874157a151826948a806ba83b39970e866f22b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpMussel/Web/zipball/c3874157a151826948a806ba83b39970e866f22b",
+                "reference": "c3874157a151826948a806ba83b39970e866f22b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": ">=7.2.0",
+                "phpmussel/core": "^3.4.2"
+            },
+            "time": "2023-11-22T04:29:51+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "phpMussel\\Web\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "phpMussel upload handler",
+            "homepage": "https://phpmussel.github.io/",
+            "keywords": [
+                "anti-exploit",
+                "anti-malware",
+                "anti-spam",
+                "anti-trojan",
+                "anti-virus",
+                "antivirus",
+                "protection",
+                "security",
+                "uploads"
+            ],
+            "support": {
+                "docs": "https://github.com/phpMussel/Docs",
+                "issues": "https://github.com/phpMussel/Web/issues",
+                "rss": "https://github.com/phpMussel/Web/releases.atom",
+                "source": "https://github.com/phpMussel/Web"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.me/maikuolan",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://ko-fi.com/maikuolan",
+                    "type": "ko_fi"
+                },
+                {
+                    "url": "https://liberapay.com/Maikuolan",
+                    "type": "liberapay"
+                }
+            ],
+            "install-path": "../phpmussel/web"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

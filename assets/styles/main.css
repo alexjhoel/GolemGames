@@ -1,0 +1,44 @@
+:root {
+    --light-alternate-color: #1e90ff;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf");
+}
+
+body{
+    
+    font-family: "Roboto", Arial, sans-serif;
+}
+
+.dropdown-item{
+    margin-right: 0.5em;
+    margin-left: 0.5em;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    width: auto;
+
+}
+
+.dropdown-menu{
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.title-banner{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-search-bar{
+    margin-top: -20px;
+}
+
+/*Especificar colores para un modo de colores
+[data-bs-theme=dark] .element {
+    color: var(--bs-primary-text-emphasis);
+    background-color: var(--bs-primary-bg-subtle);
+  }
+*/

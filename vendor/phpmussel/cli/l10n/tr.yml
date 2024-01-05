@@ -1,0 +1,77 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Turkish language data (last modified: 2022.08.21).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "Bu komutu anlamıyorum, üzgünüm."
+cli_algo_not_supported: "Belirtilen algoritma desteklenmiyor."
+cli_failed_to_complete: "Tarama işlemini tamamlama başarısız"
+cli_is_not_a: "%s bir dosya veya dizin değil."
+cli_ln2: |
+ phpMussel programını kullandığınız için teşekkür ederiz; Sisteminize
+ yüklenen dosyalardaki truva atlarını, virüsleri, zararlı yazılımları ve
+ diğer tehditleri tespit etmek için tasarlanmış bir PHP betiği, ClamAV
+ imzalarına ve diğerlerine dayalı olarak.
+                                     ~ ~ ~
+ PHPMUSSEL TELIF HAKKI 2013 ve sonrası GNU/GPLv2 by Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ Şu anda CLI modunda çalışan phpMussel (komut satırı arabirimi). Bir
+ dosyayı veya dizini taramak için "scan" yazın, taramak istediğiniz
+ dosyanın veya dizinin adını yazın ve Enter tuşuna basın; CLI modu
+ komutlarının bir listesi için "c" yazın ve Enter tuşuna basın; Çıkmak için
+ "q" yazın ve Enter tuşuna basın.
+cli_pe1: "Geçerli bir PE dosyası değil!"
+cli_pe2: "PE Bölümleri:"
+cli_signature_placeholder: "IMZA-ADINIZ"
+cli_working: "Devam etmekte"
+cli_commands: |
+ q | quit | exit -- CLI'den çıkın.
+
+ hash_file:[algo] [dosya adı] -- Dosyalardan karma imzaları oluştur.
+
+ hash:[algo] [dizgesi] -- Dizeden karma imzası üret.
+ Örnek: >> hash:crc32b Hello World
+        4a17b156:11:IMZA-ADINIZ
+
+ algo -- Tüm desteklenen algoritmaları listele.
+
+ hex_encode [dizgesi] -- İkili dizgeyi onaltılık olarak dönüştür.
+ Örnek: >> hex_encode Hello World
+        48656c6c6f20576f726c64
+
+ hex_decode [dizgesi] -- Onaltılıyı ikili dizeye olarak dönüştür.
+
+ (base64_encode | b) [dizgesi] -- İkili'e base64 hale dönüştür.
+
+ base64_decode [dizgesi] -- Base64'ü ikili hale dönüştür.
+
+ pe_meta [dosya adı] -- Meta verileri bir PE dosyasından ayıklayın.
+
+ url_sig [dizgesi] -- URL tarayıcı imzalarını oluştur.
+
+ (scan | s) [dosya adı] -- Dosya veya dizini tara.
+
+ c -- Bu komut listesini yazdırın.
+invalid_url: "Geçersiz URL!"

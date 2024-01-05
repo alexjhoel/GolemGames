@@ -1,0 +1,77 @@
+##\
+# This file is a part of the phpMussel\CLI package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Swedish language data (last modified: 2022.09.15).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+bad_command: "Jag förstår inte det kommandot, ursäkta."
+cli_algo_not_supported: "Specificerad algoritm stöds inte."
+cli_failed_to_complete: "Det gick inte att slutföra skanningsprocessen"
+cli_is_not_a: "%s är inte en fil eller katalog."
+cli_ln2: |
+ Tack för att du använder phpMussel, ett PHP-skript som är utformat för att
+ upptäcka trojaner, virus, skadlig kod och andra hot inom filer som laddas upp
+ till ditt system varhelst skriptet är anslutet, baserat på signaturerna från
+ ClamAV och andra.
+                                     ~ ~ ~
+ PHPMUSSEL COPYRIGHT 2013 och därefter GNU/GPLv2 av Caleb M (Maikuolan).
+                                     ~ ~ ~
+cli_ln3: |
+ Kör för närvarande phpMussel i CLI-läge (kommandoradsgränssnitt). Om du vill
+ skanna en fil eller katalog, skriver du "scan", följt av namnet på filen eller
+ katalogen som du vill att phpMussel ska skanna, och tryck på Enter; Skriv "c"
+ och tryck på Enter för att visa en lista över CLI-läge-kommandon; Skriv "q"
+ och tryck på Enter för att avsluta.
+cli_pe1: "Inte en giltig PE-fil!"
+cli_pe2: "PE-sektion:"
+cli_signature_placeholder: "DITT-SIGNATURNAMN"
+cli_working: "Pågående"
+cli_commands: |
+ q | quit | exit -- Avsluta CLI.
+
+ hash_file:[algo] [filnamn] -- Generera hash-signaturer från filer.
+
+ hash:[algo] [sträng] -- Generera hash-signaturer från strängen.
+ Exempel: >> hash:crc32b Hello World
+          4a17b156:11:DITT-SIGNATURNAMN
+
+ algo -- Lista alla algoritmer som stöds.
+
+ hex_encode [sträng] -- Konvertera binär sträng till hexadecimal.
+ Exempel: >> hex_encode Hello World
+          48656c6c6f20576f726c64
+
+ hex_decode [sträng] -- Konvertera hexadecimal till binär sträng.
+
+ (base64_encode | b) [sträng] -- Konvertera binär sträng till bas64-sträng.
+
+ base64_decode [sträng] -- Konvertera bas64-sträng till binär sträng.
+
+ pe_meta [filnamn] -- Extrahera metadata från en PE-fil.
+
+ url_sig [sträng] -- Generera URL-skannersignaturer.
+
+ (scan | s) [filnamn] -- Skanna fil eller katalog.
+
+ c -- Skriv ut den här kommandolistan.
+invalid_url: "Felaktig URL!"

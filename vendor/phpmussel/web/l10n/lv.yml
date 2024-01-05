@@ -1,0 +1,60 @@
+##\
+# This file is a part of the phpMussel\Web package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Latvian language data (last modified: 2023.09.16).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+PrivacyPolicy: "Privātuma Politika"
+config:
+ web: "Augšupielādes apstrādātāja konfigurācija."
+ web_custom_footer: "Ievietots kā HTML visu lapu “augšupielāde ir noraidīta” pašā apakšā. Tas varētu būt noderīgi, ja vēlaties visās šādās lapās iekļaut juridisku paziņojumu, kontaktu saiti, uzņēmuma informāciju, vai līdzīgu informāciju."
+ web_custom_header: "Ievietots kā HTML visu lapu “augšupielāde ir noraidīta” pašā sākumā. Tas varētu būt noderīgi, ja vēlaties visās šādās lapās iekļaut vietnes logotipu, personalizētu galveni, skriptus, vai līdzīgu informāciju."
+ web_forbid_on_block: "Vai phpMussel vajadzētu nosūtīt 403 galvenes ar failu augšupielādētu bloķētu ziņojumu, vai pieturēties pie parastiem 200 OK? False (Nepatiess) = Nē (200); True (Patiess) = Jā (403) [Noklusējuma]."
+ web_ignore_upload_errors: "Parasti jums tas jāiespējo tikai tad, ja tas ir nepieciešams pareizai phpMussel funkcionalitātei jūsu konkrētajā sistēmā. Parasti, kad tas ir atspējots, kad phpMussel atklāts elementi, kas atrodas <code>$_FILES</code> array(), tas mēģinās sākt skenēt failus, kurus šie elementi attēlo, un, ja šie elementi ir tukši, phpMussel atgriezīs kļūdas ziņojumu. Tā ir pareiza phpMussel rīcība. Tomēr dažās CMS, šo CMS dabiskā izturēšanās var izraisīt tukšus elementus (iekšpusē <code>$_FILES</code>), vai kļūdas var tikt paziņotas kļūdaini, tādā gadījumā phpMussel normāla izturēšanās var traucēs šo CMS normālu izturēšanos. Ja šāda situācija rodas jums, iespējot šo opciju, phpMussel tiks uzdots neskenēt ar tukšiem elementiem, ignorēt tos, kad tie ir atrasti, un neatgriezt visus saistītos kļūdu ziņojumus, tādējādi ļaujot turpināt lapas pieprasījumu. False (Nepatiess) = Atspējots; True (Patiess) = Iespējots."
+ web_magnification: "Fonta palielinājums. Noklusējuma = 1."
+ web_max_uploads: "Maksimālais failu skaits, augšupielādes skenēšanas laikā, ko phpMussel ir atļauts skenēt, pirms skenēšanas pārtraukšanas un lietotāja informēšanas, ka viņš vienlaikus augšupielādē pārāk daudz! Nodrošina aizsardzību pret teorētisku uzbrukumu, kurā uzbrucējs mēģina DDoS jūsu sistēmā vai CMS, pārslogojot phpMussel, lai palēninātu PHP procesu līdz apturēšanai. Ieteicams: 10. Iespējams, vēlēsities palielināt vai samazināt šo numuru atkarībā no aparatūras ātruma. Ņemiet vērā, ka šis numurs neaptver un neietver arhīvu saturu."
+ web_theme: "Estētika, ko izmantot lapā “augšupielāde ir noraidīta”."
+ web_unsupported_media_type_header: "Vai phpMussel vajadzētu nosūtīt 415 galvenes, kad augšupielāde ir bloķētas melnajā sarakstā iekļauto failu tipu dēļ? Ja tā ir true (patiesa), šis iestatījums aizstāj <code>forbid_on_block</code>. False (Nepatiess) = Nē [Noklusējuma]; True (Patiess) = Jā."
+ web_uploads_log: "Kur vajadzētu reģistrēt visas bloķētās augšupielādes. Norādiet faila nosaukumu, vai atstājiet tukšu, lai to atspējotu."
+denied: "Augšupielāde ir noraidīta!"
+denied_reason: "Jūsu augšupielāde tika bloķēta zemāk uzskaitīto iemeslu dēļ:"
+notifications_message: |
+ <center>
+ <p><strong>Sveiki.</strong></p>
+ <p><strong>Šis e-pasts paziņo jums, ka ir bloķēti šādu failu augšupielāde:</strong></p>
+ <p>%s</p>
+ <p><strong>Kāpēc tas notika:</strong></p>
+ <p>%s</p>
+ <p><strong>Kad tas notika:</strong></p>
+ <p>%s</p>
+ </center>
+notifications_subject: "Bloķēts augšupielādes paziņojums"
+scan_unauthorised_upload: "Atrasta neatļautas failu augšupielādes manipulācijas!"
+scan_unauthorised_upload_or_misconfig: "Atrasta neatļautas failu augšupielādes manipulācijas vai nepareizas konfigurācijas!"
+upload_error_1: "Faila lielums pārsniedz upload_max_filesize direktīvu."
+upload_error_2: "Faila lielums pārsniedz formā norādīto faila lieluma ierobežojumu."
+upload_error_34: "Augšupielāde neizdevās! Lūdzu, sazinieties ar tīmekļa mitinātājs pārzinis, lai saņemtu palīdzību!"
+upload_error_6: "Trūkst augšupielādes direktorijas! Lūdzu, sazinieties ar tīmekļa mitinātājs pārzinis, lai saņemtu palīdzību!"
+upload_error_7: "Diska rakstīšanas kļūda! Lūdzu, sazinieties ar tīmekļa mitinātājs pārzinis, lai saņemtu palīdzību!"
+upload_error_8: "Atrasts nepareiza PHP konfigurācija! Lūdzu, sazinieties ar tīmekļa mitinātājs pārzinis, lai saņemtu palīdzību!"
+upload_limit_exceeded: "Augšupielādes ierobežojums ir pārsniegts"

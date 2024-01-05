@@ -1,0 +1,370 @@
+##\
+# This file is a part of the phpMussel\FrontEnd package.
+# Homepage: https://phpmussel.github.io/
+#
+# PHPMUSSEL COPYRIGHT 2013 AND BEYOND BY THE PHPMUSSEL TEAM.
+#
+# License: GNU/GPLv2
+# @see LICENSE.txt
+#
+# This file: Afrikaans language data (last modified: 2023.09.24).
+#
+# Regarding translations: My native language is English. Because this is a free
+# and open-source hobby project which generates zero income, and translatable
+# content is likely to change as the features and functionality supported by
+# the project changes, it doesn't make sense for me to spend money for
+# translations. Because I'm the sole author/developer/maintainer for the
+# project and I'm not a ployglot, any translations I produce are very likely to
+# contain errors. Sorry, but realistically, that won't ever change. If you find
+# any such errors/typos/mistakes/etc, your assistance to correct them would be
+# very much appreciated. Pull requests are invited and encouraged. Otherwise,
+# if you find these errors too much to handle, just stick with the original
+# English source. If a translation is irredeemably incomprehensible, let me
+# know which, and I can delete it. If you're not sure how to perform pull
+# requests, ask. I can help.
+##/
+
+checkbox:
+ Delete orphaned values: "Vee onverbonde waardes uit."
+config:
+ core: "Algemene konfigurasie (enige kernkonfigurasie wat nie aan ander kategorieë behoort nie)."
+ core_default_timeout: "Verstek uitteltyd om vir eksterne versoeke te gebruik? Verstek = 12 sekondes."
+ core_delete_on_sight: "Deur hierdie opsie te aktiveer, sal die skrif opdrag gee om onmiddellik te probeer om enige geskandeerde gepoogde lêeroplaai wat ooreenstem met enige opsporingskriteria, hetsy via handtekeninge of andersins, te verwyder. Lêers wat as "skoon" bepaal word, sal nie aangeraak word nie. In die geval van argiewe, sal die hele argief verwyderde word, ongeag of die oortredende lêer slegs een van verskeie lêers in die argief is of nie. Vir die geval van lêeroplaai-skandering is dit gewoonlik nie nodig om hierdie opsie te aktiveer nie, want gewoonlik sal PHP outomaties die inhoud van sy kas skoonmaak wanneer die uitvoering voltooi is, wat beteken dat dit gewoonlik enige lêers wat daardeur na die bediener opgelaai is, sal verwyder, tensy dit reeds geskuif, gekopieer, of verwyderde is. Hierdie opsie word hier bygevoeg as 'n ekstra maatstaf van sekuriteit vir diegene wie se kopieë van PHP dalk nie altyd op die verwagte manier optree nie. False = Na skandering, laat die lêer wees [Verstek]; True = Na skandering, indien nie skoon nie, verwyder dit onmiddellik."
+ core_disabled_channels: "Dit kan gebruik word om te verhoed dat phpMussel bepaalde kanale gebruik wanneer versoeke gestuur word."
+ core_error_log: "Lêer om enige nie-noodlottige foute wat bespeur is, aan te teken. Spesifiseer 'n lêernaam, of laat leeg om te deaktiveer."
+ core_hide_version: "Versteek weergawe-inligting van logs en bladsy-uitvoer? True = Ja; False = Nee [Verstek]."
+ core_ipaddr: "Waar om die IP-adres van inkomende versoeke te vind? (Nuttig vir dienste soos Cloudflare en dies meer). Verstek = REMOTE_ADDR. WAARSKUWING: Moenie dit verander tensy jy weet wat jy doen nie!"
+ core_lang: "Spesifiseer die verstektaal vir phpMussel."
+ core_lang_override: "Lokaliseer volgens HTTP_ACCEPT_LANGUAGE waar moontlik? True = Ja [Verstek]; False = Nee."
+ core_log_rotation_action: "Logrotasie beperk die aantal loglêers wat op enige tydstip moet bestaan. Wanneer nuwe loglêers geskep word, as die totale aantal loglêers die gespesifiseerde limiet oorskry, sal die gespesifiseerde aksie uitgevoer word. Jy kan die verlangde aksie hier spesifiseer."
+ core_log_rotation_limit: "Logrotasie beperk die aantal loglêers wat op enige tydstip moet bestaan. Wanneer nuwe loglêers geskep word, as die totale aantal loglêers die gespesifiseerde limiet oorskry, sal die gespesifiseerde aksie uitgevoer word. Jy kan die verlangde limiet hier spesifiseer. 0 sal logrotasie deaktiveer."
+ core_maintenance_mode: "Aktiveer onderhoudmodus? True = Ja; False = Nee [Verstek]. Deaktiveer alles behalwe die front-end. Soms nuttig vir wanneer jy jou CMS, raamwerke, ens. opdateer."
+ core_outbound_request_log: "Lêer om die resultate van enige uitgaande versoeke aan te teken. Spesifiseer 'n lêernaam, of laat leeg om te deaktiveer."
+ core_scan_cache_expiry: "Vir hoe lank moet phpMussel die resultate van skandering kas? Waarde is die aantal sekondes om die resultate van skandering te kas. Verstek is 21600 sekondes (6 uur); 0 sal die kas van die resultate van skandering deaktiveer."
+ core_scan_log: "Die naam van die lêer om alle skanderingsresultate aan te meld. Spesifiseer 'n lêernaam, of laat leeg om te deaktiveer."
+ core_scan_log_serialized: "Die naam van die lêer om alle skanderingsresultate aan te meld (met behulp van 'n reeksformaat). Spesifiseer 'n lêernaam, of laat leeg om te deaktiveer."
+ core_statistics: "Volg phpMussel-gebruikstatistieke? True = Ja; False = Nee [Verstek]."
+ core_time_format: "Die datum/tyd-notasieformaat wat deur phpMussel gebruik word. Bykomende opsies kan op versoek bygevoeg word."
+ core_time_offset: "Tydsone verskil in minute."
+ core_timezone: "Dit word gebruik om die tydsone te spesifiseer (bv., Africa/Cairo, America/New_York, Asia/Tokyo, Australia/Perth, Europe/Berlin, Pacific/Guam, ens). Spesifiseer "SYSTEM" om PHP dit outomaties vir jou te laat hanteer."
+ core_truncate: "Knip loglêers af wanneer hulle 'n sekere grootte bereik? Waarde is die maksimum grootte in B/KB/MB/GB/TB waartoe 'n loglêer kan groei voordat dit afgekap word. Die verstekwaarde van 0KB deaktiveer afkapping (loglêers kan onbepaald groei). Kennis neem: Van toepassing op individuele loglêers! Die grootte van loglêers word nie gesamentlik oorweeg nie."
+ experimental: "Onstabiel/Eksperimenteel!"
+ files: "Die besonderhede van hoe om lêers te hanteer tydens skandering."
+ files_allow_leading_trailing_dots: "Laat voorste en agterste kolletjies in lêername toe? Dit kan soms gebruik word om lêers te versteek, of om sommige stelsels te mislei om deurgang van die gids toe te laat. False = Moenie dit toelaat nie [Verstek]. True = Laat dit toe."
+ files_archive_file_extensions: "Herkende argieflêeruitbreidings (formaat is CSV; moet slegs byvoeg of verwyder wanneer probleme voorkom; onnodige verwydering kan veroorsaak dat vals positiewes vir argieflêers verskyn, terwyl onnodige byvoeging in wese sal witlys wat jy byvoeg vanaf aanvalspesifieke-opsporing; verander met omsigtigheid; let ook daarop dat dit geen effek het op watter argiewe op inhoudsvlak ontleed kan word en nie). Die lys, soos dit by verstek is, lys die formate wat die meeste oor die meeste stelsels en CMS gebruik word, maar is doelbewus nie noodwendig omvattend nie."
+ files_block_control_characters: "Blokkeer enige lêers wat enige beheerkarakters bevat (behalwe nuwe reëls)? As jy net gewone teks oplaai, kan jy hierdie opsie aanskakel om bykomende beskerming aan jou stelsel te bied. As jy egter enigiets anders as gewone teks oplaai, kan dit lei tot vals positiewe as jy dit aanskakel. False = Moenie blokkeer nie [Verstek]; True = Blokkeer."
+ files_block_encrypted_archives: "Bespeur en blokkeer geënkripteerde argiewe? Omdat phpMussel nie die inhoud van geënkripteerde argiewe kan skandeer nie, is dit moontlik dat argiefkodering deur 'n aanvaller gebruik kan word as 'n manier om phpMussel, anti-virus skandeerders en ander sulke beskermings te omseil. Deur phpMussel opdrag te gee om enige argiewe wat dit ontdek om geënkripteer te blokkeer, kan moontlik help om enige risiko verbonde aan hierdie sulke moontlikhede te verminder. False = Nee; True = Ja [Verstek]."
+ files_block_macros: "Probeer om enige lêers wat makro's bevat te blokkeer? Sommige tipes dokumente en sigblaaie kan uitvoerbare makro's bevat, wat dus 'n gevaarlike potensiële wanwarevektor verskaf. False = Moenie blokkeer nie [Verstek]; True = Blokkeer."
+ files_can_contain_php_file_extensions: "Lys van lêeruitbreidings wat toegelaat word om PHP-kode te bevat, geskei deur kommas. Wanneer dit geaktiveer is, sal lêers wat PHP-kode bevat, waarvan die uitbreidings nie op hierdie lys is nie, bespeur word as PHP-verkleurmannetjiesaanvalle."
+ files_chameleon_from_exe: "Soek vir uitvoerbare opskrifte in lêers wat nóg uitvoerbare nóg erkende argiewe is en vir uitvoerbare items waarvan die opskrifte verkeerd is. False = Af; True = Aan."
+ files_chameleon_from_php: "Soek vir PHP-opskrifte in lêers wat nie PHP-lêers of erkende argiewe is nie. False = Af; True = Aan."
+ files_chameleon_to_archive: "Bespeur verkeerde opskrifte in argiewe en saamgeperste lêers. Ondersteunde: BZ/BZIP2, GZ/GZIP, LZF, RAR, ZIP. False = Af; True = Aan."
+ files_chameleon_to_doc: "Soek vir kantoordokumente waarvan die opskrifte verkeerd is (Ondersteunde: DOC, DOT, PPS, PPT, XLA, XLS, WIZ). False = Af; True = Aan."
+ files_chameleon_to_img: "Soek vir beeldlêers waarvan die opskrifte verkeerd is (Ondersteunde: BMP, DIB, PNG, GIF, JPEG, JPG, XCF, PSD, PDD, WEBP). False = Af; True = Aan."
+ files_chameleon_to_pdf: "Soek vir PDF-lêers waarvan die opskrifte verkeerd is. False = Af; True = Aan."
+ files_check_archives: "Poging om die inhoud van argiewe na te gaan? False = Moenie nagaan nie; True = Gaan dit na [Verstek]. Ondersteunde: Zip (vereis libzip), Tar, Rar (vereis die rar-uitbreiding)."
+ files_corrupted_exe: "Korrupte lêers en ontleedfoute. False = Ignoreer; True = Blokkeer [Verstek]. Bespeur en blokkeer potensieel korrupte PE (Portable Executable) lêers? Dikwels (maar nie altyd nie), wanneer sekere aspekte van 'n PE-lêer beskadig is of nie korrek ontleed kan word nie, kan dit 'n virale infeksie aandui. Die prosesse wat deur die meeste antivirusprogramme gebruik word om virusse in PE-lêers op te spoor, vereis dat daardie lêers op sekere maniere ontleed word, wat, as die programmeerder van 'n virus bewus is daarvan, spesifiek sal probeer voorkom, sodat hul virus onopgemerk kan bly."
+ files_decode_threshold: "Drempel vir die lengte van rou data waarbinne dekodeeropdragte opgespoor moet word (ingeval daar enige merkbare prestasieprobleme is tydens skandering). Verstek = 512KB. Zero of null deaktiveer die drempel (verwydering van enige sodanige beperking gebaseer op lêergrootte)."
+ files_filesize_archives: "Dra lêergrootte swartlys/witlys oor na die inhoud van argiewe? False = Nee (gryslys net alles); True = Ja [Verstek]."
+ files_filesize_limit: "Lêergrootte limiet in KB. 65536 = 64MB [Verstek]; 0 = Geen limiet (altyd gegryslys). Enige (positiewe) numeriese waarde word aanvaar. Dit kan nuttig wees wanneer jou PHP-konfigurasie die hoeveelheid geheue wat 'n proses kan hou beperk of as jou PHP-konfigurasie die lêergrootte van oplaaie beperk."
+ files_filesize_response: "Wat om te doen met lêers wat die lêergroottelimiet oorskry (indien een bestaan). False = Witlys; True = Swartlys [Verstek]."
+ files_filetype_archives: "Dra lêertipe swartlys/witlys oor na die inhoud van argiewe? False = Nee (gryslys net alles) [Verstek]; True = Ja."
+ files_filetype_blacklist: "Swartlys:"
+ files_filetype_greylist: "Gryslys:"
+ files_filetype_whitelist: "Witlys:"
+ files_max_files_in_archives: "Maksimum aantal lêers om van binne argiewe te skandeer voordat die skandering gestaak word. Verstek = 0 (geen maksimum nie)."
+ files_max_recursion: "Maksimum rekursie diepte limiet vir argiewe. Verstek = 3."
+ files_only_allow_images: "Wanneer dit op true gestel is, sal enige lêers wat deur die skandeerder teëkom wat nie beelde is nie, onmiddellik gemerk word, sonder om geskandeer te word. Dit kan in sommige gevalle help om die tyd wat nodig is om 'n skandering te voltooi te verminder. Stel by verstek op false."
+ files_scannable_threshold: "Drempel tot die lengte van rou data wat phpMussel toegelaat word om te lees en te skandeer (ingeval daar enige merkbare prestasieprobleme is tydens skandering). Verstek = 32MB. Zero of null deaktiveer die drempel. Oor die algemeen moet hierdie waarde nie minder wees as die gemiddelde lêergrootte van lêeroplaaie wat jy na jou bediener of webwerf wil ontvang en verwag om te ontvang nie, nie meer as die filesize_limit-opsie te wees nie, en nie meer as ongeveer een vyfde te wees van die totale toelaatbare geheuetoewysing wat aan PHP toegestaan is via die "php.ini"-konfigurasielêer nie. Hierdie opsie bestaan om te probeer voorkom dat phpMussel te veel geheue gebruik (wat sou verhoed dat dit lêers bo 'n sekere lêergrootte suksesvol kan skandeer)."
+ frontend: "Konfigurasie vir die front-end."
+ frontend_custom_footer: "Ingevoeg as HTML heel onderaan alle front-end-bladsye. Dit kan nuttig wees indien jy 'n regskennisgewing, kontakskakel, besigheidsinligting, of soortgelyke by al sulke bladsye wil insluit."
+ frontend_custom_header: "Ingevoeg as HTML heel aan die begin van alle front-end-bladsye. Dit kan nuttig wees indien u 'n webwerf-logo, gepersonaliseerde kopskrif, skrifte, of soortgelyke by al sulke bladsye wil insluit."
+ frontend_default_algo: "Definieer watter algoritme om vir alle toekomstige wagwoorde en sessies te gebruik."
+ frontend_frontend_log: "Lêer vir front-end intekenpogings aan te meld. Spesifiseer 'n lêernaam, of laat leeg om te deaktiveer."
+ frontend_magnification: "Lettertipe vergroting. Verstek = 1."
+ frontend_max_login_attempts: "Maksimum aantal intekenpogings aan die front-end. Verstek = 5."
+ frontend_numbers: "Hoe verkies jy dat getalle vertoon word? Kies die voorbeeld wat vir jou die korrekste lyk."
+ frontend_theme: "Die estetiese om te gebruik vir phpMussel se front-end."
+ legal: "Konfigurasie vir wetlike vereistes."
+ legal_privacy_policy: "Die adres van 'n relevante privaatheidsbeleid wat in die voetskrif van enige gegenereerde bladsye vertoon moet word. Spesifiseer 'n URL, of laat leeg om te deaktiveer."
+ legal_pseudonymise_ip_addresses: "Pseudonimiseer IP-adresse tydens aanteken? True = Ja [Verstek]; False = Nee."
+ quarantine: "Konfigurasie vir die kwarantyn."
+ quarantine_quarantine_key: "phpMussel kan geblokkeerde lêeroplaaie in kwarantyn plaas, as dit iets is wat jy wil hê dit moet doen. Toevallige gebruikers van phpMussel wat bloot hul webwerwe of gasheeromgewing wil beskerm sonder om enige belang te hê in die diepgaande ontleding van enige gevlagde poging tot lêeroplaai, moet hierdie funksionaliteit gedeaktiveer laat, maar enige gebruikers wat belangstel in verdere ontleding van gevlagde gepoogde lêeroplaaie vir wanwarenavorsing of vir soortgelyke sulke dinge moet hierdie funksionaliteit aktiveer. Die kwarantyn van gevlagde pogings tot lêeroplaai kan soms ook help om vals positiewes te ontfout, as dit iets is wat gereeld vir jou voorkom. Om kwarantynfunksionaliteit te deaktiveer, laat bloot die <code>quarantine_key</code>-opsie leeg, of vee die inhoud van daardie opsie uit as dit nie reeds leeg is nie. Om kwarantynfunksionaliteit te aktiveer, voer 'n sekere waarde in die opsie in. Die <code>quarantine_key</code> is 'n belangrike sekuriteitskenmerk van die kwarantynfunksionaliteit wat vereis word as 'n manier om te verhoed dat die kwarantynfunksionaliteit deur potensiële aanvallers uitgebuit word en as 'n manier om enige moontlike uitvoering van data wat binne die kwarantyn gestoor is te voorkom. Die <code>quarantine_key</code> moet op dieselfde manier as jou wagwoorde behandel word: Hoe langer hoe beter, en bewaak dit noukeurig. Vir die beste effek, gebruik saam met <code>delete_on_sight</code>."
+ quarantine_quarantine_max_files: "Die maksimum aantal lêers wat in die kwarantyn kan bestaan. Wanneer nuwe lêers by die kwarantyn gevoeg word, as hierdie aantal oorskry word, sal ou lêers uitgevee word totdat die res nie meer hierdie aantal oorskry nie. Verstek = 100."
+ quarantine_quarantine_max_filesize: "Die maksimum lêergrootte wat toegelaat word vir lêers om in kwarantyn geplaas te word. Lêers groter as die waarde wat gespesifiseer is, sal NIE in kwarantyn geplaas word nie. Hierdie opsie is belangrik as 'n manier om dit vir enige potensiële aanvallers moeiliker te maak om jou kwarantyn te oorstroom met ongewenste data wat moontlik wegholdatagebruik op jou gasheerdiens kan veroorsaak. Verstek = 2MB."
+ quarantine_quarantine_max_usage: "Die maksimum geheuegebruik wat vir die kwarantyn toegelaat word. As die totale geheue wat deur die kwarantyn gebruik word hierdie waarde bereik, sal die oudste lêers in kwarantyn uitgevee word totdat die totale geheue wat gebruik word nie meer hierdie waarde bereik nie. Hierdie opsie is belangrik as 'n manier om dit vir enige potensiële aanvallers moeiliker te maak om jou kwarantyn te oorstroom met ongewenste data wat moontlik wegholdatagebruik op jou gasheerdiens kan veroorsaak. Verstek = 64MB."
+ signatures: "Konfigurasie vir handtekeninge, handtekeninglêers, ens."
+ signatures_active: "Lys van die aktiewe handtekeninglêers, geskei deur kommas. Kennis neem: Handtekeninglêers moet eers geïnstalleer word voordat jy dit kan aktiveer. Vir die toetslêers om korrek te werk, moet die handtekeninglêers geïnstalleer en geaktiveer word."
+ signatures_detect_adware: "Moet phpMussel handtekeninge ontleed om reklameware opspoor? False = Nee; True = Ja [Verstek]."
+ signatures_detect_deface: "Moet phpMussel handtekeninge ontleed om defacements en defacers opspoor? False = Nee; True = Ja [Verstek]."
+ signatures_detect_encryption: "Moet phpMussel geënkripteerde lêers opspoor en blokkeer? False = Nee; True = Ja [Verstek]."
+ signatures_detect_joke_hoax: "Moet phpMussel handtekeninge ontleed vir die opsporing van grap/hoax wanware/virusse? False = Nee; True = Ja [Verstek]."
+ signatures_detect_packer_packed: "Moet phpMussel handtekeninge ontleed om pakkers en gepakte data opspoor? False = Nee; True = Ja [Verstek]."
+ signatures_detect_pua_pup: "Moet phpMussel handtekeninge ontleed om PUA's/PUP's opspoor? False = Nee; True = Ja [Verstek]."
+ signatures_detect_shell: "Moet phpMussel handtekeninge ontleed om dopskrifte opspoor? False = Nee; True = Ja [Verstek]."
+ signatures_fail_extensions_silently: "Moet phpMussel rapporteer wanneer uitbreidings ontbreek word? As <code>fail_extensions_silently</code> gedeaktiveer is, sal ontbrekende uitbreidings tydens skandering aangemeld word, en as <code>fail_extensions_silently</code> geaktiveer is, sal ontbrekende uitbreidings geïgnoreer word, met skandering wat vir daardie lêers rapporteer dat daar geen probleme is nie. As jy hierdie opsie deaktiveer, kan dit moontlik jou sekuriteit verhoog, maar kan ook lei tot 'n toename in vals positiewe. False = Gedeaktiveer; True = Geaktiveer [Verstek]."
+ signatures_fail_silently: "Moet phpMussel rapporteer wanneer handtekeninglêers ontbreek of beskadig is? As <code>fail_silently</code> gedeaktiveer is, sal ontbrekende en korrupte lêers tydens skandering aangemeld word, en as <code>fail_silently</code> geaktiveer is, sal ontbrekende en korrupte lêers geïgnoreer word, met skandering wat vir daardie lêers rapporteer dat daar geen probleme is nie. Dit moet gewoonlik alleen gelaat word, tensy jy ongelukke of soortgelyke probleme ondervind. False = Gedeaktiveer; True = Geaktiveer [Verstek]."
+ signatures_heuristic_threshold: "Sommige phpMussel-handtekeninge is bedoel om verdagte en potensieel kwaadwillige aanwysers in lêers te identifiseer, sonder om op sigself daardie lêers direk as kwaadwillig te identifiseer. Hierdie drempelwaarde vertel phpMussel die maksimum gewig wat toegelaat word voordat daardie lêers as kwaadwillig gevlag word. Die definisie van gewig in hierdie konteks is die totale aantal verdagte en potensieel kwaadwillige aanwysers wat geïdentifiseer is. By verstek sal hierdie waarde op 3 gestel word. Laer waardes lei gewoonlik tot 'n hoër voorkoms van vals positiewes, maar 'n groter aantal kwaadwillige lêers wat gevlag word, terwyl hoër waardes gewoonlik lei tot 'n laer voorkoms van vals positiewes, maar 'n laer aantal kwaadwillige lêers wat gevlag word. Dit is gewoonlik die beste om hierdie waarde op sy verstek te laat, tensy jy probleme ondervind wat daarmee verband hou."
+ supplementary_cache_options: "Aanvullende kasopsies. Kennis neem: As jy hierdie waardes verander, kan jy moontlik uitteken."
+ supplementary_cache_options_enable_apcu: "Spesifiseer of om APCu vir kas te probeer gebruik. Verstek = True."
+ supplementary_cache_options_enable_memcached: "Spesifiseer of om Memcached vir kas te probeer gebruik. Verstek = False."
+ supplementary_cache_options_enable_pdo: "Spesifiseer of om PDO vir kas te probeer gebruik. Verstek = False."
+ supplementary_cache_options_enable_redis: "Spesifiseer of om Redis vir kas te probeer gebruik. Verstek = False."
+ supplementary_cache_options_memcached_host: "Memcached gasheerwaarde. Verstek = "localhost"."
+ supplementary_cache_options_memcached_port: "Memcached poortwaarde. Verstek = "11211"."
+ supplementary_cache_options_pdo_dsn: "PDO DSN-waarde. Verstek = "mysql:dbname=phpmussel;host=localhost;port=3306"."
+ supplementary_cache_options_pdo_password: "PDO wagwoord."
+ supplementary_cache_options_pdo_username: "PDO gebruikersnaam."
+ supplementary_cache_options_prefix: "Die waarde wat hier gespesifiseer word, sal by alle kasinvoersleutels aangebring word. Verstek = "phpMussel_". Wanneer daar verskeie installasies by dieselfde bediener bestaan, kan dit nuttig wees om hul kas apart van mekaar te hou."
+ supplementary_cache_options_redis_host: "Redis gasheerwaarde. Verstek = "localhost"."
+ supplementary_cache_options_redis_port: "Redis poortwaarde. Verstek = "6379"."
+ supplementary_cache_options_redis_timeout: "Redis time-out waarde. Verstek = "2.5"."
+ urlscanner: "Konfigurasie vir die URL-skandeerder."
+ urlscanner_cache_time: "Hoe lank (in sekondes) moet die resultate van API-soektogte gekas word? Verstek is 3600 sekondes (1 uur)."
+ urlscanner_google_api_key: "Aktiveer API-soektogte na die Google Safe Browsing API wanneer die nodige API-sleutel gedefinieer is."
+ urlscanner_maximum_api_lookups: "Maksimum aantal API-soektogte wat toegelaat word om per individuele skanderingiterasie uitgevoer te word. Omdat elke bykomende API-soektog sal byvoeg by die totale tyd wat nodig is om elke skanderingiterasie te voltooi, wil jy dalk 'n beperking stipuleer om die algehele skanderingsproses te bespoedig. Wanneer dit op 0 gestel is, sal geen sodanige maksimum toegelate getal toegepas word nie. Stel by verstek op 10."
+ urlscanner_maximum_api_lookups_response: "Wat om te doen as die maksimum aantal toegelate API-opsoeke oorskry word? False = Doen niks (gaan voort met verwerking) [Verstek]; True = Vlag/blokkeer die lêer."
+ virustotal: "Konfigurasie vir Virus Total integrasie."
+ virustotal_vt_public_api_key: "As jy wil, kan phpMussel lêers skandeer deur die gebruik van die Virus Total API as 'n manier om 'n aansienlik verbeterde vlak van beskerming teen virusse, trojane, wanware, en ander bedreigings te bied. By verstek is skandering van lêers met die Virus Total API gedeaktiveer. Om dit te aktiveer, word 'n API-sleutel van Virus Total vereis. As gevolg van die aansienlike voordeel wat dit vir jou kan bied, is dit iets wat ek sterk aanbeveel om te aktiveer. Wees asseblief bewus daarvan dat om die Virus Total API te gebruik, jy <em><strong>MOET</strong></em> instem tot hul diensbepalings en jy <em><strong>MOET</strong></em> voldoen aan alle riglyne soos beskryf deur die Virus Total dokumentasie! Jy word NIE toegelaat om hierdie integrasiekenmerk te gebruik nie TENSY: Jy het die diensbepalings van Virus Total en sy API gelees en daartoe instem. Jy het ten minste die aanhef van die Virus Total Public API-dokumentasie gelees en verstaan (alles na "VirusTotal Public API v2.0" maar voor "Contents")."
+ virustotal_vt_quota_rate: "Volgens die Virus Total API-dokumentasie is dit beperk tot hoogstens 4 versoeke van enige aard in enige gegewe 1 minuut tydraamwerk. As jy 'n heuningkliënt, heuningpot of enige ander outomatisering bestuur wat hulpbronne aan VirusTotal gaan verskaf en nie net verslae gaan haal nie, is jy geregtig op 'n hoër versoektariefkwota. By verstek sal phpMussel streng by hierdie beperkings hou, maar as gevolg van die moontlikheid dat hierdie tariefkwotas verhoog word, word hierdie twee opsies verskaf as 'n manier vir jou om phpMussel opdrag te gee oor watter limiet dit moet nakom. Tensy jy opdrag gekry het om dit te doen, word dit nie aanbeveel dat jy hierdie waardes verhoog nie, maar as jy probleme ondervind het met betrekking tot die bereiking van jou tariefkwota, kan die vermindering van hierdie waardes jou soms help om hierdie probleme te hanteer. Jou tarieflimiet word bepaal as <code>vt_quota_rate</code>-versoeke van enige aard in enige gegewe <code>vt_quota_time</code>-minuut tydraamwerk."
+ virustotal_vt_quota_time: "(Sien beskrywing hierbo)."
+ virustotal_vt_suspicion_level: "By verstek sal phpMussel die lêers wat dit skandeer met die Virus Total API beperk tot daardie lêers wat dit as "verdag" beskou. Jy kan hierdie beperking opsioneel aanpas deur die waarde van die <code>vt_suspicion_level</code>-opsie te verander."
+ virustotal_vt_weighting: "Moet phpMussel die resultate van skandering met die Virus Total API as opsporings of as opsporingsgewig toepas? Hierdie opsie bestaan, want alhoewel die skandering van 'n lêer met veelvuldige enjins (soos Virus Total doen) 'n verhoogde opsporingsyfer tot gevolg moet hê (en dus 'n groter aantal kwaadwillige lêers wat gevang word), kan dit ook lei tot 'n groter aantal vals positiewe, en daarom, in sommige omstandighede, kan dit beter wees om die resultate van die skandering as 'n vertrouenstelling eerder as 'n definitiewe gevolgtrekking te gebruik. As 'n waarde van 0 gebruik word, sal die resultate van skandering met die Virus Total API as bespeurings toegepas word, en daarom, as enige enjin wat deur Virus Total gebruik word die lêer wat geskandeer word as kwaadwillig vlag, sal phpMussel die lêer as kwaadwillig beskou. As enige ander waarde gebruik word, sal die resultate van skandering met die Virus Total API toegepas word as opsporingsgewig, en daarom sal die aantal enjins wat deur Virus Total gebruik word wat die lêer wat geskandeer word as kwaadwillig vlag, dien as 'n vertrouenstelling (of opsporingsgewig) vir of die lêer wat geskandeer word, deur phpMussel as kwaadwillig beskou moet word of nie (die waarde wat gebruik word, sal die minimum vertrouenstelling of gewig verteenwoordig wat vereis word om as kwaadwillig beskou te word). 0 word by verstek gebruik."
+confirm:
+ Action: "Is jy seker jy wil "%s"?"
+field:
+ 2FA code: "2FA kode"
+ Clear all: "Vee dit alles uit"
+ Confirm: "Bevestig"
+ Create new account: "Skep nuwe rekening"
+ Delete account: "Vee die rekening uit"
+ Delete all: "Vee dit alles uit"
+ Delete: "Vee dit uit"
+ Download: "Aflaai"
+ False (False): "False (Vals)"
+ File: "Lêer"
+ Latest version: "Nuutste weergawe"
+ Log In: "Teken in"
+ More fields: "Meer velde"
+ OK: "OK"
+ Options: "Opsies"
+ Password: "Wagwoord"
+ Permissions: "Toestemmings"
+ Quarantine key: "Kwarantynsleutel"
+ Reset: "Stel terug"
+ Restore: "Herstel"
+ Set new password: "Stel nuwe wagwoord in"
+ True (True): "True (Waar)"
+ Update signature files: "Dateer handtekeninglêers op"
+ Update: "Opdateer"
+ Use system default timezone: "Gebruik stelsel verstek tydsone."
+ Username: "Gebruikersnaam"
+ Your version: "Jou weergawe"
+ log_rotation_archive: "Argiveer eers, en vee dan die oudste loglêers uit totdat die limiet nie meer oorskry word nie."
+ log_rotation_delete: "Vee die oudste loglêers uit totdat die limiet nie meer oorskry word nie."
+ size:
+  Total size: "Totale grootte:"
+  bytes:
+   - "greep"
+   - "grepe"
+ vt_suspicion_level_all: "Skandeer alle lêers."
+ vt_suspicion_level_executable: "Skandeer lêers met heuristiese gewig, uitvoerbare lêers, en lêers wat moontlik uitvoerbare data bevat.\nVoorbeelde van uitvoerbare lêers en lêers wat moontlik uitvoerbare data bevat, sluit Windows PE-lêers, Linux ELF-lêers, Mach-O-lêers, DOCX-lêers, ZIP-lêers, ens."
+ vt_suspicion_level_heuristic_only: "Skandeer slegs lêers met heuristiese gewig.\nLêers sal slegs geskandeer word as hulle 'n mate van heuristiese gewig dra. Heuristiese gewig kan verkry word uit handtekeninge wat bedoel is om algemene vingerafdrukke te vang wat verband hou met potensiële infeksie wat nie noodwendig infeksie waarborg nie. Die opsoek kan in sulke gevalle dien om 'n tweede mening te gee vir resultate wat vermoede regverdig, maar andersins geen sekerheid verskaf nie."
+hints_pdo_dsn:
+ Gereelde vrae.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">Wat is 'n "PDO DSN"? Hoe kan ek PDO met phpMussel gebruik?</a></em>"
+hints_xlists:
+ Hoe dit werk.: "As jou stelsel toelaat dat slegs spesifieke tipes lêers opgelaai word, of as jou stelsel sekere tipes lêers uitdruklik weier, deur daardie lêertipes in witlyste, swartlyste, en gryslyste te spesifiseer, kan die spoed waarteen skandering uitgevoer word verhoog deur die skrip toe te laat om die skandering van daardie lêertipes te vermy. Formaat is CSV (kommageskeide waardes)."
+ Logiese volgorde van verwerking.: "As die lêertipe op die gewitlys is, moenie die lêer skandeer en blokkeer nie, en moenie die lêer teen die swartlys of die gryslys kontroleer nie. As die lêertipe op die swartlys is, moenie die lêer skandeer nie, maar blokkeer dit in elk geval, en moenie die lêer teen die gryslys kontroleer nie. As die gryslys leeg is of as die gryslys nie leeg is nie en die lêertipe op die gryslys is, skandeer die lêer soos normaalweg en bepaal of dit geblokkeer moet word op grond van die resultate van die skandering, maar as die gryslys nie leeg is nie en die lêertipe nie op die gryslys is nie, hanteer die lêer asof op die swartlys, dus nie skandeer dit nie maar blokkeer dit in elk geval."
+Some useful links: |
+ Nuttige skakels:<br />
+     <ul class="pieul">
+       <li><span class="comCat">Gereedskap, hulpbronne, ens vir phpMussel.</span>
+         <ul class="comSub">
+           <li>{{Links.phpMussel.Issues}} – Kwessies bladsy vir phpMussel (ondersteuning, bystand, ens).</li>
+           <li>{{Links.phpMussel.SigTool}} – Skep phpMussel handtekeninglêers met behulp van die ClamAV handtekening databasis.</li>
+           <li>{{Links.phpMussel.Extras}} – Verskeie ekstras.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Gereedskap, hulpbronne, ens vir ClamAV.</span>
+         <ul class="comSub">
+           <li>{{Links.ClamavNet}} – ClamAV tuisblad (ClamAV® is 'n oopbron-antivirus-enjin vir die opsporing van trojans, virusse, wanware en ander kwaadwillige bedreigings).</li>
+           <li>{{Links.SecuriteInfo}} – Rekenaar sekuriteitsmaatskappy wat aanvullende handtekeninge vir ClamAV aanbied.</li>
+           <li>{{Links.Sanesecurity}} – Rekenaar sekuriteitsmaatskappy wat aanvullende handtekeninge vir ClamAV aanbied.</li>
+           <li>{{Links.Malware Expert}} – Bied aanvullende handtekeninge vir ClamAV en aanvullende reëls vir ModSecurity.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Groepe, forums, gemeenskappe, ens.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Facebook}} – PHP leerhulpbronne en bespreking.</li>
+           <li>{{Links.MalwareTips}} – Nuttige wanware-gefokusde besprekingsforums.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Ander nuttige gereedskap, hulpbronne, dienste, ens.</span>
+         <ul class="comSub">
+           <li>{{Links.PhishTank}} – Uitvissing-databasis wat deur die phpMussel URL-skandeerder gebruik word.</li>
+           <li>{{Links.VirusTotal}} – VirusTotal is 'n gratis diens vir die ontleding van verdagte lêers en URL's.</li>
+           <li>{{Links.Hybrid Analysis}} – Hybrid Analysis is 'n gratis wanware-ontledingsdiens wat deur {{Links.Payload Security}} verskaf word.</li>
+           <li>{{Links.Malwarebytes}} – Rekenaar teen wanware spesialiste.</li>
+         </ul>
+       </li>
+       <li><span class="comCat">Inligtings en leerhulpbronne.</span>
+         <ul class="comSub">
+           <li>{{Links.PHP.Earth.Website}} – PHP leerhulpbronne en bespreking.</li>
+           <li><a href="https://maikuolan.github.io/Vulnerability-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Kwesbaarheidskaarte</a> – Lys veilige/onveilige weergawes van verskeie pakkette (HHVM, PHP, phpMyAdmin, Python, ens).</li>
+           <li><a href="https://maikuolan.github.io/Compatibility-Charts/" hreflang="en-AU" rel="noopener noreferrer external">Verenigbaarheidskaarte</a> – Lys versoenbaarheidsinligting vir verskeie pakkette (CIDRAM, phpMussel, ens).</li>
+         </ul>
+       </li>
+     </ul>
+
+label:
+ %s is available (%s): "%s beskikbaar is (%s)."
+ %s is available: "%s beskikbaar is."
+ %s is not available: "%s is nie beskikbaar nie."
+ Active configuration file: "Aktiewe konfigurasielêer:"
+ Active signature files: "Aktiewe handtekeninglêers"
+ Branch latest stable: "Tak nuutste stabiele:"
+ Client information: "Kliënt inligting:"
+ Complete access: "Volledige toegang"
+ Copy to clipboard: "Kopieer na knipbord"
+ Default: "Verstek"
+ Expires: "Verstryking:"
+ Extension: "Uitbreiding"
+ External: "Ekstern"
+ Installed Available: "Geïnstalleer/Beskikbaar"
+ Latest stable: "Nuutste stabiele:"
+ Latest unstable: "Nuutste onstabiele:"
+ Loading_: "Laai tans..."
+ Logged in, 2FA pending: "Ingeteken, 2FA hangende."
+ Logged in: "Ingeteken."
+ Logged out: "Uitgeteken."
+ Login: "Intekening"
+ Logs access only: "Slegs logs toegang"
+ Never: "Nooit nie"
+ No log file selected: "Geen loglêer gekies nie."
+ No log files available: "Geen loglêers beskikbaar nie."
+ Objects flagged: "Voorwerpe gevlag"
+ Objects scanned: "Voorwerpe geskandeer"
+ Operating system used: "Bedryfstelsel gebruik:"
+ Other: "Ander"
+ PHP version used: "PHP weergawe gebruik:"
+ Page request completed in %s seconds: "Bladsyversoek voltooi in %s sekondes."
+ Please log in to continue: "Teken asseblief in om voort te gaan."
+ SAPI used: "SAPI gebruik:"
+ Scan events: "Skandeer gebeure"
+ See also: "Sien ook:"
+ Selected log file doesn_t exist: "Geselekteerde loglêer bestaan nie!"
+ Size in quarantine: "Grootte in kwarantyn:"
+ Start date: "Begindatum"
+ System information: "Stelselinligting:"
+ The cache is empty: "Die kas is leeg."
+ Upload date: "Oplaaidatum:"
+ Upload hash: "Oplaaihash:"
+ Upload origin: "Oplaaioorsprong:"
+ Upload size: "Oplaaigrootte:"
+ Uploads blocked: "Oplaaie geblokkeer"
+ Uploads quarantined: "Oplaaie gekwarantyn"
+ Uploads scanned: "Oplaaie geskandeer"
+ Your IP: "Jou IP:"
+ Your UA: "Jou gebruikersagent:"
+ phpMussel version used: "phpMussel weergawe gebruik:"
+link:
+ Accounts: "Rekeninge"
+ Cache Data: "Kas data"
+ Configuration: "Konfigurasie"
+ Discussions: "Besprekings"
+ Documentation: "Dokumentasie"
+ Home: "Tuis"
+ Log Out: "Teken uit"
+ Logs: "Logs"
+ Quarantine: "Kwarantyn"
+ Signature Information: "Handtekening inligting"
+ Statistics: "Statistiek"
+ Text formatting: "Teksformatering: <a href="%1$sfalse">Eenvoudige</a> – <a href="%1$strue">Fancy</a>"
+ Upload Testing: "Oplaaitoetsing"
+max_login_attempts_exceeded: "Maksimum aantal intekenpogings oorskry; Toegang geweier."
+msg_subject_2fa: "Tweefaktor-verifikasie"
+msg_template_2fa: |
+ <center><p>Hallo, %s.<br /><br />
+ Jou tweefaktor-verifikasiekode om by die phpMussel se front-end in te teken:</p>
+ <h1>%s</h1>
+ <p>Hierdie kode verval oor 10 minute.</p></center>
+previewer:
+ Days: "Dae"
+ Hours: "Ure"
+ Minutes: "Minute"
+ Months: "Maande"
+ Seconds: "Sekondes"
+ Weeks: "Weke"
+ Years: "Jare"
+response:
+ Account successfully created: "Rekening suksesvol geskep!"
+ Account successfully deleted: "Rekening suksesvol verwyderde!"
+ An account with that username already exists: "Rekening met daardie gebruikersnaam bestaan reeds!"
+ Configuration successfully updated: "Konfigurasie suksesvol opgedateer."
+ Corrupted file: "Kon nie herstel nie! Korrupte lêer!"
+ Failed to create: "Kon nie skep nie!"
+ Failed to delete: "Kon nie verwyder nie!"
+ Failed to update configuration: "Kon nie konfigurasie opdateer nie!"
+ Failed to update: "Kon nie opdateer nie!"
+ Failed: "Misluk"
+ File successfully deleted: "Lêer suksesvol verwyderde!"
+ File successfully restored: "Lêer suksesvol herstel!"
+ Incorrect 2FA code entered: "Verkeerde 2FA-kode ingevoer. Verifikasie misluk."
+ Incorrect quarantine key: "Kon nie herstel nie! Verkeerde kwarantynsleutel!"
+ Invalid password: "Intekening misluk! Ongeldige wagwoord!"
+ Password field empty: "Wagwoord veld leeg!"
+ Password successfully updated: "Wagwoord suksesvol opgedateer!"
+ Permissions not adequate to perform asynchronous requests:: "Toestemmings nie voldoende om asinchrone versoeke uit te voer nie. Probeer om weer in te teken."
+ Statistics cleared: "Statistiek uitgevee."
+ Successfully authenticated: "Suksesvol geverifieer."
+ That account doesn_t exist: "Daardie rekening bestaan nie."
+ Username doesn_t exist: "Intekening misluk! Gebruikersnaam bestaan nie!"
+ Username field empty: "Gebruikersnaam veld leeg!"
+ Wrong endpoint: "Verkeerde eindpunt!"
+ _No: "Nee"
+ _Yes: "Ja"
+siginfo_key_CVE: "Handtekeninge wat handel oor CVE's (algemene kwesbaarhede en blootstellings)."
+siginfo_key_Chameleon: "Handtekeninge wat handel oor "verkleurmannetjie-aanvalle"."
+siginfo_key_FN: "Handtekeninge wat met lêername werk (in teenstelling met lêerinhoud)."
+siginfo_key_Fake: "Bespeurings is vals, kwaadwillige variante van andersins goedaardige entiteite (sagteware, skrifte, ens)."
+siginfo_key_HEUR: "Handtekeninge afgelei van heuristiese data."
+siginfo_key_META: "Handtekeninge wat met lêermetadata werk (in teenstelling met lêerdata)."
+siginfo_key_Other: "Ongeïdentifiseerde of ander."
+siginfo_key_Other_Metadata: "Geen metadata beskikbaar nie."
+siginfo_key_Suspect: "Opsporings word vermoed, maar nie bevestig nie (kan kombinasies van verskeie identifiseerders behels)."
+siginfo_key_Testfile: "Handtekeninge vir toetslêers (d.w.s., nie kwaadwillige opsporings nie)."
+siginfo_key_Total: "Totale aktiewe handtekeninge."
+siginfo_key_VT: "Handtekeninge insluitend of gebaseer op data van Virus Total."
+siginfo_key_Werewolf: "Handtekeninge wat handel oor "weerwolf-aanvalle"."
+siginfo_sub_Classes: "Tel volgens handtekeninglêerklas"
+siginfo_sub_Files: "Tel volgens handtekeninglêer"
+siginfo_sub_MalwareTypes: "Tel volgens infeksie of wanware tipe"
+siginfo_sub_SigTypes: "Tel volgens handtekening-metadata"
+siginfo_sub_Targets: "Tel volgens geteikende vektor"
+siginfo_sub_Vendors: "Tel volgens handtekeningverkoper of bron"
+siginfo_xkey: "Geïdentifiseer as "%s"."
+state_quarantine:
+ - "Daar is tans %s lêer in kwarantyn."
+ - "Daar is tans %s lêers in kwarantyn."
+tip:
+ 2FA Sent: "Ons het 'n e-pos gestuur wat 'n tweefaktor-verifikasiekode bevat na jou e-pos adres. Bevestig asseblief hierdie kode hieronder om toegang tot die front-end te kry. As jy nie hierdie e-pos ontvang nie, probeer om uit te teken, wag vir 10 minute, en weer inteken om 'n nuwe e-pos met 'n nuwe kode te ontvang."
+ Accounts: "Hallo, {username}.<br />Jy kan vanaf die rekeninge-bladsy beheer wie toegang tot die phpMussel front-end het."
+ Cache Data: "Hallo, {username}.<br />Hier kan jy die inhoud van die kas hersien."
+ Configuration: "Hallo, {username}.<br />Die konfigurasiebladsy laat jou toe om die konfigurasie vir phpMussel vanaf die front-end te verander."
+ Home: "Hallo, {username}.<br />Dit is die tuisblad vir phpMussel se front-end. Kies 'n skakel uit die navigasiekieslys aan die linkerkant om voort te gaan."
+ Logs: "Hallo, {username}.<br />Kies 'n loglêer uit die lys hieronder om die inhoud van daardie loglêer te sien."
+ Quarantine is currently disabled: "Kennis neem: Kwarantyn is tans gedeaktiveer, maar kan via die konfigurasiebladsy geaktiveer word."
+ Quarantine: "Hallo, {username}.<br />Hierdie bladsy lys alle lêers wat tans in kwarantyn is en fasiliteer die bestuur van daardie lêers."
+ See the documentation: "Sien die <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">dokumentasie</a> vir inligting oor die verskillende konfigurasie-opsies en hul doeleindes."
+ Signature Information: "Hallo, {username}.<br />Die handtekeninginligtingbladsy verskaf basiese inligting oor die bronne en tipes van die tans aktiewe handtekeninge."
+ Statistics tracking is currently disabled: "Kennis neem: Statistieknasporing is tans gedeaktiveer, maar kan via die konfigurasiebladsy geaktiveer word."
+ Statistics: "Hallo, {username}.<br />Hierdie bladsy wys basiese gebruikstatistieke rakende jou phpMussel-installasie."
+ Upload Testing: "Hallo, {username}.<br />Die oplaaitoetsingbladsy bevat 'n standaard lêeroplaaivorm, wat jou toelaat om te toets of 'n lêer normaalweg deur phpMussel geblokkeer sal word wanneer jy dit probeer oplaai."
+warning:
+ Cookies: "Kennis neem: phpMussel gebruik 'n koekie vir die verifikasie van intekeninge. Deur in te teken, gee jy jou toestemming dat 'n koekie deur jou blaaier geskep en gestoor word."
+ JavaScript required: "Waarskuwing: Sommige front-end funksionaliteit vereis JavaScript. Om te verseker dat die hele front-end optree soos verwag, word dit aanbeveel om JavaScript te aktiveer."
+ Maintenance mode is enabled: "Waarskuwing: Onderhoudsmodus is geaktiveer!"
+ No signature files are active: "Waarskuwing: Geen handtekeninglêers is aktief nie!"
+ Proceeding will log out all users: "Waarskuwing: As jy voortgaan, sal alle gebruikers uitteken."
+ This account is not using a valid password: "Waarskuwing: Hierdie rekening gebruik nie 'n geldige wagwoord nie!"
+ Using the default password: "Waarskuwing: Verstekwagwoord word gebruik!"
