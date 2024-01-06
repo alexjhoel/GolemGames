@@ -7,11 +7,11 @@ include("vendor/autoload.php");
   <title>UTU Games</title>
   <link rel="icon" type="image/x-icon" href="assets/images/logo1.png">
 
-  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css?t=12354332">
+  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css?t=123354332">
   <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
   <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
   <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles/main.css?t=23452432333">
+  <link rel="stylesheet" href="assets/styles/main.css?t=234532432333">
 </head>
 
 <body>
@@ -45,8 +45,8 @@ include("vendor/autoload.php");
               <i class="fa-solid fa-user"></i> Mi cuenta
             </a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Iniciar sesión</a></li>
-              <li><a class="dropdown-item" href="#">Registrarse gratis</a></li>
+              <li><a class="dropdown-item rounded" href="#">Iniciar sesión</a></li>
+              <li><a class="dropdown-item rounded" href="#">Registrarse gratis</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

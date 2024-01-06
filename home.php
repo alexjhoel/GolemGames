@@ -10,13 +10,22 @@
         <p>Descubre los mejores proyectos de videojuegos creados por alumnos de UTU</p>
     </section>
 
-    <section class="mx-5 px-5 py-1 home-search-bar">
+    <section class="mx-2 mx-lg-5 px-2 px-lg-5 py-1 home-search-bar">
         <form action="" method="get">
-            <div class="input-group">
-                <input type="search" class="form-control rounded-start" placeholder="Buscar entre cientos de juegos!" />
-                <span class="input-group-text border-0">
+            <div class="input-group rounded shadow-sm bg-body overflow-hidden">
+                <input type="text" class="form-control rounded-start border-0 shadow-none" placeholder="Buscar entre cientos de juegos!" />
+                <button class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
+                    <i class="fas fa-sliders"></i>
+                </button>
+                <button type="submit" class="btn btn-primary border-0">
                     <i class="fas fa-search"></i>
-                </span>
+                </button>
+
+                <div class="collapse" id="search-filters">
+                    <div class="container">
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+                    </div>
+                </div>
             </div>
         </form>
     </section>
