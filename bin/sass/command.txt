@@ -1,0 +1,1 @@
+& bin/sass/sass.bat --watch assets/styles/main.scss assets/bootstrap/bootstrap.min.css --style compressed

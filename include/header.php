@@ -4,19 +4,23 @@ include("vendor/autoload.php");
 <html lang="en" data-bs-theme="light">
 
 <head>
+  <meta name="author" content="Golem S.A.">
+  <meta name="description" content="Empty">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="utf-8">
   <title>UTU Games</title>
-  <link rel="icon" type="image/x-icon" href="assets/images/logo1.png">
+  <link rel="icon" type="image/x-icon" href="assets/images/logo.svg">
 
-  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css?t=123354332">
+  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css?t=<?= time() ?>">
   <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
   <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
   <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles/main.css?t=234532432333">
+  <link rel="stylesheet" href="assets/styles/main.css?t=<?= time() ?>">
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
-  <nav class="navbar navbar-expand-lg shadow-sm sticky-top">
+  <nav class="navbar navbar-expand-lg shadow-sm sticky-top p-0 bg-body">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <img src="assets/images/logo1.png" width="80px">
@@ -44,9 +48,9 @@ include("vendor/autoload.php");
               aria-expanded="false">
               <i class="fa-solid fa-user"></i> Mi cuenta
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item rounded" href="#">Iniciar sesión</a></li>
-              <li><a class="dropdown-item rounded" href="#">Registrarse gratis</a></li>
+            <ul class="dropdown-menu dropdown-menu-end px-2 py-1" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item rounded my-1" href="#">Iniciar sesión</a></li>
+              <li><a class="dropdown-item rounded my-1" href="#">Registrarse gratis</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
@@ -54,9 +58,9 @@ include("vendor/autoload.php");
               aria-expanded="false">
               <i class="fa-solid fa-sun"></i>
             </a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item rounded" data-bs-theme-value="light" href="#"><i class="fa-solid fa-sun"></i> Claro</a></li>
-              <li><a class="dropdown-item rounded" data-bs-theme-value="dark" href="#"><i class="fa-solid fa-moon"></i> Oscuro</a></li>
+            <ul class="dropdown-menu dropdown-menu-end px-2 py-1" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item rounded my-1" data-bs-theme-value="light" href="#"><i class="fa-solid fa-sun"></i> Claro</a></li>
+              <li><a class="dropdown-item rounded my-1" data-bs-theme-value="dark" href="#"><i class="fa-solid fa-moon"></i> Oscuro</a></li>
             </ul>
           </li>
 
