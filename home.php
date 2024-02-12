@@ -1,4 +1,5 @@
 <?php
+    $navSelection = 0;
     include("include/header.php");
     include("include/connect.php");
     include("include/session.php");
@@ -56,6 +57,7 @@
         </div>
     </section>
 
+    <!--Juegos populares--->
     <section class="text-start py-2">
         <h3><i class="fas fa-arrow-trend-up fa-sm"></i> Juegos en tendencia</h3>
         <div class="gap-1 d-flex flex-row align-items-center">
@@ -85,6 +87,8 @@
         </div>
     </section>
 
+
+    <!--Mejores juegos--->
     <section class="text-start py-2">
         <h3><i class="fas fa-medal fa-sm"></i> Los mejores</h3>
         <div class="gap-1 d-flex flex-row align-items-center">
@@ -114,6 +118,7 @@
         </div>
     </section>
 
+    <!--Ultimos populares--->
     <section class="text-start py-2">
         <h3><i class="fas fa-clock-rotate-left fa-sm"></i> Últimos lanzamientos</h3>
         <div class="gap-1 d-flex flex-row align-items-center">
@@ -124,7 +129,7 @@
                 <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 <?php if($i==1) echo 'active-scroller-item'?>" style="width:230px" href="">
                     <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
                     <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <span class="fs-6 text-secondary">Por juegos sosa</span>
+                    <span class="fs-6 text-secondary">juegos sosa</span>
                     <div class="d-flex w-100 gap-2">
                         <div class="text-secondary">
                             <i class="fa-solid fa-eye"></i>

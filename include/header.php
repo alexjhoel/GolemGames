@@ -1,5 +1,6 @@
 <?php
 include("vendor/autoload.php");
+if(!isset($navSelection)) $navSelection = 0;
 ?>
 <html lang="en" data-bs-theme="light">
 
@@ -32,14 +33,14 @@ include("vendor/autoload.php");
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><i class="fa-solid fa-home"></i> Página
+            <a class="nav-link <?php if($navSelection == 0) {?>active"<?php }?> aria-current="page" href="home.php"><i class="fa-solid fa-home"></i> Página
               principal</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-gamepad"></i> Juegos</a>
+            <a class="nav-link <?php if($navSelection == 1) {?>active"<?php }?>" href="games.php"><i class="fa-solid fa-gamepad"></i> Juegos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-comment"></i> Salas de chat</a>
+            <a class="nav-link <?php if($navSelection == 2) {?>active"<?php }?>" href="chats.php"><i class="fa-solid fa-comment"></i> Salas de chat</a>
           </li>
         </ul>
         <ul class="navbar-nav">
