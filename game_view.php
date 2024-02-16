@@ -7,75 +7,95 @@
     $page = 1;
 ?>
 
-<article class="container px-4 px-md-5 py-3 text-center d-flex flex-column gap-2">
+<article class="container px-4 px-md-5 py-3 align-items-center d-flex flex-column gap-2">
+    
+    <section class="bg-black" style="width: 100%; height: 360px">
 
-    <!--Barra de busqueda de home--->
-    <section class="mx-2 mx-lg-5 px-2 px-lg-5">
-        <form action="" method="get">
-            <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
-                <input type="text" class="form-control rounded-start border-0 shadow-none fs-5" placeholder="Buscar entre cientos de juegos!" />
-                <button class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
-                    <i class="fas fa-sliders"></i>
-                </button>
-                <button type="submit" class="btn btn-primary border-0">
-                    <i class="fas fa-search"></i>
-                </button>
-
-                <div class="collapse" id="search-filters">
-                    <div class="container">
-                    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-                    </div>
-                </div>
-            </div>
-        </form>
     </section>
 
-    <section class="text-start align-self-center">
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-2">
-            <?php for ($i=1; $i < 10; $i++) {?>
-                <div class="col d-flex justify-content-center">
-                <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2" style="width:230px" href="">
-                    <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
-                    <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <span class="fs-6 text-secondary">Por juegos sosa</span>
-                    <div class="d-flex w-100 gap-2">
-                        <div class="text-secondary">
-                            <i class="fa-solid fa-eye"></i>
-                            <span>999</span>
-                        </div>
-                        <div class="text-secondary">
-                            
-                        <i class="fa-solid fa-thumbs-up"></i>
-                            <span>999</span>
-                        </div>
-                    </div>
-                </a>
-                </div>
-                
-                <?php }?>
+    <section class="d-flex flex-column gap-2 text-start align-self-center border rounded-5 p-4 container">
+
+        <div class="d-flex flex-column justify-content-center">
+            <a type="button" class="btn btn-lg btn-outline-success rounded-3 rounded-bottom-0" href="#"><i class="fa-solid fa-download"></i>
+                        Descargar (XX MB)
+            </a>
+            <div class="w-100 bg-secondary text-white text-end p-2 rounded-3 rounded-top-0">
+                    <i class="fa-brands fa-windows"></i>
+                    <i class="fa-brands fa-apple"></i>
+                    <i class="fa-brands fa-linux"></i>
+                    <i class="fa-brands fa-android"></i>
+                    <i class="fa-solid fa-globe"></i>
+            </div>    
         </div>
+        
+        <h1>Lorem Ipsum</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nulla repellendus, deleniti et, quo a eaque quisquam earum praesentium quae illo voluptates, dolor alias nam dolorum pariatur sapiente. In, porro?</p>
+        <h4>Capturas de pantalla:</h4>
+        <div class="gap-1 d-flex flex-row align-items-center">
+            <i class="btn btn-primary rounded-circle fa-solid fa-arrow-left p-1"></i>
+            <div class="d-flex flex-row gap-2 overflow-x-scroll flex-grow-1 scroller pb-3 px-2" data-scrolling-value=238>
+                <?php for ($i=1; $i < 10; $i++) {?>
+                
+                <img class="bg-body rounded-4 col-3"  src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais" style="width:230px">
+                <?php }?>
+            </div>
+            <i class="btn btn-primary rounded-circle fa-solid fa-arrow-right p-1"></i>
+        </div>
+        <h4>Autor: </h4>
+        <a href="#">
+            <img width="40" height="40">
+            El señor de los anillos
+        </a>
+        <br>
+        <h4>Comentarios: </h4>
+        <div>
+            <textarea class="form-control" placeholder="Escribe un comentario aquí..."></textarea>
+        </div>
+        <br>
+
+        <!---Comentarios--->
+        <div class="d-flex gap-2">
+            <img width="40" height="40">
+            <div class="flex-grow-1">
+                <a href="#">
+                    El señor de los anillos
+                </a>
+                <br>
+
+                <span>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum dolorem placeat error blanditiis odit, iusto tempora iure. Et autem fugit quos, sequi esse nostrum aperiam tenetur facilis officiis nemo dignissimos?
+                </span>
+                <div>
+                    <i class="btn btn-lg  fa-solid fa-thumbs-up p-0 border-0" data-bs-toggle="button"></i>
+                    <i class="btn btn-lg fa-solid fa-flag p-0 border-0" data-bs-toggle="button"></i>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <div class="bg-white" style="width:40px; height:40px;"></div>
+            <div class="flex-grow-1">
+                <a class="placeholder-glow" href="#">
+                <span class="placeholder col-7"></span>
+                </a>
+                <br>
+
+                <span class="placeholder-glow">
+                    <span class="placeholder col-7"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-4"></span>
+                    <span class="placeholder col-6"></span>
+                    <span class="placeholder col-8"></span>
+                </span>
+                <div>
+                    <i class="btn btn-lg  fa-solid fa-thumbs-up p-0 border-0" data-bs-toggle="button"></i>
+                    <i class="btn btn-lg fa-solid fa-flag p-0 border-0" data-bs-toggle="button"></i>
+                </div>
+            </div>
+        </div>
+        
     </section>
     
 </article>
-
-<nav class="container d-flex justify-content-center">
-    <ul class="pagination justify-content-center shadow-sm " style="width:fit-content;">
-        <li class="page-item   <?=$page < 2 ? 'disabled' : ''?>">
-            <button type="submit" form="clients-search" class="page-link border-0 rounded-start-pill" name="page" value=<?=$page - 1?>><i class="fa-solid fa-caret-left fa-xl"></i>&nbsp;</button>
-        </li>
-        <?php for ($i=1; $i < $maxPages + 1; $i++) { ?>
-            <li class="page-item <?= $i==$page ? 'active' : '' ?>">
-                <button type="submit" form="clients-search" class="page-link border-0" name="page" value=<?=$i?>>
-                    <?=$i?>
-                </button>
-            </li>
-        <?php }?>
-        <li class="page-item <?=$page < $maxPages ? '' : 'disabled'?>">
-            <button type="submit" form="clients-search" class="page-link border-0 rounded-end-circle" name="page" value=<?=$page + 1?>>&nbsp;<i class="fa-solid fa-caret-right fa-xl"></i></button>
-        </li>
-    </ul>
-</nav>
-
 <?php
     include("include/footer.php");
 ?>
