@@ -38,3 +38,4 @@ switches.forEach(element => {
     })
     if(element.getAttribute("data-bs-theme-value") == getStoredTheme()) element.classList.add("active")
 })
+

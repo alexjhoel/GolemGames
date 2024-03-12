@@ -2,7 +2,6 @@
     $navSelection = 0;
     include("include/header.php");
     include("include/connect.php");
-    include("include/session.php");
 ?>
 
 <article class="container px-4 px-md-5 py-3 text-center">
@@ -17,7 +16,7 @@
         <form action="" method="get">
             <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
                 <input type="text" class="form-control rounded-start border-0 shadow-none fs-5" placeholder="Buscar entre cientos de juegos!" />
-                <button class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
+                <button type="button" class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
                     <i class="fas fa-sliders"></i>
                 </button>
                 <button type="submit" class="btn btn-primary border-0">

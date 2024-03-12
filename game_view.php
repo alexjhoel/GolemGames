@@ -2,7 +2,6 @@
     $navSelection = 1;
     include("include/header.php");
     include("include/connect.php");
-    include("include/session.php");
     $maxPages = 10;
     $page = 1;
 ?>
@@ -10,7 +9,7 @@
 <article class="container px-4 px-md-5 py-3 align-items-center d-flex flex-column gap-2">
     
     <section class="bg-black" style="width: 100%; height: 360px">
-
+    <iframe style="width: 100%; height: 360px" id="game-iframe" src="https://play.famobi.com/block-painter/A1000-10A" webkit-playsinline="true" scrolling="no" frameborder="0" allow="autoplay"></iframe>
     </section>
 
     <section class="d-flex flex-column gap-2 text-start align-self-center border rounded-5 p-4 container">

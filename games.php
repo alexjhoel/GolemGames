@@ -2,7 +2,6 @@
     $navSelection = 1;
     include("include/header.php");
     include("include/connect.php");
-    include("include/session.php");
     $maxPages = 10;
     $page = 1;
 ?>
