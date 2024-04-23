@@ -1,23 +1,24 @@
 <?php
     $navSelection = 1;
     include("include/header.php");
-    include("include/connect.php");
     $maxPages = 10;
     $page = 1;
+
+    $query = "SELECT nombre, sobre_mi, foto_perfil FROM usuarios WHERE id=?";
+    $userData = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query,"s",array($_GET["id"])));
 ?>
 
 <article class="container px-4 px-md-5 py-3 align-items-center d-flex flex-column gap-2">
     
-    <section class="d-flex flex-column gap-2 text-start align-self-center border rounded-5 p-4 container">
+    <section class="card d-flex flex-column gap-2 text-start align-self-center rounded-5 p-4 container overflow-hidden">
         <!---Información de usuario--->
         <div class="d-flex gap-3">
-            <img width="150" height="150">
+            <img width="150" height="150" src="<?=$userData["foto_perfil"]?>">
             <div>
                 <div class="row">
-                     <h1 class="m-0 col-auto">Lorem Ipsum</h1>
+                     <h1 class="m-0 col-auto"><?=$userData["nombre"]?></h1>
                 </div>
-                
-                <h3 class="text-secondary">@usuario</h3>
+                <br>
                 <a class="btn btn-primary"><i class="fa-solid fa-user-plus"></i>&nbsp;Solicitud de amistad</a>
                 <button role="button" class="btn"><i class="fa-solid fa-paper-plane"></i>&nbsp;Solicitud enviada</button>
                 
@@ -30,7 +31,8 @@
             </div>
         </div>
         <h4>Sobre mí:</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum nulla repellendus, deleniti et, quo a eaque quisquam earum praesentium quae illo voluptates, dolor alias nam dolorum pariatur sapiente. In, porro?</p>
+        <p><?=$userData["sobre_mi"]?></p>
+        <a class="btn btn-primary position-absolute top-0 end-0 rounded-5 rounded-top-0 rounded-end-0 ps-4 pe-4 py-2" href="edit_client_info.php?id=<?=$_GET["id"]?>"><i class="fa-solid fa-pen"></i></a>
     </section>
 
     <section class="text-start py-2 container">

@@ -1,6 +1,6 @@
 <footer class="container-fluid text-center bg-body-secondary p-4 mt-auto">
-    UTU Games &#169; - Todos los derechos reservados<br>
-    Coded with ❤️ by Golem S.A.
+    Golem Games &#169; - Todos los derechos reservados<br>
+    Coded with ❤️ by Golem Team
 </footer>
 
 

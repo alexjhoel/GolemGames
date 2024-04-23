@@ -1,14 +1,15 @@
 <?php
     $navSelection = 0;
     include("include/header.php");
-    include("include/connect.php");
+
+    $gameCardObject = new GameCards();
 ?>
 
 <article class="container px-4 px-md-5 py-3 text-center">
     <!--Banner de home--->
     <section class="row p-5 shadow-sm align-items-center text-black rounded-5 img-background" style="background-image: linear-gradient(rgba(255,255,255,0.5), rgba(255,255,255,0.5)), url(https://images.unsplash.com/photo-1606160429008-751d8408a874?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8cHM1JTIwY29udHJvbGxlcnxlbnwwfHwwfHx8MA%3D%3D)">
-        <h3 class="mt-5"><strong>Encuentra tu juego favorito en UTU Games</strong></h2>
-        <p class="mb-5">Descubre los mejores proyectos de videojuegos creados por alumnos de UTU</p>
+        <h3 class="mt-5"><strong>Encuentra tu juego favorito en Golem Games</strong></h2>
+        <p class="mb-5">Descubre los mejores proyectos de videojuegos creados por la comunidad</p>
     </section>
 
     <!--Barra de busqueda de home--->
@@ -62,25 +63,17 @@
         <div class="gap-1 d-flex flex-row align-items-center">
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-left p-1"></i>
             <div class="d-flex flex-row gap-2 overflow-x-scroll flex-grow-1 scroller pb-3 px-2" data-scrolling-value=238>
-                <?php for ($i=1; $i < 10; $i++) {?>
-                
-                <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 <?php if($i==1) echo 'active-scroller-item'?>" style="width:230px" href="">
-                    <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
-                    <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <span class="fs-6 text-secondary">Por juegos sosa</span>
-                    <div class="d-flex w-100 gap-2">
-                        <div class="text-secondary">
-                            <i class="fa-solid fa-eye"></i>
-                            <span>999</span>
-                        </div>
-                        <div class="text-secondary">
-                            
-                        <i class="fa-solid fa-thumbs-up"></i>
-                            <span>999</span>
-                        </div>
-                    </div>
-                </a>
-                <?php }?>
+                <!--Display de juegos--->
+                <?php for ($i=1; $i < 10; $i++) {
+                    $gameCardObject->id = $i;
+                    $gameCardObject->titulo = "Juego de ejemplo #".$i;
+                    $gameCardObject->autor = "Por juegos sosa".$i;
+                    $gameCardObject->vistas = 999;
+                    $gameCardObject->likes = 999;
+                    $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+
+                    $gameCardObject->echo();
+                }?>
             </div>
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-right p-1"></i>
         </div>
@@ -93,25 +86,18 @@
         <div class="gap-1 d-flex flex-row align-items-center">
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-left p-1"></i>
             <div class="d-flex flex-row gap-2 overflow-x-scroll flex-grow-1 scroller pb-3 px-2" data-scrolling-value=238>
-                <?php for ($i=1; $i < 10; $i++) {?>
-                
-                <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 <?php if($i==1) echo 'active-scroller-item'?>" style="width:230px" href="">
-                    <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
-                    <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <span class="fs-6 text-secondary">Por juegos sosa</span>
-                    <div class="d-flex w-100 gap-2">
-                        <div class="text-secondary">
-                            <i class="fa-solid fa-eye"></i>
-                            <span>999</span>
-                        </div>
-                        <div class="text-secondary">
-                            
-                        <i class="fa-solid fa-thumbs-up"></i>
-                            <span>999</span>
-                        </div>
-                    </div>
-                </a>
-                <?php }?>
+                <!--Display de juegos--->
+                <?php for ($i=1; $i < 10; $i++) {
+
+                    $gameCardObject->id = $i;
+                    $gameCardObject->titulo = "Juego de ejemplo #".$i;
+                    $gameCardObject->autor = "Por juegos sosa".$i;
+                    $gameCardObject->vistas = 999;
+                    $gameCardObject->likes = 999;
+                    $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+
+                    $gameCardObject->echo();
+                }?>
             </div>
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-right p-1"></i>
         </div>
@@ -123,25 +109,17 @@
         <div class="gap-1 d-flex flex-row align-items-center">
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-left p-1"></i>
             <div class="d-flex flex-row gap-2 overflow-x-scroll flex-grow-1 scroller pb-3 px-2" data-scrolling-value=238>
-                <?php for ($i=1; $i < 10; $i++) {?>
-                
-                <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 <?php if($i==1) echo 'active-scroller-item'?>" style="width:230px" href="">
-                    <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
-                    <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <span class="fs-6 text-secondary">juegos sosa</span>
-                    <div class="d-flex w-100 gap-2">
-                        <div class="text-secondary">
-                            <i class="fa-solid fa-eye"></i>
-                            <span>999</span>
-                        </div>
-                        <div class="text-secondary">
-                            
-                        <i class="fa-solid fa-thumbs-up"></i>
-                            <span>999</span>
-                        </div>
-                    </div>
-                </a>
-                <?php }?>
+                <!--Display de juegos--->
+                <?php for ($i=1; $i < 10; $i++) {
+                    $gameCardObject->id = $i;
+                    $gameCardObject->titulo = "Juego de ejemplo #".$i;
+                    $gameCardObject->autor = "Por juegos sosa".$i;
+                    $gameCardObject->vistas = 999;
+                    $gameCardObject->likes = 999;
+                    $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+
+                    $gameCardObject->echo();
+                }?>
             </div>
             <i class="btn btn-primary rounded-circle fa-solid fa-arrow-right p-1"></i>
         </div>

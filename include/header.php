@@ -1,8 +1,19 @@
 <?php
-include("vendor/autoload.php");
-include("session.php");
-if (!isset($navSelection))
-  $navSelection = 0;
+include_once("vendor/autoload.php");
+include_once("session.php");
+include_once("connect.php");
+include_once("components.php");
+include_once("definitions.php");
+
+
+if (!isset($navSelection)) $navSelection = 0;
+
+$userId = "";
+if(logged) {
+  $result = db::mysqliExecuteQuery($conn, "SELECT id FROM usuarios WHERE nombre=? OR correo_electronico=?","ss",array(username,username));
+  $userId = mysqli_fetch_assoc($result)["id"]; 
+}
+
 ?>
 <html lang="en" data-bs-theme="light">
 
@@ -11,8 +22,8 @@ if (!isset($navSelection))
   <meta name="description" content="Empty">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta charset="utf-8">
-  <title>UTU Games</title>
-  <link rel="icon" type="image/x-icon" href="assets/images/logo.svg">
+  <title>Golem | Online Games</title>
+  <link rel="icon" type="image/x-icon" href="assets/images/logo1.png?t=1">
 
   <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css?t=<?= time() ?>">
   <link href="assets/fontawesome/css/fontawesome.css" rel="stylesheet">
@@ -25,8 +36,8 @@ if (!isset($navSelection))
 
   <nav class="navbar navbar-expand-lg shadow-sm sticky-top p-0 bg-body">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="assets/images/logo1.png" width="80px">
+      <a class="navbar-brand" href="./">
+        <img src="assets/images/logo1.png?t=1" width="80px">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
         aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,22 +60,32 @@ if (!isset($navSelection))
           </li>
         </ul>
         <ul class="navbar-nav">
+          
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <i class="fa-solid fa-user"></i> Mi cuenta
+              <i class="fa-solid fa-user"></i> <?php if(logged) echo $_SESSION["usuario"]; else echo 'Mi cuenta';?>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end px-2 py-1">
-
+              <?php
+                if (logged){
+              ?>
               <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-upload"></i>&nbsp;&nbsp;Subir un juego</a></li>
 
-              <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
+              <li><a class="dropdown-item rounded my-1" href="profile_info.php?id=<?="$userId"?>"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
               
               <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configuración</a></li>
 
-              <li><a class="dropdown-item rounded my-1 btn btn-danger" href="#"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
+              <li><a class="dropdown-item rounded my-1 btn btn-danger" href="./php_tasks/login.php?logoff=1"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
 
+              <?php
+                } else{
+              ?>
+              <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal" data-bs-target="#loginModal" id="myaccountLoginButton">&nbsp;&nbsp;Iniciar sesión</a></li>
+
+              <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal" data-bs-target="#loginModal" id="myaccountRegisterButton">&nbsp;&nbsp;Registrarse</a></li>
+              <?php } ?>
 
             </ul>
 
@@ -119,15 +140,21 @@ if (!isset($navSelection))
 
                   <div class="form-floating w-100">
                     <input type="email" class="form-control rounded-pill" id="userLoginInput" placeholder="name@example.com">
-                    <label for="userLoginInput">Usuario</label>
+                    <label for="userLoginInput">Nombre de usuario o correo electrónico</label>
+                      <div class="invalid-feedback">
+                        &nbsp;No existe ese nombre de usuario o correo electrónico.
+                      </div>
                   </div>
 
                   <div class="form-floating w-100">
                     <input type="password" class="form-control rounded-pill" id="passwordLoginInput" placeholder="Password">
                     <label for="passwordLoginInput">Contraseña</label>
+                    <div class="invalid-feedback">
+                        &nbsp;Contraseña incorrecta
+                    </div>
                   </div>
 
-                  <input type="submit" class="btn btn-primary rounded-pill" value="Iniciar sesión">
+                  <input type="submit" class="btn btn-primary rounded-pill" value="Iniciar sesión" id="myaccountLoginFormButton">
 
                   </div>
               </div>
@@ -141,26 +168,35 @@ if (!isset($navSelection))
                   <div class="form-floating w-100">
                     <input type="email" class="form-control rounded-pill" id="userRegisterInput" placeholder="name@example.com">
                     <label for="userRegisterInput">Usuario</label>
+                    <div class="invalid-feedback">
+                        &nbsp;Usuario incorrecto
+                    </div>
                   </div>
 
                   <div class="form-floating w-100">
-                    <input type="password" class="form-control rounded-pill" id="emailRegisterInput" placeholder="Password">
+                    <input type="email" class="form-control rounded-pill" id="emailRegisterInput" placeholder="Password">
                     <label for="emailRegisterInput">Correo electrónico</label>
+                    <div class="invalid-feedback">
+                        &nbsp;No existe ese nombre de usuario o correo electrónico.
+                    </div>
                   </div>
 
                   <div class="form-floating w-100">
                     <input type="password" class="form-control rounded-pill" id="passwordRegisterInput" placeholder="Password">
                     <label for="passwordRegisterInput">Contraseña</label>
+                    <div class="invalid-feedback">
+                        &nbsp;Contraseña incorrecta
+                    </div>
                   </div>
 
                   <div class="form-check">
-                    <input name="termsChecked" class="form-check-input" type="checkbox" id="terms" required>
+                    <input name="termsChecked" class="form-check-input" type="checkbox" id="termsRegisterCheck" required>
                     <label class="form-check-label" for="terms">
                       He leído y acepto los <a class="link" target="_blank" href="https://support.wix.com/es/article/crear-una-política-de-términos-y-condiciones">términos y condiciones de servicio.</a>
                     </label>
                   </div>
 
-                  <input type="submit" class="btn btn-primary rounded-pill" value="Crear cuenta">
+                  <input type="submit" class="btn btn-primary rounded-pill" value="Crear cuenta" id="myaccountRegisterFormButton">
                 </div>
               </div>
           </div>
@@ -168,6 +204,8 @@ if (!isset($navSelection))
       </div>
     </div>
     </div>
+    <!---Enivar formulario--->
+    <form id="login-form" method="post" action="./php_tasks/login.php"></form>
 
 
   
