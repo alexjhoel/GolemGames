@@ -30,6 +30,7 @@ if(logged) {
   <link href="assets/fontawesome/css/brands.css" rel="stylesheet">
   <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles/main.css?t=<?= time() ?>">
+  <link rel="stylesheet" href="assets/splide/splide.min.css">
 </head>
 
 <body class="d-flex flex-column h-100">
