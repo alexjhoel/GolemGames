@@ -3,6 +3,33 @@ $navSelection = 0;
 include ("include/header.php");
 
 $gameCardObject = new GameCards();
+
+$maxRows = 12;
+
+$query = "SELECT 
+    juegos.id as id, 
+    titulo, 
+    usuarios.nombre as nombre_usuario,
+    IFNULL(GROUP_CONCAT(link_captura SEPARATOR ', '),'') as capturas, 
+    IFNULL(SUM(`like`), 0) as likes, 
+    IFNULL(COUNT(usuarios_ven_juegos.id_juego),0) as visitas
+    FROM juegos
+    INNER JOIN juegos_destacados ON juegos.id = juegos_destacados.id_juego 
+    INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
+    LEFT JOIN usuarios_ven_juegos ON juegos.id = usuarios_ven_juegos.id_juego
+    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
+    WHERE juegos.borrado = FALSE
+    GROUP BY juegos.id
+    ORDER BY capturas_pantalla.id asc 
+    LIMIT 0, $maxRows";
+
+$destacados = db::mysqliExecuteQuery(
+        $conn,
+        $query,
+        "",
+        array()
+    );
+ 
 ?>
 
 <article class="container px-4 px-md-5 py-3 text-center">
@@ -18,7 +45,7 @@ $gameCardObject = new GameCards();
         <form action="" method="get">
             <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
                 <input type="text" class="form-control rounded-start border-0 shadow-none fs-5"
-                    placeholder="Buscar entre cientos de juegos!" />
+                    placeholder="¡Buscar entre cientos de juegos!" />
                 <button type="button" class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
                     <i class="fas fa-sliders"></i>
                 </button>
@@ -72,21 +99,20 @@ $gameCardObject = new GameCards();
 
     <!--Juegos populares--->
     <section class="text-start py-2 d-flex flex-column">
-        <h3><i class="fas fa-arrow-trend-up fa-sm"></i> Juegos en tendencia</h3>
+        <h3><i class="fas fa-star fa-sm"></i> Destacados</h3>
 
         <?php
         $scroller = new GamesScroller();
 
-        for ($i = 1; $i < 10; $i++) {
-            $gameCardObject = new GameCards();
-            $gameCardObject->id = $i;
-            $gameCardObject->titulo = "Juego de ejemplo #" . $i;
-            $gameCardObject->autor = "Por juegos sosa" . $i;
-            $gameCardObject->vistas = 999;
-            $gameCardObject->likes = 999;
-            $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+        foreach ($destacados as $destData) {
+            $gameCardObject->id = $destData["id"];
+            $gameCardObject->titulo = $destData["titulo"];
+            $gameCardObject->autor = $destData["nombre_usuario"];
+            $gameCardObject->vistas = $destData["visitas"];
+            $gameCardObject->likes = $destData["likes"];
+            $gameCardObject->linksCapturas = explode(", ", $destData["capturas"]);
 
-            $scroller->agregarJuego($gameCardObject);
+            $scroller->addGame($gameCardObject);
         }
 
         
@@ -110,7 +136,7 @@ $gameCardObject = new GameCards();
             $gameCardObject->likes = 999;
             $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
 
-            $scroller->agregarJuego($gameCardObject);
+            $scroller->addGame($gameCardObject);
         }
 
         
@@ -133,7 +159,7 @@ $gameCardObject = new GameCards();
             $gameCardObject->likes = 999;
             $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
 
-            $scroller->agregarJuego($gameCardObject);
+            $scroller->addGame($gameCardObject);
         }
 
         

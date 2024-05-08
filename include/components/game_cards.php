@@ -13,7 +13,7 @@
                     <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 game-card" 
                         style="width:230px;" 
                         href="game_info.php?id=<?=$this->id?>">
-                        <div class="carousel-fade" data-interval="2000">
+                        <div class="splide" data-interval="2000">
                             <div class="carousel-inner">
                                 <?php
                                 $first = true;

@@ -1,10 +1,10 @@
 <?php
 class GamesScroller
 {
-    protected array $listaJuegos = array();
+    protected array $gamesList = array();
 
-    public function agregarJuego(GameCards $juego){
-        array_push($this->listaJuegos, $juego);
+    public function addGame(GameCards $juego){
+        array_push($this->gamesList, $juego);
     }
 
     public function echo()
@@ -23,15 +23,15 @@ class GamesScroller
             <div class="splide__track">
                 <ul class="splide__list">
                     <!--Display de juegos--->
-            <?php foreach ($this->listaJuegos as $juego) {
+            <?php foreach ($this->gamesList as $game) {
                 ?>
             <li class="splide__slide p-1">
                 <a class="bg-body rounded-5 d-flex flex-column align-items-start btn shadow-sm p-2 game-card"
-                    href="game_info.php?id=<?=$juego->id?>">
+                    href="game_info.php?id=<?=$game->id?>">
                     <div class="carousel-fade" data-interval="2000">
                         <div class="carousel-inner">
                             <div class="d-block carousel-item active rounded-3 overflow-hidden">
-                                <?php foreach($juego->linksCapturas as $link){?>
+                                <?php foreach($game->linksCapturas as $link){?>
                                     <img src="<?=$link?>?t=<?=time()?>">
                                 <?php }
                                 ?>
@@ -39,22 +39,22 @@ class GamesScroller
                         </div>
                     </div>
                     <span class="fs-5 text-secondary-emphasis">
-                        <?=$juego->titulo?>
+                        <?=$game->titulo?>
                     </span>
                     <span class="fs-6 text-secondary">
-                    <?=$juego->autor?>
+                    <?=$game->autor?>
                     </span>
                     <div class="d-flex w-100 gap-2">
                         <div class="text-secondary">
                             <i class="fa-solid fa-eye"></i>
                             <span>
-                                <?=$juego->vistas?>
+                                <?=$game->vistas?>
                             </span>
                         </div>
                         <div class="text-secondary">
                             <i class="fa-solid fa-thumbs-up"></i>
                             <span>
-                                <?=$juego->likes?>
+                                <?=$game->likes?>
                             </span>
                         </div>
                     </div>
