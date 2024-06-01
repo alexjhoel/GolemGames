@@ -1,18 +1,11 @@
 <?php
 include_once("vendor/autoload.php");
-include_once("session.php");
-include_once("connect.php");
+include_once("connect_session.php");
 include_once("components.php");
 include_once("definitions.php");
 
 
 if (!isset($navSelection)) $navSelection = 0;
-
-$userId = "";
-if(logged) {
-  $result = db::mysqliExecuteQuery($conn, "SELECT id FROM usuarios WHERE nombre=? OR correo_electronico=?","ss",array(username,username));
-  $userId = mysqli_fetch_assoc($result)["id"]; 
-}
 
 ?>
 <html lang="en" data-bs-theme="light">
@@ -65,7 +58,7 @@ if(logged) {
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <i class="fa-solid fa-user"></i> <?php if(logged) echo $_SESSION["usuario"]; else echo 'Mi cuenta';?>
+              <i class="fa-solid fa-user"></i> <?php if(logged) echo username; else echo 'Mi cuenta';?>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end px-2 py-1">
@@ -74,7 +67,7 @@ if(logged) {
               ?>
               <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-upload"></i>&nbsp;&nbsp;Subir un juego</a></li>
 
-              <li><a class="dropdown-item rounded my-1" href="profile_info.php?id=<?="$userId"?>"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
+              <li><a class="dropdown-item rounded my-1" href="profile_info.php?id=<?=userId?>"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
               
               <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configuración</a></li>
 

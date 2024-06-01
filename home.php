@@ -7,29 +7,71 @@ $gameCardObject = new GameCards();
 $maxRows = 12;
 
 $query = "SELECT 
+juegos.id as id, 
+titulo, 
+usuarios.nombre as nombre_usuario,
+IFNULL(GROUP_CONCAT(link_captura ORDER BY capturas_pantalla.id ASC SEPARATOR ', '),'') as capturas, 
+IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as likes, 
+IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
+FROM juegos
+INNER JOIN juegos_destacados ON juegos.id = juegos_destacados.id_juego 
+INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
+LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
+WHERE juegos.borrado = FALSE
+GROUP BY juegos.id
+LIMIT 0, $maxRows";
+
+$destacados = db::mysqliExecuteQuery(
+    $conn,
+    $query,
+    "",
+    array()
+);
+
+$query = "SELECT 
+juegos.id as id, 
+titulo, 
+usuarios.nombre as nombre_usuario,
+IFNULL(GROUP_CONCAT(link_captura ORDER BY capturas_pantalla.id ASC SEPARATOR ', '),'') as capturas, 
+IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as likes, 
+IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
+FROM juegos
+INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
+LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
+WHERE juegos.borrado = FALSE
+GROUP BY juegos.id
+ORDER BY likes desc
+LIMIT 0, $maxRows";
+
+$mejores = db::mysqliExecuteQuery(
+    $conn,
+    $query,
+    "",
+    array()
+);
+
+$query = "SELECT 
     juegos.id as id, 
     titulo, 
     usuarios.nombre as nombre_usuario,
-    IFNULL(GROUP_CONCAT(link_captura SEPARATOR ', '),'') as capturas, 
-    IFNULL(SUM(`like`), 0) as likes, 
-    IFNULL(COUNT(usuarios_ven_juegos.id_juego),0) as visitas
+    IFNULL(GROUP_CONCAT(link_captura ORDER BY capturas_pantalla.id ASC SEPARATOR ', '),'') as capturas, 
+    IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as likes, 
+    IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
     FROM juegos
-    INNER JOIN juegos_destacados ON juegos.id = juegos_destacados.id_juego 
     INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
-    LEFT JOIN usuarios_ven_juegos ON juegos.id = usuarios_ven_juegos.id_juego
     LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
     WHERE juegos.borrado = FALSE
     GROUP BY juegos.id
-    ORDER BY capturas_pantalla.id asc 
+    ORDER BY juegos.fecha asc
     LIMIT 0, $maxRows";
 
-$destacados = db::mysqliExecuteQuery(
-        $conn,
-        $query,
-        "",
-        array()
-    );
- 
+$ultimos = db::mysqliExecuteQuery(
+    $conn,
+    $query,
+    "",
+    array()
+);
+
 ?>
 
 <article class="container px-4 px-md-5 py-3 text-center">
@@ -46,9 +88,6 @@ $destacados = db::mysqliExecuteQuery(
             <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
                 <input type="text" class="form-control rounded-start border-0 shadow-none fs-5"
                     placeholder="¡Buscar entre cientos de juegos!" />
-                <button type="button" class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
-                    <i class="fas fa-sliders"></i>
-                </button>
                 <button type="submit" class="btn btn-primary border-0">
                     <i class="fas fa-search"></i>
                 </button>
@@ -105,6 +144,7 @@ $destacados = db::mysqliExecuteQuery(
         $scroller = new GamesScroller();
 
         foreach ($destacados as $destData) {
+            $gameCardObject = new GameCards;
             $gameCardObject->id = $destData["id"];
             $gameCardObject->titulo = $destData["titulo"];
             $gameCardObject->autor = $destData["nombre_usuario"];
@@ -115,54 +155,57 @@ $destacados = db::mysqliExecuteQuery(
             $scroller->addGame($gameCardObject);
         }
 
-        
+
         $scroller->echo();
         ?>
     </section>
 
 
     <!--Mejores juegos--->
-    <section class="text-start py-2">
+    <section class="text-start py-2 d-flex flex-column">
         <h3><i class="fas fa-medal fa-sm"></i> Los mejores</h3>
         <?php
+
         $scroller = new GamesScroller();
 
-        for ($i = 1; $i < 10; $i++) {
-            $gameCardObject = new GameCards();
-            $gameCardObject->id = $i;
-            $gameCardObject->titulo = "Juego de ejemplo #" . $i;
-            $gameCardObject->autor = "Por juegos sosa" . $i;
-            $gameCardObject->vistas = 999;
-            $gameCardObject->likes = 999;
-            $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+        while ($mejorData = mysqli_fetch_assoc($mejores)) {
+            $gameCardObject = new GameCards;
+            $gameCardObject->id = $mejorData["id"];
+            $gameCardObject->titulo = $mejorData["titulo"];
+            $gameCardObject->autor = $mejorData["nombre_usuario"];
+            $gameCardObject->vistas = $mejorData["visitas"];
+            $gameCardObject->likes = $mejorData["likes"];
+            $gameCardObject->linksCapturas = explode(", ", $mejorData["capturas"]);
 
             $scroller->addGame($gameCardObject);
         }
 
-        
+
         $scroller->echo();
         ?>
     </section>
 
     <!--Ultimos populares--->
-    <section class="text-start py-2">
+    <section class="text-start py-2 d-flex flex-column">
         <h3><i class="fas fa-clock-rotate-left fa-sm"></i> Últimos lanzamientos</h3>
         <?php
+
         $scroller = new GamesScroller();
 
-        for ($i = 1; $i < 10; $i++) {
-            $gameCardObject = new GameCards();
-            $gameCardObject->id = $i;
-            $gameCardObject->titulo = "Juego de ejemplo #" . $i;
-            $gameCardObject->autor = "Por juegos sosa" . $i;
-            $gameCardObject->vistas = 999;
-            $gameCardObject->likes = 999;
-            $gameCardObject->linksCapturas = array("https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais");
+        foreach ($ultimos as $ultimoData) {
+            
+            $gameCardObject = new GameCards;
+            $gameCardObject->id = $ultimoData["id"];
+            $gameCardObject->titulo = $ultimoData["titulo"];
+            $gameCardObject->autor = $ultimoData["nombre_usuario"];
+            $gameCardObject->vistas = $ultimoData["visitas"];
+            $gameCardObject->likes = $ultimoData["likes"];
+            $gameCardObject->linksCapturas = explode(", ", $ultimoData["capturas"]);
 
             $scroller->addGame($gameCardObject);
         }
 
-        
+
         $scroller->echo();
         ?>
     </section>

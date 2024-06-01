@@ -3,9 +3,28 @@
     include("include/header.php");
     $maxPages = 10;
     $page = 1;
+    
+    $id = $_GET["id"];
 
     $query = "SELECT nombre, sobre_mi, foto_perfil FROM usuarios WHERE id=?";
-    $userData = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query,"s",array($_GET["id"])));
+    $userData = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query,"s",array($id)));
+
+    $maxRows = 12;
+    $query = "SELECT 
+    juegos.id as id, 
+    titulo, 
+    usuarios.nombre as nombre_usuario,
+    IFNULL(GROUP_CONCAT(link_captura ORDER BY capturas_pantalla.id ASC SEPARATOR ', '),'') as capturas, 
+    IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as likes, 
+    IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
+    FROM juegos
+    INNER JOIN juegos_destacados ON juegos.id = juegos_destacados.id_juego 
+    INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
+    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
+    WHERE juegos.borrado = FALSE AND usuarios.id = ?
+    GROUP BY juegos.id
+    LIMIT 0, $maxRows";
+    $gamesData = db::mysqliExecuteQuery($conn, $query,"s",array($id));
 ?>
 
 <article class="container px-4 px-md-5 py-3 align-items-center d-flex flex-column gap-2">
@@ -13,7 +32,7 @@
     <section class="card d-flex flex-column gap-2 text-start align-self-center rounded-5 p-4 container overflow-hidden">
         <!---Información de usuario--->
         <div class="d-flex gap-3">
-            <img width="150" height="150" src="<?=$userData["foto_perfil"]?>">
+            <img class="rounded-circle overflow-hidden" width="150" height="150" src="<?=$userData["foto_perfil"]?>?t=<?=time()?>">
             <div>
                 <div class="row">
                      <h1 class="m-0 col-auto"><?=$userData["nombre"]?></h1>
@@ -31,37 +50,38 @@
             </div>
         </div>
         <h4>Sobre mí:</h4>
-        <p><?=$userData["sobre_mi"]?></p>
-        <a class="btn btn-primary position-absolute top-0 end-0 rounded-5 rounded-top-0 rounded-end-0 ps-4 pe-4 py-2" href="edit_client_info.php?id=<?=$_GET["id"]?>"><i class="fa-solid fa-pen"></i></a>
+            <p><?=$userData["sobre_mi"]?></p>
+            <?php if(logged && userId == $id) { ?>
+            <a class="btn btn-primary position-absolute top-0 end-0 rounded-5 rounded-top-0 rounded-end-0 ps-4 pe-4 py-2" 
+                href="profile_edit.php?id=<?=$id?>">
+                <i class="fa-solid fa-pen"></i>
+            </a>
+            <?php } ?>
     </section>
-
+    <?php if(mysqli_num_rows($gamesData) != 0){?>
     <section class="text-start py-2 container">
         <h3><i class="fas fa-gamepad fa-sm"></i>&nbsp;Mis juegos</h3>
-        <div class="gap-1 d-flex flex-row align-items-center">
-            <i class="btn btn-primary rounded-circle fa-solid fa-arrow-left p-1"></i>
-            <div class="d-flex flex-row gap-2 overflow-x-scroll flex-grow-1 scroller pb-3 px-2" data-scrolling-value=238>
-                <?php for ($i=1; $i < 10; $i++) {?>
-                
-                <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 <?php if($i==1) echo 'active-scroller-item'?>" style="width:230px" href="">
-                    <img class="rounded-3 w-100" src="https://img.freepik.com/foto-gratis/equipo-videojuegos-futurista-iluminado-ia-generativa-discoteca_188544-32105.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700524800&semt=ais">
-                    <span class="fs-5 text-secondary-emphasis">Juego de ejemplo #<?=$i?></span>
-                    <div class="d-flex w-100 gap-2">
-                        <div class="text-secondary">
-                            <i class="fa-solid fa-eye"></i>
-                            <span>999</span>
-                        </div>
-                        <div class="text-secondary">
-                            
-                        <i class="fa-solid fa-thumbs-up"></i>
-                            <span>999</span>
-                        </div>
-                    </div>
-                </a>
-                <?php }?>
-            </div>
-            <i class="btn btn-primary rounded-circle fa-solid fa-arrow-right p-1"></i>
+        <?php
+            $scroller = new GamesScroller();
+
+            foreach ($gamesData as $gameData) {
+                $gameCardObject = new GameCards;
+                $gameCardObject->id = $gameData["id"];
+                $gameCardObject->titulo = $gameData["titulo"];
+                $gameCardObject->autor = $gameData["nombre_usuario"];
+                $gameCardObject->vistas = $gameData["visitas"];
+                $gameCardObject->likes = $gameData["likes"];
+                $gameCardObject->linksCapturas = explode(", ", $gameData["capturas"]);
+
+                $scroller->addGame($gameCardObject);
+            }
+
+            
+            $scroller->echo();
+        ?>
         </div>
     </section>
+    <?php }?>
     
 </article>
 <?php

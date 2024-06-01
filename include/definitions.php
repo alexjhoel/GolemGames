@@ -5,7 +5,7 @@
     function haceTiempo($date) {
         $timestamp = strtotime($date);	
         
-        $strTime = array("segundo", "minuto", "hora", "dia", "mes", "año");
+        $strTime = array("segundo", "minuto", "hora", "día", "mes", "año");
         $length = array("60","60","24","30","12","10");
  
         $currentTime = time();
@@ -19,4 +19,5 @@
              return $diff . " " . $strTime[$i] . "(s)";
         }
      }
+ 
 ?>

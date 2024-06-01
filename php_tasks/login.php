@@ -1,6 +1,5 @@
 <?php
-include ("../include/connect.php");
-include ("../include/session.php");
+include ("../include/connect_session.php");
 
 
 function loginCheck($conn, $usuario, $clave)
@@ -87,8 +86,10 @@ function registerCheck($conn, $usuario, $correo, $clave, $terminos){
 
 }
 
-
-$previo = $_SERVER['HTTP_REFERER'];
+if(isset($_SERVER['HTTP_REFERER']))
+    $previo = $_SERVER['HTTP_REFERER'];
+else
+    $previo = "../home.php";
 
 if (isset ($_POST["login_check"])) {
     //Chequeo de usuario cuando intenta iniciar sesion
@@ -119,25 +120,30 @@ if(isset($_POST["register_check"])){
 }
 
 //Formulario de login enviado
-if (isset ($_POST["login"]) && !$logged) {
+if (isset ($_POST["login"]) && !logged) {
 
     $usuario = $_POST["usuario"];
-    $correo = $_POST["usuario"];
     $clave = $_POST["clave"];
 
     $loginResult = loginCheck($conn, $usuario, $clave);
 
     if(count(array_count_values($loginResult)) == 1){
-        //Validación ok
-        $_SESSION["usuario"] = $_POST["usuario"];
+        //Validación ok, guarda el id de usuario en session
+        session::set("id_usuario",
+            mysqli_fetch_assoc(db::mysqliExecuteQuery(
+                $conn,
+                "SELECT id FROM usuarios WHERE nombre=? OR correo_electronico = ?",
+                "ss",
+                array($usuario, $usuario)
+        ))["id"]);
     }else{
-        $_SESSION["message"] = $loginResult;
-        $_SESSION["message_type"] = "danger";
+        session::set("message",$loginResult);
+        session::set("message_type","danger");
     }
 }
 
 //Formulario de registro enviado
-if (isset ($_POST["register"]) && !$logged) {
+if (isset ($_POST["register"]) && !logged) {
     $usuario = $_POST["usuario"];
     $correo = $_POST["correo"];
     $clave = $_POST["clave"];
@@ -145,21 +151,21 @@ if (isset ($_POST["register"]) && !$logged) {
     $registerResult = registerCheck($conn, $usuario, $correo, $clave, $terminos);
     
     if(count(array_count_values($registerResult)) == 1){
-        //Validación ok
+        //Validación ok, guarda el id de usuario en session
         db::mysqliExecuteQuery($conn, "INSERT INTO Usuarios (nombre, correo_electronico, clave, fecha_registro) VALUES(?,?,?,NOW())","sss",
         array(
             $_POST["usuario"], $_POST["correo"], password_hash($_POST["clave"], PASSWORD_DEFAULT) 
         ));
-        $_SESSION["usuario"] = $_POST["usuario"];
+        session::set("id_usuario", $conn->insert_id);
     }else{
-        $_SESSION["message"] = $loginResult;
-        $_SESSION["message_type"] = "danger";
+        session::set("message", $loginResult);
+        session::set("message_type", "danger");
     }
 }
 
 
-if (isset ($_GET["logoff"]) && $logged) {
-    unset($_SESSION["usuario"]);
+if (isset ($_GET["logoff"]) && logged) {
+    session::unset("id_usuario");
 }
 
 

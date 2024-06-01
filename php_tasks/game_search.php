@@ -1,4 +1,6 @@
-<?php $searchQuery = "AND true";
+<?php 
+
+$searchQuery = "AND true";
 $searchValue = "";
 if(isset($_GET["search"])){
     $searchValue = $_GET["search"];

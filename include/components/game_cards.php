@@ -1,6 +1,6 @@
 <?php
     class GameCards{
-        public int $id;
+        public $id;
         public String $titulo;
         public String $autor;
         public int $likes;
@@ -9,25 +9,34 @@
 
         public function echo(){
             ?>
-                <div class="col d-flex justify-content-center">
-                    <a class="bg-body rounded-5 col-3 d-flex flex-column align-items-start btn shadow-sm p-2 game-card" 
-                        style="width:230px;" 
+                    <a class="bg-body rounded-5 w-100 d-flex flex-column align-items-start btn shadow-sm p-2 game-card"
                         href="game_info.php?id=<?=$this->id?>">
-                        <div class="carousel-fade" data-interval="2000">
-                            <div class="carousel-inner">
+                        <div class="w-100 ratio ratio-16x9 overflow-hidden rounded-3">
+                            <div class="carousel-fade" data-interval="2000">
+                                <div class="carousel-inner">
                                 <?php
                                 $first = true;
                                 foreach($this->linksCapturas as $link){
                                     ?>
-                                    <div class="d-block carousel-item <?= $first ? 'active' : ''?> rounded-3 overflow-hidden" style="width:212px; height: 135px">
-                                        <img src="<?=$link?>?t=<?=time()?>" class="w-100 position-absolute top-50 start-50 translate-middle" alt="">
+                                    <div class="d-block carousel-item <?= $first ? 'active' : ''?>"  >
+                                        <img src="<?=$link?>?t=<?=time()?>" class="w-100" alt="">
                                     </div>
                                     <?php
                                     $first = false;
                                 }
+                                if($first){
+                                    ?>
+                                    <div class="d-block carousel-item <?= $first ? 'active' : ''?>" style="width:100%;">
+                                        <img src="https://cdn.magicdecor.in/com/2024/02/08163057/Vibrant-Gaming-Controller-Wallpaper-for-Gaming-Lovers.jpg?t=<?=time()?>" class="w-100" alt="">
+                                    </div>
+                                    
+                                    <?php
+                                }
                                 ?>
+                                </div>
                             </div>
                         </div>
+                        
                         <span class="fs-5 text-secondary-emphasis">
                             <?=$this->titulo?>
                         </span>
@@ -49,7 +58,7 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                
             <?php
         }
         

@@ -1,14 +1,9 @@
 <?php
-include ("../include/connect.php");
-include ("../include/session.php");
+include ("../include/connect_session.php");
 
 $previo = $_SERVER['HTTP_REFERER'];
 
-
-
-if(isset($_POST["id_usuario"]) && isset($_POST["id_juego"])){
-    $idUsuario = $_POST["id_usuario"];
-    $idJuego = $_POST["id_juego"];
+if(isset($_POST["id_usuario"]) && isset($_POST["id_juego"]) ){
     if(isset($_GET["like"])){
         $idUsuario = $_POST["id_usuario"];
         $idJuego = $_POST["id_juego"];

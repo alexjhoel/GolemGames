@@ -4,6 +4,7 @@
     if(isset($_GET["id"])){
         $id = $_GET["id"];
 
+        //Consulta de datos de juego, se guarda en $data
         $query = "SELECT IFNULL(SUM(`like`),0) AS likes, foto_perfil, juegos.id as id, nombre as autor, id_desarrollador, titulo, descripcion, link_archivo_juego, link_descarga, es_publico, vistas  
         FROM juegos 
         INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
@@ -15,25 +16,29 @@
         GROUP BY juegos.id";
         $data = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query, "s", array($id)));
 
+        //Consulta para obtener las paltaformas disponibles del juego, se guarda en $plataformas
         $query = "SELECT plataforma FROM plataformas_juegos WHERE id_juego = ?";
         $plataformas = db::mysqliExecuteQuery($conn, $query, "s", array($id));
-        
 
+        //Consulta para obtener las capturas de pantallas del juego, se guarda en $capturas
         $query = "SELECT link_captura FROM capturas_pantalla WHERE id_juego = ?";
         $capturas = db::mysqliExecuteQuery($conn, $query, "s", array($id));
 
+        //Consulta para ver si el usuario logead dio like, se guarda en $visualizacion["like"],
+        //1 si dio like el usuario, 0 si no dio like el usuario 
         if(logged){
             $query = "CALL select_usuarios_ven_juegos (?, ?)";
-            $visualizacion = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query, "ii", array($userId, $id)));
+            $visualizacion = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, $query, "ii", array(userId, $id)));
         }
+
+        //Consulta para obtener los comentarios del juego, se guarda en $comentarios
 
         $query = "SELECT fecha, texto, nombre, foto_perfil 
         FROM comentarios INNER JOIN usuarios ON comentarios.id_usuario = usuarios.id WHERE id_juego = ?
-        ORDER BY
-            CASE
-                WHEN id_usuario = '$userId' THEN 0
-                ELSE 1
-            END, fecha DESC";
+        ORDER BY ";
+
+        if(logged) $query .= "CASE WHEN id_usuario = '".userId."' THEN 0 ELSE 1 END, ";
+        $query .= "fecha DESC";
         $comentarios = db::mysqliExecuteQuery($conn, $query, "s", array($id));
 
 
@@ -51,7 +56,7 @@
         <div class="d-flex flex-column justify-content-center">
             <div class="btn-group" role="group">
                 <a type="button" class="btn btn-primary" style="border-radius:0px; border-top-left-radius:0.5rem;"  href="uploads/games/luigi-casino/index.html"><i class="fa-solid fa-play"></i>
-                            Jugar en linea
+                            Jugar en línea
                 </a>
                 <a type="button" class="btn btn-success" style="border-radius:0px; border-top-right-radius:0.5rem;" href="#"><i class="fa-solid fa-download"></i>
                             Descargar (XX MB)
@@ -100,14 +105,20 @@
         <h4>Autor:</h4>
         <div class="d-flex flex-wrap justify-content-between">
             <a class="fw-bold text-reset text-decoration-none" href="profile_info.php?id=<?=$data["id_desarrollador"]?>">
-                <img src="<?=$data["foto_perfil"]== "" ? default_profile_icon : $data["foto_perfil"]?>" width="40" height="40">
+                <img class="rounded-circle overflow-hidden" src="<?=$data["foto_perfil"]== "" ? default_profile_icon : $data["foto_perfil"]?>?t=<?=time()?>" width="40" height="40">
                 <?=$data["autor"]?>
             </a>
-            <form action="php_tasks/comment.php?like=1" method = "post">
-                <input type="hidden" name="id_usuario" value="<?=$userId?>">
+            <?//Formulario de dar like?>
+            <form action="php_tasks/comment.php?like=1&id_usuario=<?=userId?>" method = "post">
+                <input type="hidden" name="id_usuario" value="<?=userId?>">
                 <input type="hidden" name="id_juego" value="<?=$id?>">
                 <div class="btn-group" role="group">
-                    <button class="btn btn-outline-primary rounded-start-5 <?php if ($visualizacion["like"] == 1) echo "active" ?>">
+                    <button class="btn btn-outline-primary rounded-start-5 
+                    <?php //Mostrar botón coloreado si el usuario logeado le dio like
+                        if (logged && $visualizacion["like"] == 1) echo "active" ?>" 
+                    <?php //Si no está logeado, desactivar el submit del botón
+                        if(!logged) echo 'data-bs-toggle="tooltip" data-bs-title="Regístrate o inicia sesión para dar like" type="button"'?>
+                    >
                         <i class="fa-solid fa-thumbs-up"></i>
                         <?=$data["likes"]?>
                     </button>
@@ -125,7 +136,7 @@
 
         <form action="php_tasks/comment.php?" method="post">
             
-            <input type="hidden" name="id_usuario" value="<?=$userId?>">
+            <input type="hidden" name="id_usuario" value="<?=userId?>">
             <input type="hidden" name="id_juego" value="<?=$id?>">
             <textarea id="comentario-textarea" name="texto" class="form-control" placeholder="Escribe un comentario aquí..."></textarea>
             
@@ -140,7 +151,7 @@
             while($coment = mysqli_fetch_assoc($comentarios)){
                 ?>
                 <div class="d-flex gap-2">
-                    <img src="<?=$data["foto_perfil"]== "" ? default_profile_icon : $data["foto_perfil"]?>" width="40" height="40">
+                    <img class="rounded-circle overflow-hidden" src="<?=$coment["foto_perfil"]== "" ? default_profile_icon : $coment["foto_perfil"]?>?t=<?=time()?>" width="40" height="40">
                     <div class="flex-grow-1">
                         <a class="text-reset fw-bold text-decoration-none" href="#"><?=$coment["nombre"]?></a>
                         <span class="text-secondary" style="font-size: small;">
