@@ -11,7 +11,6 @@
             ?>
                     <a class="bg-body rounded-5 w-100 d-flex flex-column align-items-start btn shadow-sm p-2 game-card"
                         href="game_info.php?id=<?=$this->id?>">
-<<<<<<< Updated upstream
                         <div class="w-100 ratio ratio-16x9 overflow-hidden rounded-3">
                             <div class="carousel-fade" data-interval="2000">
                                 <div class="carousel-inner">
@@ -35,23 +34,6 @@
                                 }
                                 ?>
                                 </div>
-=======
-                        <div class="splide game-card-scroller p-0 rounded-3 overflow-hidden">
-                            <div class="splide__track">
-                                <ul class="splide__list">
-                                    <?php
-                                    $first = true;
-                                    foreach($this->linksCapturas as $link){
-                                        ?>
-                                        <li class="splide__slide">
-                                            <img src="<?=$link?>?t=<?=time()?>" alt="">
-                                        </li>
-                                        <?php
-                                        $first = false;
-                                    }
-                                    ?>
-                                </ul>
->>>>>>> Stashed changes
                             </div>
                         </div>
                         

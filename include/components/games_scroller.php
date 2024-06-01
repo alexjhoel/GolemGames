@@ -24,21 +24,11 @@ class GamesScroller
             <div class="splide__track" style="height: 300px;">
                 <ul class="splide__list">
                     <!--Display de juegos--->
-<<<<<<< Updated upstream
                     <?php foreach ($this->gamesList as $game) {?>
                         <li class="splide__slide p-1"><?php $game->echo(); ?></li>
                     <?php } ?>
                 </ul>
             </div>
-=======
-            <?php foreach ($this->gamesList as $game) {
-                ?>
-            <li class="splide__slide p-1">
-               <?php $game->echo(); ?>
-            </li>
-            <?php
-            } ?>
->>>>>>> Stashed changes
 
         </div>
 <?php
