@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Dutch language data (last modified: 2023.10.12).
+# This file: Dutch language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -52,7 +52,7 @@ config:
  files: "De details over het omgaan met bestanden tijdens het scannen."
  files_allow_leading_trailing_dots: "Sta voorlopende en achterliggende stippen toe in bestandsnamen? Dit kan soms worden gebruikt om bestanden te verbergen, of om sommige systemen te misleiden om doorverwijzing van mappen mogelijk te maken. False = Niet toestaan [Standaard]. True = Toestaan."
  files_archive_file_extensions: "Herkende archief bestandsextensies (formaat is CSV; moet alleen toevoegen of verwijderen wanneer problemen voorkomen; onnodig verwijderen kan leiden tot vals-positieven te verschijnen voor archiefbestanden, terwijl onnodig toevoeging zal effectief whitelist wat u toevoegt van aanval-specifieke detectie; wijzigen met voorzichtigheid; ook noteren dat Dit heeft geen effect op welke archieven kan en niet kan wordt geanalyseerd op inhoudsniveau). De lijst, als is bij standaard, geeft die formaten gebruikt meest vaak door de meeste systemen en CMS, maar opzettelijk is niet noodzakelijk alomvattend."
- files_block_control_characters: "Blokkeren alle bestanden bevatten controle karakters (andere dan nieuwe regels)? Als u <em><strong>ALLEEN</strong></em> uploaden platte tekst, dan u kan inschakelen dit optie te bieden extra bescherming aan uw systeem. Hoewel, als u uploaden iets anders dan platte tekst, inschakelen dit kan leiden tot valse positieven. False = Niet blokkeren [Standaard]; True = Doen blokkeren."
+ files_block_control_characters: "Blokkeren alle bestanden bevatten controle karakters (andere dan nieuwe regels)? Als u <strong><em>ALLEEN</em></strong> uploaden platte tekst, dan u kan inschakelen dit optie te bieden extra bescherming aan uw systeem. Hoewel, als u uploaden iets anders dan platte tekst, inschakelen dit kan leiden tot valse positieven. False = Niet blokkeren [Standaard]; True = Doen blokkeren."
  files_block_encrypted_archives: "Detecteren en blokkeren gecodeerde archieven? Omdat phpMussel is niet in staat te scannen de inhoud van gecodeerde archieven, het is mogelijk dat archief encryptie kan worden toegepast door een aanvaller als middel van probeert te omzeilen phpMussel, anti-virus scanners en andere dergelijke beveiligingen. Instrueren phpMussel te blokkeren elke archieven dat het ontdekt worden gecodeerde zou kunnen helpen het risico in verband met deze dergelijke mogelijkheden te verminderen. False = Nee; True = Ja [Standaard]."
  files_block_macros: "Probeer u alle bestanden met macro's te blokkeren? Sommige soorten documenten en spreadsheets kunnen uitvoerbare macro's bevatten, waardoor een gevaarlijke potentiële malwarevector wordt geboden. False = Niet blokkeren [Standaard]; True = Doen blokkeren."
  files_can_contain_php_file_extensions: "Een lijst met bestandsextensies die PHP-code mogen bevatten, gescheiden door komma's. Als PHP chameleon aanval detectie is ingeschakeld, zullen bestanden die PHP-code bevatten, met extensies die niet op deze lijst staan, worden gedetecteerd als PHP chameleon aanvallen."
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO wachtwoord."
  supplementary_cache_options_pdo_username: "PDO gebruikersnaam."
  supplementary_cache_options_prefix: "De hier opgegeven waarde wordt toegevoegd aan alle cache-invoersleutels. Standaard = "phpMussel_". Als er meerdere installaties op dezelfde server staan, dit kan handig zijn om hun caches gescheiden van elkaar te houden."
+ supplementary_cache_options_redis_database_number: "Redis-databasenummer. Standaard = 0. Opmerking: Kan geen andere waarden dan 0 gebruiken met Redis Cluster."
  supplementary_cache_options_redis_host: "Redis hostwaarde. Standaard = "localhost"."
  supplementary_cache_options_redis_port: "Redis poortwaarde. Standaard = "6379"."
  supplementary_cache_options_redis_timeout: "Redis timeoutwaarde. Standaard = "2.5"."
@@ -125,7 +126,7 @@ config:
  urlscanner_maximum_api_lookups: "Maximaal toelaatbaar aantal van de API verzoeken te voeren per individuele scan iteratie. Omdat elke extra API verzoek zullen toevoegen aan de totale tijd die nodig te voltooien elke scan iteratie, u kunt wensen om een beperking te specificeren teneinde versnellen het algehele scanproces. Wanneer ingesteld op 0, geen dergelijk maximaal toelaatbaar aantal wordt toegepast. Ingesteld op 10 standaard."
  urlscanner_maximum_api_lookups_response: "Wat te doen als het maximaal toelaatbaar aantal van API verzoeken wordt overschreden? False = Niets doen (voortzetten de verwerking) [Standaard]; True = Merken/blokkeren het bestand."
  virustotal: "Configuratie voor Virus Totale integratie."
- virustotal_vt_public_api_key: "Optioneel, met phpMussel, het is mogelijk om bestanden te scannen met behulp van de Virus Total API als een manier om een sterk verbeterde mate van bescherming te bieden tegen virussen, trojans, malware en andere bedreigingen. Standaard, scannen van bestanden met behulp van de Virus Total API is uitgeschakeld. Om het te inschakelen, een Virus Total API-sleutel is nodig. Vanwege de aanzienlijke voordeel dat dit zou kunnen om u te voorzien, het is iets dat ik sterk aanbevelen te inschakelen. Wees u ervan bewust, echter, dat voor gebruik op de Virus Total API, u <em><strong>MOET</strong></em> akkoord gaan hun Algemene Voorwaarden en u <em><strong>MOET</strong></em> voldoen aan alle richtlijnen per beschreven door de Virus Total documentatie! U bent NIET toegestaan om dit integratie functie te gebruiken TENZIJ: U heeft gelezen en u akkoord met de Algemene Voorwaarden van de Virus Total en zijn API. U heeft gelezen en u begrijpt, ten minste, de preambule van de Virus Total Public API-documentatie (alles na "VirusTotal Public API v2.0" maar vóór "Contents")."
+ virustotal_vt_public_api_key: "Optioneel, met phpMussel, het is mogelijk om bestanden te scannen met behulp van de Virus Total API als een manier om een sterk verbeterde mate van bescherming te bieden tegen virussen, trojans, malware en andere bedreigingen. Standaard, scannen van bestanden met behulp van de Virus Total API is uitgeschakeld. Om het te inschakelen, een Virus Total API-sleutel is nodig. Vanwege de aanzienlijke voordeel dat dit zou kunnen om u te voorzien, het is iets dat ik sterk aanbevelen te inschakelen. Wees u ervan bewust, echter, dat voor gebruik op de Virus Total API, u <strong><em>MOET</em></strong> akkoord gaan hun Algemene Voorwaarden en u <strong><em>MOET</em></strong> voldoen aan alle richtlijnen per beschreven door de Virus Total documentatie! U bent NIET toegestaan om dit integratie functie te gebruiken TENZIJ: U heeft gelezen en u akkoord met de Algemene Voorwaarden van de Virus Total en zijn API. U heeft gelezen en u begrijpt, ten minste, de preambule van de Virus Total Public API-documentatie (alles na "VirusTotal Public API v2.0" maar vóór "Contents")."
  virustotal_vt_quota_rate: "Volgens de Virus Total API-documentatie, het is beperkt tot maximaal 4 verzoeken van welke aard in elk 1 minuut tijdsbestek. Als u een honeyclient, honeypot of andere automatisering te voorzien, dat gaat om middelen te verschaffen om VirusTotal en niet alleen rapporten opvragen heeft u recht op een hogere API-quotum. Normaal, phpMussel zal strikt houden aan deze beperkingen, maar vanwege de mogelijkheid van deze API-quotum verhoogd te worden, deze twee richtlijnen worden verstrekt als middel voor u om instrueren phpMussel wat limiet moeten houden worden. Tenzij u heeft geïnstrueerd om dit te doen, het is niet aan te raden voor u om deze waarden te verhogen, maar, als u heeft ondervonden problemen met betrekking tot uw tarief quota bereiken, afnemende deze waarden kunnen u soms helpen in het omgaan met deze problemen. Uw maximaal tarief bepaald als <code>vt_quota_rate</code> verzoeken van welke aard in elk <code>vt_quota_time</code> minuut tijdsbestek."
  virustotal_vt_quota_time: "(Zie bovenstaande beschrijving)."
  virustotal_vt_suspicion_level: "Normaal, phpMussel zal beperken welke bestanden scant met behulp van de Virus Total API om het bestanden die zijn beschouwd "achterdochtig". Optioneel, u kan dit beperking aan te passen door de waarde van het <code>vt_suspicion_level</code> richtlijn."
@@ -166,8 +167,27 @@ field:
  vt_suspicion_level_all: "Scan alle bestanden."
  vt_suspicion_level_executable: "Scan bestanden met heuristisch gewicht, uitvoerbare bestanden, en bestanden die mogelijk uitvoerbare gegevens bevatten.\nVoorbeelden van uitvoerbare bestanden, en bestanden die mogelijk uitvoerbare gegevens bevatten, omvatten Windows PE-bestanden, Linux ELF-bestanden, Mach-O-bestanden, DOCX-bestanden, ZIP-bestanden, enz."
  vt_suspicion_level_heuristic_only: "Scan alleen bestanden met heuristisch gewicht.\nBestanden worden alleen gescand als ze een heuristisch gewicht hebben. Heuristisch gewicht kan worden verkregen uit signatures die bedoeld zijn om veelvoorkomende vingerafdrukken op te vangen die verband houden met een mogelijke infectie die niet noodzakelijkerwijs een infectie garandeert. De zoekopdracht kan in dergelijke gevallen dienen om een second opinion te geven voor resultaten die een verdenking rechtvaardigen, maar verder geen absoluut vertrouwen bieden."
+hints_logging_datetime: "Handige tip: U kunt datum-/tijdinformatie aan de namen van logbestanden toevoegen door tijdelijke aanduidingen voor de tijdnotatie te gebruiken. Beschikbare tijdelijke aanduidingen voor tijdnotatie worden weergegeven bij {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.nl.md\#user-content-HOW_TO_USE_PDO" hreflang="nl-NL">Wat is een "PDO DSN"? Hoe kan ik PDO gebruiken met phpMussel?</a></em>"
+hints_time_format: |
+ <strong><em>Tijdelijke aanduiding – Uitleg – Voorbeeld gebaseerd op 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Het jaartal – B.v., 2024.<br />
+ <code class="s">{yy}</code> – Het afgekorte jaartal – B.v., 24.<br />
+ <code class="s">{Mon}</code> – De afgekorte naam van de maand (in het Engels) – B.v., Apr.<br />
+ <code class="s">{mm}</code> – De maand met voorloopnullen – B.v., 04.<br />
+ <code class="s">{m}</code> – De maand – B.v., 4.<br />
+ <code class="s">{Day}</code> – De afgekorte naam van de dag (in het Engels) – B.v., Tue.<br />
+ <code class="s">{dd}</code> – De dag met voorloopnullen – B.v., 30.<br />
+ <code class="s">{d}</code> – De dag – B.v., 30.<br />
+ <code class="s">{hh}</code> – Het uur met voorloopnullen (gebruikt 24-uurs tijd) – B.v., 18.<br />
+ <code class="s">{h}</code> – Het uur (gebruikt 24-uurs tijd) – B.v., 18.<br />
+ <code class="s">{ii}</code> – De minuut met voorloopnullen – B.v., 27.<br />
+ <code class="s">{i}</code> – De minuut – B.v., 27.<br />
+ <code class="s">{ss}</code> – De seconde met voorloopnullen – B.v., 49.<br />
+ <code class="s">{s}</code> – De seconde – B.v., 49.<br />
+ <code class="s">{tz}</code> – De tijdzone (zonder dubbele punt) – B.v., +0800.<br />
+ <code class="s">{t:z}</code> – De tijdzone (met dubbele punt) – B.v., +08:00.
 hints_xlists:
  Hoe dit werkt.: "Als uw systeem vergunningen alleen specifieke bestandstypen te uploaden, of als uw systeem expliciet ontkent bepaalde bestandstypen, specificeren deze bestandstypen in whitelists, blacklists, en greylists kunt toenemen de snelheid waarin scannen is uitgevoerd via vergunningen het script te negeren bepaalde bestandstypen. Formaat is CSV (komma's gescheiden waarden)."
  Logische volgorde van de verwerking.: "Als het bestandstype is op de whitelist, niet scannen en niet blokkeren het bestand, en niet controleer het bestand tegen de blacklist of de greylist. Als het bestandstype is op de blacklist, niet scannen het bestand maar blokkeren het niettemin, en niet controleer het bestand tegen de greylist. Als de greylist is leeg of als de greylist is niet leeg en het bestandstype is op de greylist, scannen het bestand als per normaal en bepalen als om het gebaseerd op de resultaten van de scan te blokkeren, maar als de greylist is niet leeg en het bestandstype is niet op de greylist, behandel het bestand alsof op de blacklist, dus om het niet te scannen, maar toch blokkeren het niettemin."
@@ -277,7 +297,6 @@ link:
  Statistics: "Statistieken"
  Text formatting: "Tekstformaat: <a href="%1$sfalse">Eenvoudig</a> – <a href="%1$strue">Geformatteerde</a>"
  Upload Testing: "Upload testing"
-max_login_attempts_exceeded: "Maximum aantal inlogpogingen overschreden; Toegang geweigerd."
 msg_subject_2fa: "2FA (Twee-Factor Authenticatie)"
 msg_template_2fa: |
  <center><p>Hallo, %s.<br /><br />
@@ -297,20 +316,23 @@ response:
  Account successfully deleted: "Account succesvol verwijderd!"
  An account with that username already exists: "Een account bij die gebruikersnaam bestaat al!"
  Configuration successfully updated: "Configuratie succesvol gewijzigd."
- Corrupted file: "Kan niet herstellen! Beschadigd bestand!"
+ Corrupted file: "Beschadigd bestand!"
  Failed to create: "Aanmaken mislukt!"
  Failed to delete: "Verwijderen mislukt!"
+ Failed to restore: "Kan niet herstellen"
  Failed to update configuration: "Update van configuratie mislukt!"
  Failed to update: "Update mislukt!"
  Failed: "Mislukt"
  File successfully deleted: "Bestand succesvol verwijderd!"
  File successfully restored: "Bestand succesvol hersteld!"
  Incorrect 2FA code entered: "Onjuiste 2FA-code ingevoerd. Verificatie mislukt."
- Incorrect quarantine key: "Kan niet herstellen! Onjuiste quarantaine sleutel!"
+ Incorrect quarantine key: "Onjuiste quarantaine sleutel!"
  Invalid password: "Inloggen mislukt! Ongeldig wachtwoord!"
+ Maximum number of login attempts exceeded: "Maximum aantal inlogpogingen overschreden; Toegang geweigerd."
  Password field empty: "Password veld leeg!"
  Password successfully updated: "Wachtwoord succesvol gewijzigd!"
- Permissions not adequate to perform asynchronous requests:: "Machtigingen niet geschikt om asynchrone verzoeken uit te voeren. Probeer opnieuw in te loggen."
+ Permissions not adequate to perform asynchronous requests: "Machtigingen niet geschikt om asynchrone verzoeken uit te voeren. Probeer opnieuw in te loggen."
+ Please enter a valid quarantine key: "Voer alstublieft een geldige quarantainesleutel in."
  Statistics cleared: "Statistieken geannuleerd."
  Successfully authenticated: "Succesvol geverifieerd"
  That account doesn_t exist: "Die account bestaat niet."
@@ -344,18 +366,19 @@ state_quarantine:
  - "Er zijn momenteel %s bestanden in quarantaine."
 tip:
  2FA Sent: "Een e-mail met een tweefactorauthenticatie code is verzonden naar uw e-mailadres. Bevestig deze code hieronder om toegang te krijgen tot de frontend. Als u deze e-mail niet hebt ontvangen, probeert u uit te loggen, wacht 10 minuten, en in te loggen opnieuw aan om een nieuwe e-mail met een nieuwe code te ontvangen."
- Accounts: "Hallo, {username}.<br />De accounts pagina stelt u in staat om te bepalen wie toegang heeft tot de phpMussel frontend."
- Cache Data: "Hallo, {username}.<br />Hier kunt u de inhoud van de cache bekijken."
- Configuration: "Hallo, {username}.<br />De configuratie pagina stelt u in staat om de configuratie voor phpMussel te modificeren vanaf de frontend."
- Home: "Hallo, {username}.<br />Dit is de startpagina van de phpMussel frontend. Selecteer een link in het navigatiemenu aan de linkerkant om door te gaan."
- Logs: "Hallo, {username}.<br />Selecteer een logbestand uit de onderstaande lijst om de inhoud van de logbestand te bekijken."
+ Accounts: "De accounts pagina stelt u in staat om te bepalen wie toegang heeft tot de phpMussel frontend."
+ Cache Data: "Hier kunt u de inhoud van de cache bekijken."
+ Configuration: "De configuratie pagina stelt u in staat om de configuratie voor phpMussel te modificeren vanaf de frontend."
+ Greeting: "Hallo, %s."
+ Home: "Dit is de startpagina van de phpMussel frontend. Selecteer een link in het navigatiemenu aan de linkerkant om door te gaan."
+ Logs: "Selecteer een logbestand uit de onderstaande lijst om de inhoud van de logbestand te bekijken."
  Quarantine is currently disabled: "Notitie: Quarantaine is momenteel uitgeschakeld, maar kan via de configuratiepagina worden ingeschakeld."
- Quarantine: "Hallo, {username}.<br />Deze pagina bevat een lijst met alle bestanden die momenteel in quarantaine staan en het beheer van die bestanden vergemakkelijkt."
+ Quarantine: "Deze pagina bevat een lijst met alle bestanden die momenteel in quarantaine staan en het beheer van die bestanden vergemakkelijkt."
  See the documentation: "Zie de <a href="https://github.com/phpMussel/Docs/blob/master/readme.nl.md\#user-content-SECTION5" hreflang="nl-NL" rel="noopener external">documentatie</a> voor informatie over de verschillende configuratie richtlijnen en hun doeleinden."
- Signature Information: "Hallo, {username}.<br />De signature informatie pagina biedt enige basisinformatie over de bronnen en typen van de momenteel actieve signatures."
+ Signature Information: "De signature informatie pagina biedt enige basisinformatie over de bronnen en typen van de momenteel actieve signatures."
  Statistics tracking is currently disabled: "Notitie: Statistische tracking is momenteel uitgeschakeld, maar kan via de configuratiepagina worden ingeschakeld."
- Statistics: "Hallo, {username}.<br />Deze pagina bevat een aantal basisgebruiksstatistieken voor uw phpMussel-installatie."
- Upload Testing: "Hallo, {username}.<br />De upload test pagina bevat een standaard file upload formulier, voor het testen of een bestand normaliter geblokkeerd door phpMussel bij een poging om het te uploaden."
+ Statistics: "Deze pagina bevat een aantal basisgebruiksstatistieken voor uw phpMussel-installatie."
+ Upload Testing: "De upload test pagina bevat een standaard file upload formulier, voor het testen of een bestand normaliter geblokkeerd door phpMussel bij een poging om het te uploaden."
 warning:
  Cookies: "Notitie: phpMussel gebruikt een cookie om aanmeldingen te verifiëren. Door in te loggen, geeft u uw toestemming voor het maken en opslaan van een cookie door uw browser."
  JavaScript required: "Waarschuwing: Voor sommige frontend functionaliteit is JavaScript vereist. Om ervoor te zorgen dat de gehele frontend zich naar verwachting gedraagt, wordt het inschakelen van JavaScript aanbevolen."

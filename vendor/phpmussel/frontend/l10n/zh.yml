@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Chinese (simplified) language data (last modified: 2023.09.23).
+# This file: Chinese (simplified) language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -33,7 +33,7 @@ config:
  core_disabled_channels: "这可用于防止phpMussel在发送请求时使用特定通道。"
  core_error_log: "用于记录检测到的任何非致命错误的文件。​指定一个文件名，​或留空以禁用。"
  core_hide_version: "从日志和页面输出中隐藏版本信息吗？​True（真）=关闭；False（假）=不关闭【标准】。"
- core_ipaddr: "在哪里可以找到连接请求IP地址？​（可以使用为服务例如Cloudflare和类似）。​标准 = REMOTE_ADDR。​警告：不要修改此除非您知道什么您做着！"
+ core_ipaddr: "在哪里可以找到连接请求IP地址？​（可以使用为服务例如Cloudflare和类似）。 标准 = REMOTE_ADDR。​警告：不要修改此除非您知道什么您做着！"
  core_lang: "指定标准phpMussel语言。"
  core_lang_override: "尽可能根据HTTP_ACCEPT_LANGUAGE进行本地化？True（真）=进行本地化【标准】；False（假）=不要本地化。"
  core_log_rotation_action: "日志轮转限制了任何时候应该存在的日志文件的数量。​当新的日志文件被创建时，如果日志文件的指定的最大数量已经超过，将执行指定的操作。​您可以在此处指定所需的操作。"
@@ -81,7 +81,7 @@ config:
  frontend_custom_header: "在所有前端页面的开头作为HTML插入。​如果您想在所有此类页面中包含网站徽标、个性化标题、脚本、或类似，这可能会很有用。"
  frontend_default_algo: "定义要用于所有未来密码和会话的算法。"
  frontend_frontend_log: "前端登录尝试的录音文件。​指定一个文件名，​或留空以禁用。"
- frontend_magnification: "字体放大。​标准 = 1。"
+ frontend_magnification: "字体放大。 标准 = 1。"
  frontend_max_login_attempts: "最大前端登录尝试次数。​标准=5。"
  frontend_numbers: "您如何喜欢显示数字？​选择最适合示例。"
  frontend_theme: "用于phpMussel前端的美学。"
@@ -91,8 +91,8 @@ config:
  quarantine: "隔离配置。"
  quarantine_quarantine_key: "phpMussel能够隔离被阻止的文件上传，​如果这个是某物您想。​普通用户的phpMussel简单地想保护他们的网站或宿主环境无任何兴趣在深深分析任何尝试文件上传应该离开这个功能关闭，​但任何用户有兴趣在更深分析的尝试文件上传为目的恶意软件研究或为类似这样事情应该激活这个功能。​检疫的尝试文件上传可以有时还助攻在调试假阳性，​如果这个是某物经常发生为您。​以关闭检疫功能，​简单地离开<code>quarantine_key</code>指令空白，​或抹去内容的这个指令如果它不已空白。​以激活隔离功能，​输入一些值在这个指令。​<code>quarantine_key</code>是一个重要安全功能的隔离功能需要以预防检疫功能从成为利用通过潜在攻击者和以预防任何潜在执行的数据存储在检疫。​<code>quarantine_key</code>应该被处理在同样方法作为您的密码：更长是更好，​和紧紧保护它。​为获得最佳效果，​在结合使用<code>delete_on_sight</code>。"
  quarantine_quarantine_max_files: "隔离中可以存在的最大文件数量。​新文件添加到隔离时，如果超过此数量，则旧文件将被删除，直到剩余的文件不再超过此数量。​标准=100。"
- quarantine_quarantine_max_filesize: "最大允许文件大小为文件在检疫。​文件大于这个指定数值将不成为检疫。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。​标准 = 2MB。"
- quarantine_quarantine_max_usage: "最大内存使用允许为检疫。​如果总内存已用通过隔离到达这个数值，​最老检疫文件将会删除直到总内存已用不再到达这个数值。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。​标准 = 64MB。"
+ quarantine_quarantine_max_filesize: "最大允许文件大小为文件在检疫。​文件大于这个指定数值将不成为检疫。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。 标准 = 2MB。"
+ quarantine_quarantine_max_usage: "最大内存使用允许为检疫。​如果总内存已用通过隔离到达这个数值，​最老检疫文件将会删除直到总内存已用不再到达这个数值。​这个指令是重要为使它更难为任何潜在攻击者洪水您的检疫用非通缉数据潜在的造成过度数据用法在您的虚拟主机服务。 标准 = 64MB。"
  signatures: "签名，签名文件，等的配置。"
  signatures_active: "活性签名文件的列表，​以逗号分隔。​注意：首先必须安装签名文件，然后才能激活它们。​为了使测试文件正常工作，必须安装并激活签名文件。"
  signatures_detect_adware: "phpMussel应该使用签名为广告软件检测吗？​False（假）=不检查，​True（真）=检查【默认】。"
@@ -106,19 +106,20 @@ config:
  signatures_fail_silently: "phpMussel应该报告当签名文件是失踪或损坏吗？​如果<code>fail_silently</code>是关闭，​失踪和损坏文件将会报告当扫描，​和如果<code>fail_silently</code>是激活，​失踪和损坏文件将会忽略，​有扫描报告为那些文件哪里没有问题。​这个应该按说被留下除非您遇到失败或有其他类似问题。​False（假）=是关闭；True（真）=是激活【默认】。"
  signatures_heuristic_threshold: "有某些签名的phpMussel意味为确定可疑和可能恶意文件零件被上传有不在他们自己确定那些文件被上传特别是作为恶意。​这个“threshold”数值告诉phpMussel什么是最大总重量的可疑和潜在恶意文件零件被上传允许之前那些文件是被识别作为恶意。​定义的重量在这个上下文是总数值的可疑和可能恶意文件零件确定。​作为默认，​这个数值将会设置作为3。​一个较低的值通常将结果在一个更高的发生的假阳性但一个更高的发生的恶意文件被确定，​而一个更高的数值将通常结果在一个较低的发生的假阳性但一个较低的数值的恶意文件被确定。​它是通常最好忽略这个数值除非您遇到关联问题。"
  supplementary_cache_options: "补充缓存选项。​注意：更改这些值可能会使您注销。"
- supplementary_cache_options_enable_apcu: "指定是否尝试使用APCu进行缓存。​标准 = True。"
- supplementary_cache_options_enable_memcached: "指定是否尝试使用Memcached进行缓存。​标准 = False。"
- supplementary_cache_options_enable_pdo: "指定是否尝试使用PDO进行缓存。​标准 = False。"
- supplementary_cache_options_enable_redis: "指定是否尝试使用Redis进行缓存。​标准 = False。"
- supplementary_cache_options_memcached_host: "Memcached主机值。​标准 = “localhost”。"
- supplementary_cache_options_memcached_port: "Memcached端口值。​标准 = “11211”。"
- supplementary_cache_options_pdo_dsn: "PDO DSN值。​标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。"
- supplementary_cache_options_pdo_password: "PDO密码。"
- supplementary_cache_options_pdo_username: "PDO用户名。"
- supplementary_cache_options_prefix: "该值将附加到所有缓存条目的键的开头。​标准 = “phpMussel_”。​当同一服务器上存在多个安装时，这对于将它们的缓存彼此分开非常有用。"
- supplementary_cache_options_redis_host: "Redis主机值。​标准 = “localhost”。"
- supplementary_cache_options_redis_port: "Redis端口值。​标准 = “6379”。"
- supplementary_cache_options_redis_timeout: "Redis超时值。​标准 = “2.5”。"
+ supplementary_cache_options_enable_apcu: "指定是否尝试使用APCu进行缓存。 标准 = True。"
+ supplementary_cache_options_enable_memcached: "指定是否尝试使用Memcached进行缓存。 标准 = False。"
+ supplementary_cache_options_enable_pdo: "指定是否尝试使用PDO进行缓存。 标准 = False。"
+ supplementary_cache_options_enable_redis: "指定是否尝试使用Redis进行缓存。 标准 = False。"
+ supplementary_cache_options_memcached_host: "Memcached 主机值。 标准 = “localhost”。"
+ supplementary_cache_options_memcached_port: "Memcached 端口值。 标准 = “11211”。"
+ supplementary_cache_options_pdo_dsn: "PDO DSN值。 标准 = “mysql:dbname=phpmussel;host=localhost;port=3306”。"
+ supplementary_cache_options_pdo_password: "PDO 密码。"
+ supplementary_cache_options_pdo_username: "PDO 用户名。"
+ supplementary_cache_options_prefix: "该值将附加到所有缓存条目的键的开头。 标准 = “phpMussel_”。​当同一服务器上存在多个安装时，这对于将它们的缓存彼此分开非常有用。"
+ supplementary_cache_options_redis_database_number: "Redis 数据库编号。 标准 = “0”。 注意：不能在 Redis Cluster 中使用 0 以外的值。"
+ supplementary_cache_options_redis_host: "Redis 主机值。 标准 = “localhost”。"
+ supplementary_cache_options_redis_port: "Redis 端口值。 标准 = “6379”。"
+ supplementary_cache_options_redis_timeout: "Redis 超时值。 标准 = “2.5”。"
  urlscanner: "URL扫描程序的配置。"
  urlscanner_cache_time: "多长时间（以秒为单位）应API结果被缓存？​默认是3600秒（1小时）。"
  urlscanner_google_api_key: "激活Google Safe Browsing API当API密钥是设置。"
@@ -150,7 +151,7 @@ field:
  Options: "选项"
  Password: "密码"
  Permissions: "权限"
- Quarantine key: "隔离钥匙"
+ Quarantine key: "隔离密钥"
  Reset: "重启"
  Restore: "恢复"
  Set new password: "保存新密码"
@@ -168,8 +169,27 @@ field:
  vt_suspicion_level_all: "扫描所有文件。"
  vt_suspicion_level_executable: "扫描具启发式权重的文件、可执行文件、和可能包含可执行数据的文件。\n此类文件包括Windows PE文件、Linux ELF文件、Mach-O文件、DOCX文件、ZIP文件、等等。"
  vt_suspicion_level_heuristic_only: "仅扫描具有启发式权重的文件。\n仅当文件产生启发式权重时才会扫描文件。​启发式权重可能来自暗示感染但不能保证感染的签名。​当怀疑有道理但没有得到证实时，查询可以作为第二意见。"
+hints_logging_datetime: "有用提示：您可以使用时间格式占位符将日期/时间信息附加到日志文件的名称。​可用的时间格式占位符显示在{{Links.ConfigRef.time_format}}处。"
 hints_pdo_dsn:
  常问问题。: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md\#user-content-HOW_TO_USE_PDO" hreflang="zh-CN">“PDO DSN”是什么？如何能PDO与phpMussel一起使用？</a></em>"
+hints_time_format: |
+ <strong><em>占位符 – 解释 – 基于2024-04-30T18:27:49+08:00的示例。</em></strong><br />
+ <code class="s">{yyyy}</code> – 年份 – 例如，2024。<br />
+ <code class="s">{yy}</code> – 缩写年份 – 例如，24。<br />
+ <code class="s">{Mon}</code> – 月份缩写名称（英文） – 例如，Apr。<br />
+ <code class="s">{mm}</code> – 带前导零的月份 – 例如，04。<br />
+ <code class="s">{m}</code> – 月份数 – 例如，4。<br />
+ <code class="s">{Day}</code> – 当天缩写名称（英文） – 例如，Tue。<br />
+ <code class="s">{dd}</code> – 带前导零的天数 – 例如，30。<br />
+ <code class="s">{d}</code> – 天数 – 例如，30。<br />
+ <code class="s">{hh}</code> – 带前导零的小时（使用24小时制） – 例如，18。<br />
+ <code class="s">{h}</code> – 小时（使用24小时制） – 例如，18。<br />
+ <code class="s">{ii}</code> – 带前导零的分钟 – 例如，27。<br />
+ <code class="s">{i}</code> – 分钟 – 例如，27。<br />
+ <code class="s">{ss}</code> – 带前导零的秒 – 例如，49。<br />
+ <code class="s">{s}</code> – 秒 – 例如，49。<br />
+ <code class="s">{tz}</code> – 时区（不带冒号） – 例如，+0800。<br />
+ <code class="s">{t:z}</code> – 时区（带冒号） – 例如，+08:00。
 hints_xlists:
  这是如何工作的。: "如果您的系统只允许具体文件类型被上传，​或如果您的系统明确地否认某些文件类型，​指定那些文件类型在白名单，​黑名单和灰名单可以增加扫描执行速度通过允许脚本跳过某些文件类型。​格式是CSV（逗号分隔变量）。"
  进程的逻辑顺序。: "如果文件类型已白名单，​不扫描和不受阻文件，​和不匹配文件对照黑名单或灰名单。​如果文件类型已黑名单，​不扫描文件但阻止它无论如何，​和不匹配文件对照灰名单。​如果灰名单是空，​或如果灰名单不空和文件类型已灰名单，​扫描文件像正常和确定如果阻止它基于扫描结果，​但如果灰名单不空和文件类型不灰名单，​过程文件仿佛已黑名单，​因此不扫描它但阻止它无论如何。"
@@ -280,7 +300,6 @@ link:
  Statistics: "统计"
  Text formatting: "文字格式： <a href="%1$sfalse">简单</a> – <a href="%1$strue">漂亮</a>"
  Upload Testing: "上传测试"
-max_login_attempts_exceeded: "最大登录尝试次数已经超过；拒绝访问。"
 msg_subject_2fa: "2FA（双因素身份验证）"
 msg_template_2fa: |
  <center><p>你好，%s。<br /><br />
@@ -300,20 +319,23 @@ response:
  Account successfully deleted: "帐户成功删除！"
  An account with that username already exists: "一个帐户与那个用户名已经存在！"
  Configuration successfully updated: "配置成功更新。"
- Corrupted file: "无法恢复！损坏的文件！"
+ Corrupted file: "损坏的文件！"
  Failed to create: "无法创建！"
  Failed to delete: "无法删除！"
+ Failed to restore: "无法恢复"
  Failed to update configuration: "配置更新失败！"
  Failed to update: "无法更新！"
  Failed: "失败"
  File successfully deleted: "文件成功删除！"
  File successfully restored: "文件成功恢复！"
  Incorrect 2FA code entered: "输入了错误的2FA代码。验证失败。"
- Incorrect quarantine key: "无法恢复！不正确的隔离钥匙！"
+ Incorrect quarantine key: "不正确的隔离密钥！"
  Invalid password: "登录失败！​密码无效！"
+ Maximum number of login attempts exceeded: "最大登录尝试次数已经超过；拒绝访问。"
  Password field empty: "密码输入是空的！"
  Password successfully updated: "密码成功更新！"
- Permissions not adequate to perform asynchronous requests:: "权限不足以执行异步请求。尝试再次登录。"
+ Permissions not adequate to perform asynchronous requests: "权限不足以执行异步请求。尝试再次登录。"
+ Please enter a valid quarantine key: "请输入有效的隔离密钥。"
  Statistics cleared: "统计删除。"
  Successfully authenticated: "验证成功。"
  That account doesn_t exist: "那个帐户不存在。"
@@ -345,18 +367,19 @@ siginfo_xkey: "标识符是“%s”。"
 state_quarantine: "目前有%s个文件在隔离区。"
 tip:
  2FA Sent: "包含2FA代码的电子邮件已发送到您的电子邮件地址。​请确认以下代码以获取对前端的访问权限。​如果您没有收到此电子邮件，尝试登出，等待10分钟，然后再次登录以接收包含新代码的新电子邮件。"
- Accounts: "你好，{username}。<br />帐户页面允许您控制谁可以访问phpMussel前端。"
- Cache Data: "你好，{username}。<br />在这里您可以查看缓存的内容。"
- Configuration: "你好，{username}。<br />配置页面允许您修改phpMussel配置从前端。"
- Home: "你好，{username}。<br />这是phpMussel的前端主页。​从左侧的导航菜单中选择一个链接以继续。"
- Logs: "你好，{username}。<br />选择一个日志从下面的列表以查看那个日志的内容。"
+ Accounts: "帐户页面允许您控制谁可以访问phpMussel前端。"
+ Cache Data: "在这里您可以查看缓存的内容。"
+ Configuration: "配置页面允许您修改phpMussel配置从前端。"
+ Greeting: "你好，%s。"
+ Home: "这是phpMussel的前端主页。​从左侧的导航菜单中选择一个链接以继续。"
+ Logs: "选择一个日志从下面的列表以查看那个日志的内容。"
  Quarantine is currently disabled: "注意：隔离目前禁用，但可以通过配置页面启用。"
- Quarantine: "你好，{username}。<br />此页面列出当前在隔离中的所有文件，并可以用来管理这些文件。"
+ Quarantine: "此页面列出当前在隔离中的所有文件，并可以用来管理这些文件。"
  See the documentation: "请参阅<a href="https://github.com/phpMussel/Docs/blob/master/readme.zh.md\#user-content-SECTION5" hreflang="zh-CN" rel="noopener external">文档</a>以获取有关各种配置指令的信息和他们的目的。"
- Signature Information: "你好，{username}。<br />签名信息页面提供了有关当前活动签名的来源和类型的一些基本信息。"
+ Signature Information: "签名信息页面提供了有关当前活动签名的来源和类型的一些基本信息。"
  Statistics tracking is currently disabled: "注意：统计跟踪目前已被禁用，但可以通过配置页面启用。"
- Statistics: "你好，{username}。<br />此页面显示了有关phpMussel安装的一些基本使用统计信息。"
- Upload Testing: "你好，{username}。<br />上传测试页面包含标准文件上传表单，​允许您测试是否文件通常会被阻止通过phpMussel当尝试上传他们。"
+ Statistics: "此页面显示了有关phpMussel安装的一些基本使用统计信息。"
+ Upload Testing: "上传测试页面包含标准文件上传表单，​允许您测试是否文件通常会被阻止通过phpMussel当尝试上传他们。"
 warning:
  Cookies: "注意：phpMussel使用cookie来验证登录。​通过登录，您同意您的浏览器创建和存储cookie。"
  JavaScript required: "警告：一些前端功能需要JavaScript。为确保整个前端按预期运行，建议启用JavaScript。"

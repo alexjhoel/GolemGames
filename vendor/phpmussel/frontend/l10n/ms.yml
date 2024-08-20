@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Malay language data (last modified: 2023.09.23).
+# This file: Malay language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "Kata laluan PDO."
  supplementary_cache_options_pdo_username: "Nama pengguna PDO."
  supplementary_cache_options_prefix: "Nilai yang dinyatakan disini akan ditambahkan pada permulaan kunci untuk semua entri dalam cache. Lalai = "phpMussel_". Apabila berbilang pemasangan wujud pada pelayan yang sama, ini boleh berguna untuk memastikan cache mereka berasingan antara satu sama lain."
+ supplementary_cache_options_redis_database_number: "Nombor pangkalan data Redis. Lalai = 0. Nota: Tidak boleh menggunakan nilai selain 0 dengan Redis Cluster."
  supplementary_cache_options_redis_host: "Nilai hos Redis. Lalai = "localhost"."
  supplementary_cache_options_redis_port: "Nilai port Redis. Lalai = "6379"."
  supplementary_cache_options_redis_timeout: "Nilai tamat masa Redis. Lalai = "2.5"."
@@ -125,8 +126,8 @@ config:
  urlscanner_maximum_api_lookups: "Bilangan maksimum carian API yang dibenarkan untuk dilakukan setiap lelaran imbasan individu. Oleh kerana setiap carian API tambahan akan menambah jumlah masa yang diperlukan untuk melengkapkan setiap lelaran imbasan, anda mungkin mahu menetapkan had untuk mempercepatkan keseluruhan imbasan. Apabila ditetapkan kepada 0, tiada nombor maksimum yang dibenarkan sedemikian akan digunakan. Ditetapkan kepada 10 secara lalai."
  urlscanner_maximum_api_lookups_response: "Apakah yang perlu dilakukan jika bilangan maksimum carian API yang dibenarkan melebihi? False = Jangan buat apa-apa (teruskan pemprosesan) [Lalai]; True = Benderakan/sekat fail."
  virustotal: "Konfigurasi untuk integrasi Virus Total."
- virustotal_vt_public_api_key: "Secara pilihan, phpMussel boleh mengimbas fail menggunakan API Virus Total sebagai satu cara untuk menyediakan tahap perlindungan yang sangat dipertingkatkan terhadap virus, trojan, perisian hasad, dan ancaman lain. Secara lalai, mengimbas fail menggunakan API Virus Total dinyahaktifkan. Untuk mengaktifkannya, kunci API daripada Virus Total diperlukan. Oleh kerana manfaat yang boleh diberikan kepada anda, saya amat mengesyorkan untuk mengaktifkannya. Walau bagaimanapun, harap maklum bahawa untuk menggunakan API Virus Total, anda <em><strong>MESTI</strong></em> bersetuju dengan Syarat Perkhidmatan mereka dan anda <em><strong>MESTI</strong></em> mematuhi semua garis panduan seperti yang diterangkan oleh dokumentasi Virus Total! Anda TIDAK dibenarkan menggunakan ciri penyepaduan ini KECUALI: Anda telah dibaca dan bersetuju Syarat Perkhidmatan untuk Virus Total dan APInya. Anda telah dibaca dan anda memahami, sekurang-kurangnya, mukadimah dokumentasi API Virus Total (semuanya selepas "VirusTotal Public API v2.0" tetapi sebelum "Contents")."
- virustotal_vt_quota_rate: "Menurut dokumentasi API Virus Total, ia terhad kepada paling banyak 4 permintaan dalam apa jua bentuk dalam mana-mana tempoh masa 1 minit tertentu. Jika anda menjalankan honeyclient, honeypot atau mana-mana automasi lain yang akan menyediakan sumber kepada VirusTotal dan bukan sahaja mendapatkan laporan, anda berhak mendapat kuota kadar permintaan yang lebih tinggi. Secara lalai, phpMussel akan mematuhi batasan ini dengan ketat, tetapi disebabkan kemungkinan kuota kadar ini dinaikkan, kedua-dua arahan ini disediakan sebagai cara untuk anda mengarahkan phpMussel tentang had yang perlu dipatuhi. Melainkan anda telah diarahkan berbuat demikian, anda tidak disyorkan untuk meningkatkan nilai ini, tetapi, jika anda menghadapi masalah yang berkaitan dengan mencapai kuota kadar anda, mengurangkan nilai ini kadangkala <em><strong>MUNGKIN</strong></em> membantu anda menangani masalah ini. Had kadar anda ditentukan sebagai <code>vt_quota_rate</code> permintaan apa-apa sifat dalam mana-mana tempoh masa <code>vt_quota_time</code> minit tertentu."
+ virustotal_vt_public_api_key: "Secara pilihan, phpMussel boleh mengimbas fail menggunakan API Virus Total sebagai satu cara untuk menyediakan tahap perlindungan yang sangat dipertingkatkan terhadap virus, trojan, perisian hasad, dan ancaman lain. Secara lalai, mengimbas fail menggunakan API Virus Total dinyahaktifkan. Untuk mengaktifkannya, kunci API daripada Virus Total diperlukan. Oleh kerana manfaat yang boleh diberikan kepada anda, saya amat mengesyorkan untuk mengaktifkannya. Walau bagaimanapun, harap maklum bahawa untuk menggunakan API Virus Total, anda <strong><em>MESTI</em></strong> bersetuju dengan Syarat Perkhidmatan mereka dan anda <strong><em>MESTI</em></strong> mematuhi semua garis panduan seperti yang diterangkan oleh dokumentasi Virus Total! Anda TIDAK dibenarkan menggunakan ciri penyepaduan ini KECUALI: Anda telah dibaca dan bersetuju Syarat Perkhidmatan untuk Virus Total dan APInya. Anda telah dibaca dan anda memahami, sekurang-kurangnya, mukadimah dokumentasi API Virus Total (semuanya selepas "VirusTotal Public API v2.0" tetapi sebelum "Contents")."
+ virustotal_vt_quota_rate: "Menurut dokumentasi API Virus Total, ia terhad kepada paling banyak 4 permintaan dalam apa jua bentuk dalam mana-mana tempoh masa 1 minit tertentu. Jika anda menjalankan honeyclient, honeypot atau mana-mana automasi lain yang akan menyediakan sumber kepada VirusTotal dan bukan sahaja mendapatkan laporan, anda berhak mendapat kuota kadar permintaan yang lebih tinggi. Secara lalai, phpMussel akan mematuhi batasan ini dengan ketat, tetapi disebabkan kemungkinan kuota kadar ini dinaikkan, kedua-dua arahan ini disediakan sebagai cara untuk anda mengarahkan phpMussel tentang had yang perlu dipatuhi. Melainkan anda telah diarahkan berbuat demikian, anda tidak disyorkan untuk meningkatkan nilai ini, tetapi, jika anda menghadapi masalah yang berkaitan dengan mencapai kuota kadar anda, mengurangkan nilai ini kadangkala <strong><em>MUNGKIN</em></strong> membantu anda menangani masalah ini. Had kadar anda ditentukan sebagai <code>vt_quota_rate</code> permintaan apa-apa sifat dalam mana-mana tempoh masa <code>vt_quota_time</code> minit tertentu."
  virustotal_vt_quota_time: "(Lihat penerangan di atas)."
  virustotal_vt_suspicion_level: "Secara lalai, phpMussel akan mengehadkan fail yang diimbas menggunakan API Virus Total kepada fail yang dianggapnya "mencurigakan". Jika anda mahu, anda boleh melaraskan sekatan ini dengan menukar nilai arahan <code>vt_suspicion_level</code>."
  virustotal_vt_weighting: "Patutkah phpMussel menggunakan hasil pengimbasan menggunakan API Virus Total sebagai pengesanan atau pemberat? Arahan ini wujud, kerana, walaupun mengimbas fail menggunakan berbilang enjin (seperti yang dilakukan oleh Virus Total) seharusnya menghasilkan kadar pengesanan yang meningkat (dan oleh mengakibatkan lebih banyak fail berniat jahat ditangkap), ia juga boleh menghasilkan bilangan positif palsu yang lebih tinggi, dan jadi, dalam beberapa keadaan, hasil imbasan mungkin lebih baik digunakan sebagai skor keyakinan dan bukannya sebagai kesimpulan muktamad. Jika nilai 0 digunakan, hasil pengimbasan menggunakan API Virus Total akan digunakan sebagai pengesanan, dan jadi, jika mana-mana enjin yang digunakan oleh Virus Total benderakan fail yang diimbas sebagai berniat jahat, phpMussel akan menganggap fail sebagai berniat jahat. Jika sebarang nilai lain digunakan, hasil pengimbasan menggunakan API Virus Total akan digunakan sebagai pemberat, dan jadi, bilangan enjin yang digunakan oleh Virus Total yang benderakan fail yang diimbas sebagai berniat jahat akan berfungsi sebagai skor keyakinan (atau pemberat) sama ada fail yang diimbas harus dianggap berniat jahat oleh phpMussel (nilai yang digunakan akan mewakili skor keyakinan minimum atau pemberat yang diperlukan untuk dianggap berniat jahat). Nilai 0 digunakan secara lalai."
@@ -168,8 +169,27 @@ field:
  vt_suspicion_level_all: "Imbas semua fail."
  vt_suspicion_level_executable: "Imbas fail dengan berat heuristik, fail boleh laku, dan fail yang berpotensi mengandungi data boleh laku.\nContoh fail boleh laku, dan fail yang berpotensi mengandungi data boleh laku, termasuk fail Windows PE, fail Linux ELF, fail Mach-O, fail DOCX, fail ZIP, dsb."
  vt_suspicion_level_heuristic_only: "Imbas hanya fail dengan berat heuristik.\nFail akan diimbas hanya jika ia mempunyai berat heuristik. Berat heuristik boleh ditanggung daripada tandatangan yang bertujuan untuk menangkap cap jari biasa yang dikaitkan dengan kemungkinan jangkitan yang tidak semestinya menjamin jangkitan. Pencarian, dalam kes sedemikian, boleh memberikan pendapat kedua untuk keputusan yang mewajarkan syak tetapi sebaliknya tidak memberikan sebarang kepastian."
+hints_logging_datetime: "Petua berguna: Anda boleh melampirkan maklumat tarikh/masa pada nama fail log dengan menggunakan pemegang tempat format masa. Pemegang tempat format masa yang tersedia dipaparkan pada {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md\#user-content-HOW_TO_USE_PDO" hreflang="id-ID">Apakah itu "PDO DSN"? Bagaimanakah saya boleh menggunakan PDO dengan phpMussel?</a></em>"
+hints_time_format: |
+ <strong><em>Pemegang tempat – Penjelasan – Contoh berdasarkan 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Tahun – Cth., 2024.<br />
+ <code class="s">{yy}</code> – Tahun yang disingkatkan – Cth., 24.<br />
+ <code class="s">{Mon}</code> – Nama yang disingkatkan bulan (dalam bahasa Inggeris) – Cth., Apr.<br />
+ <code class="s">{mm}</code> – Bulan dengan sifar pendahuluan – Cth., 04.<br />
+ <code class="s">{m}</code> – Bulan – Cth., 4.<br />
+ <code class="s">{Day}</code> – Nama yang disingkatkan hari (dalam bahasa Inggeris) – Cth., Tue.<br />
+ <code class="s">{dd}</code> – Hari dengan sifar pendahuluan – Cth., 30.<br />
+ <code class="s">{d}</code> – Hari – Cth., 30.<br />
+ <code class="s">{hh}</code> – Jam dengan sifar pendahuluan (menggunakan masa 24 jam) – Cth., 18.<br />
+ <code class="s">{h}</code> – Jam (menggunakan masa 24 jam) – Cth., 18.<br />
+ <code class="s">{ii}</code> – Minit dengan sifar pendahuluan – Cth., 27.<br />
+ <code class="s">{i}</code> – Minit – Cth., 27.<br />
+ <code class="s">{ss}</code> – Saat dengan sifar pendahuluan – Cth., 49.<br />
+ <code class="s">{s}</code> – Saat – Cth., 49.<br />
+ <code class="s">{tz}</code> – Zon waktu (tanpa titik bertindih) – Cth., +0800.<br />
+ <code class="s">{t:z}</code> – Zon waktu (dengan titik bertindih) – Cth., +08:00.
 hints_xlists:
  Bagaimana ini berfungsi.: "Jika sistem anda membenarkan hanya jenis fail tertentu untuk dimuat naik, atau jika sistem anda secara eksplisit menafikan jenis fail tertentu, menyatakan jenis fail tersebut dalam senarai putih, senarai hitam, dan senarai kelabu boleh meningkatkan kelajuan pengimbasan dilakukan dengan membenarkan skrip melangkau jenis fail tertentu. Format ialah CSV (nilai dipisahkan koma)."
  Perintah pemprosesan logik.: "Jika jenis fail disenaraiputihkan, jangan imbas dan jangan sekat fail, dan jangan semak fail terhadap senarai hitam atau senarai kelabu. Jika jenis fail disenaraihitamkan, jangan imbas fail tetapi sekat fail jugak, dan jangan semak fail terhadap senarai kelabu. Jika senarai kelabu kosong atau jika senarai kelabu tidak kosong dan jenis fail disenaraikelabukan, imbas fail seperti biasa dan tentukan sama ada untuk menyekatnya berdasarkan hasil imbasan, tetapi jika senarai kelabu tidak kosong dan jenis fail tidak disenaraikelabukan, anggap fail sebagai disenaraihitamkan, jadi tidak mengimbasnya tetapi menyekatnya jugak."
@@ -279,7 +299,6 @@ link:
  Statistics: "Statistik"
  Text formatting: "Pemformatan teks: <a href="%1$sfalse">Mudah</a> – <a href="%1$strue">Diformatkan</a>"
  Upload Testing: "Ujian muat naik"
-max_login_attempts_exceeded: "Bilangan maksimum percubaan untuk memasuki dicapai; Akses dinafikan."
 msg_subject_2fa: "Pengesahan Dua-Faktor"
 msg_template_2fa: |
  <center><p>Salam, %s.<br /><br />
@@ -299,20 +318,23 @@ response:
  Account successfully deleted: "Akaun berjaya dipadamkan!"
  An account with that username already exists: "Akaun dengan nama pengguna ini sudah wujud!"
  Configuration successfully updated: "Konfigurasi berjaya dikemas kini."
- Corrupted file: "Gagal dipulihkan! Fail rosak!"
+ Corrupted file: "Fail rosak!"
  Failed to create: "Gagal mencipta!"
  Failed to delete: "Gagal memadam!"
+ Failed to restore: "Gagal dipulihkan"
  Failed to update configuration: "Gagal mengemas kini konfigurasi!"
  Failed to update: "Gagal mengemas kini!"
  Failed: "Gagal"
  File successfully deleted: "Fail berjaya dipadamkan!"
  File successfully restored: "Fail berjaya dipulihkan!"
  Incorrect 2FA code entered: "Kod 2FA salah dimasukkan. Pengesahan gagal."
- Incorrect quarantine key: "Gagal dipulihkan! Kunci kuarantin salah!"
+ Incorrect quarantine key: "Kunci kuarantin salah!"
  Invalid password: "Kegagalan masuk! Kata laluan tidak sah!"
+ Maximum number of login attempts exceeded: "Bilangan maksimum percubaan untuk memasuki dicapai; Akses dinafikan."
  Password field empty: "Medan kata laluan kosong!"
  Password successfully updated: "Kata laluan berjaya dikemas kini!"
- Permissions not adequate to perform asynchronous requests:: "Kebenaran tidak mencukupi untuk melaksanakan permintaan tak segerak. Cuba masuk semula."
+ Permissions not adequate to perform asynchronous requests: "Kebenaran tidak mencukupi untuk melaksanakan permintaan tak segerak. Cuba masuk semula."
+ Please enter a valid quarantine key: "Sila masukkan kunci kuarantin yang sah."
  Statistics cleared: "Statistik dikosongkan."
  Successfully authenticated: "Berjaya disahkan."
  That account doesn_t exist: "Akaun ini tidak wujud."
@@ -344,18 +366,19 @@ siginfo_xkey: "Dikenali sebagai "%s"."
 state_quarantine: "Terdapat %s fail sedang dalam kuarantin."
 tip:
  2FA Sent: "E-mel yang mengandungi kod pengesahan dua-faktor telah dihantar ke alamat e-mel anda. Sila sahkan kod ini di bawah untuk mendapatkan akses kepada bahagian hadapan. Jika anda tidak menerima e-mel ini, cuba log keluar, tunggu selama 10 minit, dan log masuk semula untuk menerima e-mel baharu yang mengandungi kod baharu."
- Accounts: "Salam, {username}.<br />Halaman akaun membolehkan anda mengawal siapa yang boleh mengakses bahagian hadapan phpMussel."
- Cache Data: "Salam, {username}.<br />Disini anda boleh menyemak kandungan cache."
- Configuration: "Salam, {username}.<br />Halaman konfigurasi membolehkan anda mengubah suai konfigurasi untuk phpMussel dari bahagian hadapan."
- Home: "Salam, {username}.<br />Ini ialah halaman utama untuk bahagian hadapan phpMussel. Pilih pautan daripada menu navigasi di sebelah kiri untuk meneruskan."
- Logs: "Salam, {username}.<br />Pilih fail log daripada senarai di bawah untuk melihat kandungan fail log tersebut."
+ Accounts: "Halaman akaun membolehkan anda mengawal siapa yang boleh mengakses bahagian hadapan phpMussel."
+ Cache Data: "Disini anda boleh menyemak kandungan cache."
+ Configuration: "Halaman konfigurasi membolehkan anda mengubah suai konfigurasi untuk phpMussel dari bahagian hadapan."
+ Greeting: "Salam, %s."
+ Home: "Ini ialah halaman utama untuk bahagian hadapan phpMussel. Pilih pautan daripada menu navigasi di sebelah kiri untuk meneruskan."
+ Logs: "Pilih fail log daripada senarai di bawah untuk melihat kandungan fail log tersebut."
  Quarantine is currently disabled: "Nota: Kuarantin kini dinyahaktifkan, tetapi boleh diaktifkan melalui halaman konfigurasi."
- Quarantine: "Salam, {username}.<br />Halaman ini menyenaraikan semua fail yang sedang dalam kuarantin dan memudahkan pengurusan fail tersebut."
+ Quarantine: "Halaman ini menyenaraikan semua fail yang sedang dalam kuarantin dan memudahkan pengurusan fail tersebut."
  See the documentation: "Lihat <a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md\#user-content-SECTION5" hreflang="id-ID" rel="noopener external">dokumentasi</a> untuk mendapatkan maklumat tentang pelbagai arahan konfigurasi dan tujuannya."
- Signature Information: "Salam, {username}.<br />Halaman maklumat tandatangan menyediakan beberapa maklumat asas tentang sumber dan jenis tandatangan yang sedang aktif."
+ Signature Information: "Halaman maklumat tandatangan menyediakan beberapa maklumat asas tentang sumber dan jenis tandatangan yang sedang aktif."
  Statistics tracking is currently disabled: "Nota: Penjejakan statistik kini dinyahaktifkan, tetapi boleh diaktifkan melalui halaman konfigurasi."
- Statistics: "Salam, {username}.<br />Halaman ini menunjukkan beberapa statistik penggunaan asas mengenai pemasangan phpMussel anda."
- Upload Testing: "Salam, {username}.<br />Halaman ujian muat naik mengandungi borang muat naik fail standard, membolehkan anda menguji sama ada fail biasanya akan disekat oleh phpMussel apabila cuba memuat naiknya."
+ Statistics: "Halaman ini menunjukkan beberapa statistik penggunaan asas mengenai pemasangan phpMussel anda."
+ Upload Testing: "Halaman ujian muat naik mengandungi borang muat naik fail standard, membolehkan anda menguji sama ada fail biasanya akan disekat oleh phpMussel apabila cuba memuat naiknya."
 warning:
  Cookies: "Nota: phpMussel menggunakan kuki untuk mengesahkan log masuk. Apabila anda log masuk, anda memberikan persetujuan anda untuk kuki dibuat dan disimpan oleh penyemak imbas anda."
  JavaScript required: "Amaran: Sesetengah kefungsian bahagian hadapan memerlukan JavaScript. Untuk memastikan bahawa keseluruhan bahagian hadapan berkelakuan seperti yang diharapkan, mendayakan JavaScript adalah disyorkan."

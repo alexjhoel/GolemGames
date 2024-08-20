@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Farsi language data (last modified: 2023.09.23).
+# This file: Farsi language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "کلمه عبور PDO."
  supplementary_cache_options_pdo_username: "نام کاربری PDO."
  supplementary_cache_options_prefix: "مقدار مشخص شده در اینجا به تمام کلیدهای ورودی حافظه پنهان اضافه می شود. پیش فرض = «phpMussel_». هنگامی که چندین نصب در یک سرور وجود دارد، این می تواند برای جدا نگه داشتن حافظه پنهان آنها از یکدیگر مفید باشد."
+ supplementary_cache_options_redis_database_number: "شماره پایگاه داده Redis. پیش فرض = 0. توجه داشته باشید: نمی توان از مقادیری غیر از 0 با Redis Cluster استفاده کرد."
  supplementary_cache_options_redis_host: "مقدار میزبان Redis. پیش فرض = «localhost»."
  supplementary_cache_options_redis_port: "مقدار پورت Redis. پیش فرض = «6379»."
  supplementary_cache_options_redis_timeout: "مقدار مهلت زمانی Redis. پیش فرض = «2.5»."
@@ -173,8 +174,27 @@ field:
  vt_suspicion_level_all: "تمام فایل ها را اسکن کنید."
  vt_suspicion_level_executable: "فایل‌هایی با وزن اکتشافی، فایل‌های اجرایی و فایل‌هایی که احتمالاً حاوی داده‌های اجرایی هستند را اسکن کنید.\nچنین فایل هایی شامل فایل های Windows PE، فایل های Linux ELF، فایل های Mach-O، فایل های DOCX، فایل های ZIP و غیره می باشد."
  vt_suspicion_level_heuristic_only: "فقط فایل هایی با وزن اکتشافی اسکن کنید.\nفایل‌ها فقط در صورتی اسکن می‌شوند که وزن اکتشافی داشته باشند. وزن اکتشافی را می توان از امضا هایی برای گرفتن اثر انگشت که نشان دهنده عفونت است، اما عفونت را تضمین نمی کند. برای نتایجی که ظن را توجیه می‌کنند اما هیچ قطعیتی ارائه نمی‌دهند، جستجو می‌تواند برای ارائه نظر دوم مفید باشد."
+hints_logging_datetime: "نکته مفید: می‌توانید اطلاعات تاریخ/زمان را با استفاده از متغیرهای قالب زمان به نام فایل‌های گزارش پیوست کنید. متغیرهای قالب زمانی موجود در {{Links.ConfigRef.time_format}} نمایش داده می شوند."
 hints_pdo_dsn:
  سوالات متداول.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">«PDO DSN» چیست؟ چگونه می توانم از PDO با phpMussel استفاده کنم؟</a></em>"
+hints_time_format: |
+ <strong><em>مکان نگهدار – توضیح – مثال بر اساس <span dir="ltr">2024-04-30T18:27:49+08:00</span>.</em></strong><br />
+ <code dir="ltr" class="s">{yyyy}</code> – امسال – به عنوان مثال، 2024.<br />
+ <code dir="ltr" class="s">{yy}</code> – سال به اختصار – به عنوان مثال، 24.<br />
+ <code dir="ltr" class="s">{Mon}</code> – نام اختصاری ماه (به انگلیسی) – به عنوان مثال، Apr.<br />
+ <code dir="ltr" class="s">{mm}</code> – ماه با صفرهای پیشرو – به عنوان مثال، 04.<br />
+ <code dir="ltr" class="s">{m}</code> – ماه – به عنوان مثال، 4.<br />
+ <code dir="ltr" class="s">{Day}</code> – نام اختصاری روز (به انگلیسی) – به عنوان مثال، Tue.<br />
+ <code dir="ltr" class="s">{dd}</code> – روز با صفرهای پیشرو – به عنوان مثال، 30.<br />
+ <code dir="ltr" class="s">{d}</code> – روز – به عنوان مثال، 30.<br />
+ <code dir="ltr" class="s">{hh}</code> – ساعت با صفرهای پیشرو (از زمان 24 ساعته استفاده می کند) – به عنوان مثال، 18.<br />
+ <code dir="ltr" class="s">{h}</code> – ساعت (از زمان 24 ساعته استفاده می کند) – به عنوان مثال، 18.<br />
+ <code dir="ltr" class="s">{ii}</code> – دقیقه با صفرهای پیشرو – به عنوان مثال، 27.<br />
+ <code dir="ltr" class="s">{i}</code> – دقیقه – به عنوان مثال، 27.<br />
+ <code dir="ltr" class="s">{ss}</code> – ثانیه با صفرهای پیشرو – به عنوان مثال، 49.<br />
+ <code dir="ltr" class="s">{s}</code> – ثانیه – به عنوان مثال، 49.<br />
+ <code dir="ltr" class="s">{tz}</code> – منطقه زمانی (بدون دو نقطه) – به عنوان مثال، <span dir="ltr">+0800</span>.<br />
+ <code dir="ltr" class="s">{t:z}</code> – منطقه زمانی (با دو نقطه) – به عنوان مثال، <span dir="ltr">+08:00</span>.
 hints_xlists:
  چگونه این کار می کند.: "اگر سیستم شما اجازه می‌دهد فقط انواع خاصی از فایل‌ها آپلود شوند، یا اگر سیستم شما صراحتاً انواع خاصی از فایل‌ها را رد می‌کند، مشخص کردن آن نوع فایل‌ها در لیست‌های سفید، لیست‌های سیاه، و لیست‌های خاکستری می‌تواند سرعت انجام اسکن را افزایش دهد. از این لیست ها می توان برای تعیین اینکه آیا اسکن برای فایل های خاص، نادیده گرفتن برخی، مسدود کردن برخی دیگر و غیره نیاز است یا خیر. فرمت CSV (مقادیر جدا شده با کاما) است."
  ترتیب منطقی پردازش.: "اگر نوع فایل در لیست سفید است، فایل را اسکن نکنید و آن را مسدود نکنید، و فایل را در لیست سیاه یا لیست خاکستری بررسی نکنید. اگر نوع فایل در لیست سیاه است، فایل را اسکن نکنید، اما به هر حال آن را مسدود کنید، و فایل را با لیست خاکستری بررسی نکنید. اگر لیست خاکستری خالی است یا اگر لیست خاکستری خالی نیست و نوع فایل در لیست خاکستری است، فایل را اسکن کنید، و بر اساس نتایج اسکن تعیین کنید که آیا آن را مسدود کنید، اما اگر لیست خاکستری خالی نیست و نوع فایل در لیست خاکستری نیست، با فایل به گونه ای رفتار کنید که گویی در لیست سیاه است، از این رو آن را اسکن نمی کند اما به هر حال آن را مسدود می کند."
@@ -284,7 +304,6 @@ link:
  Statistics: "آمار"
  Text formatting: "قالب بندی متن: <a href="%1$sfalse">ساده</a> – <a href="%1$strue">فانتزی</a>"
  Upload Testing: "تست آپلود"
-max_login_attempts_exceeded: "از حداکثر تعداد تلاش برای ورود به سیستم بیشتر شد؛ دسترسی رد شد."
 msg_subject_2fa: "احراز هویت دو مرحله ای"
 msg_template_2fa: |
  <center><p>سلام، %s.<br /><br />
@@ -304,20 +323,23 @@ response:
  Account successfully deleted: "حساب با موفقیت حذف شد!"
  An account with that username already exists: "یک حساب کاربری با آن نام کاربری از قبل وجود دارد!"
  Configuration successfully updated: "پیکربندی با موفقیت به روز شد."
- Corrupted file: "بازیابی ناموفق بود! فایل خراب!"
+ Corrupted file: "فایل خراب!"
  Failed to create: "ایجاد ناموفق بود!"
  Failed to delete: "حذف ناموفق بود!"
+ Failed to restore: "بازیابی ناموفق بود"
  Failed to update configuration: "پیکربندی به روز نشد!"
  Failed to update: "به روز رسانی ناموفق بود!"
  Failed: "ناموفق بود"
  File successfully deleted: "فایل با موفقیت حذف شد!"
  File successfully restored: "فایل با موفقیت بازیابی شد!"
  Incorrect 2FA code entered: "کد 2FA اشتباه وارد شده است. احراز هویت ناموفق بود."
- Incorrect quarantine key: "بازیابی ناموفق بود! کلید قرنطینه نادرست!"
+ Incorrect quarantine key: "کلید قرنطینه نادرست!"
  Invalid password: "ورود ناموفق! رمز عبور نامعتبر!"
+ Maximum number of login attempts exceeded: "از حداکثر تعداد تلاش برای ورود به سیستم بیشتر شد؛ دسترسی رد شد."
  Password field empty: "فیلد رمز عبور خالی است!"
  Password successfully updated: "رمز عبور با موفقیت به روز شد!"
- Permissions not adequate to perform asynchronous requests:: "مجوزها برای انجام درخواست های ناهمزمان کافی نیستند. سعی کنید دوباره وارد سیستم شوید."
+ Permissions not adequate to perform asynchronous requests: "مجوزها برای انجام درخواست های ناهمزمان کافی نیستند. سعی کنید دوباره وارد سیستم شوید."
+ Please enter a valid quarantine key: "لطفاً یک کلید قرنطینه معتبر وارد کنید."
  Statistics cleared: "آمار حذف شد."
  Successfully authenticated: "با موفقیت احراز هویت شد."
  That account doesn_t exist: "آن حساب وجود ندارد."
@@ -349,18 +371,19 @@ siginfo_xkey: "به عنوان «%s» شناسایی شده است."
 state_quarantine: "در حال حاضر %s فایل در قرنطینه وجود دارد."
 tip:
  2FA Sent: "یک ایمیل حاوی کد احراز هویت دو مرحله ای به آدرس ایمیل شما ارسال شده است. لطفاً این کد زیر را برای دسترسی به جلویی تأیید کنید. اگر این ایمیل را دریافت نکردید، سعی کنید از سیستم خارج شوید، 10 دقیقه منتظر بمانید و دوباره وارد شوید تا ایمیل جدیدی حاوی کد جدید دریافت کنید."
- Accounts: "سلام، {username}.<br />صفحه حساب ها به شما امکان می‌دهد کنترل کنید چه کسی می‌تواند به صفحه جلویی phpMussel دسترسی داشته باشد."
- Cache Data: "سلام، {username}.<br />در اینجا می توانید محتویات کش را بررسی کنید."
- Configuration: "سلام، {username}.<br />صفحه پیکربندی به شما امکان می دهد تا پیکربندی phpMussel را از جلویی تغییر دهید."
- Home: "سلام، {username}.<br />این صفحه اصلی برای جلویی phpMussel است. برای ادامه، پیوندی را از منوی پیمایش در سمت راست انتخاب کنید."
- Logs: "سلام، {username}.<br />برای مشاهده محتویات آن فایل گزارش، یک فایل گزارش را از لیست زیر انتخاب کنید."
+ Accounts: "صفحه حساب ها به شما امکان می‌دهد کنترل کنید چه کسی می‌تواند به صفحه جلویی phpMussel دسترسی داشته باشد."
+ Cache Data: "در اینجا می توانید محتویات کش را بررسی کنید."
+ Configuration: "صفحه پیکربندی به شما امکان می دهد تا پیکربندی phpMussel را از جلویی تغییر دهید."
+ Greeting: "سلام، %s."
+ Home: "این صفحه اصلی برای جلویی phpMussel است. برای ادامه، پیوندی را از منوی پیمایش در سمت راست انتخاب کنید."
+ Logs: "برای مشاهده محتویات آن فایل گزارش، یک فایل گزارش را از لیست زیر انتخاب کنید."
  Quarantine is currently disabled: "توجه داشته باشید: قرنطینه در حال حاضر غیرفعال است، اما می توان آن را از طریق صفحه پیکربندی فعال کرد."
- Quarantine: "سلام، {username}.<br />این صفحه تمام فایل‌هایی را که در حال حاضر در قرنطینه هستند فهرست می‌کند و مدیریت آن فایل‌ها را تسهیل می‌کند."
+ Quarantine: "این صفحه تمام فایل‌هایی را که در حال حاضر در قرنطینه هستند فهرست می‌کند و مدیریت آن فایل‌ها را تسهیل می‌کند."
  See the documentation: "برای اطلاعات در مورد دستورالعمل های پیکربندی مختلف و اهداف آنها به <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">مستندات</a> مراجعه کنید."
- Signature Information: "سلام، {username}.<br />صفحه اطلاعات امضا برخی از اطلاعات اولیه را در مورد منابع و انواع امضاهای فعال در حال حاضر ارائه می دهد."
+ Signature Information: "صفحه اطلاعات امضا برخی از اطلاعات اولیه را در مورد منابع و انواع امضاهای فعال در حال حاضر ارائه می دهد."
  Statistics tracking is currently disabled: "توجه داشته باشید: ردیابی آمار در حال حاضر غیرفعال است، اما می توان آن را از طریق صفحه پیکربندی فعال کرد."
- Statistics: "سلام، {username}.<br />این صفحه برخی از آمارهای اولیه استفاده از نصب phpMussel شما را نشان می دهد."
- Upload Testing: "سلام، {username}.<br />صفحه آزمایش آپلود حاوی یک فرم استاندارد آپلود فایل است که به شما امکان می دهد آزمایش کنید که آیا یک فایل به طور معمول توسط phpMussel هنگام تلاش برای آپلود مسدود می شود یا خیر."
+ Statistics: "این صفحه برخی از آمارهای اولیه استفاده از نصب phpMussel شما را نشان می دهد."
+ Upload Testing: "صفحه آزمایش آپلود حاوی یک فرم استاندارد آپلود فایل است که به شما امکان می دهد آزمایش کنید که آیا یک فایل به طور معمول توسط phpMussel هنگام تلاش برای آپلود مسدود می شود یا خیر."
 warning:
  Cookies: "توجه داشته باشید: phpMussel از یک کوکی برای احراز هویت لاگین ها استفاده می کند. با ورود به سیستم، رضایت خود را برای ایجاد و ذخیره یک کوکی توسط مرورگر خود اعلام می کنید."
  JavaScript required: "هشدار: برخی از عملکردهای جلویی به جاوا اسکریپت نیاز دارند. برای اطمینان از اینکه کل جلویی مطابق انتظار عمل می کند، فعال کردن جاوا اسکریپت توصیه می شود."

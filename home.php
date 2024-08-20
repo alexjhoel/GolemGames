@@ -6,6 +6,15 @@ $gameCardObject = new GameCards();
 
 $maxRows = 12;
 
+$query = "SELECT orden, id_categoria, link_imagen, nombre 
+FROM categorias_destacadas 
+INNER JOIN categorias 
+ON id_categoria = id 
+WHERE orden >= 1 AND orden <= 5 
+ORDER BY orden ASC";
+
+$popular_cats = mysqli_fetch_all(db::mysqliExecuteQuery($query, "", array()), MYSQLI_ASSOC);
+
 $query = "SELECT 
 juegos.id as id, 
 titulo, 
@@ -16,13 +25,12 @@ IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE
 FROM juegos
 INNER JOIN juegos_destacados ON juegos.id = juegos_destacados.id_juego 
 INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
-LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
-WHERE juegos.borrado = FALSE
+LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego AND capturas_pantalla.borrado = FALSE
+WHERE juegos.borrado = FALSE AND usuarios.borrado = FALSE AND juegos_destacados.borrado = FALSE AND es_publico = TRUE
 GROUP BY juegos.id
 LIMIT 0, $maxRows";
 
 $destacados = db::mysqliExecuteQuery(
-    $conn,
     $query,
     "",
     array()
@@ -37,14 +45,13 @@ IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = jueg
 IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
 FROM juegos
 INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
-LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
-WHERE juegos.borrado = FALSE
+LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego AND capturas_pantalla.borrado = FALSE
+WHERE juegos.borrado = FALSE AND usuarios.borrado = FALSE AND es_publico = TRUE
 GROUP BY juegos.id
 ORDER BY likes desc
 LIMIT 0, $maxRows";
 
 $mejores = db::mysqliExecuteQuery(
-    $conn,
     $query,
     "",
     array()
@@ -59,14 +66,13 @@ $query = "SELECT
     IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
     FROM juegos
     INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id
-    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
-    WHERE juegos.borrado = FALSE
+    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego AND capturas_pantalla.borrado = FALSE AND es_publico = TRUE
+    WHERE juegos.borrado = FALSE AND usuarios.borrado = FALSE AND juegos.es_publico = TRUE
     GROUP BY juegos.id
-    ORDER BY juegos.fecha asc
+    ORDER BY juegos.fecha desc
     LIMIT 0, $maxRows";
 
 $ultimos = db::mysqliExecuteQuery(
-    $conn,
     $query,
     "",
     array()
@@ -84,9 +90,9 @@ $ultimos = db::mysqliExecuteQuery(
 
     <!--Barra de busqueda de home--->
     <section class="mx-2 mx-lg-5 px-2 px-lg-5 py-1 home-search-bar">
-        <form action="" method="get">
+        <form action="games.php" method="get">
             <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
-                <input type="text" class="form-control rounded-start border-0 shadow-none fs-5"
+                <input type="text" name="search" class="form-control rounded-start border-0 shadow-none fs-5"
                     placeholder="¡Buscar entre cientos de juegos!" />
                 <button type="submit" class="btn btn-primary border-0">
                     <i class="fas fa-search"></i>
@@ -107,31 +113,31 @@ $ultimos = db::mysqliExecuteQuery(
         <h3 class="ml-0"><i class="fas fa-star fa-sm"></i> Categorías populares</h3>
         <div class="row gap-2" style="height:300px">
             <a class="rounded-5 col-6 col-sm-4 col-md-3 d-flex align-items-end btn img-background"
-                style="background-image: url(https://articles-images.sftcdn.net/wp-content/uploads/sites/2/2018/02/android-accion.jpg);"
-                href="">
-                <h5 class="rounded-5 bg-body p-1">Acción</h5>
+                style="background-image: url(<?=$popular_cats[0]["link_imagen"]?>?t=<?=time()?>);"
+                href="games.php?categoria=<?=$popular_cats[0]["id_categoria"]?>">
+                <h5 class="rounded-5 bg-body p-1"><?=$popular_cats[0]["nombre"]?></h5>
             </a>
             <div class="row col-6 col-sm-4 col-md-3 gap-2">
                 <a class="rounded-5 col-12 d-flex align-items-end btn img-background"
-                    style="background-image: url(https://blog.uptodown.com/wp-content/uploads/mejores-juegos-carreras-android.jpg);"
-                    href="">
-                    <h5 class="rounded-5 bg-body p-1">Carreras</h5>
+                    style="background-image: url(<?=$popular_cats[1]["link_imagen"]?>?t=<?=time()?>);"
+                    href="games.php?categoria=<?=$popular_cats[1]["id_categoria"]?>">
+                    <h5 class="rounded-5 bg-body p-1"><?=$popular_cats[1]["nombre"]?></h5>
                 </a>
                 <a class="rounded-5 col-12 d-flex align-items-end btn img-background"
-                    style="background-image: url(https://offloadmedia.feverup.com/madridsecreto.co/wp-content/uploads/2022/10/27170504/arcade-bar-malasana-Credito-editorial_-Atmosphere1-_-Shutterstock.com_-1024x683.jpg);"
-                    href="">
-                    <h5 class="rounded-5 bg-body p-1">Arcade</h5>
+                    style="background-image: url(<?=$popular_cats[2]["link_imagen"]?>?t=<?=time()?>);"
+                    href="games.php?categoria=<?=$popular_cats[2]["id_categoria"]?>">
+                    <h5 class="rounded-5 bg-body p-1"><?=$popular_cats[2]["nombre"]?></h5>
                 </a>
             </div>
             <a class="rounded-5 d-none d-sm-flex col-4 col-md-3 align-items-end btn img-background"
-                style="background-image: url(https://cdn01.x-plarium.com/browser/content/blog/common/widget/mobile/raid_aside.webp);"
-                href="">
-                <h5 class="rounded-5 bg-body p-1">Juegos de rol</h5>
+                style="background-image: url(<?=$popular_cats[3]["link_imagen"]?>?t=<?=time()?>);"
+                href="games.php?categoria=<?=$popular_cats[3]["id_categoria"]?>">
+                <h5 class="rounded-5 bg-body p-1"><?=$popular_cats[3]["nombre"]?></h5>
             </a>
             <a class="rounded-5 col-3 d-none d-md-flex align-items-end btn img-background"
-                style="background-image: url(https://phantom-elmundo.unidadeditorial.es/647dfec588ecbc704118394a2da06a54/crop/153x0/759x404/resize/414/f/jpg/assets/multimedia/imagenes/2020/03/30/15855939110237.jpg);"
-                href="">
-                <h5 class="rounded-5 bg-body p-1">Aventura</h5>
+                style="background-image: url(<?=$popular_cats[4]["link_imagen"]?>?t=<?=time()?>);"
+                href="games.php?categoria=<?=$popular_cats[4]["id_categoria"]?>">
+                <h5 class="rounded-5 bg-body p-1"><?=$popular_cats[4]["nombre"]?></h5>
             </a>
         </div>
     </section>
@@ -150,7 +156,7 @@ $ultimos = db::mysqliExecuteQuery(
             $gameCardObject->autor = $destData["nombre_usuario"];
             $gameCardObject->vistas = $destData["visitas"];
             $gameCardObject->likes = $destData["likes"];
-            $gameCardObject->linksCapturas = explode(", ", $destData["capturas"]);
+            $gameCardObject->linksCapturas = $destData["capturas"];
 
             $scroller->addGame($gameCardObject);
         }
@@ -175,7 +181,7 @@ $ultimos = db::mysqliExecuteQuery(
             $gameCardObject->autor = $mejorData["nombre_usuario"];
             $gameCardObject->vistas = $mejorData["visitas"];
             $gameCardObject->likes = $mejorData["likes"];
-            $gameCardObject->linksCapturas = explode(", ", $mejorData["capturas"]);
+            $gameCardObject->linksCapturas = $mejorData["capturas"];
 
             $scroller->addGame($gameCardObject);
         }
@@ -200,7 +206,7 @@ $ultimos = db::mysqliExecuteQuery(
             $gameCardObject->autor = $ultimoData["nombre_usuario"];
             $gameCardObject->vistas = $ultimoData["visitas"];
             $gameCardObject->likes = $ultimoData["likes"];
-            $gameCardObject->linksCapturas = explode(", ", $ultimoData["capturas"]);
+            $gameCardObject->linksCapturas = $ultimoData["capturas"];
 
             $scroller->addGame($gameCardObject);
         }
@@ -212,6 +218,8 @@ $ultimos = db::mysqliExecuteQuery(
 
 </article>
 
-<?php
+
+
+<?php 
 include ("include/footer.php");
 ?>

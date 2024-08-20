@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Norwegian language data (last modified: 2023.09.23).
+# This file: Norwegian language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -52,7 +52,7 @@ config:
  files: "Spesifikasjonene for hvordan du håndterer filer når du skanner."
  files_allow_leading_trailing_dots: "Vil du tillate ledende og etterfølgende prikker i filnavn? Dette kan noen ganger brukes til å skjule filer, eller for å lure noen systemer til å tillate katalog traversering. False = Ikke tillat [Standardverdi]. True = Tillat."
  files_archive_file_extensions: "Anerkjente arkivfiltypene (formatet er CSV; bør bare legge til eller fjerne når det oppstår problemer; unødvendig fjerning kan føre til at falske positiver vises for arkivfiler, mens unødvendig å legge til vil i det vesentlige hvitliste det du legger til fra angrepspesifikk deteksjon; endre med forsiktighet; merk også at dette ikke har noen innvirkning på hva arkiver kan og ikke kan analyseres på innholdsnivå). Listen er som standard en liste over de formatene som brukes mest i de fleste systemer og CMS, men med vilje er ikke nødvendigvis omfattende."
- files_block_control_characters: "Vil du blokkere filer som inneholder kontrolltegn (annet enn nylinjer)? Hvis du <em><strong>BARE</strong></em> laster opp ren tekst, kan du slå på dette alternativet for å gi litt ekstra beskyttelse til systemet ditt. Men, hvis du laster opp noe annet enn ren tekst, å slå på dette kan føre til falske positiver. False = Ikke blokker [Standardverdi]; True = Blokker."
+ files_block_control_characters: "Vil du blokkere filer som inneholder kontrolltegn (annet enn nylinjer)? Hvis du <strong><em>BARE</em></strong> laster opp ren tekst, kan du slå på dette alternativet for å gi litt ekstra beskyttelse til systemet ditt. Men, hvis du laster opp noe annet enn ren tekst, å slå på dette kan føre til falske positiver. False = Ikke blokker [Standardverdi]; True = Blokker."
  files_block_encrypted_archives: "Oppdage og blokkere krypterte arkiver? Fordi phpMussel ikke er i stand til å skanne innholdet i krypterte arkiver, er det mulig at arkivkryptering kan brukes av en angriper som et middel til å forsøke å omgå phpMussel, antivirus-skannere og annen slik beskyttelse. Å instruere phpMussel til å blokkere krypterte arkiver som den oppdager, kan bidra til å redusere risikoen forbundet med disse mulighetene. False = Nei; True = Ja [Standardverdi]."
  files_block_macros: "Blokkere filer som inneholder makroer? Noen typer dokumenter og regneark kan inneholde kjørbare makroer, og gir dermed en farlig potensiell malware-vektor. False = Ikke blokker [Standardverdi]; True = Blokker."
  files_can_contain_php_file_extensions: "En liste over filendelser som tillater å inneholde PHP-kode, atskilt med kommaer. Hvis deteksjon av PHP-kameleonangrep er aktivert, vil filer som inneholder PHP-kode, som har utvidelser som ikke er på denne listen, bli oppdaget som PHP-kameleonangrep."
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO passord."
  supplementary_cache_options_pdo_username: "PDO brukernavn."
  supplementary_cache_options_prefix: "Verdien som er spesifisert her vil bli lagt foran alle cache-oppføringsnøkler. Standardverdi = «phpMussel_». Når flere installasjoner eksisterer på samme server, dette kan være nyttig for å holde cachen deres atskilt fra hverandre."
+ supplementary_cache_options_redis_database_number: "Redis databasenummer. Standardverdi = 0. Merk: Kan ikke bruke andre verdier enn 0 med Redis Cluster."
  supplementary_cache_options_redis_host: "Redis vertsverdi. Standardverdi = «localhost»."
  supplementary_cache_options_redis_port: "Redis portsverdi. Standardverdi = «6379»."
  supplementary_cache_options_redis_timeout: "Redis timeout-verdi. Standardverdi = «2.5»."
@@ -125,7 +126,7 @@ config:
  urlscanner_maximum_api_lookups: "Maksimalt tillatt antall API-oppslag for å utføre per individuell skanne-iterasjon. Fordi hvert ekstra API-oppslag vil legge til den totale tiden som kreves for å fullføre hver skanne-iterasjon, kan det være lurt å stille en begrensning for å fremskynde den totale skanneprosessen. Når det er satt til 0, vil ikke et slikt maksimalt tillatt antall bli brukt. Satt til 10 som standard."
  urlscanner_maximum_api_lookups_response: "Hva å gjøre hvis det maksimalt tillatte antallet API-oppslag overskrides? False = Gjør ingenting (fortsett å behandle) [Standardverdi]; True = Flagger/blokker filen."
  virustotal: "Konfigurasjon for Virus Total-integrasjon."
- virustotal_vt_public_api_key: "Eventuelt er phpMussel i stand til å skanne filer ved å bruke Virus Total API som en måte å gi et sterkt forbedret nivå mot beskyttelse mot virus, trojanere, malware og andre trusler. Som standard er skanning av filer ved å bruke Virus Total API deaktivert. For å aktivere den er det nødvendig med en API-nøkkel fra Virus Total. På grunn av den betydelige fordelen dette kan gi deg, anbefaler jeg det på det sterkeste. Vær imidlertid oppmerksom på at for å bruke Virus Total API, du <em><strong>MÅ</strong></em> godta deres vilkår for bruk og du <em><strong>MÅ</strong></em> overholde alle retningslinjer som beskrevet i Virus Total-dokumentasjonen! Du har IKKE lov til å bruke denne integrasjonsfunksjonen MED MINDRE: Du har lest og samtykker til vilkårene for Virus Total og dens API. Du har lest og du forstår minst innledningen til Virus Total Public API-dokumentasjonen (alt etter «VirusTotal Public API v2.0», men før «Contents»)."
+ virustotal_vt_public_api_key: "Eventuelt er phpMussel i stand til å skanne filer ved å bruke Virus Total API som en måte å gi et sterkt forbedret nivå mot beskyttelse mot virus, trojanere, malware og andre trusler. Som standard er skanning av filer ved å bruke Virus Total API deaktivert. For å aktivere den er det nødvendig med en API-nøkkel fra Virus Total. På grunn av den betydelige fordelen dette kan gi deg, anbefaler jeg det på det sterkeste. Vær imidlertid oppmerksom på at for å bruke Virus Total API, du <strong><em>MÅ</em></strong> godta deres vilkår for bruk og du <strong><em>MÅ</em></strong> overholde alle retningslinjer som beskrevet i Virus Total-dokumentasjonen! Du har IKKE lov til å bruke denne integrasjonsfunksjonen MED MINDRE: Du har lest og samtykker til vilkårene for Virus Total og dens API. Du har lest og du forstår minst innledningen til Virus Total Public API-dokumentasjonen (alt etter «VirusTotal Public API v2.0», men før «Contents»)."
  virustotal_vt_quota_rate: "I henhold til Virus Total API-dokumentasjonen, «det er begrenset til høyst 4 forespørsler av enhver art i en gitt tidsperiode på 1 minutt. Hvis du kjører en honningklient, honeypot eller annen automatisering som skal gi ressurser til VirusTotal og ikke bare hente rapporter, har du rett til en høyere kvote for forespørsel». Som standard vil phpMussel følge disse begrensningene strengt, men på grunn av muligheten for at disse rentekvotene, er disse to direktiver gitt som et middel for deg å instruere phpMussel om hvilken grense den skal overholde. Med mindre du har blitt instruert om å gjøre det, anbefales det ikke at du øker disse verdiene, men hvis du har fått problemer knyttet til å nå rentekvoten, å redusere disse verdiene kan noen ganger hjelpe deg med å håndtere disse problemene. Grensen din bestemmes som <code>vt_quota_rate</code> forespørsler av hvilken som helst art i en gitt tidsramme på <code>vt_quota_time</code> minutt."
  virustotal_vt_quota_time: "(Se beskrivelse over)."
  virustotal_vt_suspicion_level: "Som standard vil phpMussel begrense hvilke filer den skanner ved å bruke Virus Total API til de filene den anser som «mistenkelig». Du kan eventuelt justere denne begrensningen ved å endre verdien på <code>vt_suspicion_level</code> direktivet."
@@ -168,8 +169,27 @@ field:
  vt_suspicion_level_all: "Skann alle filer."
  vt_suspicion_level_executable: "Skann filer med heuristisk vekt, kjørbare filer, og filer som potensielt inneholder kjørbare data.\nEksempler på kjørbare filer, og filer som potensielt inneholder kjørbare data, inkluderer Windows PE-filer, Linux ELF-filer, Mach-O-filer, DOCX-filer, ZIP-filer, osv."
  vt_suspicion_level_heuristic_only: "Skann kun filer med heuristisk vekt.\nFiler skannes bare hvis de har en heuristisk vekt. Heuristisk vekt kan påløpe fra signaturer som er ment å fange opp vanlige fingeravtrykk assosiert med potensiell infeksjon som ikke nødvendigvis garanterer infeksjon. Oppslaget kan i slike tilfeller gi en avgjørende faktor for resultater som rettferdiggjør mistanke, men som ellers ikke gir absolutt tillit."
+hints_logging_datetime: "Nyttig tips: Du kan legge ved dato-/klokkeslettinformasjon til navnene på loggfilene ved å bruke plassholdere for tidsformat. Tilgjengelige tidsformatplassholdere vises ved {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">Hva er en «PDO DSN»? Hvordan kan jeg bruke PDO med phpMussel?</a></em>"
+hints_time_format: |
+ <strong><em>Plassholder – Forklaring – Eksempel basert på 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Året – F.eks., 2024.<br />
+ <code class="s">{yy}</code> – Det forkortede året – F.eks., 24.<br />
+ <code class="s">{Mon}</code> – Månedens forkortede navn (på engelsk) – F.eks., Apr.<br />
+ <code class="s">{mm}</code> – Måneden med innledende nuller – F.eks., 04.<br />
+ <code class="s">{m}</code> – Måneden – F.eks., 4.<br />
+ <code class="s">{Day}</code> – Dagens forkortede navn (på engelsk) – F.eks., Tue.<br />
+ <code class="s">{dd}</code> – Dagen med innledende nuller – F.eks., 30.<br />
+ <code class="s">{d}</code> – Dagen – F.eks., 30.<br />
+ <code class="s">{hh}</code> – Timen med innledende nuller (bruker 24-timers tid) – F.eks., 18.<br />
+ <code class="s">{h}</code> – Timen (bruker 24-timers tid) – F.eks., 18.<br />
+ <code class="s">{ii}</code> – Minuttet med innledende nuller – F.eks., 27.<br />
+ <code class="s">{i}</code> – Minuttet – F.eks., 27.<br />
+ <code class="s">{ss}</code> – Sekundet med innledende nuller – F.eks., 49.<br />
+ <code class="s">{s}</code> – Sekundet – F.eks., 49.<br />
+ <code class="s">{tz}</code> – Tidssonen (uten kolon) – F.eks., +0800.<br />
+ <code class="s">{t:z}</code> – Tidssonen (med kolon) – F.eks., +08:00.
 hints_xlists:
  Hvordan dette fungerer.: "Hvis systemet bare tillater opplasting av bestemte filtyper, eller hvis systemet eksplisitt avviser visse filtyper, å spesifisere filtypene i hvitelister, svartelister og grålister kan øke hastigheten som skanning utføres ved å la skriptet hoppe over bestemte filtyper. Format er CSV (kommaseparerte verdier)."
  Logisk rekkefølge på behandlingen.: "Hvis filtypen er hvitlistet, ikke skanne og ikke blokkere filen, og ikke sjekke filen mot svartelisten eller grålisten. Hvis filtypen er svartelistet, ikke skanne filen, men blokkere den uansett, og ikke sjekk filen mot grålisten. Hvis grålisten er tom, eller hvis grålisten ikke er tom og filtypen er grålistet, skann filen som normalt og bestemme om den skal blokkeres basert på resultatene av skanningen, men hvis grålisten ikke er tom og filtypen ikke er grålistet, behandle filen som svartelistet, derfor ikke skanne den, men blokkerer den uansett."
@@ -279,7 +299,6 @@ link:
  Statistics: "Statistikk"
  Text formatting: "Tekstformatering: <a href="%1$sfalse">Enkel</a> – <a href="%1$strue">Fancy</a>"
  Upload Testing: "Opplastnings test"
-max_login_attempts_exceeded: "Maks antall påloggingsforsøk er overskredet; Tilgang nektet."
 msg_subject_2fa: "2FA (2-Faktorautentisering)"
 msg_template_2fa: |
  <center><p>Hallo, %s.<br /><br />
@@ -299,20 +318,23 @@ response:
  Account successfully deleted: "Kontoen slettet!"
  An account with that username already exists: "En konto med det brukernavnet eksisterer allerede!"
  Configuration successfully updated: "Konfigurasjon oppdatert."
- Corrupted file: "Kunne ikke gjenopprette! Ødelagt fil!"
+ Corrupted file: "Ødelagt fil!"
  Failed to create: "Opprettelsen mislyktes!"
  Failed to delete: "Sletting mislyktes!"
+ Failed to restore: "Kunne ikke gjenopprette"
  Failed to update configuration: "Kunne ikke oppdatere konfigurasjonen!"
  Failed to update: "Oppdatering mislyktes!"
  Failed: "Mislyktes"
  File successfully deleted: "Fil slettet!"
  File successfully restored: "Fil gjenopprettet!"
  Incorrect 2FA code entered: "Feil 2FA-kode angitt. Autentisering mislyktes."
- Incorrect quarantine key: "Kunne ikke gjenopprette! Ugyldig karantenenøkkel!"
+ Incorrect quarantine key: "Ugyldig karantenenøkkel!"
  Invalid password: "Innlogging mislyktes! Ugyldig passord!"
+ Maximum number of login attempts exceeded: "Maks antall påloggingsforsøk er overskredet; Tilgang nektet."
  Password field empty: "Passord-felt tomt!"
  Password successfully updated: "Passordet oppdatert!"
- Permissions not adequate to perform asynchronous requests:: "Tillatelser ikke tilstrekkelig til å utføre asynkrone forespørsler. Prøv å logge inn igjen."
+ Permissions not adequate to perform asynchronous requests: "Tillatelser ikke tilstrekkelig til å utføre asynkrone forespørsler. Prøv å logge inn igjen."
+ Please enter a valid quarantine key: "Vennligst skriv inn en gyldig karantenenøkkel."
  Statistics cleared: "Statistikk fjernet."
  Successfully authenticated: "Autentisering lyktes."
  That account doesn_t exist: "Den kontoen eksisterer ikke."
@@ -346,18 +368,19 @@ state_quarantine:
  - "Det er %s filer for øyeblikket i karantene."
 tip:
  2FA Sent: "En e-post som inneholder en 2FA-kode, er sendt til e-postadressen din. Vennligst bekreft denne koden nedenfor for å få tilgang til frontenden. Hvis du ikke mottok denne e-posten, kan du prøve å logge ut, vente i 10 minutter og logge på igjen for å motta en ny e-post som inneholder en ny kode."
- Accounts: "Hallo, {username}.<br />Du kan kontrollere hvem som kan få tilgang til phpMussel-frontenden ved hjelp av kontosiden."
- Cache Data: "Hallo, {username}.<br />Her kan du se innholdet i cachen."
- Configuration: "Hallo, {username}.<br />Konfigurasjonssiden lar deg endre konfigurasjonen for phpMussel fra frontenden."
- Home: "Hallo, {username}.<br />Dette er hjemmesiden for frontenden av phpMussel. Velg en lenke fra navigasjonsmenyen til venstre for å fortsette."
- Logs: "Hallo, {username}.<br />Velg en loggfil fra listen nedenfor for å se innholdet i den loggfilen."
+ Accounts: "Du kan kontrollere hvem som kan få tilgang til phpMussel-frontenden ved hjelp av kontosiden."
+ Cache Data: "Her kan du se innholdet i cachen."
+ Configuration: "Konfigurasjonssiden lar deg endre konfigurasjonen for phpMussel fra frontenden."
+ Greeting: "Hallo, %s."
+ Home: "Dette er hjemmesiden for frontenden av phpMussel. Velg en lenke fra navigasjonsmenyen til venstre for å fortsette."
+ Logs: "Velg en loggfil fra listen nedenfor for å se innholdet i den loggfilen."
  Quarantine is currently disabled: "Merk: Karantene er for øyeblikket deaktivert, men kan aktiveres via konfigurasjonssiden."
- Quarantine: "Hallo, {username}.<br />Denne siden viser alle filene som er i karantene, og letter administrasjonen av filene."
+ Quarantine: "Denne siden viser alle filene som er i karantene, og letter administrasjonen av filene."
  See the documentation: "Se <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">dokumentasjonen</a> for informasjon om de ulike konfigurasjonsdirektiver og deres formål."
- Signature Information: "Hallo, {username}.<br />Informasjonssiden for signatur gir grunnleggende informasjon om kildene og typene til de aktive signaturene."
+ Signature Information: "Informasjonssiden for signatur gir grunnleggende informasjon om kildene og typene til de aktive signaturene."
  Statistics tracking is currently disabled: "Merk: Statistikksporing er for øyeblikket deaktivert, men kan aktiveres via konfigurasjonssiden."
- Statistics: "Hallo, {username}.<br />Denne siden viser noen grunnleggende bruksstatistikk angående phpMussel-installasjonen."
- Upload Testing: "Hallo, {username}.<br />Opplastings-testsiden inneholder et standard skjema for opplasting av filer, slik at du kan teste om en fil normalt vil bli blokkert av phpMussel når du prøver å laste den opp."
+ Statistics: "Denne siden viser noen grunnleggende bruksstatistikk angående phpMussel-installasjonen."
+ Upload Testing: "Opplastings-testsiden inneholder et standard skjema for opplasting av filer, slik at du kan teste om en fil normalt vil bli blokkert av phpMussel når du prøver å laste den opp."
 warning:
  Cookies: "Merk: phpMussel bruker en informasjonskapsel for å godkjenne innlogginger. Ved å logge inn, gir du ditt samtykke til at en informasjonskapsel skal opprettes og lagres av nettleseren din."
  JavaScript required: "Advarsel: Noen frontend-funksjonalitet krever JavaScript. For å sikre at hele grensesnittet oppfører seg som forventet, anbefales det å aktivere JavaScript."

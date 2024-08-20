@@ -167,3 +167,29 @@ __*Why "v3.0.0" instead of "v1.0.0?"*__ Prior to phpMussel v3, the "phpMussel Co
 ### v3.4.2
 
 [2023.11.19; Maikuolan]: Restyled file inputs.
+
+### v3.5.0
+
+[2023.12.01; Maikuolan]: Improved escaping. Added support for specifying a Redis database number to the supplementary cache options.
+
+[2023.12.03; Bug-fix; Maikuolan]: At the page for entering a 2FA code when logging into a 2FA-enabled account, no logout button was displayed, preventing the user from logging out easily, which may be needed in the event of not receiving any 2FA code; Fixed.
+
+[2023.12.12; Security; Maikuolan]: Added a method to check whether a name is reserved, and applied it as a guard at the point where signature files are read in. Attempting to perform file operations on reserved names under Windows and some other operating systems could cause the underlying file system to attempt to communicate with a serial port instead of the intended file. PHP is likely to then wait indefinitely for a response it's unlikely to ever receive, thus locking up the process and preventing further requests unless the process is restarted. Although it's infinitesimally unlikely that a user would actually want to use a reserved name for one of their signature files, as the solution is exceedingly simple, with no particular performance impact, I've implemented it accordingly.
+
+[2023.12.12; Maikuolan]: Split the code for most of the various front-end pages, which the view method was responsible for, into their own distinct files.
+
+[2023.12.26; Maikuolan]: Refactored the page greeting.
+
+[2023.12.29; Bug-fix; Maikuolan]: Some of the more unusual available number formatting choices (e.g., choices not using base-10 or Arabic numerals) didn't mesh well with the JavaScript code responsible for using them; Fixed.
+
+### v3.5.1
+
+[2024.04.12; Maikuolan]: Code-style patch.
+
+[2024.04.18; Maikuolan]: Added flexrow for dropdown menus with included input fields for other values at the configuration page.
+
+[2024.04.30~05.01; Maikuolan]: Added hints about time placeholders (e.g., `{yyyy}`, `{hh}`, etc) to the various configuration directives for logging.
+
+[2024.06.18; Maikuolan]: Slightly refactored some L10N data.
+
+[2024.04~06; Maikuolan]: Added L10N for Catalan, Galician, and Gujarati.

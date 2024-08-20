@@ -1,0 +1,8 @@
+Funciones de moderador:
+    -Destacar juegos
+    -Modificar y eliminar juegos
+    -Eliminar mensajes de chats
+    -Modificar y eliminar salas de chats
+    -(Opcional) Restringir acceso a usuarios 
+Placeholders de anuncios
+

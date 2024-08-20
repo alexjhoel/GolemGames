@@ -5,7 +5,7 @@
         public String $autor;
         public int $likes;
         public int $vistas;
-        public array $linksCapturas;
+        public String $linksCapturas;
 
         public function echo(){
             ?>
@@ -13,24 +13,22 @@
                         href="game_info.php?id=<?=$this->id?>">
                         <div class="w-100 ratio ratio-16x9 overflow-hidden rounded-3">
                             <div class="carousel-fade" data-interval="2000">
+                                
                                 <div class="carousel-inner">
                                 <?php
                                 $first = true;
-                                foreach($this->linksCapturas as $link){
+                                if($this->linksCapturas == ""){
+                                    $capturas = array("assets/images/default_screenshot.jpg");
+                                }else{
+                                    $capturas = explode(", ", $this->linksCapturas);
+                                }
+                                foreach($capturas as $link){
                                     ?>
                                     <div class="d-block carousel-item <?= $first ? 'active' : ''?>"  >
                                         <img src="<?=$link?>?t=<?=time()?>" class="w-100" alt="">
                                     </div>
                                     <?php
                                     $first = false;
-                                }
-                                if($first){
-                                    ?>
-                                    <div class="d-block carousel-item <?= $first ? 'active' : ''?>" style="width:100%;">
-                                        <img src="https://cdn.magicdecor.in/com/2024/02/08163057/Vibrant-Gaming-Controller-Wallpaper-for-Gaming-Lovers.jpg?t=<?=time()?>" class="w-100" alt="">
-                                    </div>
-                                    
-                                    <?php
                                 }
                                 ?>
                                 </div>

@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: German language data (last modified: 2023.10.12).
+# This file: German language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -52,7 +52,7 @@ config:
  files: "Einzelheiten zum Umgang mit Dateien beim Scannen."
  files_allow_leading_trailing_dots: "Erlaube führende und nachfolgende Punkte in Dateinamen? Dies kann manchmal verwendet werden, um Dateien auszublenden oder um einige Systeme dazu zu bringen, Directory Traversal zuzulassen. False = Nicht erlauben [Standardeinstellung]. True = Erlauben."
  files_archive_file_extensions: "Erkannte Archiv-Dateierweiterungen (Format ist CSV; nur bei Problemen hinzufügen oder entfernen; unnötiges Entfernen könnte Fehlalarme für Archive auslösen, unnötiges Hinzufügen fügt das zur Whitelist hinzu, was vorher als möglicher Angriff definiert wurde; Ändern Sie diese Liste äußerst vorsichtig; Beachten Sie, dass dies keinen Einfluss darauf hat, wozu Archive fähig sind und nicht auf Inhaltsebene analysiert werden können). Diese Liste enthält die Archivformate, die am häufigsten von der Mehrzahl der Systeme und CMS verwendet werden, ist aber absichtlich nicht vollständig."
- files_block_control_characters: "Sollen Dateien, welche Steuerzeichen (andere als Newline/Zeilenumbruch) enthalten, blockiert werden?Sofern Sie <em><strong>NUR</strong></em> reinen Text hochladen, können Sie diese Option aktivieren, um Ihrem System zusätzlichen Schutz zu bieten. Sollten Sie anderes als reinen Text hochladen, werden bei aktivierter Option Fehlalarme ausgelöst. False = Nicht blockieren [Standardeinstellung]; True = Blockieren."
+ files_block_control_characters: "Sollen Dateien, welche Steuerzeichen (andere als Newline/Zeilenumbruch) enthalten, blockiert werden?Sofern Sie <strong><em>NUR</em></strong> reinen Text hochladen, können Sie diese Option aktivieren, um Ihrem System zusätzlichen Schutz zu bieten. Sollten Sie anderes als reinen Text hochladen, werden bei aktivierter Option Fehlalarme ausgelöst. False = Nicht blockieren [Standardeinstellung]; True = Blockieren."
  files_block_encrypted_archives: "Verschlüsselte Archive erkennen und blockieren? Denn phpMussel ist nicht in der Lage, die Inhalte von verschlüsselten Archiven zu scannen. Es ist möglich, dass Archiv-Verschlüsselung von Angreifern zum Umgehen von phpMussel, Antiviren-Scanner und weiterer solcher Schutzlösungen verwendet wird. Die Anweisung, dass phpMussel verschlüsselte Archive blockiert kann möglicherweise helfen, die Risiken, die mit dieser Möglichkeit verbunden sind, zu verringern. False = Nein; True = Ja [Standardeinstellung]."
  files_block_macros: "Versuchen Sie, alle Dateien die Makros enthalten zu blockieren? Einige Arten von Dokumenten und Tabellen können ausführbare Makros enthalten und somit einen gefährlichen potenziellen Malware-Vektor darstellen. False = Nicht blockieren [Standardeinstellung]; True = Blockieren."
  files_can_contain_php_file_extensions: "Eine Liste von Dateierweiterungen, die PHP-Code enthalten dürfen, getrennt durch Kommas. Wenn die PHP-Chameleon-Angriffserkennung aktiviert ist, werden Dateien mit PHP-Code, die Erweiterungen aufweisen, die nicht in dieser Liste enthalten sind, als PHP-Chameleon-Angriffe erkannt."
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO Passwort."
  supplementary_cache_options_pdo_username: "PDO Nutzername."
  supplementary_cache_options_prefix: "Dieser Wert hier wird zu allen Cache-Eintragsschlüsseln vorangestellt. Standardeinstellung = „phpMussel_“. Wenn mehrere Installationen auf demselben Server vorhanden sind, kann dies nützlich sein, um ihre Caches getrennt zu halten."
+ supplementary_cache_options_redis_database_number: "Redis Datenbanknummer. Standardeinstellung = 0. Hinweis: Mit Redis Cluster können keine anderen Werte als 0 verwendet werden."
  supplementary_cache_options_redis_host: "Redis Hostwert. Standardeinstellung = „localhost“."
  supplementary_cache_options_redis_port: "Redis Portwert. Standardeinstellung = „6379“."
  supplementary_cache_options_redis_timeout: "Redis Timeout-Wert. Standardeinstellung = „2.5“."
@@ -126,7 +127,7 @@ config:
  urlscanner_maximum_api_lookups_response: "Was soll passieren, wenn die maximale Anzahl der erlaubten API-Abfragen erreicht wird? False = Nichts (Verarbeitung fortführen) [Standardeinstellung]; True = Markiere/blockiere die Datei."
  virustotal: "Konfiguration für die Integration von Virus Total."
  virustotal_vt_public_api_key: "Optional, phpMussel kann Dateien mit der Virus Total API scannen, um einen noch besseren Schutz gegen Viren, Trojaner, Malware und andere Bedrohungen zu bieten. Standardmäßig ist das Scannen von Dateien mit der Virus Total API deaktiviert. Um es zu aktivieren, wird ein API Schlüssel von Virus Total benötigt. Wegen dem großen Vorteil den dir das bietet, empfehle ich die Aktivierung. Bitte sei dir bewusst, um die Virus Total API zu nutzen, dass du deren Nutzungsbedingungen zustimmen und dich an alle Richtlinien halten musst, wie es in der Virus Total Dokumentation beschrieben ist! Du darfst diese Integrations-Funktion nicht verwenden AUSSER: Du hast die Nutzungsbedingungen von Virus Total und der API gelesen und stimmst diesen zu. Du hast, zu einem Minimum, das Vorwort von der Virus Total Public API Dokumentation gelesen und verstanden (alles nach „Virus Total Public API v2.0“ aber vor „Contents“)."
- virustotal_vt_quota_rate: "Laut der Virus Total API Dokumentation, „ist diese auf 4 Anfragen irgendeiner Art in einer 1 Minuten Zeitspanne limitiert. Falls du einen Honeyclient, Honeypot oder einen andere Automatisierung verwendest, was etwas zu VirusTotal beiträgt und nicht nur Berichte abruft, bist du für ein höheres Limit berechtigt“. Standardmäßig wird sich phpMussel strikt daran halten, da aber diese Limits erhöht werden können, stehen dir diese zwei Direktiven zur Verfügung um phpMussel anzuweisen, an welches Limit es sich halten soll. Außer du bist dazu aufgefordert, ist es nicht empfohlen diese Werte zu erhöhen. Solltest du aber Probleme bezogen auf das Erreichen des Limits haben, <em><strong>SOLLTE</strong></em> das Verringern dieser Werte manchmal helfen. Dein Limit wird festgelegt als <code>vt_quota_rate</code> Anfragen jeder Art in jeder <code>vt_quota_time</code> Minuten Zeitspanne."
+ virustotal_vt_quota_rate: "Laut der Virus Total API Dokumentation, „ist diese auf 4 Anfragen irgendeiner Art in einer 1 Minuten Zeitspanne limitiert. Falls du einen Honeyclient, Honeypot oder einen andere Automatisierung verwendest, was etwas zu VirusTotal beiträgt und nicht nur Berichte abruft, bist du für ein höheres Limit berechtigt“. Standardmäßig wird sich phpMussel strikt daran halten, da aber diese Limits erhöht werden können, stehen dir diese zwei Direktiven zur Verfügung um phpMussel anzuweisen, an welches Limit es sich halten soll. Außer du bist dazu aufgefordert, ist es nicht empfohlen diese Werte zu erhöhen. Solltest du aber Probleme bezogen auf das Erreichen des Limits haben, <strong><em>SOLLTE</em></strong> das Verringern dieser Werte manchmal helfen. Dein Limit wird festgelegt als <code>vt_quota_rate</code> Anfragen jeder Art in jeder <code>vt_quota_time</code> Minuten Zeitspanne."
  virustotal_vt_quota_time: "(Siehe Beschreibung oben)."
  virustotal_vt_suspicion_level: "phpMussel wird standardmäßig die mit der Virus Total API zu scannenden Dateien auf Dateien eisnchränken, die es als „verdächtig“ betrachtet. Du kannst optional diese Einschränkung durch Änderung des Wertes der <code>vt_suspicion_level</code> Direktive anpassen."
  virustotal_vt_weighting: "Soll phpMussel die Ergebnisse des Scans mit der Virus Total API als Erkennungen oder Erkennungs-Gewichtung anwenden? Diese Direktive existiert, weil das Scannen einer Datei mit mehreren Engines (wie es Virus Total macht) in einer höheren Erkennungsrate resultieren sollte (und somit eine größere Anzahl schädlicher Dateien erwischt werden), dies kann aber zu in einer höheren Anzahl von Falschmeldungen führen. Unter manchen Umständen würden die Ergebnisse des Scans besser als Vertrauens-Wert als ein eindeutiges Ergebnis verwendet werden. Wenn der Wert 0 verwendet wird, werden die Ergebnisse des Scans als Erkennungen angewendet und somit wird phpMussel, falls irgendeine von Virus Total verwendete Engine die gescannte Datei als schädlich markiert, die Datei als schädlich betrachten. Wird ein anderer Wert verwendet, werden die Ergebnisse des Scans mit der Virus Total API als Erkennungs-Gewichtung angewendet. Die Anzahl der von Virus Total verwendeten Engines, welche die Datei als schädlich markieren, wird als Vertrauens-Wert (oder Erkennungs-Gewichtung) dienen, ob die gescannte Datei von phpMussel als schädlich angesehen werden soll (der verwendete Wert wird den Mindest-Vertrauens-Wert oder erforderliche Gewichtung repräsentieren, um als schädlich angesehen zu werden. Standardmäßig der Wert 0 verwendet."
@@ -166,8 +167,27 @@ field:
  vt_suspicion_level_all: "Scannen alle Dateien."
  vt_suspicion_level_executable: "Scannen Dateien mit heuristischem Gewicht, ausführbare Dateien, und Dateien die möglicherweise ausführbare Daten enthalten.\nBeispiele für ausführbare Dateien, und Dateien die möglicherweise ausführbare Daten enthalten, umfassen Windows PE-Dateien, Linux ELF-Dateien, Mach-O-Dateien, DOCX-Dateien, ZIP-Dateien, u.s.w."
  vt_suspicion_level_heuristic_only: "Scannen nur Dateien mit heuristischem Gewicht.\nDateien werden nur gescannt wenn sie ein heuristisches Gewicht haben. Heuristisches Gewicht kann aus Signaturen entstehen die gemeinsame Fingerabdrücke erfassen, die eine Infektion nahelegen aber keine Infektion garantieren. Für Ergebnissen die einen Verdacht rechtfertigen aber keine Gewissheit geben, kann die Lookup dazu dienen eine zweite Meinung dienen."
+hints_logging_datetime: "Nützlicher Tipp: Sie können den Namen der Protokolldateien Datums-/Uhrzeitinformationen hinzufügen, indem Sie Platzhalter für das Zeitformat verwenden. Verfügbare Platzhalter für Zeitformate werden bei {{Links.ConfigRef.time_format}} angezeigt."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.de.md\#user-content-HOW_TO_USE_PDO" hreflang="de-DE">Was ist ein „PDO DSN“? Wie kann ich PDO mit phpMussel verwenden?</a></em>"
+hints_time_format: |
+ <strong><em>Platzhalter – Erläuterung – Beispiel basierend auf 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Das Jahr – Z.B., 2024.<br />
+ <code class="s">{yy}</code> – Das abgekürzte Jahr – Z.B., 24.<br />
+ <code class="s">{Mon}</code> – Der abgekürzte Name des Monats (auf Englisch) – Z.B., Apr.<br />
+ <code class="s">{mm}</code> – Der Monat mit führenden Nullen – Z.B., 04.<br />
+ <code class="s">{m}</code> – Der Monat – Z.B., 4.<br />
+ <code class="s">{Day}</code> – Der abgekürzte Name des Tages (auf Englisch) – Z.B., Tue.<br />
+ <code class="s">{dd}</code> – Der Tag mit führenden Nullen – Z.B., 30.<br />
+ <code class="s">{d}</code> – Der Tag – Z.B., 30.<br />
+ <code class="s">{hh}</code> – Die Stunde mit führenden Nullen (verwendet 24-Stunden-Zeit) – Z.B., 18.<br />
+ <code class="s">{h}</code> – Die Stunde (verwendet 24-Stunden-Zeit) – Z.B., 18.<br />
+ <code class="s">{ii}</code> – Die Minute mit führenden Nullen – Z.B., 27.<br />
+ <code class="s">{i}</code> – Die Minute – Z.B., 27.<br />
+ <code class="s">{ss}</code> – Die Sekunde mit führenden Nullen – Z.B., 49.<br />
+ <code class="s">{s}</code> – Die Sekunde – Z.B., 49.<br />
+ <code class="s">{tz}</code> – Die Zeitzone (ohne Doppelpunkt) – Z.B., +0800.<br />
+ <code class="s">{t:z}</code> – Die Zeitzone (mit Doppelpunkt) – Z.B., +08:00.
 hints_xlists:
  Wie das funktioniert.: "Sofern Ihr System spezielle Dateitypen im Upload erlaubt oder komplett verweigert, so unterteilen Sie diese Dateitypen in Whitelists, Blacklists oder Greylists, um den Scanvorgang zu beschleunigen, indem diese Dateitypen übersprungen werden. Format ist CSV (Komma-getrennte Werte)."
  Logische Reihenfolge der Verarbeitung.: "Wenn der Dateityp in der Whitelist ist, scanne und blockieren nicht die Datei, und überprüfe nicht wenn die Datei in der Whitelist oder in der Greylist ist. Wenn der Dateityp in der Blacklist ist, scanne nicht die Datei aber blockieren sie trotzdem, und überprüfe nicht wenn die Datei in der Greylist ist. Wenn die Greylist leer ist oder wenn die Greylist nicht leer ist und der Dateityp in der Greylist ist, scanne die Datei wie standardmäßig eingestellt ist und stelle fest, ob diese blockiert werden soll, basierend auf dem Scan, aber wenn die Greylist nicht leer ist und der Dateityp nicht in der Greylist ist, behandel die Datei als ob sie in der Blacklist ist, scanne sie nicht aber blockiere sie trotzdem."
@@ -277,7 +297,6 @@ link:
  Statistics: "Statistiken"
  Text formatting: "Textformatierung: <a href="%1$sfalse">Einfach</a> – <a href="%1$strue">Schick</a>"
  Upload Testing: "Upload-Prüfung"
-max_login_attempts_exceeded: "Maximale Anzahl der Versucht zu einloggen überschritten; Zugriff verweigert."
 msg_subject_2fa: "Zwei-Faktor-Authentifizierung"
 msg_template_2fa: |
  <center><p>Hallo, %s.<br /><br />
@@ -297,20 +316,23 @@ response:
  Account successfully deleted: "Konto erfolgreich gelöscht!"
  An account with that username already exists: "Ein Konto mit diesem Benutzernamen ist bereits vorhanden!"
  Configuration successfully updated: "Konfiguration erfolgreich aktualisiert."
- Corrupted file: "Fehler beim Wiederherstellen! Beschädigte Datei!"
+ Corrupted file: "Beschädigte Datei!"
  Failed to create: "Erstellung fehlgeschlagen!"
- Failed to delete: "Löschen fehlgeschlagen!"
+ Failed to delete: "Löschung fehlgeschlagen!"
+ Failed to restore: "Fehler beim Wiederherstellen"
  Failed to update configuration: "Aktualisierung der Konfiguration fehlgeschlagen!"
  Failed to update: "Aktualisierung fehlgeschlagen!"
  Failed: "Nicht bestanden"
  File successfully deleted: "Datei erfolgreich gelöscht!"
  File successfully restored: "Datei erfolgreich wiederhergestellt!"
  Incorrect 2FA code entered: "Falscher 2FA-Code eingegeben. Authentifizierung fehlgeschlagen."
- Incorrect quarantine key: "Fehler beim Wiederherstellen! Falscher Quarantäneschlüssel!"
+ Incorrect quarantine key: "Falscher Quarantäneschlüssel!"
  Invalid password: "Einloggen-Fehler! Ungültiges Passwort!"
+ Maximum number of login attempts exceeded: "Maximale Anzahl der Versucht zu einloggen überschritten; Zugriff verweigert."
  Password field empty: "Passwort-Feld leer!"
  Password successfully updated: "Passwort erfolgreich aktualisiert!"
- Permissions not adequate to perform asynchronous requests:: "Berechtigungen sind nicht ausreichend, um asynchrone Anforderungen auszuführen. Versuchen Sie sich erneut anzumelden."
+ Permissions not adequate to perform asynchronous requests: "Berechtigungen sind nicht ausreichend, um asynchrone Anforderungen auszuführen. Versuchen Sie sich erneut anzumelden."
+ Please enter a valid quarantine key: "Bitte geben Sie einen gültigen Quarantäneschlüssel ein."
  Statistics cleared: "Statistiken gelöscht."
  Successfully authenticated: "Erfolgreich authentifiziert."
  That account doesn_t exist: "Dieses Konto existiert nicht."
@@ -344,18 +366,19 @@ state_quarantine:
  - "Es befinden sich derzeit %s Dateien in der Quarantäne."
 tip:
  2FA Sent: "Eine E-Mail mit einem Zwei-Faktor-Authentifizierungscode wurde an Ihre E-Mail-Adresse gesendet. Bitte bestätigen Sie diesen Code, um Zugang zum Frontend zu erhalten. Wenn Sie diese E-Mail nicht erhalten haben, versuchen Sie sich auszuloggen, warten Sie 10 Minuten, und melden Sie sich einzuloggen, um eine neue E-Mail mit einem neuen Code zu erhalten."
- Accounts: "Hallo, {username}.<br />Das Kontenseite macht es möglich zu kontrollieren, wer kann Zugriff auf der phpMussel Frontend haben."
- Cache Data: "Hallo, {username}.<br />Hier können Sie den Inhalt des Cache überprüfen."
- Configuration: "Hallo, {username}.<br />Das Konfigurationsseite macht es möglich zu ändern das Konfiguration für phpMussel von der Frontend."
- Home: "Hallo, {username}.<br />Dies ist die Homepage der phpMussel Frontend. Wählen Sie einen Link aus dem Navigationsmenü auf der linken um fortzufahren."
- Logs: "Hallo, {username}.<br />Wählen Sie eine Protokolldatei aus der folgenden Liste um den Inhalt dieser Protokolldatei anzuzeigen."
+ Accounts: "Das Kontenseite macht es möglich zu kontrollieren, wer kann Zugriff auf der phpMussel Frontend haben."
+ Cache Data: "Hier können Sie den Inhalt des Cache überprüfen."
+ Configuration: "Das Konfigurationsseite macht es möglich zu ändern das Konfiguration für phpMussel von der Frontend."
+ Greeting: "Hallo, %s."
+ Home: "Dies ist die Homepage der phpMussel Frontend. Wählen Sie einen Link aus dem Navigationsmenü auf der linken um fortzufahren."
+ Logs: "Wählen Sie eine Protokolldatei aus der folgenden Liste um den Inhalt dieser Protokolldatei anzuzeigen."
  Quarantine is currently disabled: "Hinweis: Die Quarantäne ist derzeit deaktiviert, aber kann über die Konfigurationsseite aktiviert werden."
- Quarantine: "Hallo, {username}.<br />Diese Seite erleichtert die Verwaltung von, und listet alle Dateien auf, die sich derzeit in der Quarantäne befinden."
+ Quarantine: "Diese Seite erleichtert die Verwaltung von, und listet alle Dateien auf, die sich derzeit in der Quarantäne befinden."
  See the documentation: "Siehe die <a href="https://github.com/phpMussel/Docs/blob/master/readme.de.md\#user-content-SECTION5" hreflang="de-DE" rel="noopener external">Dokumentation</a> für Informationen über den verschiedenen Konfigurationseinstellungen und ihren Zwecken."
- Signature Information: "Hallo, {username}.<br />Die „Signature Information“-Seite bietet einige grundlegende Informationen zu den Quellen und Typen der derzeit aktiven Signaturen."
+ Signature Information: "Die „Signature Information“-Seite bietet einige grundlegende Informationen zu den Quellen und Typen der derzeit aktiven Signaturen."
  Statistics tracking is currently disabled: "Hinweis: Die Statistikverfolgung ist derzeit deaktiviert, aber kann über die Konfigurationsseite aktiviert werden."
- Statistics: "Hallo, {username}.<br />Diese Seite zeigt einige grundlegende Nutzungsstatistiken zu Ihrer phpMussel-Installation."
- Upload Testing: "Hallo, {username}.<br />Das Upload-Testseite enthält ein Standard-Datei-Upload-Formular, das macht es möglich zu prüfen ob eine Datei normalerweise gestoppt von phpMussel werden soll, wenn Sie versuchen es hochzuladen."
+ Statistics: "Diese Seite zeigt einige grundlegende Nutzungsstatistiken zu Ihrer phpMussel-Installation."
+ Upload Testing: "Das Upload-Testseite enthält ein Standard-Datei-Upload-Formular, das macht es möglich zu prüfen ob eine Datei normalerweise gestoppt von phpMussel werden soll, wenn Sie versuchen es hochzuladen."
 warning:
  Cookies: "Hinweis: phpMussel verwendet einen Cookie zum Authentifizieren von Logins. Mit der Einloggen, Sie sich damit einverstanden, dass ein Cookie von Ihrem Browser erstellt und gespeichert wird."
  JavaScript required: "Warnung: Einige Front-End-Funktionalität erfordern JavaScript. Um sicherzustellen dass sich das gesamte Front-End wie erwartet verhält, wird die Aktivierung von JavaScript empfohlen."

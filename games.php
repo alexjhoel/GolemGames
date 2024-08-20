@@ -3,28 +3,35 @@
     include("include/header.php");
     $maxPages = 10;
     $page = 1;
+    $maxCategorias = 10;
 
     $gameCardObject = new GameCards();
     $searchQuery = "";
     if(isset($_GET["search"]) && $_GET["search"]!=''){
         $searchValue = $_GET["search"];
-        $searchWords = preg_replace('/\s+/','|' , $searchValue);
-        $searchQuery = "AND (titulo REGEXP '$searchWords' OR nombre REGEXP '$searchWords')";
-    }else if(isset($_GET["categoria"])){
-        $idCategoria = $_GET["categoria"];
-        $nombreCategoria = mysqli_fetch_assoc(db::mysqliExecuteQuery($conn, "SELECT * FROM categorias WHERE id = $idCategoria && borrado = FALSE", "", array()))["nombre"];
-        $searchQuery = "AND $idCategoria IN (SELECT id_categoria FROM juegos_pertenecen_categoria WHERE id_juego = juegos.id)";
+        $searchQuery .= " AND titulo LIKE '%$searchValue%' ";
+    }
+    if(isset($_GET["categoria"]) && is_numeric($_GET["categoria"]) && $_GET["categoria"] > 0){
+        if($cat = mysqli_fetch_assoc(db::mysqliExecuteQuery( "SELECT * FROM categorias WHERE id = ".$_GET["categoria"]." AND borrado = FALSE", "", array()))){
+            $idCategoria = $_GET["categoria"];
+            $nombreCategoria = $cat["nombre"];
+            $searchQuery .= " AND $idCategoria IN (SELECT id_categoria FROM juegos_pertenecen_categoria WHERE id_juego = juegos.id)";
+        }
+    }
+    if(isset($_GET["desarrollador"]) && $_GET["desarrollador"]!=''){
+        $desarrolladorValue = $_GET["desarrollador"];
+        $searchQuery .= " AND nombre LIKE '%$desarrolladorValue%'";
     }
 
     $ordersQueries = array(
-        "vistas ASC, likes DESC",
-        "likes ASC",
-        "titulo ASC",
-        "titulo DESC"
+        "fecha DESC",
+        "likes DESC",
+        "visitas DESC",
+        "titulo ASC"
     );
 
     $orderSelection = 0;
-    if(isset($_GET["order"])){
+    if(isset($_GET["order"]) && is_numeric($_GET["order"]) && $_GET["order"] >= 0 && $_GET["order"] <= 3){
         $orderSelection = $_GET["order"];
     }
 
@@ -32,10 +39,9 @@
 
     $maxEntries = 12;
     $total = mysqli_fetch_all(db::mysqliExecuteQuery(
-        $conn,
         "SELECT COUNT(juegos.id) as total 
         FROM juegos INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id 
-        WHERE juegos.borrado = FALSE AND juegos.es_publico = TRUE AND usuarios.borrado = FALSE $searchQuery",
+        WHERE juegos.borrado = FALSE AND juegos.es_publico = TRUE AND usuarios.borrado = FALSE  AND es_publico = TRUE$searchQuery",
         "",
         array()
     ), MYSQLI_ASSOC)[0]["total"];
@@ -49,14 +55,13 @@
     IFNULL((SELECT SUM(`like`) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as likes, 
     IFNULL((SELECT COUNT(DISTINCT(A.id_usuario)) FROM usuarios_ven_juegos as A WHERE A.id_juego = juegos.id GROUP BY A.id_juego), 0) as visitas
     FROM juegos INNER JOIN usuarios ON juegos.id_desarrollador = usuarios.id 
-    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego
-    WHERE juegos.borrado = FALSE AND juegos.es_publico = TRUE AND usuarios.borrado = FALSE $searchQuery
-    GROUP BY id
+    LEFT JOIN capturas_pantalla ON juegos.id = capturas_pantalla.id_juego AND capturas_pantalla.borrado = FALSE
+    WHERE juegos.borrado = FALSE AND juegos.es_publico = TRUE AND usuarios.borrado = FALSE AND es_publico = TRUE $searchQuery
+    GROUP BY juegos.id
     ORDER BY $orderQuery
     LIMIT $start,$maxEntries";
 
     $data = db::mysqliExecuteQuery(
-        $conn,
         $query,
         "s",
         array()
@@ -65,11 +70,32 @@
     $query = "SELECT id, nombre FROM categorias WHERE borrado = FALSE";
 
     $categorias = db::mysqliExecuteQuery(
-        $conn,
         $query,
         "s",
         array()
     );
+
+    $catMostrar = array();
+
+
+
+    function closeLink($name){
+        $values = array(
+            "search" => isset($GLOBALS['searchValue']) ? urlencode($GLOBALS['searchValue']) : NULL,
+            "categoria" => isset($GLOBALS['idCategoria']) ? urlencode($GLOBALS['idCategoria']) : NULL,
+            "desarrollador" => isset($GLOBALS['desarrolladorValue']) ? urlencode($GLOBALS['desarrolladorValue']) : NULL
+        );
+        $res = "";
+
+        foreach ($values as $key => $value) {
+            if(isset($value) && $name != $key)$res .= "$key=$value&";
+        }
+
+        $res.= "order=".$GLOBALS['orderSelection'];
+
+        return $res;
+
+    }
 
 ?>
 
@@ -80,6 +106,9 @@
         <form id="games-search" method="get">
             <div class="input-group rounded-5 shadow-sm bg-body overflow-hidden">
                 <input type="text" name="search" <?php if(isset($searchValue)) echo("value='$searchValue'"); ?> class="form-control rounded-start border-0 shadow-none fs-5" placeholder="Buscar entre cientos de juegos!" />
+                <button type="button" class="btn border-0" onclick="window.location.href = 'games.php';">
+                    <i class="fas fa-eraser"></i>
+                </button>
                 <button type="button" class="btn border-0" data-bs-toggle="collapse" data-bs-target="#search-filters">
                     <i class="fas fa-sliders"></i>
                 </button>
@@ -89,7 +118,35 @@
 
                 <div class="collapse w-100" id="search-filters">
                     <div class="container">
-                        Hola_
+                        <div class="form-floating my-3 ">
+                            <input name="desarrollador" type="text" class="form-control rounded-5" id="developerInput" value="<?= isset($_GET["desarrollador"]) ? $_GET["desarrollador"] : ""?>">
+                            <label for="developerInput">Desarrollador</label>
+                        </div>
+                        
+                        <div class="form-floating">
+                            <select name="categoria" class="form-select rounded-5 mb-3" id="floatingSelect" aria-label="Floating label select example">
+                                <option value="0" <?= !isset($idCategoria) ? "selected" : ""?>>Seleccione categoría</option>
+                                <?php while(($cat = mysqli_fetch_assoc($categorias))){  if(count($catMostrar) < $maxCategorias) 
+                                    array_push($catMostrar, $cat);?>
+                                    <option value="<?=$cat["id"]?>" <?= isset($idCategoria) && $idCategoria == $cat["id"] ? "selected" : ""?>><?=$cat["nombre"]?></option>
+                                <?php }?>
+                            </select>
+                            <label for="floatingSelect">Categoría</label>
+                        </div>
+                        <div>
+                        </div>
+
+                        
+                        <div class="form-floating">
+                            <select name="order" class="form-select rounded-5" id="floatingSelect" aria-label="Floating label select example">
+                                <option value="0" <?= !is_GET_set("order") || $_GET["order"] == 0 ? "selected" : ""?>>Fecha</option>
+                                <option value="1" <?= is_GET_set("order") && $_GET["order"] == 1 ? "selected" : ""?>>Likes</option>
+                                <option value="2" <?= is_GET_set("order") && $_GET["order"] == 2 ? "selected" : ""?>>Visitas</option>
+                                <option value="3" <?= is_GET_set("order") && $_GET["order"] == 3 ? "selected" : ""?>>Título</option>
+                            </select>
+                            <label for="floatingSelect">Ordenar por:</label>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -98,14 +155,16 @@
 
     <section class="d-flex justify-content-start gap-2">
         <?php
+        if(isset($desarrolladorValue)){?>
+            <span class="btn btn-primary rounded-5 shadow-sm"><a href="?<?=closeLink("desarrollador") ?>"><i class="fa-solid fa-x"></i></a>&nbsp;<i class="fa-solid fa-user"></i>&nbsp;<?=$desarrolladorValue?></span>
+        <?php }?>
+        <?php
         if(isset($idCategoria)){?>
-            <span class="btn btn-primary rounded-5 shadow-sm"><a href="?"><i class="fa-solid fa-x"></i></a>&nbsp;<?=$nombreCategoria?></span>
-        <?php }
-        else if(!isset($searchValue))
-            while($cat = mysqli_fetch_assoc($categorias)){?>
+            <span class="btn btn-primary rounded-5 shadow-sm"><a href="?<?=closeLink("categoria") ?>"><i class="fa-solid fa-x text-light"></i></a>&nbsp;<?=$nombreCategoria?></span>
+        <?php } else if(!isset($desarrolladorValue))
+            foreach($catMostrar as $cat){ ?>
                 <button form="games-search" name="categoria" value="<?=$cat["id"]?>" class="btn btn-primary rounded-5 shadow-sm"><?=$cat["nombre"]?></button>
-            <?php }
-        ?>
+            <?php }?>
     </section>
 
     <section class="text-start align-self-center w-100">
@@ -119,7 +178,7 @@
                 $gameCardObject->autor = $juego["nombre_usuario"];
                 $gameCardObject->vistas = $juego["visitas"];
                 $gameCardObject->likes = $juego["likes"];
-                $gameCardObject->linksCapturas = explode(", ", $juego["capturas"]);
+                $gameCardObject->linksCapturas = $juego["capturas"];
                 
                 ?><div><?php
                 $gameCardObject->echo();

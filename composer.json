@@ -1,5 +1,14 @@
 {
+    "autoload": {
+        "psr-4": {
+            "MyApp\\": "socket_tasks"
+        }
+    },
+    
     "require": {
-        "phpmussel/phpmussel": "^3.4"
+        
+        "phpmussel/phpmussel": "^3.4",
+        "phpmailer/phpmailer": "^6.2",
+        "cboden/ratchet": "v0.4"
     }
 }

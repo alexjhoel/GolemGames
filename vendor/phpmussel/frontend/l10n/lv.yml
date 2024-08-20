@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Latvian language data (last modified: 2023.09.23).
+# This file: Latvian language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -52,7 +52,7 @@ config:
  files: "Skenēšanas failu apstrādes specifika."
  files_allow_leading_trailing_dots: "Vai failu nosaukumos atļaut vadošos un beigu punktus? Dažreiz to var izmantot, lai slēptu failus vai arī pievilinātu dažas sistēmas, ļaujot direktoriju šķērsošanai. False (Nepatiess) = Neļauj [Noklusējuma]. True (Patiess) = Ļauj."
  files_archive_file_extensions: "Atzīti arhīva failu paplašinājumi (formāts ir CSV; vajadzētu pievienot vai noņemt tikai tad, kad rodas problēmas; nevajadzīga noņemšana var izraisīt nepatiesi pozitīvu rezultātu parādīšanos arhīva failos, tā kā nevajadzīga pievienošana efektīvi iekļaus baltajā sarakstā to, ko pievienojat pret uzbrukuma specifisko atklāšanu; modificēt piesardzīgi; ņemiet vērā arī to, ka tas neietekmē to, kurus arhīvus var un nevar analizēt satura līmenī). Šajā noklusējuma sarakstā ir uzskaitīti formāti, kurus visbiežāk izmanto lielākajā daļā sistēmu un CMS, bet ar nodomu tas nebūt nav visaptverošs."
- files_block_control_characters: "Vai bloķēt failus, kas satur kontroles zīmes (izņemot jaunrindas)? Ja augšupielādējat <em><strong>TIKAI</strong></em> vienkāršu tekstu, varat ieslēgt šo opciju, lai jūsu sistēmai nodrošinātu papildu aizsardzību. Tomēr, ja augšupielādējat kaut ko citu, nevis vienkāršu tekstu, ieslēdzot to, iespējams, tiek iegūti nepatiesi pozitīvu. False (Nepatiess) = Nebloķējiet [Noklusējuma]; True (Patiess) = Bloķējiet."
+ files_block_control_characters: "Vai bloķēt failus, kas satur kontroles zīmes (izņemot jaunrindas)? Ja augšupielādējat <strong><em>TIKAI</em></strong> vienkāršu tekstu, varat ieslēgt šo opciju, lai jūsu sistēmai nodrošinātu papildu aizsardzību. Tomēr, ja augšupielādējat kaut ko citu, nevis vienkāršu tekstu, ieslēdzot to, iespējams, tiek iegūti nepatiesi pozitīvu. False (Nepatiess) = Nebloķējiet [Noklusējuma]; True (Patiess) = Bloķējiet."
  files_block_encrypted_archives: "Atklāt un bloķēt šifrētus arhīvus? Uzskatot par phpMussel nevar skenēt šifrētu arhīvu saturu, iespējams, ka uzbrucējs var izmantot arhīva šifrēšanu, lai mēģinātu apiet phpMussel, pretvīrusu skenerus un citas šādas aizsardzības. Uzdot phpMussel bloķēt visus arhīvus, kurus tā atklāj par šifrētu, iespējams, varētu samazināt risku, kas saistīts ar šīm šādām iespējām. False (Nepatiess) = Nē; True (Patiess) = Jā [Noklusējuma]."
  files_block_macros: "Vai mēģināt bloķēt failus, kas satur makro? Dažos dokumentu un izklājlapu veidos var saturēt izpildāmie makro, tādējādi nodrošinot bīstamu potenciālo ļaunprātīgas programmatūras vektoru. False (Nepatiess) = Nebloķējiet [Noklusējuma]; True (Patiess) = Bloķējiet."
  files_can_contain_php_file_extensions: "Failu paplašinājumu saraksts, kuriem atļauts saturēt PHP kodu, atdalīts ar komatiem. Ja ir iespējota PHP hameleona uzbrukuma noteikšana, faili, kas satur PHP kodu un kuru paplašinājumi nav šajā sarakstā, tiks atklāti kā PHP hameleonu uzbrukumi."
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO parole."
  supplementary_cache_options_pdo_username: "PDO lietotājvārds."
  supplementary_cache_options_prefix: "Šeit norādītā vērtība tiks pievienota visām kešatmiņas ievades atslēgām. Noklusējuma = "phpMussel_". Ja vienā serverī ir vairākas instalācijas, tas var būt noderīgi, lai saglabātu to kešatmiņas atsevišķi vienu no otras."
+ supplementary_cache_options_redis_database_number: "Redis datu bāzes numurs. Noklusējuma = 0. Piezīme: Izmantojot Redis Cluster, kā vērtību var izmantot tikai 0."
  supplementary_cache_options_redis_host: "Redis resursdatora vērtību. Noklusējuma = "localhost"."
  supplementary_cache_options_redis_port: "Redis porta vērtību. Noklusējuma = "6379"."
  supplementary_cache_options_redis_timeout: "Redis taimauta vērtību. Noklusējuma = "2.5"."
@@ -125,8 +126,8 @@ config:
  urlscanner_maximum_api_lookups: "Maximum allowable number of API lookups to perform per individual scan iteration. Because each additional API lookup will add to the total time required to complete each scan iteration, you may wish to stipulate a limitation in order to expedite the overall scan process. When set to 0, no such maximum allowable number will be applied. Set to 10 by default."
  urlscanner_maximum_api_lookups_response: "Ko darīt, ja tiek pārsniegts maksimāli pieļaujamais API meklējumu skaits? False (Nepatiess) = Neko nedarīt (turpiniet apstrādi) [Noklusējuma]; True (Patiess) = Atzīmējiet/bloķējiet failu."
  virustotal: "Virus Total integrācijas konfigurācija."
- virustotal_vt_public_api_key: "Pēc izvēles, phpMussel spēj skenēt failus izmantojot Virus Total API. Tas var nodrošināt ievērojami uzlabotu aizsardzības līmeni pret vīrusiem, Trojas zirgiem, ļaunprātīgu programmatūru un citiem draudiem. Pēc noklusējuma ir atspējota failu skenēšana izmantojot Virus Total API. Lai to iespējotu, nepieciešama Virus Total API atslēga. Ņemot vērā ievērojamo labumu, ko tas jums varētu sniegt, es to ļoti iesaku. Tomēr, lūdzu, ņemiet vērā, lai izmantotu Virus Total API, jums <em><strong>OBLIGĀTI</strong></em> jāpiekrīt viņu pakalpojumu sniegšanas noteikumiem un jums <em><strong>OBLIGĀTI</strong></em> jāievēro visas vadlīnijas, kā aprakstīts Virus Total dokumentācijā! Lai atļautu izmantot šo integrācijas funkciju, jums OBLIGĀTI ir jāizlasa un jāpiekrīt Virus Total un tā API pakalpojumu sniegšanas noteikumiem, un vismaz, Virus Total Public API dokumentācijas preambula (viss pēc "VirusTotal Public API v2.0", bet pirms "Contents")."
- virustotal_vt_quota_rate: "Saskaņā ar Virus Total API dokumentāciju, "tas ir ierobežots ar ne vairāk kā 4 jebkura veida pieprasījumiem jebkurā 1 minūtes laikā. Ja jūs vadāt medus klientu, medus podu, vai jebkuru citu automatizāciju, kas nodrošinās resursus VirusTotal, un ne tikai iegūt pārskatus, jums ir tiesības uz augstāku pieprasījuma likmes kvotu". Pēc noklusējuma phpMussel stingri ievēro šos ierobežojumus, taču, ņemot vērā iespēju palielināt šīs likmes kvotas, šīs divas direktīvas ir sniegtas kā līdzeklis, lai jūs varētu norādīt phpMussel, cik lieli ierobežojumi tai būtu jāievēro. Parasti nevajadzētu palielināt šīs vērtības, ja jums tas nav uzdots to darīt, bet ja esat saskāries ar problēmām saistībā ar kvotu, šo vērtību samazināšana dažreiz var palīdzēt jums tikt galā ar šīm problēmām. Jūsu likmes kvota tiek noteikts kā <code>vt_quota_rate</code> jebkura veida pieprasījumi jebkurā <code>vt_quota_time</code> minūtes laikā."
+ virustotal_vt_public_api_key: "Pēc izvēles, phpMussel spēj skenēt failus izmantojot Virus Total API. Tas var nodrošināt ievērojami uzlabotu aizsardzības līmeni pret vīrusiem, Trojas zirgiem, ļaunprātīgu programmatūru un citiem draudiem. Pēc noklusējuma ir atspējota failu skenēšana izmantojot Virus Total API. Lai to iespējotu, nepieciešama Virus Total API atslēga. Ņemot vērā ievērojamo labumu, ko tas jums varētu sniegt, es to ļoti iesaku. Tomēr, lūdzu, ņemiet vērā, lai izmantotu Virus Total API, jums <strong><em>OBLIGĀTI</em></strong> jāpiekrīt viņu pakalpojumu sniegšanas noteikumiem un jums <strong><em>OBLIGĀTI</em></strong> jāievēro visas vadlīnijas, kā aprakstīts Virus Total dokumentācijā! Lai atļautu izmantot šo integrācijas funkciju, jums OBLIGĀTI ir jāizlasa un jāpiekrīt Virus Total un tā API pakalpojumu sniegšanas noteikumiem, un vismaz, Virus Total Public API dokumentācijas preambula (viss pēc "VirusTotal Public API v2.0", bet pirms "Contents")."
+ virustotal_vt_quota_rate: "Saskaņā ar Virus Total API dokumentāciju, "tas ir ierobežots ar ne vairāk kā 4 jebkura veida pieprasījumiem jebkurā 1 minūtes laikā. Ja jūs vadāt medus klientu, medus podu, vai jebkuru citu automatizāciju, kas nodrošinās resursus VirusTotal, un ne tikai iegūt ziņojumus, jums ir tiesības uz augstāku pieprasījuma likmes kvotu". Pēc noklusējuma phpMussel stingri ievēro šos ierobežojumus, taču, ņemot vērā iespēju palielināt šīs likmes kvotas, šīs divas direktīvas ir sniegtas kā līdzeklis, lai jūs varētu norādīt phpMussel, cik lieli ierobežojumi tai būtu jāievēro. Parasti nevajadzētu palielināt šīs vērtības, ja jums tas nav uzdots to darīt, bet ja esat saskāries ar problēmām saistībā ar kvotu, šo vērtību samazināšana dažreiz var palīdzēt jums tikt galā ar šīm problēmām. Jūsu likmes kvota tiek noteikts kā <code>vt_quota_rate</code> jebkura veida pieprasījumi jebkurā <code>vt_quota_time</code> minūtes laikā."
  virustotal_vt_quota_time: "(Skatīt aprakstu iepriekš)."
  virustotal_vt_suspicion_level: "Pēc noklusējuma phpMussel ierobežos, kurus failus tas skenē, izmantojot Virus Total API, līdz tiem failiem, kurus tā uzskata par "aizdomīgiem". Jūs varat pēc izvēles pielāgot šo ierobežojumu, mainot <code>vt_suspicion_level</code> direktīvas vērtību."
  virustotal_vt_weighting: "Vai phpMussel vajadzētu interpretēt rezultātus no Virus Total API kā atklājumu skaits vai kā atklājumu svars? Faila skenēšanai, izmantojot vairākus dzinējus (tāpat kā Virus Total), jāpalielina atklāšanas biežums (un tāpēc vajadzētu noķert lielāku skaitu ļaunprātīgu failu), bet tas var izraisīt arī lielāku nepatiesu pozitīvu skaits, un tāpēc dažos gadījumos, skenēšanas rezultātus var labāk izmantot kā ticamības rādītāju, pretstatā galīgu secinājumu (tas ir iemesls, kāpēc šī direktīva pastāv). Ja tiek izmantota vērtība 0, skenēšanas rezultāti no Virus Total API tiks interpretēti kā atklājumu skaits, un tāpēc, ja kāds no Virus Total izmantotajiem dzinējiem atzīmē skenējamo failu kā ļaunprātīgu, phpMussel uzskatīs failu par ļaunprātīgu. Ja tiek izmantota kāda cita vērtība, skenēšanas rezultāti no Virus Total API tiks interpretēti kā atklājumu svars, un tāpēc, Virus Total izmantoto dzinēju skaits, kas atzīmē skenēto failu kā ļaunprātīgu, kalpos kā ticamības rādītājs (vai atklāšanas svērums) tam, vai phpMussel skenētajiem failiem ir jāuzskata par ļaunprātīgu (izmantotā vērtība atspoguļos minimālo ticamības rādītāju vai svaru, kas vajadzīgs, lai to uzskatītu par ļaunprātīgu). Pēc noklusējuma tiek izmantota vērtība 0."
@@ -170,8 +171,27 @@ field:
  vt_suspicion_level_all: "Skenējiet visus failus."
  vt_suspicion_level_executable: "Skenējiet failus ar heiristisku svaru, izpildāmos failus, un failus kas, iespējams, satur izpildāmos datus.\nIzpildāmie faili, un faili kas potenciāli satur izpildāmus datus, ietver Windows PE failus, Linux ELF failus, Mach-O failus, DOCX failus, ZIP failus, utt."
  vt_suspicion_level_heuristic_only: "Skenējiet tikai failus ar heiristisko svaru.\nTiks skenēti tikai faili ar heiristisko svaru. Heiristiskais svars var rasties no parakstiem, kas paredzēti, lai noķertu bieži sastopamus pirkstu nospiedumus, kas saistīti ar iespējamu infekciju, kas ne vienmēr garantē infekciju. Šādos gadījumos meklēšana var kalpot, lai sniegtu otru atzinumu par rezultātiem, kas pamato aizdomas, bet citādi nesniedz nekādu noteiktību."
+hints_logging_datetime: "Noderīgs padoms: Varat pievienot datuma/laika informāciju žurnālfailu nosaukumiem, izmantojot laika formāta vietturus. Pieejamie laika formāta vietturi tiek parādīti pie {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">Kas ir "PDO DSN"? Kā es varu izmantot PDO ar phpMussel?</a></em>"
+hints_time_format: |
+ <strong><em>Vietturis – Paskaidrojums – Piemērs, kas balstīts uz 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Gads – Piem., 2024.<br />
+ <code class="s">{yy}</code> – Saīsinātais gads – Piem., 24.<br />
+ <code class="s">{Mon}</code> – Mēneša saīsinātais nosaukums (angļu valodā) – Piem., Apr.<br />
+ <code class="s">{mm}</code> – Mēnesis ar nullēm sākumā – Piem., 04.<br />
+ <code class="s">{m}</code> – Mēnesis – Piem., 4.<br />
+ <code class="s">{Day}</code> – Dienas saīsinātais nosaukums (angļu valodā) – Piem., Tue.<br />
+ <code class="s">{dd}</code> – Diena ar nullēm sākumā – Piem., 30.<br />
+ <code class="s">{d}</code> – Diena – Piem., 30.<br />
+ <code class="s">{hh}</code> – Stunda ar nullēm sākumā (izmanto 24 stundu laiku) – Piem., 18.<br />
+ <code class="s">{h}</code> – Stunda (izmanto 24 stundu laiku) – Piem., 18.<br />
+ <code class="s">{ii}</code> – Minūte ar nullēm sākumā – Piem., 27.<br />
+ <code class="s">{i}</code> – Minūte – Piem., 27.<br />
+ <code class="s">{ss}</code> – Sekunde ar nullēm sākumā – Piem., 49.<br />
+ <code class="s">{s}</code> – Sekunde – Piem., 49.<br />
+ <code class="s">{tz}</code> – Laika josla (bez kolas) – Piem., +0800.<br />
+ <code class="s">{t:z}</code> – Laika josla (ar kolu) – Piem., +08:00.
 hints_xlists:
  Kā tas darbojas.: "Ja jūsu sistēma ļauj augšupielādēt tikai noteikta veida failus vai ja jūsu sistēma skaidri noliedz noteikta veida failus, failu tipu norādīšana baltajos sarakstos, melnajos sarakstos un pelēkajos sarakstos var palielināt skenēšanas ātrumu ļaujot skriptam izlaist noteiktus failu tipus. Formāts ir CSV (komatatdalītas vērtības)."
  Apstrādes loģiskā secība.: "Ja faila tips ir iekļauts baltajā sarakstā, neskenējiet un nebloķējiet failu, un nepārbaudiet failu pret melno sarakstu vai pelēko sarakstu. Ja faila tips ir iekļauts melnajā sarakstā, neskenējiet failu, bet jebkurā gadījumā to bloķējiet, un nepārbaudiet failu pret pelēko sarakstu. Ja pelēkais saraksts ir tukšs vai, ja pelēkais saraksts nav tukšs un faila tips ir iekļauts pelēkajā sarakstā, skenējiet failu kā parasti un, pamatojoties uz skenēšanas rezultātiem, nosakiet, vai to bloķēt, bet ja pelēkais saraksts nav tukšs un faila tips nav pelēkā sarakstā, apstrādājiet failu kā melnajā sarakstā, tāpēc nevis skenē bet jebkurā gadījumā to bloķēt."
@@ -281,7 +301,6 @@ link:
  Statistics: "Statistika"
  Text formatting: "Teksta formatēšana: <a href="%1$sfalse">Vienkārši</a> – <a href="%1$strue">Iedomātā</a>"
  Upload Testing: "Augšupielādes pārbaude"
-max_login_attempts_exceeded: "Pārsniegts maksimālais ielogošanās mēģinājumu skaits; Piekļuve liegta."
 msg_subject_2fa: "Divu-Faktoru Autentifikācija"
 msg_template_2fa: |
  <center><p>Sveiks, %s.<br /><br />
@@ -301,20 +320,23 @@ response:
  Account successfully deleted: "Konts ir izdzēsts!"
  An account with that username already exists: "Konts ar šo lietotājvārdu jau pastāv!"
  Configuration successfully updated: "Konfigurācija ir atjaunināta."
- Corrupted file: "Atjaunot neizdevās! Bojāts fails!"
+ Corrupted file: "Bojāts fails!"
  Failed to create: "Izveidošana neizdevās!"
  Failed to delete: "Izdzēšana neizdevās!"
+ Failed to restore: "Atjaunot neizdevās"
  Failed to update configuration: "Konfigurācijas atjaunināšana neizdevās!"
  Failed to update: "Atjaunināšanas neizdevās!"
  Failed: "Neizdevās"
  File successfully deleted: "Failu izdzēšana izdevās!"
  File successfully restored: "Failu atjaunošana izdevās!"
  Incorrect 2FA code entered: "Ievadīts nepareizs 2FA kods. Autentifikācija neizdevās."
- Incorrect quarantine key: "Atjaunot neizdevās! Nepareiza karantīnas atslēga!"
+ Incorrect quarantine key: "Nepareiza karantīnas atslēga!"
  Invalid password: "Ielogošanās neizdevās! Nepareiza parole!"
+ Maximum number of login attempts exceeded: "Pārsniegts maksimālais ielogošanās mēģinājumu skaits; Piekļuve liegta."
  Password field empty: "Paroles lauks ir tukšs!"
  Password successfully updated: "Parole ir atjaunināta!"
- Permissions not adequate to perform asynchronous requests:: "Atļaujas nav piemērotas asinhrono pieprasījumu izpildei. Mēģiniet ielogoties vēlreiz."
+ Permissions not adequate to perform asynchronous requests: "Atļaujas nav piemērotas asinhrono pieprasījumu izpildei. Mēģiniet ielogoties vēlreiz."
+ Please enter a valid quarantine key: "Lūdzu, ievadiet derīgu karantīnas atslēgu."
  Statistics cleared: "Statistika ir notīrīta."
  Successfully authenticated: "Autentifikācija izdevās."
  That account doesn_t exist: "Šis konts nepastāv."
@@ -348,18 +370,19 @@ state_quarantine:
  - "Šobrīd karantīnā ir %s faili."
 tip:
  2FA Sent: "Uz jūsu e-pasta adresi ir nosūtīts e-pasts ar divu faktoru autentifikācijas kodu. Lūdzu, apstipriniet šo kodu zemāk, lai ielogotos. Ja nesaņēmāt šo e-pastu, mēģiniet izlogoties, nogaidiet 10 minūtes, un ielogoties vēlreiz, lai saņemtu jaunu e-pastu ar jaunu kodu."
- Accounts: "Sveiki, {username}.<br />Kontu lapa ļauj jums kontrolēt, kurš var ielogoties phpMussel."
- Cache Data: "Sveiki, {username}.<br />Šeit jūs varat pārskatīt kešatmiņas saturu."
- Configuration: "Sveiki, {username}.<br />Konfigurācijas lapa ļauj mainīt phpMussel konfigurāciju."
- Home: "Sveiki, {username}.<br />Šī ir jūsu phpMussel instalācijas mājas lapa. Lai turpinātu, navigācijas izvēlnē kreisajā pusē atlasiet saiti."
- Logs: "Sveiki, {username}.<br />Zemāk redzamajā sarakstā atlasiet logfailu, lai skatītu šī faila saturu."
+ Accounts: "Kontu lapa ļauj jums kontrolēt, kurš var ielogoties phpMussel."
+ Cache Data: "Šeit jūs varat pārskatīt kešatmiņas saturu."
+ Configuration: "Konfigurācijas lapa ļauj mainīt phpMussel konfigurāciju."
+ Greeting: "Sveiki, %s."
+ Home: "Šī ir jūsu phpMussel instalācijas mājas lapa. Lai turpinātu, navigācijas izvēlnē kreisajā pusē atlasiet saiti."
+ Logs: "Zemāk redzamajā sarakstā atlasiet logfailu, lai skatītu šī faila saturu."
  Quarantine is currently disabled: "Piezīme: Karantīna pašlaik ir atspējota, taču to var iespējot konfigurācijas lapā."
- Quarantine: "Sveiki, {username}.<br />Šajā lapā ir uzskaitīti visi faili, kas pašlaik atrodas karantīnā, un atvieglo šo failu pārvaldību."
+ Quarantine: "Šajā lapā ir uzskaitīti visi faili, kas pašlaik atrodas karantīnā, un atvieglo šo failu pārvaldību."
  See the documentation: "Skatiet <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">dokumentāciju</a>, lai iegūtu informāciju par dažādām konfigurācijas direktīvām un to mērķiem."
- Signature Information: "Sveiki, {username}.<br />Parakstu informācijas lapā ir sniegta pamatinformācija par pašlaik aktīvo parakstu avotiem un veidiem."
+ Signature Information: "Parakstu informācijas lapā ir sniegta pamatinformācija par pašlaik aktīvo parakstu avotiem un veidiem."
  Statistics tracking is currently disabled: "Piezīme: Statistikas izsekošana pašlaik ir atspējota, taču to var iespējot konfigurācijas lapā."
- Statistics: "Sveiki, {username}.<br />Šī lapa parāda dažus pamata statistikas datus par jūsu phpMussel instalēšanu."
- Upload Testing: "Sveiki, {username}.<br />Augšupielādes testa lapā ir standarta failu augšupielādes forma. Varat to izmantot, lai pārbaudītu, vai phpMussel parasti bloķē failu."
+ Statistics: "Šī lapa parāda dažus pamata statistikas datus par jūsu phpMussel instalēšanu."
+ Upload Testing: "Augšupielādes testa lapā ir standarta failu augšupielādes forma. Varat to izmantot, lai pārbaudītu, vai phpMussel parasti bloķē failu."
 warning:
  Cookies: "Piezīme: phpMussel izmanto sīkfailu, lai autentificētu ielogošanās informāciju. Ielogoties, jūs dodat piekrišanu sīkdatnes izveidošanai un saglabāšanai jūsu pārlūkprogrammā."
  JavaScript required: "Brīdinājums: Dažām funkcionalitātēm ir nepieciešams JavaScript. Ieteicams iespējot JavaScript, lai nodrošinātu, ka visa interfeiss darbojas, kā paredzēts."

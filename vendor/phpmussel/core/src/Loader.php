@@ -8,7 +8,7 @@
  * License: GNU/GPLv2
  * @see LICENSE.txt
  *
- * This file: The loader (last modified: 2023.10.12).
+ * This file: The loader (last modified: 2024.03.21).
  */
 
 namespace phpMussel\Core;
@@ -93,7 +93,7 @@ class Loader
     /**
      * @var string phpMussel version number (SemVer).
      */
-    public $ScriptVersion = '3.4.2';
+    public $ScriptVersion = '3.5.1';
 
     /**
      * @var string phpMussel version identifier (complete notation).
@@ -802,7 +802,7 @@ class Loader
         $Restrictions = strlen(ini_get('open_basedir')) > 0;
 
         /** Split path into steps. */
-        $Steps = preg_split('~[\\\/]~', $Path, -1, PREG_SPLIT_NO_EMPTY);
+        $Steps = preg_split('~[\\\\/]~', $Path, -1, PREG_SPLIT_NO_EMPTY);
 
         /** Separate file from path. */
         $File = $PointsToFile ? array_pop($Steps) : '';
@@ -810,7 +810,7 @@ class Loader
         /** Build directories. */
         foreach ($Steps as $Step) {
             if (!isset($Rebuilt)) {
-                $Rebuilt = preg_match('~^[\\\/]~', $Path) ? DIRECTORY_SEPARATOR . $Step : $Step;
+                $Rebuilt = preg_match('~^[\\\\/]~', $Path) ? DIRECTORY_SEPARATOR . $Step : $Step;
             } else {
                 $Rebuilt .= DIRECTORY_SEPARATOR . $Step;
             }
@@ -1102,7 +1102,7 @@ class Loader
      */
     public function resolvePaths(string $Base, bool $LastIsFile = true, bool $GZ = true): \Generator
     {
-        $Steps = preg_split('~[\\\/]~', $Base, -1, PREG_SPLIT_NO_EMPTY);
+        $Steps = preg_split('~[\\\\/]~', $Base, -1, PREG_SPLIT_NO_EMPTY);
         $LastStep = $LastIsFile ? array_pop($Steps) : '';
         $BaseFrom = '';
         $Remainder = '';
@@ -1120,8 +1120,8 @@ class Loader
             $LastStep = DIRECTORY_SEPARATOR . $LastStep;
         }
         $Steps = preg_replace(
-            ['~\\\{(?:dd|mm|yy|hh|ii|ss)\\\}~i', '~\\\{yyyy\\\}~i', '~\\\{(?:Day|Mon)\\\}~i', '~\\\{tz\\\}~i', '~\\\{t\\\:z\\\}~i'],
-            ['\d{2}', '\d{4}', '\w{3}', '.{1,2}\d{4}', '.{1,2}\d{2}\:\d{2}'],
+            ['~\\{(?:dd|mm|yy|hh|ii|ss)\\}~i', '~\\{yyyy\\}~i', '~\\{(?:Day|Mon)\\}~i', '~\\{tz\\}~i', '~\\{t:z\\}~i'],
+            ['\d{2}', '\d{4}', '\w{3}', '.{1,2}\d{4}', '.{1,2}\d{2}:\d{2}'],
             preg_quote($Remainder) . ($LastStep ? preg_quote($LastStep) . ($GZ ? '(?:\.gz)?' : '') . '$' : '')
         );
         $Pattern = '~^' . preg_quote($BaseFrom) . $Steps . '~i';
@@ -1179,8 +1179,8 @@ class Loader
                     } elseif (is_string($DirValue)) {
                         /** Multiline support. */
                         $DirValue = preg_replace('~[^\x00-\xFF]~', '', str_replace(
-                            ["\\", "\0", "\7", "\8", "\t", "\n", "\x0B", "\x0C", "\r", "\x1B"],
-                            ["\\\\", '\0', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\e'],
+                            ['\\', "\0", "\7", "\8", "\t", "\n", "\x0B", "\x0C", "\r", "\x1B"],
+                            ['\\\\', '\0', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\e'],
                             $DirValue
                         ));
 
@@ -1222,6 +1222,19 @@ class Loader
     }
 
     /**
+     * Check whether a name is reserved. Important, because attempting to read
+     * from, write to, or otherwise work with names reserved at the file system
+     * can result in unexpected behaviour and potential security risks.
+     *
+     * @param string $Name The name to check.
+     * @return bool True if reserved; False if not.
+     */
+    public function isReserved(string $Name): bool
+    {
+        return preg_match('~(?:^|\\\\|/)(?:\.{1,3}|aux|com(?:\d+|¹|²|³)|con|lpt(?:\d+|¹|²|³)|nul|prn)(?:(?:\..*)?$|\\\\|/)|[ .]$~i', $Name);
+    }
+
+    /**
      * Decodes for multiline support (needed when using INI configuration files).
      *
      * @return void
@@ -1240,8 +1253,8 @@ class Loader
                     continue;
                 }
                 $DirVal = str_replace(
-                    ["\\\\", '\0', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\e'],
-                    ["\\", "\0", "\7", "\8", "\t", "\n", "\x0B", "\x0C", "\r", "\x1B"],
+                    ['\\\\', '\0', '\a', '\b', '\t', '\n', '\v', '\f', '\r', '\e'],
+                    ['\\', "\0", "\7", "\8", "\t", "\n", "\x0B", "\x0C", "\r", "\x1B"],
                     $DirVal
                 );
             }
@@ -1274,12 +1287,13 @@ class Loader
         $this->Cache->RedisHost = $this->Configuration['supplementary_cache_options']['redis_host'];
         $this->Cache->RedisPort = $this->Configuration['supplementary_cache_options']['redis_port'];
         $this->Cache->RedisTimeout = $this->Configuration['supplementary_cache_options']['redis_timeout'];
+        $this->Cache->RedisDatabaseNumber = $this->Configuration['supplementary_cache_options']['redis_database_number'];
         $this->Cache->PDOdsn = $this->Configuration['supplementary_cache_options']['pdo_dsn'];
         $this->Cache->PDOusername = $this->Configuration['supplementary_cache_options']['pdo_username'];
         $this->Cache->PDOpassword = $this->Configuration['supplementary_cache_options']['pdo_password'];
 
         /** Assign cache path. */
-        if ($this->CachePath) {
+        if ($this->CachePath !== '') {
             $this->Cache->FFDefault = $this->CachePath . DIRECTORY_SEPARATOR . 'cache.dat';
         }
 

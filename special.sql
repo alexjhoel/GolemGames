@@ -1,0 +1,9 @@
+create DATABASE if not exists u612317551_golem_games;
+
+CREATE USER IF NOT EXISTS 'u612317551_golem_admin'@'127.0.0.1' IDENTIFIED BY 'QrzRQ3K8k]';
+
+GRANT SELECT, INSERT, UPDATE, DELETE, EXECUTE ON u612317551_golem_games.* TO 'u612317551_golem_admin'@'127.0.0.1' IDENTIFIED BY 'QrzRQ3K8k]';
+
+FLUSH PRIVILEGES;
+
+use u612317551_golem_games;

@@ -1,34 +1,5 @@
 <?php
-//Base de datos
-
-$conn = mysqli_connect(
-  //Host
-  '127.0.0.1',
-  //Username
-  'golem_admin',
-  //Password
-  'ex^Z4]VOn52W',
-  //DB
-  'golem_games'
-);
-
-if (!$conn || $conn->connect_error) {
-  die("Error en la conexión: " . mysqli_connect_error());
-}
-
-//Clase para consultas de Base de Datos
-class db{
-  public static function mysqliExecuteQuery($conn, $query, $paramsTypes, $params)
-  {
-    $stmt = $conn->prepare($query);
-
-    if (count($params) > 0) $stmt->bind_param($paramsTypes, ...$params);
-
-    $stmt->execute();
-
-    return $stmt->get_result();
-  }
-}
+include("connect.php");
 
 //Clase de Criptografía
 //Para encriptar y desencriptar
@@ -85,7 +56,7 @@ session_start();
 //Clase para guardar y obtener datos de session
 class session{
 
-  public static function isSet($id){
+  public static function is_set($id){
     return isset($_SESSION[criptografia::encriptar($id)]);
   }
 
@@ -107,11 +78,19 @@ class session{
   public static function unset($id){
     unset($_SESSION[criptografia::encriptar($id)]);
   }
+
+  public static function info_message($text, $type){
+    session::set("message", "$text");
+    session::set("message_type", "$type");
+  }
 }
 
-define("logged", session::isSet("id_usuario"));
+define("logged", session::is_set("id_usuario") && session::is_set("token") && mysqli_num_rows(db::mysqliExecuteQuery( "SELECT token FROM usuarios WHERE id=? AND token=? AND borrado = FALSE", "ss", array(session::get("id_usuario"), session::get("token")))) == 1);
 if (logged) {
   define("userId", session::get("id_usuario"));
-  $result = db::mysqliExecuteQuery($conn, "SELECT nombre FROM usuarios WHERE id=?", "s", array(userId));
-  define("username", mysqli_fetch_assoc($result)["nombre"]);
+  $userData = mysqli_fetch_assoc(db::mysqliExecuteQuery( "SELECT token, nombre, correo_electronico, nivel_acceso FROM usuarios WHERE id=?", "s", array(userId)));
+  define("username", $userData["nombre"]);
+  define("email", $userData["correo_electronico"]);
+  define("access_level", $userData["nivel_acceso"]);
+  define("token", $userData["token"]);
 }

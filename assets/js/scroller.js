@@ -1,5 +1,7 @@
+var screenshotScroller;
+
 document.addEventListener( 'DOMContentLoaded', function () {
-    new Splide( '#screenshot-scroller', {
+    screenshotScroller = new Splide( '#screenshot-scroller', {
           perPage    : 4,
           pagination : false,
           gap : 10,

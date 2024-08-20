@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Indonesian language data (last modified: 2023.09.23).
+# This file: Indonesian language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -105,7 +105,7 @@ config:
  signatures_fail_extensions_silently: "Seharusnya laporan phpMussel ketika ekstensi hilang? Jika <code>fail_extensions_silently</code> dinonaktifkan, ekstensi hilang akan dilaporkan ketika pemindaian, dan jika <code>fail_extensions_silently</code> diaktifkan, ekstensi hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Menonaktifkan direktif ini berpotensi dapat meningkatkan keamanan Anda, tapi juga dapat menyebabkan peningkatan positif palsu. False = Dinonaktifkan; True = Diaktifkan [Default]."
  signatures_fail_silently: "Seharusnya laporan phpMussel ketika file tanda tangan hilang atau dikorup? Jika <code>fail_silently</code> dinonaktifkan, file dikorup dan hilang akan dilaporkan ketika pemindaian, dan jika <code>fail_silently</code> diaktifkan, file dikorup dan hilang akan diabaikan, dengan pemindaian melaporkan untuk file-file ini bahwa tidak ada masalah. Harus ini dibiarkan sendirian jika Anda pernah mengalami crash atau masalah lain. False = Dinonaktifkan; True = Diaktifkan [Default]."
  signatures_heuristic_threshold: "Ada tanda tangan tertentu dari phpMussel yang dimaksudkan untuk mengidentifikasi kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload tanpa di diri mereka mengidentifikasi file-file yang di-upload spesifik sebagai berbahaya. Ini "threshold" nilai memberitahu phpMussel apa total berat maksimum untuk kualitas yang mencurigakan dan berpotensi berbahaya pada file-file yang di-upload yang diijinkan adalah sebelum file-file yang akan diidentifikasi sebagai berbahaya. Definisi berat dalam konteks ini adalah jumlah total kualitas mencurigakan dan berpotensi berbahaya diidentifikasi. Secara default, nilai ini akan ditetapkan sebagai 3. Sebuah nilai lebih rendah umumnya akan menghasilkan sebagai lebih tinggi positif palsu kejadian tapi sebuah jumlah lebih tinggi file berbahaya diidentifikasi, sedangkan sebuah nilai lebih tinggi umumnya akan menghasilkan sebagai lebih rendah positif palsu kejadian tapi sebuah jumlah lebih rendah pada file berbahaya yang diidentifikasi. Ini umumnya terbaik untuk meninggalkan nilai ini di default kecuali jika Anda mengalami masalah berhubungan dengan itu."
- supplementary_cache_options: "Opsi cache tambahan. Catatan: Mengubah nilai ini berpotensi membuat Anda keluar."
+ supplementary_cache_options: "Opsi cache tambahan. Catat: Mengubah nilai ini berpotensi membuat Anda keluar."
  supplementary_cache_options_enable_apcu: "Menentukan apakah akan mencoba menggunakan APCu untuk cache. Default = True."
  supplementary_cache_options_enable_memcached: "Menentukan apakah akan mencoba menggunakan Memcached untuk cache. Default = False."
  supplementary_cache_options_enable_pdo: "Menentukan apakah akan mencoba menggunakan PDO untuk cache. Default = False."
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "Kata sandi PDO."
  supplementary_cache_options_pdo_username: "Nama pengguna PDO."
  supplementary_cache_options_prefix: "Nilai yang ditentukan disini akan ditambahkan ke awal kunci untuk semua entri di cache. Default = "phpMussel_". Ketika beberapa instalasi ada di server, ini dapat berguna untuk menjaga cache mereka terpisah."
+ supplementary_cache_options_redis_database_number: "Nomor basis data Redis. Default = 0. Catat: Tidak dapat menggunakan nilai selain 0 dengan Redis Cluster."
  supplementary_cache_options_redis_host: "Nilai host Redis. Default = "localhost"."
  supplementary_cache_options_redis_port: "Nilai port Redis. Default = "6379"."
  supplementary_cache_options_redis_timeout: "Nilai batas waktu Redis. Default = "2.5"."
@@ -125,8 +126,8 @@ config:
  urlscanner_maximum_api_lookups: "Jumlah maksimum pemeriksaan API melakukan per iterasi memindai individual. Karena setiap API pemeriksaan akan menambah tambahan waktu total dibutuhkan untuk menyelesaikan setiap iterasi pemindaian, Anda mungkin ingin menetapkan batasan untuk mempercepat proses pemindaian secara keseluruhan. Bila diset untuk 0, sejumlah maksimum tidak akan diterapkan. Diset untuk 10 secara default."
  urlscanner_maximum_api_lookups_response: "Apa yang harus dilakukan jika jumlah maksimal pemeriksaan API dilampaui? False = Jangan melakukan apa-apa (melanjutkan pemrosesan) [Default]; True = Menandai/Memblokir file."
  virustotal: "Konfigurasi untuk integrasi Virus Total."
- virustotal_vt_public_api_key: "Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda <em><strong>HARUS</strong></em> setuju untuk Terms of Service dan Anda <em><strong>HARUS</strong></em> mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents")."
- virustotal_vt_quota_rate: "Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang <em><strong>DAPAT</strong></em> membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai <code>vt_quota_rate</code> permintaan dalam bentuk apapun dalam jangka waktu <code>vt_quota_time</code> menit."
+ virustotal_vt_public_api_key: "Secara fakultatif, phpMussel mampu memindai file menggunakan API Virus Total sebagai cara untuk memberikan tingkat sangat ditingkatkan perlindungan terhadap virus, trojan, malware dan ancaman lainnya. Secara default, file pemindaian menggunakan API Virus Total dinonaktifkan. Untuk mengaktifkannya, kunci API dari Virus Total diperlukan. Karena manfaat yang signifikan bahwa ini bisa memberikan kepada Anda, itu adalah sesuatu yang sangat direkomendasi mengaktifkan. Perlu diketahui, bagaimanapun, menggunakan API Virus Total, Anda <strong><em>HARUS</em></strong> setuju untuk Terms of Service dan Anda <strong><em>HARUS</em></strong> mematuhi semua pedoman terkait dijelaskan oleh Virus Total dokumentasi! Anda TIDAK diizinkan untuk menggunakan fungsi ini KECUALI KALAU: Anda membaca dan setuju untuk Terms of Service dari Virus Total dan API mereka. Anda membaca dan memahami, setidaknya, mukadimah dari Virus Total dokumentasi API (semuanya setelah "VirusTotal Public API v2.0" tapi sebelum "Contents")."
+ virustotal_vt_quota_rate: "Menurut Virus Total dokumentasi API, itu terbatas untuk paling 4 permintaan dalam bentuk apapun dalam jangka waktu 1 menit diberikan. Jika Anda menjalankan sebuah honeyclient, honeypot atau otomatisasi lainnya yang akan menyediakan file untuk VirusTotal dan tidak hanya mengambil laporan Anda berhak untuk kuota permintaan lebih tinggi. Secara default, phpMussel ketat akan mematuhi keterbatasan ini, tapi karena kemungkinan kuota ini sedang meningkat, dua direktif ini yang disediakan sebagai sarana bagi Anda untuk menginstruksikan phpMussel tentang apa batas harus dipatuhi. Kecuali Anda telah diperintahkan untuk melakukannya, itu tidak direkomendasikan bagi Anda untuk meningkat nilai-nilai ini, tapi, jika Anda mengalami masalah berkaitan dengan mencapai kuota Anda, penurunan nilai-nilai ini kadang <strong><em>DAPAT</em></strong> membantu Anda bagi berurusan dengan masalah-masalah ini. Batas Anda ditentukan sebagai <code>vt_quota_rate</code> permintaan dalam bentuk apapun dalam jangka waktu <code>vt_quota_time</code> menit."
  virustotal_vt_quota_time: "(Lihat uraian di atas)."
  virustotal_vt_suspicion_level: "Secara default, phpMussel akan membatasi file dipindai menggunakan API Virus Total untuk file-file yang dianggap "mencurigakan". Anda dapat menyesuaikan pembatasan ini dengan mengubah nilai direktif <code>vt_suspicion_level</code>."
  virustotal_vt_weighting: "Apakah Anda ingin phpMussel menerapkan hasil pemindaian menggunakan API Virus Total sebagai deteksi atau deteksi pembobotan? Direktif ini ada, karena, meskipun memindai file menggunakan mesin-mesin kelipatan (sebagai Virus Total melakukannya) harus menghasilkan tingkat deteksi meningkat (dan demikian lebih banyak file berbahaya tertangkap), juga dapat menghasilkan jumlah yang lebih banyak dari positif palsu, dan demikian, dalam kondisi beberapa, hasil pemindaian dapat digunakan lebih efektif sebagai nilai keyakinan daripada daripada sebagai kesimpulan definitif. Jika nilai 0 digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai pendeteksian, dan demikian, jika mesin-mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya, phpMussel akan menganggap file yang berbahaya. Jika nilai lain yang digunakan, hasil pemindaian menggunakan API Virus Total akan diaplikasikan sebagai deteksi pembobotan, dan demikian, jumlah mesin digunakan oleh Virus Total menandai file dipindai sebagai berbahaya akan berfungsi sebagai nilai keyakinan (atau deteksi pembobotan) untuk jika file dipindai harus dianggap berbahaya oleh phpMussel (nilai digunakan akan mewakili nilai keyakinan minimum atau pembobotan minimum diperlukan untuk dianggap berbahaya). Nilai 0 digunakan secara default."
@@ -168,8 +169,27 @@ field:
  vt_suspicion_level_all: "Pindai semua file."
  vt_suspicion_level_executable: "Pindai file dengan bobot heuristik, file yang dapat dieksekusi, dan file yang berpotensi berisi data yang dapat dieksekusi.\nContoh file yang dapat dieksekusi, dan file yang berpotensi berisi data yang dapat dieksekusi, termasuk file Windows PE, file Linux ELF, file Mach-O, file DOCX, file ZIP, dll."
  vt_suspicion_level_heuristic_only: "Pindai hanya file dengan bobot heuristik.\nFile akan dipindai hanya jika memiliki bobot heuristik. Bobot heuristik dapat ditimbulkan dari tanda tangan yang dimaksudkan untuk menangkap sidik jari umum yang terkait dengan infeksi potensial yang tidak selalu menjamin infeksi. Pencarian, dalam kasus tersebut, dapat berfungsi untuk memberikan pendapat kedua untuk hasil yang membenarkan kecurigaan tetapi tidak memberikan kepastian apapun."
+hints_logging_datetime: "Kiat yang berguna: Anda dapat melampirkan informasi tanggal/waktu ke nama file log dengan menggunakan placeholder format waktu. Placeholder format waktu yang tersedia ditampilkan di {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md\#user-content-HOW_TO_USE_PDO" hreflang="id-ID">Apa itu "PDO DSN"? Bagaimana saya bisa menggunakan PDO dengan phpMussel?</a></em>"
+hints_time_format: |
+ <strong><em>Placeholder – Penjelasan – Contoh berdasarkan 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Tahun – Misalnya, 2024.<br />
+ <code class="s">{yy}</code> – Tahun yang disingkat – Misalnya, 24.<br />
+ <code class="s">{Mon}</code> – Nama bulan yang disingkat (dalam bahasa Inggris) – Misalnya, Apr.<br />
+ <code class="s">{mm}</code> – Bulan dengan angka nol di depannya – Misalnya, 04.<br />
+ <code class="s">{m}</code> – Bulan – Misalnya, 4.<br />
+ <code class="s">{Day}</code> – Nama hari yang disingkat (dalam bahasa Inggris) – Misalnya, Tue.<br />
+ <code class="s">{dd}</code> – Hari dengan angka nol di depannya – Misalnya, 30.<br />
+ <code class="s">{d}</code> – Hari – Misalnya, 30.<br />
+ <code class="s">{hh}</code> – Jam dengan angka nol di depannya (menggunakan waktu 24 jam) – Misalnya, 18.<br />
+ <code class="s">{h}</code> – Jam (menggunakan waktu 24 jam) – Misalnya, 18.<br />
+ <code class="s">{ii}</code> – Menit dengan angka nol di depannya – Misalnya, 27.<br />
+ <code class="s">{i}</code> – Menit – Misalnya, 27.<br />
+ <code class="s">{ss}</code> – Detik dengan angka nol di depannya – Misalnya, 49.<br />
+ <code class="s">{s}</code> – Detik – Misalnya, 49.<br />
+ <code class="s">{tz}</code> – Zona waktu (tanpa titik dua) – Misalnya, +0800.<br />
+ <code class="s">{t:z}</code> – Zona waktu (dengan titik dua) – Misalnya, +08:00.
 hints_xlists:
  Bagaimana ini bekerja.: "Jika sistem Anda hanya mengizinkan jenis file spesifik menjadi diupload, atau jika sistem Anda secara eksplisit menolak jenis file-file tertentu, menspesifikasikan jenis file dalam bertanda putih, bertanda hitam dan bertanda abu-abu dapat menaikkan kecepatan dari pemindaian dilakukan dengan mengizinkan skrip untuk mengabaikan jenis file tertentu. Format adalah CSV (nilai yang dipisahkan koma)."
  Urutan pemrosesan logis.: "Jika jenis file bertanda putih, jangan memindai dan jangan memblokir file, dan jangan memeriksa file terhadap daftar hitam atau daftar abu-abu. Jika jenis file bertanda hitam, jangan memindai file tetapi memblokir bagaimanapun, dan jangan memeriksa file terhadap daftar abu-abu. Jika daftar abu-abu yang kosong atau jika daftar abu-abu tidak kosong dan jenis file bertanda abu-abu, memindai file seperti biasa dan menentukan apakah untuk memblokir berdasarkan hasil memindai, tapi jika daftar abu-abu tidak kosong dan jenis file tidak bertanda abu-abu, memperlakukan seolah olah bertanda hitam, demikian tidak memindai tapi memblokir itu bagaimanapun."
@@ -246,7 +266,7 @@ label:
  Other: "Lain"
  PHP version used: "Versi PHP digunakan:"
  Page request completed in %s seconds: "Permintaan halaman selesai dalam %s detik."
- Please log in to continue: "Silahkan masuk untuk melanjutkan."
+ Please log in to continue: "Silakan masuk untuk melanjutkan."
  SAPI used: "SAPI digunakan:"
  Scan events: "Pindai acara"
  See also: "Lihat juga:"
@@ -279,7 +299,6 @@ link:
  Statistics: "Statistik"
  Text formatting: "Format teks: <a href="%1$sfalse">Sederhana</a> – <a href="%1$strue">Terformat</a>"
  Upload Testing: "Pengujian pengunggahan"
-max_login_attempts_exceeded: "Jumlah maksimum upaya untuk memasukkan tercapai; Akses ditolak."
 msg_subject_2fa: "Otentikasi Dua-Faktor"
 msg_template_2fa: |
  <center><p>Salam, %s.<br /><br />
@@ -299,20 +318,23 @@ response:
  Account successfully deleted: "Akun berhasil dihapus!"
  An account with that username already exists: "Akun dengan nama pengguna ini sudah ada!"
  Configuration successfully updated: "Konfigurasi berhasil diperbarui."
- Corrupted file: "Gagal memulihkan! File rusak!"
+ Corrupted file: "File rusak!"
  Failed to create: "Gagal membuat!"
  Failed to delete: "Gagal menghapus!"
+ Failed to restore: "Gagal memulihkan"
  Failed to update configuration: "Gagal memperbarui konfigurasi!"
  Failed to update: "Gagal memperbarui!"
  Failed: "Gagal"
  File successfully deleted: "File berhasil dihapus!"
  File successfully restored: "File berhasil dipulihkan!"
  Incorrect 2FA code entered: "Kode 2FA salah dimasukkan. Otentikasi gagal."
- Incorrect quarantine key: "Gagal memulihkan! Kunci karantina salah!"
+ Incorrect quarantine key: "Kunci karantina salah!"
  Invalid password: "Kegagalan masuk! Kata sandi salah!"
+ Maximum number of login attempts exceeded: "Jumlah maksimum upaya untuk memasukkan tercapai; Akses ditolak."
  Password field empty: "Kata sandi yang kosong!"
  Password successfully updated: "Kata sandi berhasil diperbarui!"
- Permissions not adequate to perform asynchronous requests:: "Izin tidak memadai untuk melakukan permintaan asinkron. Coba masuk lagi."
+ Permissions not adequate to perform asynchronous requests: "Izin tidak memadai untuk melakukan permintaan asinkron. Coba masuk lagi."
+ Please enter a valid quarantine key: "Silakan masukkan kunci karantina yang valid."
  Statistics cleared: "Statistik dicabut."
  Successfully authenticated: "Berhasil dikonfirmasi."
  That account doesn_t exist: "Akun ini tidak ada."
@@ -343,19 +365,20 @@ siginfo_sub_Vendors: "Hitung berdasarkan vendor atau sumber tanda tangan"
 siginfo_xkey: "Diidentifikasi sebagai "%s"."
 state_quarantine: "Ada %s file yang saat ini di karantina."
 tip:
- 2FA Sent: "Email yang berisi kode otentikasi dua-faktor telah dikirim ke alamat email Anda. Silahkan mengkonfirmasikan kode ini dibawah untuk mendapatkan akses ke bagian depan. Jika Anda tidak menerima email ini, coba keluar, tunggu 10 menit, dan masuk lagi untuk menerima email baru yang berisi kode baru."
- Accounts: "Salam, {username}.<br />Halaman akun memungkinkan Anda untuk mengontrol siapa dapat mengakses bagian depan phpMussel."
- Cache Data: "Salam, {username}.<br />Disini Anda bisa meninjau isi cache."
- Configuration: "Salam, {username}.<br />Halaman konfigurasi memungkinkan Anda untuk memodifikasi konfigurasi untuk phpMussel dari bagian depan."
- Home: "Salam, {username}.<br />Ini adalah halaman utama untuk phpMussel bagian depan. Pilih link dari menu navigasi di sisi kiri untuk melanjutkan."
- Logs: "Salam, {username}.<br />Pilih log dari daftar dibawah untuk melihat isi log."
+ 2FA Sent: "Email yang berisi kode otentikasi dua-faktor telah dikirim ke alamat email Anda. Silakan mengkonfirmasikan kode ini dibawah untuk mendapatkan akses ke bagian depan. Jika Anda tidak menerima email ini, coba keluar, tunggu 10 menit, dan masuk lagi untuk menerima email baru yang berisi kode baru."
+ Accounts: "Halaman akun memungkinkan Anda untuk mengontrol siapa dapat mengakses bagian depan phpMussel."
+ Cache Data: "Disini Anda bisa meninjau isi cache."
+ Configuration: "Halaman konfigurasi memungkinkan Anda untuk memodifikasi konfigurasi untuk phpMussel dari bagian depan."
+ Greeting: "Salam, %s."
+ Home: "Ini adalah halaman utama untuk phpMussel bagian depan. Pilih link dari menu navigasi di sisi kiri untuk melanjutkan."
+ Logs: "Pilih log dari daftar dibawah untuk melihat isi log."
  Quarantine is currently disabled: "Catat: Karantina saat ini dinonaktifkan, namun bisa diaktifkan melalui halaman konfigurasi."
- Quarantine: "Salam, {username}.<br />Halaman ini mencantumkan semua file yang saat ini ada di karantina dan memfasilitasi pengelolaan file-file tersebut."
+ Quarantine: "Halaman ini mencantumkan semua file yang saat ini ada di karantina dan memfasilitasi pengelolaan file-file tersebut."
  See the documentation: "Lihat <a href="https://github.com/phpMussel/Docs/blob/master/readme.id.md\#user-content-SECTION5" hreflang="id-ID" rel="noopener external">dokumentasi</a> untuk informasi tentang berbagai direktif konfigurasi dan tujuan mereka."
- Signature Information: "Salam, {username}.<br />Halaman informasi tanda tangan memberikan beberapa informasi dasar tentang sumber dan jenis tanda tangan yang saat ini aktif."
+ Signature Information: "Halaman informasi tanda tangan memberikan beberapa informasi dasar tentang sumber dan jenis tanda tangan yang saat ini aktif."
  Statistics tracking is currently disabled: "Catat: Pelacakan statistik saat ini dinonaktifkan, namun dapat diaktifkan melalui halaman konfigurasi."
- Statistics: "Salam, {username}.<br />Halaman ini menunjukkan beberapa statistik penggunaan dasar mengenai instalasi phpMussel Anda."
- Upload Testing: "Salam, {username}.<br />Halaman pengujian pengunggahan berisi form upload file standar, memungkinkan Anda untuk mengetes apakah file biasanya akan diblokir oleh phpMussel ketika mencoba untuk menguploadnya."
+ Statistics: "Halaman ini menunjukkan beberapa statistik penggunaan dasar mengenai instalasi phpMussel Anda."
+ Upload Testing: "Halaman pengujian pengunggahan berisi form upload file standar, memungkinkan Anda untuk mengetes apakah file biasanya akan diblokir oleh phpMussel ketika mencoba untuk menguploadnya."
 warning:
  Cookies: "Catat: phpMussel menggunakan cookie untuk mengotentikasi semua login. Saat kamu masuk, Anda memberikan izin agar cookie dibuat dan disimpan oleh browser Anda."
  JavaScript required: "Peringatan: Beberapa fungsionalitas memerlukan JavaScript. Untuk memastikan bahwa seluruh antarmuka berperilaku seperti yang diharapkan, disarankan untuk mengaktifkan JavaScript."

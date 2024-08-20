@@ -24,7 +24,6 @@ $orderQuery = $ordersQueries[$orderSelection];
 
 $maxRows = 7;
 $total = mysqli_fetch_all(db::mysqliExecuteQuery(
-    $conn,
     "SELECT COUNT(id_cliente) as total FROM clientes WHERE clientes.borrado = FALSE $searchQuery",
     "",
     array()
@@ -34,7 +33,6 @@ $maxPages = ceil($total / $maxRows);
 $page = max(min(isset($_GET["page"]) ? $_GET["page"] : 1, $maxPages),1);
 $start = $maxRows * ($page - 1);
 $data = mysqli_fetch_all(db::mysqliExecuteQuery(
-    $conn,
     "SELECT id_cliente, 
         CONCAT(nombre,' ', apellido) as nombre, 
         IFNULL(DATE_FORMAT(MAX(fecha),'%d/%m/%Y'),'Sin visitas') as ult_visita, 

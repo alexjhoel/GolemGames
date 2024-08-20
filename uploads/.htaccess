@@ -1,0 +1,10 @@
+#<FilesMatch "\.(php|phar|phtml|php3|php4|php5|php7|php8|pht)$">
+#    Order Allow,Deny
+#    Deny from all
+#</FilesMatch>
+
+# Opcional: evitar la ejecución de otros tipos de scripts como CGI y Perl
+#<FilesMatch "\.(pl|cgi|py|asp|aspx|jsp|sh|bash|rb)$">
+#    Order Allow,Deny
+#    Deny from all
+#</FilesMatch>

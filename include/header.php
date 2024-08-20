@@ -1,11 +1,22 @@
 <?php
-include_once("vendor/autoload.php");
-include_once("connect_session.php");
-include_once("components.php");
-include_once("definitions.php");
+include_once ("vendor/autoload.php");
+include_once ("connect_session.php");
+include_once ("components.php");
+include_once ("include/definitions.php");
 
 
-if (!isset($navSelection)) $navSelection = 0;
+if (!isset($navSelection))
+  $navSelection = 0;
+
+if(!isset($access_level_required))
+  $access_level_required = 0;
+
+//Chequeo de rango de usuario
+if($access_level_required >= LOGGED_REQUIRED && !(logged && access_level >= $access_level_required)) {
+  session::info_message("Acceso restringido", "danger");
+  header("Location: home.php");
+  exit();
+}
 
 ?>
 <html lang="en" data-bs-theme="light">
@@ -24,11 +35,14 @@ if (!isset($navSelection)) $navSelection = 0;
   <link href="assets/fontawesome/css/solid.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles/main.css?t=<?= time() ?>">
   <link rel="stylesheet" href="assets/splide/splide.min.css">
+  <link rel="stylesheet" href="assets/cropper/cropper.min.css">
 </head>
 
-<body class="d-flex flex-column h-100">
-
-  <nav class="navbar navbar-expand-lg shadow-sm sticky-top p-0 bg-body">
+<body class="d-flex flex-column vh-100">
+<?php if(logged && access_level >=ADMIN_REQUIRED) {?>
+  <div class="position-fixed bottom-0 end-0 p-3"><a class="rounded-5 btn btn-info py-3 px-3" href="edit_home.php"><i class="fa-solid fa-pen"></i></a></div> 
+<?php }?>
+  <nav class="navbar navbar-expand-lg shadow-sm sticky-top p-0 bg-body flex-shrink-1">
     <div class="container-fluid">
       <a class="navbar-brand" href="./">
         <img src="assets/images/logo1.png?t=1" width="80px">
@@ -49,36 +63,45 @@ if (!isset($navSelection)) $navSelection = 0;
                 class="fa-solid fa-gamepad"></i> Juegos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php if ($navSelection == 2) { ?>active <?php } ?>" href="chats.php"><i
+            <a class="nav-link <?php if ($navSelection == 2) { ?>active <?php } ?>" <?php if(logged) {?>href="chats.php" <?php } else {?> data-bs-toggle="modal"
+              data-bs-target="#loginModal" <?php }?>><i
                 class="fa-solid fa-comment"></i> Salas de chat</a>
           </li>
         </ul>
         <ul class="navbar-nav">
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              <i class="fa-solid fa-user"></i> <?php if(logged) echo username; else echo 'Mi cuenta';?>
+              <i class="fa-solid fa-user"></i> <?php if (logged)
+                echo username;
+              else
+                echo 'Mi cuenta'; ?>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end px-2 py-1">
               <?php
-                if (logged){
-              ?>
-              <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-upload"></i>&nbsp;&nbsp;Subir un juego</a></li>
+              if (logged) {
+                ?>
+                <li><a class="dropdown-item rounded my-1" href="game_upload.php"><i class="fa-solid fa-upload"></i>&nbsp;&nbsp;Subir un juego</a></li>
 
-              <li><a class="dropdown-item rounded my-1" href="profile_info.php?id=<?=userId?>"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
-              
-              <li><a class="dropdown-item rounded my-1" href="#"><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configuración</a></li>
+                <li><a class="dropdown-item rounded my-1" href="profile_info.php?id=<?= userId ?>"><i
+                      class="fa-solid fa-user"></i>&nbsp;&nbsp;Mi perfil</a></li>
 
-              <li><a class="dropdown-item rounded my-1 btn btn-danger" href="./php_tasks/login.php?logoff=1"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
+                <li><a class="dropdown-item rounded my-1" href="profile_edit.php"><i
+                      class="fa-solid fa-gear"></i>&nbsp;&nbsp;Configuración</a></li>
 
-              <?php
-                } else{
-              ?>
-              <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal" data-bs-target="#loginModal" id="myaccountLoginButton">&nbsp;&nbsp;Iniciar sesión</a></li>
+                <li><a class="dropdown-item rounded my-1 btn btn-danger" href="./php_tasks/logoff.php"><i
+                      class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Cerrar sesión</a></li>
 
-              <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal" data-bs-target="#loginModal" id="myaccountRegisterButton">&nbsp;&nbsp;Registrarse</a></li>
+                <?php
+              } else {
+                ?>
+                <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal"
+                    data-bs-target="#loginModal" id="myaccountLoginButton">&nbsp;&nbsp;Iniciar sesión</a></li>
+
+                <li><a type="button" class="dropdown-item rounded my-1" data-bs-toggle="modal"
+                    data-bs-target="#loginModal" id="myaccountRegisterButton">&nbsp;&nbsp;Registrarse</a></li>
               <?php } ?>
 
             </ul>
@@ -100,8 +123,8 @@ if (!isset($navSelection)) $navSelection = 0;
         </ul>
       </div>
     </div>
-    
-  
+
+
   </nav>
 
   <div class="modal fade" tabindex="-1" id="loginModal">
@@ -122,84 +145,107 @@ if (!isset($navSelection)) $navSelection = 0;
           </ul>
           <div class="tab-content" id="pills-tabContent">
 
-
             <!---Iniciar sesión formulario--->
 
-
-              <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="pills-home-tab"
-                tabindex="0">
+            <form 
+              id="pills-login"
+              role="tabpanel"  
+              class="tab-pane fade show active form-validator" 
+              method="post" 
+              action="./php_tasks/login.php" 
+              validate-method="post" 
+              validate-action="./php_tasks/login.php?validate=1" 
+              novalidate
+            >
                 <div class="d-flex flex-column align-items-center gap-3">
 
                   <i class="fa-solid fa-user" style="font-size: 7em;"></i>
 
                   <div class="form-floating w-100">
-                    <input type="email" class="form-control rounded-pill" id="userLoginInput" placeholder="name@example.com">
+                    <input type="text" class="form-control rounded-pill" name="usuario"
+                      placeholder="name@example.com">
                     <label for="userLoginInput">Nombre de usuario o correo electrónico</label>
-                      <div class="invalid-feedback">
-                        &nbsp;No existe ese nombre de usuario o correo electrónico.
-                      </div>
-                  </div>
-
-                  <div class="form-floating w-100">
-                    <input type="password" class="form-control rounded-pill" id="passwordLoginInput" placeholder="Password">
-                    <label for="passwordLoginInput">Contraseña</label>
                     <div class="invalid-feedback">
-                        &nbsp;Contraseña incorrecta
+                      &nbsp;No existe ese nombre de usuario o correo electrónico.
                     </div>
                   </div>
 
-                  <input type="submit" class="btn btn-primary rounded-pill" value="Iniciar sesión" id="myaccountLoginFormButton">
-
+                  <div class="form-floating w-100">
+                    <input type="password" class="form-control rounded-pill" name="clave"
+                      placeholder="Password">
+                    <label for="passwordLoginInput">Contraseña</label>
+                    <div class="invalid-feedback">
+                      &nbsp;Contraseña incorrecta
+                    </div>
                   </div>
-              </div>
+                  <button class="btn btn-primary rounded-pill">Iniciar sesion</button>
+
+                </div>
+            </form>
 
             <!---Registrarse formulario--->
-
-              <div class="tab-pane fade align-items-center gap-2" id="pills-register" role="tabpanel" aria-labelledby="pills-home-tab"
-                tabindex="0">
+            <form  
+              id="pills-register"
+              role="tabpanel"  
+              class="tab-pane fade show form-validator" 
+              method="POST" 
+              action="./php_tasks/register.php" 
+              validate-method="POST" 
+              validate-action="./php_tasks/register.php?validate=1" 
+              novalidate
+            >
                 <div class="d-flex flex-column align-items-center gap-3">
 
                   <div class="form-floating w-100">
-                    <input type="email" class="form-control rounded-pill" id="userRegisterInput" placeholder="name@example.com">
+                    <input type="text" class="form-control rounded-pill" name="usuario"
+                      placeholder="name@example.com">
                     <label for="userRegisterInput">Usuario</label>
                     <div class="invalid-feedback">
-                        &nbsp;Usuario incorrecto
+                      &nbsp;Usuario incorrecto
                     </div>
                   </div>
 
                   <div class="form-floating w-100">
-                    <input type="email" class="form-control rounded-pill" id="emailRegisterInput" placeholder="Password">
+                    <input type="email" class="form-control rounded-pill" name="correo"
+                      placeholder="email">
                     <label for="emailRegisterInput">Correo electrónico</label>
                     <div class="invalid-feedback">
-                        &nbsp;No existe ese nombre de usuario o correo electrónico.
+                      &nbsp;No existe ese nombre de usuario o correo electrónico.
                     </div>
                   </div>
 
                   <div class="form-floating w-100">
-                    <input type="password" class="form-control rounded-pill" id="passwordRegisterInput" placeholder="Password">
+                    <input type="password" class="form-control rounded-pill" name="clave"
+                      placeholder="Password">
                     <label for="passwordRegisterInput">Contraseña</label>
                     <div class="invalid-feedback">
-                        &nbsp;Contraseña incorrecta
+                      &nbsp;Contraseña incorrecta
                     </div>
                   </div>
 
                   <div class="form-check">
-                    <input name="termsChecked" class="form-check-input" type="checkbox" id="termsRegisterCheck" required>
-                    <label class="form-check-label" for="terms">
-                      He leído y acepto los <a class="link" target="_blank" href="https://support.wix.com/es/article/crear-una-política-de-términos-y-condiciones">términos y condiciones de servicio.</a>
+                    <input name="terminos" class="form-check-input" type="checkbox">
+                    <label class="form-check-label" for="terminos">
+                      He leído y acepto los <a class="link" target="_blank"
+                        href="../terms.php">términos
+                        y
+                        condiciones de servicio.</a>
                     </label>
                   </div>
-
-                  <input type="submit" class="btn btn-primary rounded-pill" value="Crear cuenta" id="myaccountRegisterFormButton">
+                  <button class="btn btn-primary rounded-pill">Registrarse</button>
                 </div>
-              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
+
+  <?php if(session::is_set("message")){?>
+  <div class="container p-2">
+    <div class="alert alert-<?=session::get("message_type")?> alert-dismissible fade show" role="alert">
+      <?=session::get("message")?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <!---Enivar formulario--->
-    <form id="login-form" method="post" action="./php_tasks/login.php"></form>
-
-
-  
+  </div>
+  <?php session::unset("message"); session::unset("message_type"); } ?>

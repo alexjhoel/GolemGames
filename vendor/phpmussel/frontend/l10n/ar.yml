@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Arabic language data (last modified: 2023.09.23).
+# This file: Arabic language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO كلمه السر."
  supplementary_cache_options_pdo_username: "PDO اسم المستخدم."
  supplementary_cache_options_prefix: "سيتم إضافة القيمة المحددة هنا إلى جميع مفاتيح إدخال ذاكرة التخزين المؤقت. افتراضي = "phpMussel_". عند وجود عدة عمليات تثبيت على نفس الخادم، يمكن أن يكون ذلك مفيدًا للحفاظ على ذاكرة التخزين المؤقت منفصلة عن بعضها البعض."
+ supplementary_cache_options_redis_database_number: "رقم قاعدة بيانات Redis. افتراضي = 0. ملاحظة: لا يمكن استخدام قيم غير 0 مع Redis Cluster."
  supplementary_cache_options_redis_host: "قيمة المضيف Redis. افتراضي = "localhost"."
  supplementary_cache_options_redis_port: "قيمة منفذ Redis. افتراضي = "6379"."
  supplementary_cache_options_redis_timeout: "Redis قيمة المهلة. افتراضي = "2.5"."
@@ -168,8 +169,27 @@ field:
  vt_suspicion_level_all: "تحقق من جميع الملفات."
  vt_suspicion_level_executable: "تحقق من الملفات ذات الوزن الإرشادي والملفات القابلة للتنفيذ والملفات التي يحتمل أن تحتوي على بيانات قابلة للتنفيذ.\nتتضمن هذه الملفات Windows PE و Linux ELF و Mach-O و DOCX و ZIP وما إلى ذلك."
  vt_suspicion_level_heuristic_only: "تحقق فقط من الملفات ذات الوزن الإرشادي.\nسيتم فحص الملفات فقط إذا كانت تحمل الوزن الإرشادي. يمكن أن يحدث "الوزن الإرشادي" من التوقيعات التي تلتقط بصمات الأصابع التي تشير إلى الإصابة ولكنها لا تضمن العدوى. بالنسبة للنتائج التي تبرر الشك ولكنها لا توفر أي يقين، يمكن أن يعمل البحث على توفير رأي ثانٍ."
+hints_logging_datetime: "نصيحة مفيدة: يمكنك إرفاق معلومات التاريخ/الوقت بأسماء ملفات السجل باستخدام العناصر النائبة لتنسيق الوقت. يتم عرض العناصر النائبة لتنسيق الوقت المتوفرة عند {{Links.ConfigRef.time_format}}."
 hints_pdo_dsn:
  FAQ.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.ar.md\#user-content-HOW_TO_USE_PDO" hreflang="ar">ما هو "PDO DSN"؟ كيف يمكنني استخدام PDO مع phpMussel؟</a></em>"
+hints_time_format: |
+ <strong><em>العنصر النائب – تفسير – مثال يعتمد على <span dir="ltr">2024-04-30T18:27:49+08:00</span>.</em></strong><br />
+ <code dir="ltr" class="s">{yyyy}</code> – السنة – على سبيل المثال، 2024.<br />
+ <code dir="ltr" class="s">{yy}</code> – السنة المختصرة – على سبيل المثال، 24.<br />
+ <code dir="ltr" class="s">{Mon}</code> – اسم الشهر المختصر (باللغة الإنجليزية) – على سبيل المثال، Apr.<br />
+ <code dir="ltr" class="s">{mm}</code> – الشهر الذي مع الأصفار البادئة – على سبيل المثال، 04.<br />
+ <code dir="ltr" class="s">{m}</code> – الشهر – على سبيل المثال، 4.<br />
+ <code dir="ltr" class="s">{Day}</code> – اسم اليوم المختصر (باللغة الإنجليزية) – على سبيل المثال، Tue.<br />
+ <code dir="ltr" class="s">{dd}</code> – اليوم مع الأصفار البادئة – على سبيل المثال، 30.<br />
+ <code dir="ltr" class="s">{d}</code> – اليوم – على سبيل المثال، 30.<br />
+ <code dir="ltr" class="s">{hh}</code> – الساعة مع الأصفار البادئة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
+ <code dir="ltr" class="s">{h}</code> – الساعة (تستخدم نظام 24 ساعة) – على سبيل المثال، 18.<br />
+ <code dir="ltr" class="s">{ii}</code> – الدقيقة مع الأصفار البادئة – على سبيل المثال، 27.<br />
+ <code dir="ltr" class="s">{i}</code> – الدقيقة – على سبيل المثال، 27.<br />
+ <code dir="ltr" class="s">{ss}</code> – الثواني مع الأصفار البادئة – على سبيل المثال، 49.<br />
+ <code dir="ltr" class="s">{s}</code> – الثواني – على سبيل المثال، 49.<br />
+ <code dir="ltr" class="s">{tz}</code> – المنطقة الزمنية (بدون النقطتين) – على سبيل المثال، <span dir="ltr">+0800</span>.<br />
+ <code dir="ltr" class="s">{t:z}</code> – المنطقة الزمنية (مع النقطتين) – على سبيل المثال، <span dir="ltr">+08:00</span>.
 hints_xlists:
  كيف يعمل هذا.: "إذا كان النظام يسمح فقط أنواع معينة من الملفات المراد تحميلها، أو إذا كان النظام ينفي صراحة أنواع معينة من الملفات، تحديد تلك نوع الملف في قوائم بيضاء، القوائم السوداء و القوائم الرمادية يمكن أن تزيد من السرعة التي يتم تنفيذ المسح من خلال السماح للبرنامج بتخطي بعض أنواع الملفات. الشكل هو CSV (قيم مفصولة بفواصل)."
  الترتيب المنطقي للمعالجة.: "إذا نوع الملف موجود في القائمة البيضاء، لا يفحص ولا تحجب الملف، وعدم التدقيق في ملف ضد القائمة السوداء أو القائمة الرمادية. إذا نوع الملف موجود في القائمة السوداء، لا تفحص الملف ولكن منع ذلك على أي حال، وعدم التدقيق في ملف ضد قائمة رمادية. إذا كانت قائمة رمادية فارغة أو إذا كانت قائمة رمادية ليس فارغا من نوع الملف، مسح الملفات حسب طبيعتها وتحديد ما إذا كان لمنع ذلك بناء على نتائج الفحص، ولكن إذا كانت قائمة رمادية ليس فارغا ونوع الملف هو ليس ملف قائمة رمادية، معالجة الملف على القائمة السوداء، لذلك لا المسح الضوئي ولكن منع ذلك على أي حال."
@@ -279,7 +299,6 @@ link:
  Statistics: "الإحصاء"
  Text formatting: "تنسيق النص: <a href="%1$sfalse">بسيط</a> – <a href="%1$strue">تهيئتها</a>"
  Upload Testing: "تحميل اختبار"
-max_login_attempts_exceeded: "تجاوز الحد الأقصى لعدد محاولات تسجيل الدخول؛ تم رفض الوصول."
 msg_subject_2fa: "2FA"
 msg_template_2fa: |
  <center><p>مرحبا، %s.<br /><br />
@@ -299,20 +318,23 @@ response:
  Account successfully deleted: "تم حذف الحساب بنجاح!"
  An account with that username already exists: "اسم المستخدم موجود بالفعل!"
  Configuration successfully updated: "تم تحديث التكوين بنجاح."
- Corrupted file: "أخفق الاستعادة! ملف معطوب!"
+ Corrupted file: "ملف معطوب!"
  Failed to create: "فشل في انشاء!"
  Failed to delete: "فشلت في حذف!"
+ Failed to restore: "أخفق الاستعادة"
  Failed to update configuration: "فشل تحديث التكوين!"
  Failed to update: "فشل التحديث!"
  Failed: "فشل"
  File successfully deleted: "ملف حذف بنجاح!"
  File successfully restored: "تمت استعادة الملف بنجاح!"
  Incorrect 2FA code entered: "تم إدخال رمز 2FA غير صحيح. المصادقة فشلت."
- Incorrect quarantine key: "أخفق الاستعادة! الحجر الصحي مفتاح غير صحيح!"
+ Incorrect quarantine key: "الحجر الصحي مفتاح غير صحيح!"
  Invalid password: "فشل تسجيل الدخول! كلمة السر غير صالحة!"
+ Maximum number of login attempts exceeded: "تجاوز الحد الأقصى لعدد محاولات تسجيل الدخول؛ تم رفض الوصول."
  Password field empty: "كلمه السر حقل فارغ!"
  Password successfully updated: "تم تحديث كلمه السر بنجاح!"
- Permissions not adequate to perform asynchronous requests:: "أذونات غير كافية لأداء طلبات غير متزامنة. حاول تسجيل الدخول مرة أخرى."
+ Permissions not adequate to perform asynchronous requests: "أذونات غير كافية لأداء طلبات غير متزامنة. حاول تسجيل الدخول مرة أخرى."
+ Please enter a valid quarantine key: "الرجاء إدخال مفتاح عزل صالح."
  Statistics cleared: "تم مسح الإحصاءات."
  Successfully authenticated: "تمت المصادقة بنجاح."
  That account doesn_t exist: "حساب غير موجود."
@@ -346,18 +368,19 @@ state_quarantine:
  - "هناك ملفات %s موجود حاليا في وحدة العزل."
 tip:
  2FA Sent: "تم إرسال بريد إلكتروني يحتوي على رمز 2FA إلى عنوان بريدك الإلكتروني. يرجى تأكيد هذا الرمز أدناه للوصول إلى الواجهة الأمامية. إذا لم تتلقَ رسالة البريد الإلكتروني هذه، فحاول تسجيل الخروج، والانتظار لمدة 10 دقائق، وتسجيل الدخول مرة أخرى لتلقي رسالة إلكترونية جديدة تحتوي على رمز جديد."
- Accounts: "مرحبا، {username}.<br />الصفحة حسابات يسمح لك للسيطرة على الذي يمكن الوصول ألfront-end phpMussel."
- Cache Data: "مرحبا، {username}.<br />هنا يمكنك مراجعة محتويات ذاكرة التخزين المؤقت."
- Configuration: "مرحبا، {username}.<br />الصفحة التكوين يسمح لك لتعديل التكوين phpMussel عن طريق ألfront-end."
- Home: "مرحبا، {username}.<br />هذا هو الصفحة رئيسية ألfront-end phpMussel. اختر ارتباط من قائمة التنقل على اليسار للمتابعة."
- Logs: "مرحبا، {username}.<br />اختار سجلات من القائمة أدناه لعرضها."
+ Accounts: "الصفحة حسابات يسمح لك للسيطرة على الذي يمكن الوصول ألfront-end phpMussel."
+ Cache Data: "هنا يمكنك مراجعة محتويات ذاكرة التخزين المؤقت."
+ Configuration: "الصفحة التكوين يسمح لك لتعديل التكوين phpMussel عن طريق ألfront-end."
+ Greeting: "مرحبا، %s."
+ Home: "هذا هو الصفحة رئيسية ألfront-end phpMussel. اختر ارتباط من قائمة التنقل على اليسار للمتابعة."
+ Logs: "اختار سجلات من القائمة أدناه لعرضها."
  Quarantine is currently disabled: "ملحوظة: تم تعطيل وحدة العزل حاليا، ولكن يمكن تمكينها عبر صفحة التهيئة."
- Quarantine: "مرحبا، {username}.<br />تسرد هذه الصفحة جميع الملفات الموجودة حاليا في وحدة العزل وتسهل إدارة تلك الملفات."
+ Quarantine: "تسرد هذه الصفحة جميع الملفات الموجودة حاليا في وحدة العزل وتسهل إدارة تلك الملفات."
  See the documentation: "راجع <a href="https://github.com/phpMussel/Docs/blob/master/readme.ar.md\#user-content-SECTION5" hreflang="ar" rel="noopener external">وثائق</a> للحصول على معلومات حول مختلف توجيهات التكوين ونيتهم."
- Signature Information: "مرحبا، {username}.<br />توفر صفحة معلومات التوقيع بعض المعلومات الأساسية حول مصادر وأنواع التوقيعات النشطة حاليًا."
+ Signature Information: "توفر صفحة معلومات التوقيع بعض المعلومات الأساسية حول مصادر وأنواع التوقيعات النشطة حاليًا."
  Statistics tracking is currently disabled: "ملاحظة: يتم تعطيل تتبع الإحصاءات حاليا، ولكن يمكن تمكينه عبر صفحة التكوين."
- Statistics: "مرحبا، {username}.<br />تعرض هذه الصفحة بعض إحصاءات الاستخدام الأساسية المتعلقة بتثبيت phpMussel."
- Upload Testing: "مرحبا، {username}.<br />الصفحة تحميل اختبار يحتوي على شكل تحميل الملفات القياسية، مما يسمح لك لاختبار ما إذا كان عادة يكون قد تم حظره ملف بواسطة phpMussel عند محاولة تحميله."
+ Statistics: "تعرض هذه الصفحة بعض إحصاءات الاستخدام الأساسية المتعلقة بتثبيت phpMussel."
+ Upload Testing: "الصفحة تحميل اختبار يحتوي على شكل تحميل الملفات القياسية، مما يسمح لك لاختبار ما إذا كان عادة يكون قد تم حظره ملف بواسطة phpMussel عند محاولة تحميله."
 warning:
  Cookies: "الملاحظة: يستخدم phpMussel ملف تعريف ارتباط لمصادقة تسجيلات الدخول. من خلال تسجيل الدخول، فإنك تعطي موافقتك على إنشاء ملف تعريف ارتباط وتخزينه بواسطة المتصفح."
  JavaScript required: "تحذير: تتطلب بعض وظائف الواجهة الأمامية JavaScript. لضمان عمل الواجهة الأمامية بالكامل كما هو متوقع، يوصى بتمكين JavaScript."

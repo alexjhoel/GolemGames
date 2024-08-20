@@ -7,7 +7,7 @@
 # License: GNU/GPLv2
 # @see LICENSE.txt
 #
-# This file: Afrikaans language data (last modified: 2023.09.24).
+# This file: Afrikaans language data (last modified: 2024.06.18).
 #
 # Regarding translations: My native language is English. Because this is a free
 # and open-source hobby project which generates zero income, and translatable
@@ -116,6 +116,7 @@ config:
  supplementary_cache_options_pdo_password: "PDO wagwoord."
  supplementary_cache_options_pdo_username: "PDO gebruikersnaam."
  supplementary_cache_options_prefix: "Die waarde wat hier gespesifiseer word, sal by alle kasinvoersleutels aangebring word. Verstek = "phpMussel_". Wanneer daar verskeie installasies by dieselfde bediener bestaan, kan dit nuttig wees om hul kas apart van mekaar te hou."
+ supplementary_cache_options_redis_database_number: "Redis databasisnommer. Verstek = 0. Kennis neem: Kan nie ander waardes as 0 met Redis Cluster gebruik nie."
  supplementary_cache_options_redis_host: "Redis gasheerwaarde. Verstek = "localhost"."
  supplementary_cache_options_redis_port: "Redis poortwaarde. Verstek = "6379"."
  supplementary_cache_options_redis_timeout: "Redis time-out waarde. Verstek = "2.5"."
@@ -125,7 +126,7 @@ config:
  urlscanner_maximum_api_lookups: "Maksimum aantal API-soektogte wat toegelaat word om per individuele skanderingiterasie uitgevoer te word. Omdat elke bykomende API-soektog sal byvoeg by die totale tyd wat nodig is om elke skanderingiterasie te voltooi, wil jy dalk 'n beperking stipuleer om die algehele skanderingsproses te bespoedig. Wanneer dit op 0 gestel is, sal geen sodanige maksimum toegelate getal toegepas word nie. Stel by verstek op 10."
  urlscanner_maximum_api_lookups_response: "Wat om te doen as die maksimum aantal toegelate API-opsoeke oorskry word? False = Doen niks (gaan voort met verwerking) [Verstek]; True = Vlag/blokkeer die lêer."
  virustotal: "Konfigurasie vir Virus Total integrasie."
- virustotal_vt_public_api_key: "As jy wil, kan phpMussel lêers skandeer deur die gebruik van die Virus Total API as 'n manier om 'n aansienlik verbeterde vlak van beskerming teen virusse, trojane, wanware, en ander bedreigings te bied. By verstek is skandering van lêers met die Virus Total API gedeaktiveer. Om dit te aktiveer, word 'n API-sleutel van Virus Total vereis. As gevolg van die aansienlike voordeel wat dit vir jou kan bied, is dit iets wat ek sterk aanbeveel om te aktiveer. Wees asseblief bewus daarvan dat om die Virus Total API te gebruik, jy <em><strong>MOET</strong></em> instem tot hul diensbepalings en jy <em><strong>MOET</strong></em> voldoen aan alle riglyne soos beskryf deur die Virus Total dokumentasie! Jy word NIE toegelaat om hierdie integrasiekenmerk te gebruik nie TENSY: Jy het die diensbepalings van Virus Total en sy API gelees en daartoe instem. Jy het ten minste die aanhef van die Virus Total Public API-dokumentasie gelees en verstaan (alles na "VirusTotal Public API v2.0" maar voor "Contents")."
+ virustotal_vt_public_api_key: "As jy wil, kan phpMussel lêers skandeer deur die gebruik van die Virus Total API as 'n manier om 'n aansienlik verbeterde vlak van beskerming teen virusse, trojane, wanware, en ander bedreigings te bied. By verstek is skandering van lêers met die Virus Total API gedeaktiveer. Om dit te aktiveer, word 'n API-sleutel van Virus Total vereis. As gevolg van die aansienlike voordeel wat dit vir jou kan bied, is dit iets wat ek sterk aanbeveel om te aktiveer. Wees asseblief bewus daarvan dat om die Virus Total API te gebruik, jy <strong><em>MOET</em></strong> instem tot hul diensbepalings en jy <strong><em>MOET</em></strong> voldoen aan alle riglyne soos beskryf deur die Virus Total dokumentasie! Jy word NIE toegelaat om hierdie integrasiekenmerk te gebruik nie TENSY: Jy het die diensbepalings van Virus Total en sy API gelees en daartoe instem. Jy het ten minste die aanhef van die Virus Total Public API-dokumentasie gelees en verstaan (alles na "VirusTotal Public API v2.0" maar voor "Contents")."
  virustotal_vt_quota_rate: "Volgens die Virus Total API-dokumentasie is dit beperk tot hoogstens 4 versoeke van enige aard in enige gegewe 1 minuut tydraamwerk. As jy 'n heuningkliënt, heuningpot of enige ander outomatisering bestuur wat hulpbronne aan VirusTotal gaan verskaf en nie net verslae gaan haal nie, is jy geregtig op 'n hoër versoektariefkwota. By verstek sal phpMussel streng by hierdie beperkings hou, maar as gevolg van die moontlikheid dat hierdie tariefkwotas verhoog word, word hierdie twee opsies verskaf as 'n manier vir jou om phpMussel opdrag te gee oor watter limiet dit moet nakom. Tensy jy opdrag gekry het om dit te doen, word dit nie aanbeveel dat jy hierdie waardes verhoog nie, maar as jy probleme ondervind het met betrekking tot die bereiking van jou tariefkwota, kan die vermindering van hierdie waardes jou soms help om hierdie probleme te hanteer. Jou tarieflimiet word bepaal as <code>vt_quota_rate</code>-versoeke van enige aard in enige gegewe <code>vt_quota_time</code>-minuut tydraamwerk."
  virustotal_vt_quota_time: "(Sien beskrywing hierbo)."
  virustotal_vt_suspicion_level: "By verstek sal phpMussel die lêers wat dit skandeer met die Virus Total API beperk tot daardie lêers wat dit as "verdag" beskou. Jy kan hierdie beperking opsioneel aanpas deur die waarde van die <code>vt_suspicion_level</code>-opsie te verander."
@@ -170,8 +171,27 @@ field:
  vt_suspicion_level_all: "Skandeer alle lêers."
  vt_suspicion_level_executable: "Skandeer lêers met heuristiese gewig, uitvoerbare lêers, en lêers wat moontlik uitvoerbare data bevat.\nVoorbeelde van uitvoerbare lêers en lêers wat moontlik uitvoerbare data bevat, sluit Windows PE-lêers, Linux ELF-lêers, Mach-O-lêers, DOCX-lêers, ZIP-lêers, ens."
  vt_suspicion_level_heuristic_only: "Skandeer slegs lêers met heuristiese gewig.\nLêers sal slegs geskandeer word as hulle 'n mate van heuristiese gewig dra. Heuristiese gewig kan verkry word uit handtekeninge wat bedoel is om algemene vingerafdrukke te vang wat verband hou met potensiële infeksie wat nie noodwendig infeksie waarborg nie. Die opsoek kan in sulke gevalle dien om 'n tweede mening te gee vir resultate wat vermoede regverdig, maar andersins geen sekerheid verskaf nie."
+hints_logging_datetime: "Nuttige wenk: Jy kan datum/tyd inligting aan die name van loglêers heg deur tydformaat plekhouers te gebruik. Beskikbare tydformaat plekhouers word by {{Links.ConfigRef.time_format}} vertoon."
 hints_pdo_dsn:
  Gereelde vrae.: "<em><a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-HOW_TO_USE_PDO" hreflang="en-AU">Wat is 'n "PDO DSN"? Hoe kan ek PDO met phpMussel gebruik?</a></em>"
+hints_time_format: |
+ <strong><em>Plekhouer – Verduideliking – Voorbeeld gebaseer op 2024-04-30T18:27:49+08:00.</em></strong><br />
+ <code class="s">{yyyy}</code> – Die jaartal – Bv., 2024.<br />
+ <code class="s">{yy}</code> – Die verkorte jaartal – Bv., 24.<br />
+ <code class="s">{Mon}</code> – Die verkorte naam van die maand (in Engels) – Bv., Apr.<br />
+ <code class="s">{mm}</code> – Die maand met voorste nulle – Bv., 04.<br />
+ <code class="s">{m}</code> – Die maand – Bv., 4.<br />
+ <code class="s">{Day}</code> – Die verkorte naam van die dag (in Engels) – Bv., Tue.<br />
+ <code class="s">{dd}</code> – Die dag met voorste nulle – Bv., 30.<br />
+ <code class="s">{d}</code> – Die dag – Bv., 30.<br />
+ <code class="s">{hh}</code> – Die uur met voorste nulle (gebruik 24-uur tyd) – Bv., 18.<br />
+ <code class="s">{h}</code> – Die uur (gebruik 24-uur tyd) – Bv., 18.<br />
+ <code class="s">{ii}</code> – Die minuut met voorste nulle – Bv., 27.<br />
+ <code class="s">{i}</code> – Die minuut – Bv., 27.<br />
+ <code class="s">{ss}</code> – Die sekonde met voorste nulle – Bv., 49.<br />
+ <code class="s">{s}</code> – Die sekonde – Bv., 49.<br />
+ <code class="s">{tz}</code> – Die tydsone (sonder dubbelpunt) – Bv., +0800.<br />
+ <code class="s">{t:z}</code> – Die tydsone (met dubbelpunt) – Bv., +08:00.
 hints_xlists:
  Hoe dit werk.: "As jou stelsel toelaat dat slegs spesifieke tipes lêers opgelaai word, of as jou stelsel sekere tipes lêers uitdruklik weier, deur daardie lêertipes in witlyste, swartlyste, en gryslyste te spesifiseer, kan die spoed waarteen skandering uitgevoer word verhoog deur die skrip toe te laat om die skandering van daardie lêertipes te vermy. Formaat is CSV (kommageskeide waardes)."
  Logiese volgorde van verwerking.: "As die lêertipe op die gewitlys is, moenie die lêer skandeer en blokkeer nie, en moenie die lêer teen die swartlys of die gryslys kontroleer nie. As die lêertipe op die swartlys is, moenie die lêer skandeer nie, maar blokkeer dit in elk geval, en moenie die lêer teen die gryslys kontroleer nie. As die gryslys leeg is of as die gryslys nie leeg is nie en die lêertipe op die gryslys is, skandeer die lêer soos normaalweg en bepaal of dit geblokkeer moet word op grond van die resultate van die skandering, maar as die gryslys nie leeg is nie en die lêertipe nie op die gryslys is nie, hanteer die lêer asof op die swartlys, dus nie skandeer dit nie maar blokkeer dit in elk geval."
@@ -281,7 +301,6 @@ link:
  Statistics: "Statistiek"
  Text formatting: "Teksformatering: <a href="%1$sfalse">Eenvoudige</a> – <a href="%1$strue">Fancy</a>"
  Upload Testing: "Oplaaitoetsing"
-max_login_attempts_exceeded: "Maksimum aantal intekenpogings oorskry; Toegang geweier."
 msg_subject_2fa: "Tweefaktor-verifikasie"
 msg_template_2fa: |
  <center><p>Hallo, %s.<br /><br />
@@ -301,20 +320,23 @@ response:
  Account successfully deleted: "Rekening suksesvol verwyderde!"
  An account with that username already exists: "Rekening met daardie gebruikersnaam bestaan reeds!"
  Configuration successfully updated: "Konfigurasie suksesvol opgedateer."
- Corrupted file: "Kon nie herstel nie! Korrupte lêer!"
+ Corrupted file: "Korrupte lêer!"
  Failed to create: "Kon nie skep nie!"
  Failed to delete: "Kon nie verwyder nie!"
+ Failed to restore: "Kon nie herstel nie"
  Failed to update configuration: "Kon nie konfigurasie opdateer nie!"
  Failed to update: "Kon nie opdateer nie!"
  Failed: "Misluk"
  File successfully deleted: "Lêer suksesvol verwyderde!"
  File successfully restored: "Lêer suksesvol herstel!"
  Incorrect 2FA code entered: "Verkeerde 2FA-kode ingevoer. Verifikasie misluk."
- Incorrect quarantine key: "Kon nie herstel nie! Verkeerde kwarantynsleutel!"
+ Incorrect quarantine key: "Verkeerde kwarantynsleutel!"
  Invalid password: "Intekening misluk! Ongeldige wagwoord!"
+ Maximum number of login attempts exceeded: "Maksimum aantal intekenpogings oorskry; Toegang geweier."
  Password field empty: "Wagwoord veld leeg!"
  Password successfully updated: "Wagwoord suksesvol opgedateer!"
- Permissions not adequate to perform asynchronous requests:: "Toestemmings nie voldoende om asinchrone versoeke uit te voer nie. Probeer om weer in te teken."
+ Permissions not adequate to perform asynchronous requests: "Toestemmings nie voldoende om asinchrone versoeke uit te voer nie. Probeer om weer in te teken."
+ Please enter a valid quarantine key: "Voer asseblief 'n geldige kwarantynsleutel in."
  Statistics cleared: "Statistiek uitgevee."
  Successfully authenticated: "Suksesvol geverifieer."
  That account doesn_t exist: "Daardie rekening bestaan nie."
@@ -348,18 +370,19 @@ state_quarantine:
  - "Daar is tans %s lêers in kwarantyn."
 tip:
  2FA Sent: "Ons het 'n e-pos gestuur wat 'n tweefaktor-verifikasiekode bevat na jou e-pos adres. Bevestig asseblief hierdie kode hieronder om toegang tot die front-end te kry. As jy nie hierdie e-pos ontvang nie, probeer om uit te teken, wag vir 10 minute, en weer inteken om 'n nuwe e-pos met 'n nuwe kode te ontvang."
- Accounts: "Hallo, {username}.<br />Jy kan vanaf die rekeninge-bladsy beheer wie toegang tot die phpMussel front-end het."
- Cache Data: "Hallo, {username}.<br />Hier kan jy die inhoud van die kas hersien."
- Configuration: "Hallo, {username}.<br />Die konfigurasiebladsy laat jou toe om die konfigurasie vir phpMussel vanaf die front-end te verander."
- Home: "Hallo, {username}.<br />Dit is die tuisblad vir phpMussel se front-end. Kies 'n skakel uit die navigasiekieslys aan die linkerkant om voort te gaan."
- Logs: "Hallo, {username}.<br />Kies 'n loglêer uit die lys hieronder om die inhoud van daardie loglêer te sien."
+ Accounts: "Jy kan vanaf die rekeninge-bladsy beheer wie toegang tot die phpMussel front-end het."
+ Cache Data: "Hier kan jy die inhoud van die kas hersien."
+ Configuration: "Die konfigurasiebladsy laat jou toe om die konfigurasie vir phpMussel vanaf die front-end te verander."
+ Greeting: "Hallo, %s."
+ Home: "Dit is die tuisblad vir phpMussel se front-end. Kies 'n skakel uit die navigasiekieslys aan die linkerkant om voort te gaan."
+ Logs: "Kies 'n loglêer uit die lys hieronder om die inhoud van daardie loglêer te sien."
  Quarantine is currently disabled: "Kennis neem: Kwarantyn is tans gedeaktiveer, maar kan via die konfigurasiebladsy geaktiveer word."
- Quarantine: "Hallo, {username}.<br />Hierdie bladsy lys alle lêers wat tans in kwarantyn is en fasiliteer die bestuur van daardie lêers."
+ Quarantine: "Hierdie bladsy lys alle lêers wat tans in kwarantyn is en fasiliteer die bestuur van daardie lêers."
  See the documentation: "Sien die <a href="https://github.com/phpMussel/Docs/blob/master/readme.en.md\#user-content-SECTION5" hreflang="en" rel="noopener external">dokumentasie</a> vir inligting oor die verskillende konfigurasie-opsies en hul doeleindes."
- Signature Information: "Hallo, {username}.<br />Die handtekeninginligtingbladsy verskaf basiese inligting oor die bronne en tipes van die tans aktiewe handtekeninge."
+ Signature Information: "Die handtekeninginligtingbladsy verskaf basiese inligting oor die bronne en tipes van die tans aktiewe handtekeninge."
  Statistics tracking is currently disabled: "Kennis neem: Statistieknasporing is tans gedeaktiveer, maar kan via die konfigurasiebladsy geaktiveer word."
- Statistics: "Hallo, {username}.<br />Hierdie bladsy wys basiese gebruikstatistieke rakende jou phpMussel-installasie."
- Upload Testing: "Hallo, {username}.<br />Die oplaaitoetsingbladsy bevat 'n standaard lêeroplaaivorm, wat jou toelaat om te toets of 'n lêer normaalweg deur phpMussel geblokkeer sal word wanneer jy dit probeer oplaai."
+ Statistics: "Hierdie bladsy wys basiese gebruikstatistieke rakende jou phpMussel-installasie."
+ Upload Testing: "Die oplaaitoetsingbladsy bevat 'n standaard lêeroplaaivorm, wat jou toelaat om te toets of 'n lêer normaalweg deur phpMussel geblokkeer sal word wanneer jy dit probeer oplaai."
 warning:
  Cookies: "Kennis neem: phpMussel gebruik 'n koekie vir die verifikasie van intekeninge. Deur in te teken, gee jy jou toestemming dat 'n koekie deur jou blaaier geskep en gestoor word."
  JavaScript required: "Waarskuwing: Sommige front-end funksionaliteit vereis JavaScript. Om te verseker dat die hele front-end optree soos verwag, word dit aanbeveel om JavaScript te aktiveer."
